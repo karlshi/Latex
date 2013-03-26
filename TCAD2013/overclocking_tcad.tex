@@ -452,7 +452,7 @@ The abstract goes here.
 
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
-IEEEtran, journal, \LaTeX, paper, template.
+
 \end{IEEEkeywords}
 
 
@@ -507,6 +507,55 @@ Subsection text here.
 
 \subsubsection{Subsubsection Heading Here}
 Subsubsection text here.
+
+\section{Carry Select Adder}
+\subsection{Introduction}
+
+\subsection{Timing Models for $n$-bit Carry Selct Adder}
+In this section, we describe the modeling method for the CSA timing, with the aim of forming the relationship between the operating frequency and the corresponding maximum word-length of CSA. This information can be employed to determine the truncation error based on the models presented in Section.xxx.
+
+In an $n$-stage CSA, let the stage delay be denoted as $d_{0}\dots d_{n-1}$, where $d_{0}$ and $d_{n-1}$ represent the delay of MSB stage and LSB stage, respectively. In our analysis, we follow the previous assumption that delay is caused due to carry propagation and, in this case, multiplexing. Thus the delay of the $i^{th}$ stage can be obtained through~(\ref{CSA_SingleStageDelay}), where $\mu_{carry}$ denotes the delay of $1$-bit carry propagation and $\mu_{mux}$ detnoes the delay of multiplexer.
+\begin{eqnarray}\label{CSA_SingleStageDelay}
+  d_i=n_i\cdot \mu_{c}+xxx\cdot\mu_{mux} 
+ % d_0=n_0\cdot \mu_{carry}+\mu_{mux}
+\end{eqnarray}
+
+Under the timing-driven design environment, the delay of each stage of CSA is set to be approximately uniform to lead to the fastest operation. In this case we obtain~(\ref{CSA_DelayEqual}).
+\begin{eqnarray}\label{CSA_DelayEqual}
+  d_0=d_1=\cdots=d_{n-1}
+\end{eqnarray}
+
+Substituting (\ref{CSA_SingleStageDelay}) into (\ref{CSA_DelayEqual}) yields (), which denotes the word-length of stage $i$.
+\begin{eqnarray}\label{CSA_DelayRep}
+  n_i=n_0-xxx\cdot\frac{\mu_{mux}}{\mu_{c}}
+\end{eqnarray}
+
+Therefore the word-length of CSA is given by (\ref{CSA_WL}).
+\begin{eqnarray}\label{CSA_WL}
+  n_{CSA}=\sum_{i=0}^{n-1}n_{i}=cn_{0}-\frac{\mu_{mux}}{\mu_{carry}}\cdot\frac{(c+1)(c-2)}{2}
+\end{eqnarray}
+
+In the conventional situation, the word-length of both RCA and CSA should be truncated in order to meet timing. Hence we obtain~(\ref{CSA_RCA}), where $n_{RCA}$ is determined through (xxx).
+\begin{eqnarray}\label{CSA_RCA}
+  \mu_{c}\cdot n_{RCA}=\mu_{c}n_0+\mu_{mux}
+\end{eqnarray}
+
+Based on~(\ref{CSA_WL}) and~(\ref{CSA_RCA}) we form the relationship between the word-length of CSA and RCA under a given timing constraint, as presented in~(\ref{CSA_Timing}).
+\begin{eqnarray}\label{CSA_Timing}
+  n_{CSA}=cn_{RCA}-\frac{\mu_{mux}}{\mu_{c}}\cdot\frac{(c+2)(c-1)}{2}
+\end{eqnarray}
+
+%In addition, the word-length of the least significant stage should be greater than 0. Therefore
+In addition, combining (\ref{CSA_DelayRep}) and (\ref{CSA_RCA}) to ensure that $n_{c-1}>0$. Therefore the stage number is bounded by (\ref{CSA_StageNumber}).
+\begin{eqnarray}\label{CSA_StageNumber}
+  c<n_{RCA}\cdot\frac{\mu_c}{\mu_{mux}}+1
+\end{eqnarray}
+%the word-length of each CSA stage is allocated to ensure that 
+
+\subsection{Model Verification}
+
+\subsection{Comparison between CSA and RCA}
+
 
 
 % An example of a floating figure using the graphicx package.
