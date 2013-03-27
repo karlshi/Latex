@@ -167,11 +167,12 @@
 
 
 
-
+\usepackage{multirow}
+\usepackage{amssymb}
 
 % *** MATH PACKAGES ***
 %
-%\usepackage[cmex10]{amsmath}
+\usepackage[cmex10]{amsmath}
 % A popular package from the American Mathematical Society that provides
 % many useful and powerful commands for dealing with mathematics. If using
 % it, be sure to load this package with the cmex10 option to ensure that
@@ -516,7 +517,7 @@ In this section, we describe the modeling method for the CSA timing, with the ai
 
 In an $n$-stage CSA, let the stage delay be denoted as $d_{0}\dots d_{n-1}$, where $d_{0}$ and $d_{n-1}$ represent the delay of MSB stage and LSB stage, respectively. In our analysis, we follow the previous assumption that delay is caused due to carry propagation and, in this case, multiplexing. Thus the delay of the $i^{th}$ stage can be obtained through~(\ref{CSA_SingleStageDelay}), where $\mu_{carry}$ denotes the delay of $1$-bit carry propagation and $\mu_{mux}$ detnoes the delay of multiplexer.
 \begin{eqnarray}\label{CSA_SingleStageDelay}
-  d_i=n_i\cdot \mu_{c}+xxx\cdot\mu_{mux} 
+  d_i=n_i\cdot \mu_{c}+(i+1)\cdot\mu_{mux} 
  % d_0=n_0\cdot \mu_{carry}+\mu_{mux}
 \end{eqnarray}
 
@@ -525,9 +526,15 @@ Under the timing-driven design environment, the delay of each stage of CSA is se
   d_0=d_1=\cdots=d_{n-1}
 \end{eqnarray}
 
-Substituting (\ref{CSA_SingleStageDelay}) into (\ref{CSA_DelayEqual}) yields (), which denotes the word-length of stage $i$.
+Substituting (\ref{CSA_SingleStageDelay}) into (\ref{CSA_DelayEqual}) yields (\ref{CSA_DelayRep}), which denotes the CSA word-length of stage $i$. Note that the word-length of stage $c-1$ and $c-2$ are identical, since the least significant stage is composed of RCA.
 \begin{eqnarray}\label{CSA_DelayRep}
-  n_i=n_0-xxx\cdot\frac{\mu_{mux}}{\mu_{c}}
+ % n_i=n_0-xxx\cdot\frac{\mu_{mux}}{\mu_{c}}
+ n_i=\left\{
+	\begin{matrix}
+	  n_0-i\cdot\frac{\mu_{mux}}{\mu_c}, & \textrm{if $i\in(2,c-2]$ and $c>2$}\\
+	  n_0-(c-2)\cdot\frac{\mu_{mux}}{\mu_c}, & \textrm{if $i=c-1$ and $c\geqslant2$}
+	\end{matrix}
+    \right.
 \end{eqnarray}
 
 Therefore the word-length of CSA is given by (\ref{CSA_WL}).
@@ -542,20 +549,34 @@ In the conventional situation, the word-length of both RCA and CSA should be tru
 
 Based on~(\ref{CSA_WL}) and~(\ref{CSA_RCA}) we form the relationship between the word-length of CSA and RCA under a given timing constraint, as presented in~(\ref{CSA_Timing}).
 \begin{eqnarray}\label{CSA_Timing}
-  n_{CSA}=cn_{RCA}-\frac{\mu_{mux}}{\mu_{c}}\cdot\frac{(c+2)(c-1)}{2}
+  n_{CSA}=c\cdot n_{RCA}-\frac{\mu_{mux}}{\mu_{c}}\cdot\frac{(c+2)(c-1)}{2}
 \end{eqnarray}
 
 %In addition, the word-length of the least significant stage should be greater than 0. Therefore
-In addition, combining (\ref{CSA_DelayRep}) and (\ref{CSA_RCA}) to ensure that $n_{c-1}>0$. Therefore the stage number is bounded by (\ref{CSA_StageNumber}).
+It can be seen that $c=1$ leads to $n_{CSA}=n_{RCA}$. This is because the least significant stage of CSA is built by RCA. In addition, combining (\ref{CSA_DelayRep}) and (\ref{CSA_RCA}) to ensure that $n_{c-1}>0$. Therefore the stage number is bounded by (\ref{CSA_StageNumber}).
 \begin{eqnarray}\label{CSA_StageNumber}
   c<n_{RCA}\cdot\frac{\mu_c}{\mu_{mux}}+1
 \end{eqnarray}
 %the word-length of each CSA stage is allocated to ensure that 
 
 \subsection{Model Verification}
+As seen in (\ref{CSA_Timing}), the value of $\mu_{mux}/\mu_c$ should be determined before applying the timing model. This is achieved by keeping $i=0$ in (\ref{CSA_SingleStageDelay}) while varying the value of $n_0$. The corresponding $d_0$ is recorded through the timing analysis tool. Hence $\mu_{mux}/\mu_c$ can be obtained by fitting those values, as presented in Figure.xxx. Out experimental results show that $\mu_{mux}/\mu_c\approx8$.
 
-\subsection{Comparison between CSA and RCA}
+Using this information, we verify our model with the results obtained through post place and route simulations of Xilinx Virtex-6 FPGA. Figure.xxx demonstrates both the modeled value and the experimental results of the maximum word-length of RCA and 2-stage CSA, respectively, under a given operating frequency. Note that tht maximum input word-length is 16-bit, hence the modeled value is set to 16 if it expires. 
 
+% Figure goes here!
+It can be seen that our model provide slight conservative outcomes than the experimental data, especially at higher operating frequency. This is because the model coefficients are obtained based on timing analysis, which is designed to ensure correct functionality across a range of operating conditions. In addition, routing delay might be introduced to enlarge the overall delay, while our models consider logic delay only. 
+
+\subsection{Area Overhead}
+Figure.xxx demonstrates the maximum word-length for RCA and CSA with 2 stages and 3 stages respectively under a range of operating frequencies. We only investigate 3 stages since the maximum stages number predicted in (\ref{CSA_StageNumber}) is 3. It can be seen that in comparison to RCA, CSA achieves greater word-length when frequency is intially increased. This means smaller truncation error can be obtained by CSA for a given frequency. RCA outperforms than CSA when very high frequency is applied, which in turn leads to small word-length for both structures. In addition, the word-length of 3-stage CSA is always greater than 2-stage CSA across the entire frequency domain, as expected.  
+
+%CSA achieves greater word-length than RCA when frequency is initially increased
+
+However, the accuracy benefits brought by CSA comes with the cost of large area overhead. Figure.xxx depicts the resource usage (in terms of the number of Look-Up Tables (LUTs)) used for all three structures. It can be seen that the 3-stage CSA consumes $2.4\times\sim3.7\times$ area than RCA, while the number of the 2-stage CSA is $1.7\times\sim3.1\times$. 
+
+the 3-stage CSA costs 
+
+The stage number is determined by (\ref{CSA_StageNumber}) 
 
 
 % An example of a floating figure using the graphicx package.
