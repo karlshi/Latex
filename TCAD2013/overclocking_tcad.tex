@@ -127,8 +127,9 @@
 
 % *** GRAPHICS RELATED PACKAGES ***
 %
+%\usepackage{graphicx}
 \ifCLASSINFOpdf
-  % \usepackage[pdftex]{graphicx}
+  \usepackage[pdftex]{graphicx}
   % declare the path(s) where your graphic files are
   % \graphicspath{{../pdf/}{../jpeg/}}
   % and their extensions so you won't have to specify these with
@@ -138,13 +139,14 @@
   % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
   % will default to the driver specified in the system graphics.cfg if no
   % driver is specified.
-  % \usepackage[dvips]{graphicx}
+  \usepackage[dvips]{graphicx}
   % declare the path(s) where your graphic files are
-  % \graphicspath{{../eps/}}
+  \graphicspath{{../Figures/}}
   % and their extensions so you won't have to specify these with
   % every instance of \includegraphics
-  % \DeclareGraphicsExtensions{.eps}
+  \DeclareGraphicsExtensions{.eps}
 \fi
+\usepackage{epstopdf}
 % graphicx was written by David Carlisle and Sebastian Rahtz. It is
 % required if you want graphics, photos, etc. graphicx.sty is already
 % installed on most LaTeX systems. The latest version and documentation
@@ -237,6 +239,7 @@
 
 
 % *** SUBFIGURE PACKAGES ***
+\usepackage[tight,footnotesize]{subfigure}
 %\ifCLASSOPTIONcompsoc
 %  \usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
 %\else
@@ -275,7 +278,7 @@
 % http://www.ctan.org/tex-archive/macros/latex/base/
 
 
-%\usepackage{stfloats}
+\usepackage{stfloats}
 % stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
 % the ability to do double column floats at the bottom of the page as well
 % as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
@@ -373,7 +376,7 @@
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
 % Do not put math or special symbols in the title.
-\title{Bare Demo of IEEEtran.cls for Journals}
+\title{Title}
 %
 %
 % author names and IEEE memberships
@@ -385,13 +388,12 @@
 % was not built to handle multiple paragraphs
 %
 
-\author{Michael~Shell,~\IEEEmembership{Member,~IEEE,}
-        John~Doe,~\IEEEmembership{Fellow,~OSA,}
-        and~Jane~Doe,~\IEEEmembership{Life~Fellow,~IEEE}% <-this % stops a space
-\thanks{M. Shell is with the Department
-of Electrical and Computer Engineering, Georgia Institute of Technology, Atlanta,
-GA, 30332 USA e-mail: (see http://www.michaelshell.org/contact.html).}% <-this % stops a space
-\thanks{J. Doe and J. Doe are with Anonymous University.}% <-this % stops a space
+\author{Kan~Shi,
+        David~Boland,~\IEEEmembership{Member,~IEEE,}
+        and~George~A.~Constantinides,~\IEEEmembership{Senior~Memberellow,~IEEE}% <-this % stops a space
+	\thanks{K. Shi, D. Boland and G. A. Constantinides are with the Department of Electrical and Electronic Engineering, Imperial College London, London, UK}%
+	%\thanks{M. Shell is with the Department of Electrical and Computer Engineering, Georgia Institute of Technology, Atlanta,GA, 30332 USA e-mail: (see http://www.michaelshell.org/contact.html).}% <-this % stops a space
+%\thanks{J. Doe and J. Doe are with Anonymous University.}% <-this % stops a space
 \thanks{Manuscript received April 19, 2005; revised December 27, 2012.}}
 
 % note the % following the last \IEEEmembership and also \thanks - 
@@ -448,17 +450,13 @@ GA, 30332 USA e-mail: (see http://www.michaelshell.org/contact.html).}% <-this %
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
 \begin{abstract}
-The abstract goes here.
+The abstract.
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
 
 \end{IEEEkeywords}
-
-
-
-
 
 
 % For peer review papers, you can put extra information on the cover
@@ -512,10 +510,10 @@ Subsubsection text here.
 \section{Carry Select Adder}
 \subsection{Introduction}
 
-\subsection{Timing Models for $n$-bit Carry Selct Adder}
-In this section, we describe the modeling method for the CSA timing, with the aim of forming the relationship between the operating frequency and the corresponding maximum word-length of CSA. This information can be employed to determine the truncation error based on the models presented in Section.xxx.
+\subsection{Timing Models for $n$-bit Carry Select Adder}
+In this section, we describe the modelling method for the CSA timing, with the aim of forming the relationship between the operating frequency and the corresponding maximum word-length of CSA. This information can be employed to determine the truncation error based on the models presented in Section.xxx.
 
-In an $n$-stage CSA, let the stage delay be denoted as $d_{0}\dots d_{n-1}$, where $d_{0}$ and $d_{n-1}$ represent the delay of MSB stage and LSB stage, respectively. In our analysis, we follow the previous assumption that delay is caused due to carry propagation and, in this case, multiplexing. Thus the delay of the $i^{th}$ stage can be obtained through~(\ref{CSA_SingleStageDelay}), where $\mu_{carry}$ denotes the delay of $1$-bit carry propagation and $\mu_{mux}$ detnoes the delay of multiplexer.
+In an $n$-stage CSA, let the stage delay be denoted as $d_{0}\dots d_{n-1}$, where $d_{0}$ and $d_{n-1}$ represent the delay of MSB stage and LSB stage, respectively. In our analysis, we follow the previous assumption that delay is caused due to carry propagation and, in this case, multiplexing. Thus the delay of the $i^{th}$ stage can be obtained through~(\ref{CSA_SingleStageDelay}), where $\mu_{carry}$ denotes the delay of $1$-bit carry propagation and $\mu_{mux}$ denotes the delay of multiplexer.
 \begin{eqnarray}\label{CSA_SingleStageDelay}
   d_i=n_i\cdot \mu_{c}+(i+1)\cdot\mu_{mux} 
  % d_0=n_0\cdot \mu_{carry}+\mu_{mux}
@@ -562,21 +560,96 @@ It can be seen that $c=1$ leads to $n_{CSA}=n_{RCA}$. This is because the least 
 \subsection{Model Verification}
 As seen in (\ref{CSA_Timing}), the value of $\mu_{mux}/\mu_c$ should be determined before applying the timing model. This is achieved by keeping $i=0$ in (\ref{CSA_SingleStageDelay}) while varying the value of $n_0$. The corresponding $d_0$ is recorded through the timing analysis tool. Hence $\mu_{mux}/\mu_c$ can be obtained by fitting those values, as presented in Figure.xxx. Out experimental results show that $\mu_{mux}/\mu_c\approx8$.
 
-Using this information, we verify our model with the results obtained through post place and route simulations of Xilinx Virtex-6 FPGA. Figure.xxx demonstrates both the modeled value and the experimental results of the maximum word-length of RCA and 2-stage CSA, respectively, under a given operating frequency. Note that tht maximum input word-length is 16-bit, hence the modeled value is set to 16 if it expires. 
+Using this information, we verify our model with the results obtained through post place and route simulations of Xilinx Virtex-6 FPGA. Fig.~\ref{CSA Model Verification} demonstrates both the modelled value and the experimental results of the maximum word-length of RCA and 2-stage CSA, respectively, under a given operating frequency. Note that the maximum input word-length is 16-bit, hence the modelled value is set to 16 if it expires. 
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=3in]{./Figures/Model.eps}
+  \caption{Model Verification.}
+  \label{CSA Model Verification}
+\end{figure}
 
 % Figure goes here!
 It can be seen that our model provide slight conservative outcomes than the experimental data, especially at higher operating frequency. This is because the model coefficients are obtained based on timing analysis, which is designed to ensure correct functionality across a range of operating conditions. In addition, routing delay might be introduced to enlarge the overall delay, while our models consider logic delay only. 
 
 \subsection{Area Overhead}
-Figure.xxx demonstrates the maximum word-length for RCA and CSA with 2 stages and 3 stages respectively under a range of operating frequencies. We only investigate 3 stages since the maximum stages number predicted in (\ref{CSA_StageNumber}) is 3. It can be seen that in comparison to RCA, CSA achieves greater word-length when frequency is intially increased. This means smaller truncation error can be obtained by CSA for a given frequency. RCA outperforms than CSA when very high frequency is applied, which in turn leads to small word-length for both structures. In addition, the word-length of 3-stage CSA is always greater than 2-stage CSA across the entire frequency domain, as expected.  
-
+Fig.~\ref{CSA3stage Timing} demonstrates the maximum word-length for RCA and CSA with 2 stages and 3 stages respectively under a range of operating frequencies. We only investigate 3 stages since the maximum stages number predicted in (\ref{CSA_StageNumber}) is 3. It can be seen that in comparison to RCA, CSA achieves greater word-length when frequency is initially increased. This means smaller truncation error can be obtained by CSA for a given frequency. RCA outperforms than CSA when very high frequency is applied, which in turn leads to small word-length for both structures. In addition, the word-length of 3-stage CSA is always greater than 2-stage CSA across the entire frequency domain, as expected.  
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=3.3in]{./Figures/CSA3stage_Timing.eps}
+  \caption{Maximum word-length for RCA and CSA across a variety of frequencies.}
+  \label{CSA3stage Timing}
+\end{figure}
 %CSA achieves greater word-length than RCA when frequency is initially increased
 
-However, the accuracy benefits brought by CSA comes with the cost of large area overhead. Figure.xxx depicts the resource usage (in terms of the number of Look-Up Tables (LUTs)) used for all three structures. It can be seen that the 3-stage CSA consumes $2.4\times\sim3.7\times$ area than RCA, while the number of the 2-stage CSA is $1.7\times\sim3.1\times$. 
+However, the accuracy benefits brought by CSA comes with the cost of large area overhead. Fig.~\ref{CSA3stage Area} depicts the resource usage (in terms of the number of Look-Up Tables (LUTs)) used for all three structures. It can be seen that the 3-stage CSA consumes $2.4\times\sim3.7\times$ area than RCA, while the number of the 2-stage CSA is $1.7\times\sim3.1\times$. 
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=3.3in]{./Figures/CSA3stage_Area.eps}
+  \caption{Area overhead for RCA and CSA.}
+  \label{CSA3stage Area}
+\end{figure}
+%the 3-stage CSA costs 
 
-the 3-stage CSA costs 
+\subsection{Exploring Trade-offs Between Accuracy, Performance and Area}
+Although advanced architectures such as CSA inheritly offer better performance than the basic structure, this would generate a large area overhead. In the following experiments, the trade-offs between accuracy, performance as well as area are explored. If the available hardware resources are limited, the full word-length of both CSA and RCA might not be implemented. Therefore truncation errors would be generated. For instance, the number of available LUTs is set to 45, 35, 25 and 15 respectively. The corresponding error expectations of RCA and CSA are demonstrated in Fig.xxx. The optimal design method which achieves the minimum error expectation is labelled.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=3.3in]{./Figures/Error_LUT45.eps}
+	\caption{LUT=45}
+\end{figure}
 
-The stage number is determined by (\ref{CSA_StageNumber}) 
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=3.3in]{./Figures/Error_LUT35.eps}
+	\caption{LUT=35}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=3.3in]{./Figures/Error_LUT25.eps}
+	\caption{LUT=25}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=3.3in]{./Figures/Error_LUT15.eps}
+	\caption{LUT=15}
+\end{figure}
+
+%\begin{figure*}[htbp]
+%  \centering
+%  \subfigure[LUTs=45]{
+%  \begin{minipage}[c]{0.45\textwidth}
+%    \centering
+%    \includegraphics[width=2in]{./Figures/Error_LUT45.eps}
+%  \end{minipage}%
+%  }%
+%  \subfigure[LUT=35]{
+%  \begin{minipage}[c]{0.45\textwidth}
+%    \centering
+%    \includegraphics[width=2in]{./Figures/Error_LUT35.eps}
+%  \end{minipage}
+%  }
+%  \subfigure[LUT=25]{
+%  \begin{minipage}[c]{0.45\textwidth}
+%    \centering
+%    \includegraphics[width=2in]{./Figures/Error_LUT25.eps}
+%  \end{minipage}
+%  }%
+%  \subfigure[LUT=15]{
+%  \begin{minipage}[c]{0.45\textwidth}
+%    \centering
+%    \includegraphics[width=2in]{./Figures/Error_LUT15.eps}
+%  \end{minipage}
+%  }
+%  \caption{Accuracy-performance trade-offs under fixed area constraints.}
+%  \label{Fig Tradeoffs}
+%\end{figure*}
+%the maximum word-lengths of RCA and CSA under given area constraints are listed in Table.xxx
+
+
+It can be seen that if area is not limited, CSA with higher stage numbers serve as the optimal design choice for most frequency values, as we discussed in Section.xxx. While overclocking the RCA achieves better accuracy at higher frequencies, d
+%According to 
 
 
 % An example of a floating figure using the graphicx package.
@@ -686,14 +759,14 @@ The conclusion goes here.
 %
 
 
-\appendices
-\section{Proof of the First Zonklar Equation}
-Appendix one text goes here.
+%\appendices
+%\section{Proof of the First Zonklar Equation}
+%Appendix one text goes here.
 
 % you can choose not to have a title for an appendix
 % if you want by leaving the argument blank
-\section{}
-Appendix two text goes here.
+%\section{}
+%Appendix two text goes here.
 
 
 % use section* for acknowledgement
