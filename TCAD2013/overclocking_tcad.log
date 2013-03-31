@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2013.3.14)  31 MAR 2013 13:23
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2013.3.14)  31 MAR 2013 21:29
 entering extended mode
  %&-line parsing enabled.
 **overclocking_tcad.tex
@@ -97,7 +97,12 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
 \@IEEEtmpitemindent=\dimen116
 \c@IEEEbiography=\count91
 \@IEEEtranrubishbin=\box26
-) (/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
+) (/usr/share/texmf-texlive/tex/latex/cite/cite.sty
+LaTeX Info: Redefining \cite on input line 285.
+LaTeX Info: Redefining \nocite on input line 356.
+Package: cite 2009/08/29  v 5.2
+)
+(/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty
@@ -266,37 +271,37 @@ Package: stfloats 1999/10/22
 (./overclocking_tcad.aux)
 \openout1 = `overclocking_tcad.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 276.
-LaTeX Font Info:    ... okay on input line 276.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 276.
-LaTeX Font Info:    ... okay on input line 276.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 276.
-LaTeX Font Info:    ... okay on input line 276.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 276.
-LaTeX Font Info:    ... okay on input line 276.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 276.
-LaTeX Font Info:    ... okay on input line 276.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 276.
-LaTeX Font Info:    ... okay on input line 276.
-LaTeX Font Info:    Try loading font information for U+msa on input line 366.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Try loading font information for U+msa on input line 127.
  (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 366.
+LaTeX Font Info:    Try loading font information for U+msb on input line 127.
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-Overfull \hbox (0.53294pt too wide) in alignment at lines 403--411
+Overfull \hbox (0.53294pt too wide) in alignment at lines 165--173
  [][][] []
  []
 
 File: ./Figures/Fitting.eps Graphic file (type eps)
-<./Figures/Fitting.eps>
-File: ./Figures/Model.eps Graphic file (type eps)
- <./Figures/Model.eps> [1
+<./Figures/Fitting.eps> [1
 
 
 ]
+File: ./Figures/Model.eps Graphic file (type eps)
+ <./Figures/Model.eps>
 File: ./Figures/CSA3stage_Timing.eps Graphic file (type eps)
 
 <./Figures/CSA3stage_Timing.eps>
@@ -304,26 +309,28 @@ File: ./Figures/CSA3stage_Area.eps Graphic file (type eps)
  <./Figures/CSA3stage_Area.eps>
 File: ./Figures/Error_LUT45.eps Graphic file (type eps)
 
-<./Figures/Error_LUT45.eps>
+<./Figures/Error_LUT45.eps> [2]
 File: ./Figures/Error_LUT35.eps Graphic file (type eps)
  <./Figures/Error_LUT35.eps>
 File: ./Figures/Error_LUT25.eps Graphic file (type eps)
 
 <./Figures/Error_LUT25.eps>
 File: ./Figures/Error_LUT15.eps Graphic file (type eps)
- <./Figures/Error_LUT15.eps> [2]
+ <./Figures/Error_LUT15.eps> [3]
 File: ./Figures/Tradeoff.eps Graphic file (type eps)
 
-<./Figures/Tradeoff.eps> [3] [4
+<./Figures/Tradeoff.eps> [4] (./overclocking_tcad.aux)
 
-] (./overclocking_tcad.aux) ) 
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 2595 strings out of 493849
- 37825 string characters out of 1152846
- 95965 words of memory out of 3000000
- 5830 multiletter control sequences out of 15000+50000
+ 2681 strings out of 493849
+ 38893 string characters out of 1152846
+ 98783 words of memory out of 3000000
+ 5916 multiletter control sequences out of 15000+50000
  31741 words of font info for 78 fonts, out of 3000000 for 9000
- 717 hyphenation exceptions out of 8191
- 41i,17n,28p,957b,326s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 714 hyphenation exceptions out of 8191
+ 41i,17n,28p,1080b,247s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on overclocking_tcad.dvi (4 pages, 15316 bytes).
+Output written on overclocking_tcad.dvi (4 pages, 18148 bytes).
