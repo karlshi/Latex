@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2013.3.14)  28 MAR 2013 23:16
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2013.3.14)  31 MAR 2013 13:23
 entering extended mode
  %&-line parsing enabled.
 **overclocking_tcad.tex
@@ -266,57 +266,64 @@ Package: stfloats 1999/10/22
 (./overclocking_tcad.aux)
 \openout1 = `overclocking_tcad.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 374.
-LaTeX Font Info:    ... okay on input line 374.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 374.
-LaTeX Font Info:    ... okay on input line 374.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 374.
-LaTeX Font Info:    ... okay on input line 374.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 374.
-LaTeX Font Info:    ... okay on input line 374.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 374.
-LaTeX Font Info:    ... okay on input line 374.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 374.
-LaTeX Font Info:    ... okay on input line 374.
-LaTeX Font Info:    Try loading font information for U+msa on input line 491.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 276.
+LaTeX Font Info:    ... okay on input line 276.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 276.
+LaTeX Font Info:    ... okay on input line 276.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 276.
+LaTeX Font Info:    ... okay on input line 276.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 276.
+LaTeX Font Info:    ... okay on input line 276.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 276.
+LaTeX Font Info:    ... okay on input line 276.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 276.
+LaTeX Font Info:    ... okay on input line 276.
+LaTeX Font Info:    Try loading font information for U+msa on input line 366.
  (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 491.
+LaTeX Font Info:    Try loading font information for U+msb on input line 366.
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-Overfull \hbox (0.53294pt too wide) in alignment at lines 528--536
+Overfull \hbox (0.53294pt too wide) in alignment at lines 403--411
  [][][] []
  []
 
+File: ./Figures/Fitting.eps Graphic file (type eps)
+<./Figures/Fitting.eps>
 File: ./Figures/Model.eps Graphic file (type eps)
-<./Figures/Model.eps>
-File: ./Figures/CSA3stage_Timing.eps Graphic file (type eps)
- <./Figures/CSA3stage_Timing.eps> [1
+ <./Figures/Model.eps> [1
 
 
 ]
+File: ./Figures/CSA3stage_Timing.eps Graphic file (type eps)
+
+<./Figures/CSA3stage_Timing.eps>
 File: ./Figures/CSA3stage_Area.eps Graphic file (type eps)
-
-<./Figures/CSA3stage_Area.eps>
+ <./Figures/CSA3stage_Area.eps>
 File: ./Figures/Error_LUT45.eps Graphic file (type eps)
- <./Figures/Error_LUT45.eps>
+
+<./Figures/Error_LUT45.eps>
 File: ./Figures/Error_LUT35.eps Graphic file (type eps)
-
-<./Figures/Error_LUT35.eps>
+ <./Figures/Error_LUT35.eps>
 File: ./Figures/Error_LUT25.eps Graphic file (type eps)
- <./Figures/Error_LUT25.eps>
-File: ./Figures/Error_LUT15.eps Graphic file (type eps)
 
-<./Figures/Error_LUT15.eps> [2] [3] (./overclocking_tcad.aux) ) 
+<./Figures/Error_LUT25.eps>
+File: ./Figures/Error_LUT15.eps Graphic file (type eps)
+ <./Figures/Error_LUT15.eps> [2]
+File: ./Figures/Tradeoff.eps Graphic file (type eps)
+
+<./Figures/Tradeoff.eps> [3] [4
+
+] (./overclocking_tcad.aux) ) 
 Here is how much of TeX's memory you used:
- 2589 strings out of 493849
- 37735 string characters out of 1152846
- 97965 words of memory out of 3000000
- 5826 multiletter control sequences out of 15000+50000
+ 2595 strings out of 493849
+ 37825 string characters out of 1152846
+ 95965 words of memory out of 3000000
+ 5830 multiletter control sequences out of 15000+50000
  31741 words of font info for 78 fonts, out of 3000000 for 9000
  717 hyphenation exceptions out of 8191
- 41i,17n,28p,755b,326s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,17n,28p,957b,326s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on overclocking_tcad.dvi (3 pages, 12864 bytes).
+Output written on overclocking_tcad.dvi (4 pages, 15316 bytes).
