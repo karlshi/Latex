@@ -140,6 +140,333 @@ Subsection text here.
 
 \subsubsection{Subsubsection Heading Here}
 Subsubsection text here.
+\section{Ripple Carry Adder}\label{section_RCA}
+\subsection{Adder Structures in FPGAs}
+%something about fast carry logic in FPGA and pictures
+Adders serve as a key building block for arithmetic operations. Generally speaking, the ripple carry adder (RCA) is the most straightforward and widely used adder structure. As such, the philosophy of our approach is first exemplified with the analysis of a RCA. We later describe how this methodology can be extended to other arithmetic operators in Section~\ref{section_CCM} by discussing  the CCM that is commonly used in DSP applications and numerical algorithms.
+
+Typically the maximum frequency of a RCA is determined by the longest carry propagation. Consequently, modern FPGAs offer built-in architectures for very fast ripple carry addition. For instance, the Altera Cyclone series uses fast tables~\cite{AlteraCyclone} while the Xilinx Virtex series employs dedicated multiplexers and encoders for the fast carry logic~\cite{Virtex6}. Figure~\ref{FPGA adder} illustrates the structure of an $n$-bit RCA, which is composed of $n$ serial-connected full adders (FAs) and utilizes the internal fast carry logic of the Virtex-6 FPGA.
+
+While the fast carry logic reduces the time of each individual carry-propagation delay, the overall delay of carry-propagation will eventually overwhelm the delay of sum generation of each LUT with increasing operand word-lengths. For our initial analysis, we assume that the carry propagation delay of each FA is a constant value $\mu$, which is a combination of logic delay and routing delay, and hence the critical path delay of the RCA is $\mu_{RCA}=n\mu$, as shown in~Figure~\ref{FPGA adder}. For an $n$-bit RCA, it follows that if the sampling period $T_S$ is greater than $\mu_{RCA}$, correct results will be sampled. If, however, $T_S<\mu_{RCA}$, intermediate results will be sampled, potentially generating errors.
+%
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=3in]{./Figures/FastCarryLogic3.eps}
+%  \vspace{-2ex}
+  \caption{An $n$-bit ripple carry adder in Virtex-6 FPGA.}
+  \label{FPGA adder}
+  %\vspace{-3.5ex}
+\end{figure}
+
+In the following sections, we consider two methods that would allow the circuit to run at a frequency higher than $1/{T_S}$. The first is a traditional circuit design approach where operations occur without timing violations. To this end, the operand word-length is truncated in order to meet the timing requirement. This process results in truncation or roundoff error. In our proposed new scenario, circuits are implemented with greater word-length, but are clocked beyond the safe region so that timing violations sometimes occur. This process generates ``overclocking error''.
+
+ %We note that it may be possible to operate at a higher clock frequency than $1/T_{S}$ by using alternative adder structures, such as carry-select adder and carry lookahead adder. However, the effectiveness of these techniques is limited in FPGAs due to the build-in structures for the acceleration of carry propagation. In addition, such techniques will require substantial extra silicon area.
+
+\subsection{Probabilistic Model of Truncation Error}
+For ease of discussion, we assume that the input to our circuit is a fixed point number scaled to lie in the range $[-1,1)$. For our initial analysis, we assume every bit of each input is uniformly and independently generated. However, this assumption will be relaxed in Section~\ref{Section_Experiments} where the predictions are verified using real image data. The errors at the output are evaluated in terms of the absolute value and the probability of their occurring. These two metrics are combined as the error expectation.
+
+If the input signal of a circuit is $k$ bits, truncation error occurs when the input signal is truncated from $k$ bits to $n$ bits. Under this premise, the mean value of the truncated bits at signal input ($E_{Tin}$) is given by (\ref{ET at single input}).
+%
+%\vspace{-1ex}
+\begin{eqnarray}\label{ET at single input}
+%\small
+%\footnotesize
+%\scriptsize
+  E_{Tin}=\frac{1}{2}\sum_{i=n+1}^{k}2^{-i}=2^{-n-1}-2^{-k-1}
+%  \vspace{-1ex}
+\end{eqnarray}
+%\normalsize
+
+Since we assume there are two mutually independent inputs to the RCA, the overall expectation of truncation error for the RCA is given by (\ref{TruncationError}).
+%
+%\vspace{-1ex}
+\begin{eqnarray}\label{TruncationError}
+%\small
+%\footnotesize
+  E_T=\left\{
+    \begin{matrix}
+        2^{-n}-2^{-k}, & \textrm{if $n<k$}\\
+        0, & \textrm{otherwise}
+    \end{matrix}
+  \right.
+\end{eqnarray}
+%\normalsize
+
+\subsection{Probabilistic Model of Overclocking Error}
+\subsubsection{Generation of Overclocking Error}\label{subsub:Generation of Overclocking Error}
+For a given $T_S$, the maximum length of error-free carry propagation is described by~(\ref{Max.length of carry chain}), where $f_S$ denotes the sampling frequency.
+%
+%\vspace{-1ex}
+\begin{eqnarray}\label{Max.length of carry chain}
+%\small
+%\footnotesize
+%\scriptsize
+    b:=\left\lceil \frac{T_S}{\mu} \right\rceil=\left\lceil \frac{1}{\mu\cdot f_S}\right\rceil
+\end{eqnarray}
+%\normalsize
+
+However, since the length of an actual carry chain during execution is dependent upon input patterns, in general, the worst case may occur rarely. To determine when this timing constraint is not met and the size of the error in this case, we expand standard results~\cite{DigitalICDesign} to the following statements, which examine carry generation, propagation and annihilation, as well as the corresponding summation results of a single bit $i$, according to the relationship between its input patterns $A_i$ and $B_i$:
+%
+ \begin{itemize}
+   \item If $\!A_i\!=\!B_i\!=1$, a new carry chain is generated at bit $i$, and $S_i\!=\!C_{i-1}$;
+   \item If $A_i\neq B_i$, the carry propagates for this carry chain at bit $i$, and $S_i\!=\!0$;
+   \item If $\!A_i\!=\!B_i$, the current carry chain annihilates at bit $i$, and $S_i\!\!=\!\!1$.
+ \end{itemize}
+
+\subsubsection{Absolute Value of Overclocking Error}
+For an $n$-bit RCA, let $C_{tm}$ denote the carry chain generated at bit $S_t$ with the length of $m$ bits. For a certain $f_S$, the maximum length of error-free carry propagation, $b$, is determined through (\ref{Max.length of carry chain}). The presence of overclocking error requires $m>b$. Since the length of carry chain cannot be greater than $n$, parameters $t$ and $m$ are bounded by (\ref{t_RCA}) and (\ref{m_RCA}):
+%
+%\vspace{-1ex}
+\begin{align}
+%\small
+%\footnotesize
+%\scriptsize
+  \label{t_RCA}  0&\leq t \leq n-b\\
+    b&<m\leq n+1-t      \label{m_RCA}
+%    \vspace{-1ex}
+\end{align}
+%\normalsize
+
+For $C_{tm}$, correct results will be generated from bit $S_t$ to bit $S_{t+b-1}$. Hence the absolute value of error seen at the output, normalized to the MSB ($2^n$), is given by (\ref{Output Error}), where $\hat{S_i}$ and $S_i$ denote the actual and error-free output of bit $i$ respectively.
+%
+%\vspace{-1ex}
+\begin{eqnarray}\label{Output Error}
+%\small
+%\footnotesize
+    e_{tm}=\frac{\left|\sum_{i=t+b}^{n}(S_i-\hat{S_i})\cdot 2^i\right|}{2^n}
+%    \vspace{-1ex}
+\end{eqnarray}
+%\normalsize
+
+$S_i$ and $\hat{S_i}$ can be determined using the equations from the previous statements in Section~\ref{subsub:Generation of Overclocking Error}. In the error-free case, the carry will propagate from bit $S_t$ to bit $S_{t+m-1}$, and we will obtain $S_{t+b}=S_{t+b+1}=\cdots=S_{t+m-2}=0$ for carry propagation, and $S_{t+m-1}=1$ for carry annihilation. However, when a timing violation occurs, the carry will not propagate through all these bits. Substituting these values into (\ref{Output Error}) yields (\ref{etm}). Interestingly, the value of overclocking error has no dependence on the length of carry chain $m$.
+%
+%Instead, $\hat{S}_{t+b}=\hat{S}_{t+b+1}=\cdots=\hat{S}_{t+m-2}=1$ and $\hat{S}_{t+m-1}=0$. It is worth noting that these expressions are obtained based on the assumption that all the internal bits are initialized to zero.
+%
+\begin{eqnarray}\label{etm}
+%\small
+%\footnotesize
+  e_{tm}=\frac{\left|2^{t+m-1}-2^{t+m-2}-\dots-2^{t+b}\right|}{2^n}=2^{t+b-n}
+\end{eqnarray}
+%\normalsize
+
+\subsubsection{Probability of Overclocking Error}
+The carry chain $C_{tm}$ occurs when there is a carry generated at bit $t$, a carry annihilated at bit $t+m-1$ and the carry propagates in between. Consequently, its probability $P_{tm}$ is given by (\ref{Ptm_RCA}).
+%
+%\vspace{-1ex}
+\begin{eqnarray}\label{Ptm_RCA}
+%\small
+%\footnotesize
+  P_{tm}=P_{(A_t=B_t=1)}P_{(A_{t+m-1}=B_{t+m-1})}\cdot \prod_{i=t+1}^{t+m-2}P_{(A_i\neq B_i)}
+%  \vspace{-1ex}
+\end{eqnarray}
+%\normalsize
+Under the assumption that $A$ and $B$ are mutually independent and uniformly distributed, we have $P_{(A_i=B_i=1)}=1/4$, $P_{(A_i\neq B_i)}=1/2$ and $P_{(A_i=B_i)}=1/2$, so $P_{tm}$ can be obtained by~(\ref{Ptm2}). Note that~(\ref{Ptm2}) takes into account the carry annihilation always occurs when $t+m-1=n$.
+%\vspace{-1ex}
+%
+\begin{eqnarray}\label{Ptm2}
+%\small
+%\footnotesize
+    P_{tm}=\left\{\begin{array}{ll}
+      (1/2)^{m+1} & \textrm{if $t+m-1<n$}\\
+      (1/2)^{m} & \textrm{if $t+m-1=n$}
+    \end{array} \right.
+%    \vspace{-1ex}
+\end{eqnarray}
+%\normalsize
+
+\subsubsection{Expectation of Overclocking Error}
+Expectation of overclocking error can be expressed by (\ref{Eo_exp}).
+%
+%\vspace{-1ex}
+\begin{eqnarray}\label{Eo_exp}
+%\small
+%\footnotesize
+%\scriptsize
+    %E_O=\sum_{t=0}^{n-b}\sum_{m=b+1}^{n-t+1}P_{tm}\cdot e_{tm}
+    E_O=\sum_{t}\sum_{m}P_{tm}\cdot e_{tm}
+%    \vspace{-1ex}
+\end{eqnarray}
+%\normalsize
+%
+Using $P_{tm}$ and $e_{tm}$ from (\ref{etm}) and (\ref{Ptm2}) respectively, $E_O$ can be obtained by (\ref{Eo}).
+%\vspace{-1ex}
+\begin{eqnarray}\label{Eo}
+%\small
+%\footnotesize
+      E_O=\left\{
+        \begin{matrix}
+            2^{-b}-2^{-n-1}, & \textrm{if $b\leq n$}\\
+            0, & \textrm{otherwise}
+        \end{matrix}
+      \right.
+%      \vspace{-1ex}
+\end{eqnarray}
+%\normalsize
+
+\subsection{Comparison between Two Scenarios}
+In the traditional scenario, the word-length of RCA must be truncated, using $n=b-1$ bits, in order to meet a given $f_S$. The error expectation is then given by (\ref{Eo_trad_RCA}).
+%
+\begin{eqnarray}\label{Eo_trad_RCA}
+%\small
+%\vspace{-1ex}
+%\footnotesize
+%\scriptsize
+  E_{trad}=2^{-b+1}-2^{-k}
+  \vspace{-1ex}
+\end{eqnarray}
+%\normalsize
+Overclocking errors are allowed to happen in the second scenario, therefore the word-length of RCA is set to be equal to the input word-length, that is, $n=k$. Hence we obtain (\ref{Eo_new_RCA}) according to (\ref{Eo}).
+%
+\begin{eqnarray}\label{Eo_new_RCA}
+%\vspace{-1ex}
+%\small
+%\footnotesize
+%\scriptsize
+  E_{new}=2^{-b}-2^{-k-1}
+%  \vspace{-1ex}
+\end{eqnarray}
+%\normalsize
+
+%
+Comparing (\ref{Eo_new_RCA}) and (\ref{Eo_trad_RCA}), we have (\ref{Comparison RCA}). This equation indicates that by allowing timing violations, the overall error expectation of RCA outputs drops by a factor of 2 in comparison to traditional scenario. This provides the first hint that our approach is useful in practice.
+%
+\begin{eqnarray}\label{Comparison RCA}
+%\vspace{-1ex}
+%\small
+%\footnotesize
+%\scriptsize
+  \frac{E_{new}}{E_{trad}}=\frac{2^{-b}-2^{-k-1}}{2^{-b+1}-2^{-k}}=\frac{1}{2}
+\end{eqnarray}
+
+\section{Constant Coefficient Multiplier}\label{section_CCM}
+
+As another key primitive of arithmetic operations, CCM can be implemented using RCA and shifters. For example, operation $B=9A$ is equivalent to $B=A+8A=A+(A<<3)$, which can be built using one RCA and one shifter. We first focus on a single RCA and single shifter structure. We describe how more complex structures consisting of multiple RCAs and multiple shifters can be built in accordance with this baseline structure in Section~\ref{CCM_Multi}.
+
+In this CCM structure, let the two inputs of the RCA be denoted by $A_S$ and $A_O$ respectively, which are both two's complement numbers. $A_S$ denotes the ``shifted signal", with zeros padded after LSB, while $A_O$ denotes the ``original signal" with MSB sign extension. For an $n$-bit input signal, it should be noted that an $n$-bit RCA is sufficient for this operation, because no carry will be generated or propagated when adding with zeros, as shown in Figure~\ref{CCM_fig}.
+\begin{figure}[htbp]
+  \centering
+%  \vspace{-2ex}
+  %\includegraphics[width=3.5in]{./Figures/CCM_DataFlow3.pdf}
+  \includegraphics[width=3.3in]{./Figures/CCM_DataFlow3.eps}
+%  \vspace{-2ex}
+  \caption{Different types of carry chain in constant coefficient multiplier. The notion $s$ denotes the shifted bits and $BP$ denotes the binary point.}
+  \label{CCM_fig}
+%  \vspace{-1.5ex}
+\end{figure}
+
+\subsection{Probabilistic Model of Truncation Error}
+Let $E_{Tin}$ and $E_{Tout}$ denote the expectation of truncation error at the input and output of CCM respectively. We then have (\ref{Et_CCM}), where $coe$ denotes the coefficient value of the CCM, and $E_{Tin}$ can be obtained according to~(\ref{TruncationError}).
+%
+\begin{eqnarray}\label{Et_CCM}
+%\vspace{-1ex}
+%\small
+%\footnotesize
+%\scriptsize
+  E_{Tout}=|coe|\cdot E_{Tin}
+%  \vspace{-1ex}
+\end{eqnarray}
+%\normalsize
+
+\subsection{Probabilistic Model of Overclocking Error}
+\subsubsection{Absolute Value of Overclocking Error}
+The absolute value of overclocking error of carry chain $C_{tm}$ is increased by a factor of $2^s$ due to shifting, compared to RCA. Hence $e_{tm}$ in CCM can be modified from (\ref{etm}) to give (\ref{etm_CCM}).
+%
+\begin{eqnarray}\label{etm_CCM}
+%\vspace{-1ex}
+%\small
+%\footnotesize
+  e_{tm}=2^{t+b-n+s}
+%  \vspace{-1.5ex}
+\end{eqnarray}
+%\normalsize
+
+\subsubsection{Probability of Overclocking Error}
+Due to the dependencies in a CCM, carry generation requires $a_t=a_{t-s}=1$, propagation and annihilation of a carry chain is best considered separately for four types of carry chain generated at bit~$t$. We label these by $C_{tm}1$ to $C_{tm}4$ in Figure~\ref{CCM_fig}, defined by the end region of the carry chain. For $C_{tm}1$, we have:
+\begin{itemize}
+  \item Carry propagation: $\!a_i\neq\!a_{i+s}\!$ where $\!i\!\in[t+1,n-s-2]\!$;
+  \item Carry annihilation: $\!a_j\!=\!a_{j+s}\!$ where $\!j\!\in[t+1,n-s-1]\!$.
+\end{itemize}
+Similarly for $C_{tm}2$, we have:
+\begin{itemize}
+  \item Carry propagation: $a_i\neq a_{n-1}$ where $i\in[n-s-1,n-3]$; or $a_i\neq a_{i+s}$ where $i\in[t+1,n-s-2]$;
+  \item Carry annihilation: $\!a_j\!=a_{n-1}\!$ where $j\!\in\![n-s-1,n-2]$.
+\end{itemize}
+
+For the first two types of carry chain $C_{tm}1$ and $C_{tm}2$, the probability of carry propagation and annihilation is $1/2$ and the probability of carry generation is $1/4$, under the premise that all bits of input signal are mutually independent. Therefore (\ref{Ptm_CCM1}) can be obtained by substituting this into~(\ref{Ptm_RCA}).
+%
+\begin{eqnarray}\label{Ptm_CCM1}
+%\vspace{-1ex}
+%\small
+%\footnotesize
+  P_{tm}=\left(1/2\right)^{m+1}, & \textrm{if $t+m-1\leqslant n-2$}
+\end{eqnarray}
+%\normalsize
+
+For carry annihilation of $C_{tm}3$, $a_{n-1}=a_{n-1}$, which is always true. Thus the probability of $C_{tm}3$ is given by (\ref{Ptm_CCM2}).
+%
+\begin{eqnarray}\label{Ptm_CCM2}
+%\vspace{-1ex}
+%\small
+%\footnotesize
+  P_{tm}=\left(1/2\right)^m, & \textrm{if $t+m-1=n-1$}
+%  \vspace{-1ex}
+\end{eqnarray}
+%\normalsize
+$C_{tm}4$ represents carry chain annihilates over $a_{n-1}$, therefore carry propagation requires $a_{n-1}\neq a_{n-1}$. This means $C_{tm}4$ never occurs in a CCM.
+
+Altogether, $P_{tm}$ for a CCM is given by (\ref{Ptm_CCM}).
+\begin{eqnarray}\label{Ptm_CCM}
+%\small
+  P_{tm}=\left\{\begin{array}{ll}
+      (1/2)^{m+1} & \textrm{if $t+m-1<n-1$}\\
+      (1/2)^{m} & \textrm{if $t+m-1=n-1$}
+    \end{array} \right.
+    %\vspace{-1ex}
+\end{eqnarray}
+%\normalsize
+
+\subsubsection{Expectation of Overclocking Error}
+Since the carry chain of a CCM will not propagate over $a_{n-1}$, the upper bound of parameter $t$ and $m$ should be modified from (\ref{t_RCA}) and (\ref{m_RCA}) to give (\ref{t_CCM}) and (\ref{m_CCM}).
+%
+\begin{eqnarray}
+%\vspace{-1ex}
+%\small
+%\footnotesize
+%\scriptsize
+  \label{t_CCM} 0\leqslant t\leqslant n-b-1\\
+  \label{m_CCM} b<m\leqslant n-t
+%  \vspace{-1ex}
+\end{eqnarray}
+%\normalsize
+
+Finally, by substituting (\ref{Ptm_CCM}) and (\ref{etm_CCM}) with modified bounds of $t$ and $m$ into (\ref{Eo_exp}), we obtain the expectation of overclocking error for a CCM to be given by (\ref{Eo_CCM}).
+%
+\begin{eqnarray}\label{Eo_CCM}
+%\vspace{-1ex}
+%\small
+%\footnotesize
+      E_O=\left\{
+        \begin{matrix}
+            2^{s-b-1}-2^{s-n-1}, & \textrm{if $b\leq n-1$}\\
+            0, & \textrm{otherwise}
+        \end{matrix}
+      \right.
+%      \vspace{1ex}
+\end{eqnarray}
+%\normalsize
+
+\subsection{CCM with Multiple RCAs and Shifters}\label{CCM_Multi}
+In the case where a CCM is composed of two shifters and one RCA, such as operation $\!B\!=\!20A\!=\!(\!A<<2)+(\!A<<4)$, let the shifted bits be denoted as $s_1$ and $s_2$ respectively. Hence the equivalent $s$ in (\ref{Eo_CCM}) can be obtained through~(\ref{ShiftNo}).
+%
+%\vspace{-3ex}
+\begin{eqnarray}\label{ShiftNo}
+%\footnotesize
+%\scriptsize
+  s=\left|s_1-s_2\right|
+%  \vspace{-1ex}
+\end{eqnarray}
+
+For those operations such as $B=37A=(A<<5)+(A<<2)+(A<<1)$, the CCM can be built using a tree structure. Each root node is the baseline CCM and the errors are propagated through an adder tree, of which the error can be determined based on our previous RCA model.
 
 \section{Carry Select Adder}
 \subsection{Introduction}
@@ -201,16 +528,18 @@ It can be seen that $s=1$ leads to $n_{CSA}=n_{RCA}$. This is because RCA forms 
 %the word-length of each CSA stage is allocated to ensure that
 
 \subsection{Model Verification}
-As seen in (\ref{CSA_Timing}), the value of $\mu_{mux}/\mu_c$ should be determined before applying the timing model. This ratio can be obtained through timing analysis. Specifically, varying the word-length of a single stage $n_i$ and recording the corresponding delay value $d_i$ through the timing analysis tool. According to~(\ref{CSA_SingleStageDelay}), the ratio can be obtained by fitting those values using linear polynomials, as presented in Fig.~(\ref{DelayFitting}). Out experimental results show that $\mu_{mux}/\mu_c\approx8$.
-%keeping $i=0$ in (\ref{CSA_SingleStageDelay}) while varying the value of $n_0$. The corresponding delay value $d_0$ is recorded through the timing analysis tool. Hence $\mu_{mux}/\mu_c$ can be obtained by fitting those values, as presented in Fig.~(\ref{DelayFitting}). Out experimental results show that $\mu_{mux}/\mu_c\approx8$.
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=3.3in]{./Figures/Fitting.eps}
-  \caption{Fitted curve of (\ref{CSA_SingleStageDelay}) for the most significant stage ($i=0$), based on the given input word-length and the corresponding delay value obtained through the Xilinx Timing Analyzer.}
-  \label{DelayFitting}
-\end{figure}
+As seen in (\ref{CSA_Timing}), the value of $\mu_{mux}/\mu_c$ should be determined before applying the timing model. This ratio can be obtained through timing analysis. Specifically, varying the word-length of a single stage $n_i$ and recording the corresponding delay value $d_i$ through the timing analysis tool. According to~(\ref{CSA_SingleStageDelay}), the ratio can be obtained by fitting those values using linear polynomials.
+%, as presented in Fig.~(\ref{DelayFitting}). Out experimental results show that $\mu_{mux}/\mu_c\approx8$.
+%
+%\begin{figure}[htbp]
+%  \centering
+%  \includegraphics[width=3.3in]{./Figures/Fitting.eps}
+%  \caption{Fitted curve of (\ref{CSA_SingleStageDelay}) for the most significant stage ($i=0$), based on the given input word-length and the corresponding delay value obtained through the Xilinx Timing Analyzer.}
+%  \label{DelayFitting}
+%\end{figure}
 
-Using this information, we verify our timing model with experimental results, which are obtained from post place and route simulations on Xilinx Virtex-6 FPGAs. Fig.~\ref{CSA Model Verification} demonstrates both the modelled value and the experimental results of the maximum word-length of RCA and 2-stage CSA, respectively, across a range of operating frequencies. The maximum input word-length in our experiments is 16-bit, hence the modelled value is set to 16 if it expires.
+Using this information, we verify our timing model with experimental results, which are obtained from post place and route simulations on Xilinx Virtex-6 FPGAs. Fig.~\ref{CSA Model Verification} demonstrates both the modelled value and the experimental results of the maximum word-length of the 2-stage CSA for various operating frequencies. In this experiment, the input data are randomly sampled from a 16-bit data set, which follows uniform distribution. It can be seen that the the modelled value match well with the experimental results.
+%The maximum input word-length in our experiments is 16-bit, hence the modelled value is set to 16 if it expires.
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=3in]{./Figures/Model.eps}
@@ -218,11 +547,7 @@ Using this information, we verify our timing model with experimental results, wh
   \label{CSA Model Verification}
 \end{figure}
 
-% Figure goes here!
-It can be seen that our timing models match well the experimental results for both RCA and CSA, except that the modelled outcomes are slight conservative, especially at higher operating frequencies. This is because the model coefficients are obtained based on timing analysis, which is designed with safety margins to ensure correct functionality for diverse operating conditions. In addition, routing delay might be introduced during timing analysis such that the overall delay is enlarged, while our models consider logic delay only.
-
-% provide slight conservative outcomes than the experimental data, especially at higher operating frequencies.
-.
+%It can be seen that our timing models match well the experimental results for both RCA and CSA, except that the modelled outcomes are slight conservative, especially at higher operating frequencies. This is because the model coefficients are obtained based on timing analysis, which is designed with safety margins to ensure correct functionality for diverse operating conditions. In addition, routing delay might be introduced during timing analysis such that the overall delay is enlarged, while our models consider logic delay only.
 
 \subsection{Area Overhead}
 Fig.~\ref{CSA3stage Timing} demonstrates the maximum word-lengths for RCA and CSA with 2 stages and 3 stages under a range of operating frequencies. We only investigate 3 stages as the maximum stages number predicted in (\ref{CSA_StageNumber}) is 3. It can be seen that in comparison to RCA, CSA achieves greater word-length when frequency is initially increased. This corresponds to smaller truncation errors. RCA only outperforms than CSA when very high frequency is applied. In addition, the word-length of 3-stage CSA is always greater than 2-stage CSA across the entire frequency domain, as expected.
@@ -245,13 +570,24 @@ However, the accuracy benefits brought by CSA comes with the cost of large area 
 
 \subsection{Exploring Trade-offs Between Accuracy, Performance and Area}
 %Although advanced architectures such as CSA inherently offer better performance than the basic structure, this would generate a large area overhead. In the following experiments,
-To answer this question, we explore the trade-offs between accuracy, performance as well as area in this section. If the available hardware resources are limited, the full word-length of both CSA and RCA might not be implemented. The precision lose might generates large errors even at low frequencies. This is demonstrated by experiments where an area constraint is applied besides the timing requirement. Both of the constraints are met by reducing the word-length of the input signal. The errors at the outputs are recorded with the reference to the original word-length. In addition, another designing method is adopted where RCA is implemented with the maximum possible word-length under the given area budget, while the timing constraints are met by overclocking. For instance, Fig.xxx to Fig.xxx illustrate error expectations of all the described design scenarios when setting the LUTs number to 45, 35, 25 and 15 respectively. The optimal design metric with the minimum error expectation is labelled for each area constraint. Note that the optimum design is chosen based on the following metrics:
+To answer this question, we explore the trade-offs between accuracy, performance as well as area in this section. If the available hardware resources are limited, the full word-length of both CSA and RCA might not be implemented. The precision lose might generates large errors even at low frequencies. This is demonstrated by experiments where area constraints are applied besides the timing requirement. Conventionally, both of the constraints are met by reducing the word-length of the input signal. The errors at the outputs are recorded with the reference to the original word-length, which is 16 bits in the following experiments. In addition, we propose another designing method where RCA is implemented with the maximum possible word-length under the given area budget, while the timing constraints are met by overclocking. For a certain pair of $\{Area, Frequency\}$ constraint, the optimum design method is selected based on the following criteria:
+%For instance, Fig.xxx to Fig.xxx illustrate error expectations of all the described design scenarios when setting the LUTs number to 45, 35, 25 and 15 respectively. The optimal design metric with the minimum error expectation is labelled for each area constraint. For a given frequency and area constraint, the optimum design is chosen based on the following metrics:
 \begin{itemize}
-  \item For a given frequency and area constraint, design with the minimum error expectation is the optimum design;
-  \item For a given frequency and area constraint, if multiple designs achieve the same error expectation, then the design with minimum area is the optimum design;
-  \item For a given frequency and area constraint, if the error expectation and area are identical for multiple designs, they are all treated as the optimum design.
+  \item Design with the minimum error expectation is the optimum design;
+  \item If multiple designs achieve the same error expectation, then the design with minimum area is the optimum design;
+  \item If the error expectation and area are identical for multiple designs, they are all treated as the optimum design.
 \end{itemize}
-%
+
+The optimum design method for a variety of frequency and area constraints is demonstrated in Fig.~\ref{Tradeoff}, from which several observations can be made. If the available area is large enough, CSA serves as the optimum design option because it inherently operates faster than RCA, and it can be implemented with full precision in this situation. The 2-stage CSA is better than the 3-stage CSA when frequency is initially increased, as it consumes less area although both of them achieve the same error expectation. For a tighter area budget, only part of the CSA can be implemented, whilst RCA still keeps full precision. In this case, area instead of timing becomes the dominate factor for small frequency values. This leads to precision loss for CSA initially. Therefore we see RCA with overclocking is the best design across almost the whole frequency domain. For an even stringent area constraint, the word-length of RCA is also limited. This results in truncation error initially for all design scenarios. Meanwhile, CSA with high stage numbers could not even be implemented at all. 
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=3.5in]{./Figures/Tradeoff.eps}
+  \caption{Demonstration of the optimum design methodology for a variety frequency and area constraints.}
+  \label{Tradeoff}
+\end{figure}
+
+%We also notice that for small frequencies, RCA with either overclocking or truncation of word-length of the input signal is the best design choice for any area constraint, since 
+
 %\begin{figure}[htbp]
 %	\centering
 %	\includegraphics[width=3.3in]{./Figures/Error_LUT45.eps}
@@ -275,20 +611,13 @@ To answer this question, we explore the trade-offs between accuracy, performance
 %	\includegraphics[width=3.3in]{./Figures/Error_LUT15.eps}
 %	\caption{LUT=15}
 %\end{figure}
+%
+%If the available area is large enough, as shown in Fig.xxx, CSA with higher stage numbers can be implemented with full precision and it is the optimal design choice unless very high frequencies are applied. This is because at lower frequencies, the long carry chain is divided into multiple overlapped sections, and the higher stage number the shorter the carry chain length of each stage. When the frequency increases, however, the multiplexer delay becomes comparable to the carry chain delay, and this will limit the maximum word-length of CSA. It can be seen that the overclocked RCA achieves best accuracy at higher frequencies.
 
-If the available area is large enough, as shown in Fig.xxx, CSA with higher stage numbers can be implemented with full precision and it is the optimal design choice unless very high frequencies are applied. This is because at lower frequencies, the long carry chain is divided into multiple overlapped sections, and the higher stage number the shorter the carry chain length of each stage. When the frequency increases, however, the multiplexer delay becomes comparable to the carry chain delay, and this will limit the maximum word-length of CSA. It can be seen that the overclocked RCA achieves best accuracy at higher frequencies.
+%For a tighter area budget, only part of the complex structures can be implemented, whilst the simple structure still keeps full precision. As can be seen in Fig.xxx and Fig.xxx, area instead of timing becomes the dominate factor when frequency is initially increased. This lead to a large truncation error for both 2-stage and 3-stage CSA. In this situation, overclocking RCA serves as the optimum choice with respect to accuracy.
 
-For a tighter area budget, only part of the complex structures can be implemented, whilst the simple structure still keeps full precision. As can be seen in Fig.xxx and Fig.xxx, area instead of timing becomes the dominate factor when frequency is initially increased. This lead to a large truncation error for both 2-stage and 3-stage CSA. In this situation, overclocking RCA serves as the optimum choice with respect to accuracy.
+%In general, the error expectations at the output of all four design method for a set of timing and area constraints are demonstrated in Fig.~\ref{Tradeoff}, from which several observations can be made.
 
-For an even stringent area constraint, the word-length of RCA is also limited. This results in truncation error initially for all design scenarios, as shown in Fig.xxx. Meanwhile, CSA with high stage numbers could not be implemented at all. In this situation the overclocked RCA achieves best accuracy across the whole frequency domain.
-
-In general, the error expectations at the output of all four design method for a set of timing and area constraints are demonstrated in Fig.~\ref{Tradeoff}, from which several observations can be made.
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=3.5in]{./Figures/Tradeoff.eps}
-  \caption{Trade-offs between accuracy, performance and area for 4 design methodologies.}
-  \label{Tradeoff}
-\end{figure}
 
 
 % An example of a floating figure using the graphicx package.
