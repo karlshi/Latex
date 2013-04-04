@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.12.22)  2 APR 2013 01:09
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.12.22)  4 APR 2013 11:53
 entering extended mode
 **F:/Git/Latex/TCAD2013/overclocking_tcad.tex
 (F:/Git/Latex/TCAD2013/overclocking_tcad.tex
@@ -340,28 +340,65 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 127.
 ("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-Package epstopdf Info: Source file: <./Figures/Fitting.eps>
-(epstopdf)                    date: 2013-04-01 19:20:11
-(epstopdf)                    size: 12380 bytes
-(epstopdf)             Output file: <./Figures/Fitting-eps-converted-to.pdf>
-(epstopdf)                    date: 2013-04-01 22:06:05
-(epstopdf)                    size: 6378 bytes
-(epstopdf)             Command: <epstopdf --outfile=./Figures/Fitting-eps-conve
-rted-to.pdf ./Figures/Fitting.eps>
-(epstopdf)             \includegraphics on input line 208.
+
+LaTeX Warning: Citation `AlteraCyclone' on page 1 undefined on input line 148.
+
+
+LaTeX Warning: Citation `Virtex6' on page 1 undefined on input line 148.
+
+Package epstopdf Info: Source file: <./Figures/FastCarryLogic3.eps>
+(epstopdf)                    date: 2013-03-16 03:26:35
+(epstopdf)                    size: 216060 bytes
+(epstopdf)             Output file: <./Figures/FastCarryLogic3-eps-converted-to
+.pdf>
+(epstopdf)                    date: 2013-04-04 11:42:31
+(epstopdf)                    size: 29418 bytes
+(epstopdf)             Command: <epstopdf --outfile=./Figures/FastCarryLogic3-e
+ps-converted-to.pdf ./Figures/FastCarryLogic3.eps>
+(epstopdf)             \includegraphics on input line 154.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Figures/Fitting-eps-converted-to.pdf, id=1, 609.27625pt x 417.56pt>
-File: ./Figures/Fitting-eps-converted-to.pdf Graphic file (type pdf)
+<./Figures/FastCarryLogic3-eps-converted-to.pdf, id=1, 360.34625pt x 428.60126p
+t>
+File: ./Figures/FastCarryLogic3-eps-converted-to.pdf Graphic file (type pdf)
+ <use ./Figures/FastCarryLogic3-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/FastCarryLogic3-eps-converted-to.pdf used on
+ input line 154.
+(pdftex.def)             Requested size: 216.81pt x 257.87558pt.
 
-<use ./Figures/Fitting-eps-converted-to.pdf>
-Package pdftex.def Info: ./Figures/Fitting-eps-converted-to.pdf used on input l
-ine 208.
-(pdftex.def)             Requested size: 238.49121pt x 163.44664pt.
- [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
+
+LaTeX Warning: Reference `Section_Experiments' on page 1 undefined on input lin
+e 166.
+
+[1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
-]
+ <F:/Git/Latex/TCAD2013/Figures/FastCarryLogic3-eps-converted-to.pdf>]
+
+LaTeX Warning: Citation `DigitalICDesign' on page 2 undefined on input line 208
+.
+
+[2]
+Package epstopdf Info: Source file: <./Figures/CCM_DataFlow3.eps>
+(epstopdf)                    date: 2013-03-16 03:25:47
+(epstopdf)                    size: 224933 bytes
+(epstopdf)             Output file: <./Figures/CCM_DataFlow3-eps-converted-to.p
+df>
+(epstopdf)                    date: 2013-04-04 11:51:28
+(epstopdf)                    size: 67465 bytes
+(epstopdf)             Command: <epstopdf --outfile=./Figures/CCM_DataFlow3-eps
+-converted-to.pdf ./Figures/CCM_DataFlow3.eps>
+(epstopdf)             \includegraphics on input line 350.
+Package epstopdf Info: Output file is already uptodate.
+
+<./Figures/CCM_DataFlow3-eps-converted-to.pdf, id=35, 405.515pt x 163.61125pt>
+File: ./Figures/CCM_DataFlow3-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./Figures/CCM_DataFlow3-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/CCM_DataFlow3-eps-converted-to.pdf used on i
+nput line 350.
+(pdftex.def)             Requested size: 238.49121pt x 96.22522pt.
+ [3 <F:/Git/Latex/TCAD2013/Figures/CCM_DataFlow3-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./Figures/Model.eps>
 (epstopdf)                    date: 2013-04-01 19:20:11
 (epstopdf)                    size: 17921 bytes
@@ -370,15 +407,15 @@ Package epstopdf Info: Source file: <./Figures/Model.eps>
 (epstopdf)                    size: 7820 bytes
 (epstopdf)             Command: <epstopdf --outfile=./Figures/Model-eps-convert
 ed-to.pdf ./Figures/Model.eps>
-(epstopdf)             \includegraphics on input line 216.
+(epstopdf)             \includegraphics on input line 545.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Figures/Model-eps-converted-to.pdf, id=20, 421.575pt x 286.06876pt>
+<./Figures/Model-eps-converted-to.pdf, id=43, 421.575pt x 286.06876pt>
 File: ./Figures/Model-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Figures/Model-eps-converted-to.pdf>
 Package pdftex.def Info: ./Figures/Model-eps-converted-to.pdf used on input lin
-e 216.
+e 545.
 (pdftex.def)             Requested size: 216.81pt x 147.12407pt.
 Package epstopdf Info: Source file: <./Figures/CSA3stage_Timing.eps>
 (epstopdf)                    date: 2013-04-01 19:20:11
@@ -389,14 +426,14 @@ o.pdf>
 (epstopdf)                    size: 6999 bytes
 (epstopdf)             Command: <epstopdf --outfile=./Figures/CSA3stage_Timing-
 eps-converted-to.pdf ./Figures/CSA3stage_Timing.eps>
-(epstopdf)             \includegraphics on input line 231.
+(epstopdf)             \includegraphics on input line 556.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Figures/CSA3stage_Timing-eps-converted-to.pdf, id=21, 421.575pt x 317.185pt>
+<./Figures/CSA3stage_Timing-eps-converted-to.pdf, id=44, 421.575pt x 317.185pt>
 File: ./Figures/CSA3stage_Timing-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Figures/CSA3stage_Timing-eps-converted-to.pdf>
 Package pdftex.def Info: ./Figures/CSA3stage_Timing-eps-converted-to.pdf used o
-n input line 231.
+n input line 556.
 (pdftex.def)             Requested size: 238.49121pt x 179.43732pt.
 Package epstopdf Info: Source file: <./Figures/CSA3stage_Area.eps>
 (epstopdf)                    date: 2013-04-01 19:20:11
@@ -407,100 +444,17 @@ pdf>
 (epstopdf)                    size: 6947 bytes
 (epstopdf)             Command: <epstopdf --outfile=./Figures/CSA3stage_Area-ep
 s-converted-to.pdf ./Figures/CSA3stage_Area.eps>
-(epstopdf)             \includegraphics on input line 240.
+(epstopdf)             \includegraphics on input line 565.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Figures/CSA3stage_Area-eps-converted-to.pdf, id=22, 421.575pt x 317.185pt>
+<./Figures/CSA3stage_Area-eps-converted-to.pdf, id=45, 421.575pt x 317.185pt>
 File: ./Figures/CSA3stage_Area-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Figures/CSA3stage_Area-eps-converted-to.pdf>
 Package pdftex.def Info: ./Figures/CSA3stage_Area-eps-converted-to.pdf used on 
-input line 240.
+input line 565.
 (pdftex.def)             Requested size: 238.49121pt x 179.43732pt.
- [2 <F:/Git/Latex/TCAD2013/Figures/Fitting-eps-converted-to.pdf> <F:/Git/Latex/
-TCAD2013/Figures/Model-eps-converted-to.pdf> <F:/Git/Latex/TCAD2013/Figures/CSA
-3stage_Timing-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <./Figures/Error_LUT45.eps>
-(epstopdf)                    date: 2013-04-01 21:40:18
-(epstopdf)                    size: 24005 bytes
-(epstopdf)             Output file: <./Figures/Error_LUT45-eps-converted-to.pdf
->
-(epstopdf)                    date: 2013-04-01 22:06:07
-(epstopdf)                    size: 8320 bytes
-(epstopdf)             Command: <epstopdf --outfile=./Figures/Error_LUT45-eps-c
-onverted-to.pdf ./Figures/Error_LUT45.eps>
-(epstopdf)             \includegraphics on input line 258.
-Package epstopdf Info: Output file is already uptodate.
-
-<./Figures/Error_LUT45-eps-converted-to.pdf, id=40, 418.56375pt x 314.17375pt>
-File: ./Figures/Error_LUT45-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ./Figures/Error_LUT45-eps-converted-to.pdf>
-Package pdftex.def Info: ./Figures/Error_LUT45-eps-converted-to.pdf used on inp
-ut line 258.
-(pdftex.def)             Requested size: 238.49121pt x 179.00899pt.
-Package epstopdf Info: Source file: <./Figures/Error_LUT35.eps>
-(epstopdf)                    date: 2013-04-01 19:20:11
-(epstopdf)                    size: 39186 bytes
-(epstopdf)             Output file: <./Figures/Error_LUT35-eps-converted-to.pdf
->
-(epstopdf)                    date: 2013-04-01 22:06:08
-(epstopdf)                    size: 8608 bytes
-(epstopdf)             Command: <epstopdf --outfile=./Figures/Error_LUT35-eps-c
-onverted-to.pdf ./Figures/Error_LUT35.eps>
-(epstopdf)             \includegraphics on input line 264.
-Package epstopdf Info: Output file is already uptodate.
-
-<./Figures/Error_LUT35-eps-converted-to.pdf, id=41, 421.575pt x 317.185pt>
-File: ./Figures/Error_LUT35-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ./Figures/Error_LUT35-eps-converted-to.pdf>
-Package pdftex.def Info: ./Figures/Error_LUT35-eps-converted-to.pdf used on inp
-ut line 264.
-(pdftex.def)             Requested size: 238.49121pt x 179.43732pt.
-Package epstopdf Info: Source file: <./Figures/Error_LUT25.eps>
-(epstopdf)                    date: 2013-04-01 19:20:11
-(epstopdf)                    size: 28432 bytes
-(epstopdf)             Output file: <./Figures/Error_LUT25-eps-converted-to.pdf
->
-(epstopdf)                    date: 2013-04-01 22:06:08
-(epstopdf)                    size: 8397 bytes
-(epstopdf)             Command: <epstopdf --outfile=./Figures/Error_LUT25-eps-c
-onverted-to.pdf ./Figures/Error_LUT25.eps>
-(epstopdf)             \includegraphics on input line 270.
-Package epstopdf Info: Output file is already uptodate.
-
-<./Figures/Error_LUT25-eps-converted-to.pdf, id=42, 421.575pt x 317.185pt>
-File: ./Figures/Error_LUT25-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ./Figures/Error_LUT25-eps-converted-to.pdf>
-Package pdftex.def Info: ./Figures/Error_LUT25-eps-converted-to.pdf used on inp
-ut line 270.
-(pdftex.def)             Requested size: 238.49121pt x 179.43732pt.
-Package epstopdf Info: Source file: <./Figures/Error_LUT15.eps>
-(epstopdf)                    date: 2013-04-01 21:40:18
-(epstopdf)                    size: 20558 bytes
-(epstopdf)             Output file: <./Figures/Error_LUT15-eps-converted-to.pdf
->
-(epstopdf)                    date: 2013-04-01 22:06:08
-(epstopdf)                    size: 7939 bytes
-(epstopdf)             Command: <epstopdf --outfile=./Figures/Error_LUT15-eps-c
-onverted-to.pdf ./Figures/Error_LUT15.eps>
-(epstopdf)             \includegraphics on input line 276.
-Package epstopdf Info: Output file is already uptodate.
-
-<./Figures/Error_LUT15-eps-converted-to.pdf, id=43, 418.56375pt x 314.17375pt>
-File: ./Figures/Error_LUT15-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ./Figures/Error_LUT15-eps-converted-to.pdf>
-Package pdftex.def Info: ./Figures/Error_LUT15-eps-converted-to.pdf used on inp
-ut line 276.
-(pdftex.def)             Requested size: 238.49121pt x 179.00899pt.
- [3 <F:/Git/Latex/TCAD2013/Figures/CSA3stage_Area-eps-converted-to.pdf> <F:/Git
-/Latex/TCAD2013/Figures/Error_LUT45-eps-converted-to.pdf> <F:/Git/Latex/TCAD201
-3/Figures/Error_LUT35-eps-converted-to.pdf> <F:/Git/Latex/TCAD2013/Figures/Erro
-r_LUT25-eps-converted-to.pdf> <F:/Git/Latex/TCAD2013/Figures/Error_LUT15-eps-co
-nverted-to.pdf>]
+ [4 <F:/Git/Latex/TCAD2013/Figures/Model-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./Figures/Tradeoff.eps>
 (epstopdf)                    date: 2013-04-01 21:40:18
 (epstopdf)                    size: 107239 bytes
@@ -509,51 +463,58 @@ Package epstopdf Info: Source file: <./Figures/Tradeoff.eps>
 (epstopdf)                    size: 22811 bytes
 (epstopdf)             Command: <epstopdf --outfile=./Figures/Tradeoff-eps-conv
 erted-to.pdf ./Figures/Tradeoff.eps>
-(epstopdf)             \includegraphics on input line 319.
+(epstopdf)             \includegraphics on input line 613.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Figures/Tradeoff-eps-converted-to.pdf, id=66, 418.56375pt x 314.17375pt>
+<./Figures/Tradeoff-eps-converted-to.pdf, id=53, 418.56375pt x 314.17375pt>
 File: ./Figures/Tradeoff-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Figures/Tradeoff-eps-converted-to.pdf>
 Package pdftex.def Info: ./Figures/Tradeoff-eps-converted-to.pdf used on input 
-line 319.
+line 613.
 (pdftex.def)             Requested size: 252.94499pt x 189.85757pt.
 
-Overfull \hbox (0.94499pt too wide) in paragraph at lines 319--320
+Overfull \hbox (0.94499pt too wide) in paragraph at lines 613--614
  [][] 
  []
 
-[4 <F:/Git/Latex/TCAD2013/Figures/Tradeoff-eps-converted-to.pdf>]
-(F:\Git\Latex\TCAD2013\overclocking_tcad.aux) ) 
+[5 <F:/Git/Latex/TCAD2013/Figures/CSA3stage_Timing-eps-converted-to.pdf> <F:/Gi
+t/Latex/TCAD2013/Figures/CSA3stage_Area-eps-converted-to.pdf>] [6
+
+ <F:/Git/Latex/TCAD2013/Figures/Tradeoff-eps-converted-to.pdf>]
+(F:\Git\Latex\TCAD2013\overclocking_tcad.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 3398 strings out of 494045
- 50989 string characters out of 3145971
- 110513 words of memory out of 3000000
- 6619 multiletter control sequences out of 15000+200000
- 47170 words of font info for 92 fonts, out of 3000000 for 9000
+ 3416 strings out of 494045
+ 50828 string characters out of 3145971
+ 114779 words of memory out of 3000000
+ 6639 multiletter control sequences out of 15000+200000
+ 48277 words of font info for 93 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 42i,17n,28p,1151b,247s stack positions out of 5000i,500n,10000p,200000b,50000s
-{E:/Program Files (x86)/MiKTeX 2
-.9/fonts/enc/dvips/fontname/8r.enc}<E:/Program Files (x86)/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmex10.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmmi10.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmmi5.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmmi7.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmmi8.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmr10.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmr7.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmr8.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
-sy10.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy
-7.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.p
-fb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam1
-0.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><E:/P
-rogram Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><E:/Program Fil
-es (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><E:/Program Files (x86)/Mi
-KTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on overclocking_tcad.pdf (4 pages, 234718 bytes).
+ 42i,17n,28p,1184b,263s stack positions out of 5000i,500n,10000p,200000b,50000s
+{E:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<E:/Progra
+m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><E:/Program 
+Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><E:/Program Fi
+les (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><E:/Program Files
+ (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><E:/Program Files (x
+86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><E:/Program Files (x86)
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><E:/Program Files (x86)/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><E:/Program Files (x86)/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><E:/Program Files (x86)/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmsy10.pfb><E:/Program Files (x86)/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmsy5.pfb><E:/Program Files (x86)/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmsy7.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmsy8.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type
+1/public/amsfonts/symbols/msam10.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/t
+ype1/urw/times/utmb8a.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/ti
+mes/utmbi8a.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a
+.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on overclocking_tcad.pdf (6 pages, 335483 bytes).
 PDF statistics:
  124 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

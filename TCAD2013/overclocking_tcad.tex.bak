@@ -53,7 +53,7 @@
 \author{Kan~Shi,
         David~Boland,~\IEEEmembership{Member,~IEEE,}
         and~George~A.~Constantinides,~\IEEEmembership{Senior~Member,~IEEE}% <-this % stops a space
-	\thanks{K. Shi, D. Boland and G. A. Constantinides are with the Department of Electrical and Electronic Engineering, Imperial College London, London, SW7 2BT, U.K. (email: {}@imperial.ac.uk)}%
+	\thanks{K. Shi, D. Boland and G. A. Constantinides are with the Department of Electrical and Electronic Engineering, Imperial College London, London, SW7 2BT, U.K. (email: \{k.shi11, david.boland03, g.constantinides\}@imperial.ac.uk)}%
 	%\thanks{M. Shell is with the Department of Electrical and Computer Engineering, Georgia Institute of Technology, Atlanta,GA, 30332 USA e-mail: (see http://www.michaelshell.org/contact.html).}% <-this % stops a space
 %\thanks{J. Doe and J. Doe are with Anonymous University.}% <-this % stops a space
 \thanks{Manuscript received April 19, 2005; revised December 27, 2012.}}
@@ -150,34 +150,37 @@ Since the delay of RCA is determined by the length of carry chain, there are sev
 \subsection{Timing Models for $n$-bit Carry Select Adder}
 We initially describe the modelling method for the CSA timing, with the aim of forming the relationship between the operating frequency and the corresponding maximum word-length of CSA. This information can be employed to determine the truncation error based on the models presented in Section.xxx.
 
-In a CSA with $s$ stages, let the stage delay be denoted by $d_{0}\dots d_{s-1}$, where $d_{0}$ and $d_{s-1}$ represent the delay of the most significant stage and the least significant stage, respectively. Unlike other stages, the least significant stage is built by one RCA only, since it is directly driven by the carry input. In our analysis, we follow the previous assumption that delay is due to carry propagation as well as, in this case, multiplexing the carry output. Therefore the delay of the $i^{th}$ stage can be obtained through~(\ref{CSA_SingleStageDelay}), where $\mu_{c}$ denotes the delay of $1$-bit carry propagation and $\mu_{mux}$ denotes the delay of multiplexing.
+In a CSA with $s$ stages~($s\geqslant 2$), let the stage delay be denoted by $d_{0}\dots d_{s-1}$, where $d_{0}$ and $d_{s-1}$ represent the delay of the most significant stage and the least significant stage, respectively. Unlike other stages, the least significant stage is built by one RCA only, since it is directly driven by the carry input. In our analysis, we follow the previous assumption that delay is due to carry propagation as well as, in this case, multiplexing the carry output. Therefore the delay of the $i^{th}$ stage can be obtained through~(\ref{CSA_SingleStageDelay}), where $\mu_{c}$ denotes the delay of $1$-bit carry propagation and $\mu_{mux}$ denotes the delay of multiplexing.
+%Note that the delay of the ${(s-1)}^{th}$ and ${(s-2)}^{th}$ stages are identical, because the least significant stage of CSA is built by RCA.
 \begin{eqnarray}\label{CSA_SingleStageDelay}
   d_i=\left\{
     \begin{matrix}
-      n_i\cdot \mu_{c}+(i+1)\cdot\mu_{mux}, &\text
+      n_i\cdot \mu_{c}+(i+1)\cdot\mu_{mux}, &\textrm{if $i\in\left[0,s-2\right]$}\\
+      d_{i-1}, & \textrm{if $i=s-1$}
     \end{matrix}
-    
+  \right.
 \end{eqnarray}
 
 Under the timing-driven design environment, the delay of each stage of CSA is set to be approximately uniform for the fastest operation. In this case we obtain~(\ref{CSA_DelayEqual}).
 \begin{eqnarray}\label{CSA_DelayEqual}
-  d_0=d_1=\cdots=d_{n-1}
+  d_0=d_1=\cdots=d_{s-1}
 \end{eqnarray}
 
-Substituting (\ref{CSA_SingleStageDelay}) into (\ref{CSA_DelayEqual}) yields (\ref{CSA_DelayRep}), which denotes the CSA word-length of stage $i$. Note that the word-length of stage $c-1$ and $c-2$ are identical, since the least significant stage is composed of RCA.
+Substituting (\ref{CSA_SingleStageDelay}) into (\ref{CSA_DelayEqual}) yields (\ref{CSA_DelayRep}), which denotes the CSA word-length of stage $i$.
+%Note that the word-length of stage $s-1$ and $s-2$ are identical, since the least significant stage is composed of RCA.
 \begin{eqnarray}\label{CSA_DelayRep}
- % n_i=n_0-xxx\cdot\frac{\mu_{mux}}{\mu_{c}}
  n_i=\left\{
 	\begin{matrix}
-	  n_0-i\cdot\frac{\mu_{mux}}{\mu_c}, & \textrm{if $i\in(2,c-2]$ and $c>2$}\\
-	  n_0-(c-2)\cdot\frac{\mu_{mux}}{\mu_c}, & \textrm{if $i=c-1$ and $c\geqslant2$}
+	  n_0-i\cdot\frac{\mu_{mux}}{\mu_c}, & \textrm{if $i\in\left[0,s-2\right]$}\\
+	  n_{i-1}, &\textrm{if $i=s-1$}
+      %n_0-(c-2)\cdot\frac{\mu_{mux}}{\mu_c}, & \textrm{if $i=c-1$ and $c\geqslant2$}
 	\end{matrix}
     \right.
 \end{eqnarray}
 
 The word-length of CSA is then given by (\ref{CSA_WL}).
 \begin{eqnarray}\label{CSA_WL}
-  n_{CSA}=\sum_{i=0}^{n-1}n_{i}=cn_{0}-\frac{\mu_{mux}}{\mu_{c}}\cdot\frac{(c+1)(c-2)}{2}
+  n_{CSA}=\sum_{i=0}^{s-1}n_{i}=s\cdot n_{0}-\frac{\mu_{mux}}{\mu_{c}}\cdot\frac{(s+1)(s-2)}{2}
 \end{eqnarray}
 
 In the conventional situation, the word-length of both RCA and CSA should be properly selected in order to meet timing. In this case,~(\ref{CSA_RCA}) can be obtained, where $n_{RCA}$ is determined by current timing information through (xxx).
@@ -188,12 +191,12 @@ In the conventional situation, the word-length of both RCA and CSA should be pro
 Based on~(\ref{CSA_WL}) and~(\ref{CSA_RCA}), we may obtain the representation of the word-length of CSA in terms of a given timing constraint, as presented in~(\ref{CSA_Timing}).
 % we form the relationship between the word-length of CSA and RCA under a given timing constraint, as presented in~(\ref{CSA_Timing}).
 \begin{eqnarray}\label{CSA_Timing}
-  n_{CSA}=c\cdot n_{RCA}-\frac{\mu_{mux}}{\mu_{c}}\cdot\frac{(c+2)(c-1)}{2}
+  n_{CSA}=s\cdot n_{RCA}-\frac{\mu_{mux}}{\mu_{c}}\cdot\frac{(s+2)(s-1)}{2}
 \end{eqnarray}
 
-It can be seen that $c=1$ leads to $n_{CSA}=n_{RCA}$. This is because RCA forms the least significant stage of CSA. In addition, combine (\ref{CSA_DelayRep}) and (\ref{CSA_RCA}) to ensure $n_{c-1}>0$, we obtain the upper bond of the stage number by~(\ref{CSA_StageNumber}).
+It can be seen that $s=1$ leads to $n_{CSA}=n_{RCA}$. This is because RCA forms the least significant stage of CSA. In addition, combine (\ref{CSA_DelayRep}) and (\ref{CSA_RCA}) to ensure $n_{s-1}>0$, we obtain the upper bond of the stage number by~(\ref{CSA_StageNumber}).
 \begin{eqnarray}\label{CSA_StageNumber}
-  c<n_{RCA}\cdot\frac{\mu_c}{\mu_{mux}}+1
+  s<n_{RCA}\cdot\frac{\mu_c}{\mu_{mux}}+1
 \end{eqnarray}
 %the word-length of each CSA stage is allocated to ensure that
 
@@ -249,60 +252,29 @@ To answer this question, we explore the trade-offs between accuracy, performance
   \item For a given frequency and area constraint, if the error expectation and area are identical for multiple designs, they are all treated as the optimum design.
 \end{itemize}
 %
-% the number of available LUTs is set to 45, 35, 25 and 15 respectively, while timing requirements are met by reducing the input word-length of each architecture. In addition, we also investigate the scenario where RCA is implemented with the maximum possible word-length under the given area constraint, while meeting timing by overclocking. The corresponding error expectations of these scenarios are depicted in Fig.xxx. The optimal design method which achieves the minimum error expectation is labelled.
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=3.3in]{./Figures/Error_LUT45.eps}
-	\caption{LUT=45}
-\end{figure}
-
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=3.3in]{./Figures/Error_LUT35.eps}
-	\caption{LUT=35}
-\end{figure}
-
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=3.3in]{./Figures/Error_LUT25.eps}
-	\caption{LUT=25}
-\end{figure}
-
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=3.3in]{./Figures/Error_LUT15.eps}
-	\caption{LUT=15}
-\end{figure}
-
-%\begin{figure*}[htbp]
-%  \centering
-%  \subfigure[LUTs=45]{
-%  \begin{minipage}[c]{0.45\textwidth}
-%    \centering
-%    \includegraphics[width=2in]{./Figures/Error_LUT45.eps}
-%  \end{minipage}%
-%  }%
-%  \subfigure[LUT=35]{
-%  \begin{minipage}[c]{0.45\textwidth}
-%    \centering
-%    \includegraphics[width=2in]{./Figures/Error_LUT35.eps}
-%  \end{minipage}
-%  }
-%  \subfigure[LUT=25]{
-%  \begin{minipage}[c]{0.45\textwidth}
-%    \centering
-%    \includegraphics[width=2in]{./Figures/Error_LUT25.eps}
-%  \end{minipage}
-%  }%
-%  \subfigure[LUT=15]{
-%  \begin{minipage}[c]{0.45\textwidth}
-%    \centering
-%    \includegraphics[width=2in]{./Figures/Error_LUT15.eps}
-%  \end{minipage}
-%  }
-%  \caption{Accuracy-performance trade-offs under fixed area constraints.}
-%  \label{Fig Tradeoffs}
-%\end{figure*}
+%\begin{figure}[htbp]
+%	\centering
+%	\includegraphics[width=3.3in]{./Figures/Error_LUT45.eps}
+%	\caption{LUT=45}
+%\end{figure}
+%
+%\begin{figure}[htbp]
+%	\centering
+%	\includegraphics[width=3.3in]{./Figures/Error_LUT35.eps}
+%	\caption{LUT=35}
+%\end{figure}
+%
+%\begin{figure}[htbp]
+%	\centering
+%	\includegraphics[width=3.3in]{./Figures/Error_LUT25.eps}
+%	\caption{LUT=25}
+%\end{figure}
+%
+%\begin{figure}[htbp]
+%	\centering
+%	\includegraphics[width=3.3in]{./Figures/Error_LUT15.eps}
+%	\caption{LUT=15}
+%\end{figure}
 
 If the available area is large enough, as shown in Fig.xxx, CSA with higher stage numbers can be implemented with full precision and it is the optimal design choice unless very high frequencies are applied. This is because at lower frequencies, the long carry chain is divided into multiple overlapped sections, and the higher stage number the shorter the carry chain length of each stage. When the frequency increases, however, the multiplexer delay becomes comparable to the carry chain delay, and this will limit the maximum word-length of CSA. It can be seen that the overclocked RCA achieves best accuracy at higher frequencies.
 
@@ -310,7 +282,7 @@ For a tighter area budget, only part of the complex structures can be implemente
 
 For an even stringent area constraint, the word-length of RCA is also limited. This results in truncation error initially for all design scenarios, as shown in Fig.xxx. Meanwhile, CSA with high stage numbers could not be implemented at all. In this situation the overclocked RCA achieves best accuracy across the whole frequency domain.
 
-In general, the error expectations at the output of all four design method for a set of timing and area constraints are demonstrated in Fig.~\ref{Tradeoff}, from which several observations can be made. 
+In general, the error expectations at the output of all four design method for a set of timing and area constraints are demonstrated in Fig.~\ref{Tradeoff}, from which several observations can be made.
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=3.5in]{./Figures/Tradeoff.eps}
@@ -469,12 +441,12 @@ H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
 %\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
 % or if you just want to reserve a space for a photo:
 
-\begin{IEEEbiography}{Michael Shell}
+\begin{IEEEbiography}{Author}
 Biography text here.
 \end{IEEEbiography}
 
 % if you will not have a photo at all:
-\begin{IEEEbiographynophoto}{John Doe}
+\begin{IEEEbiographynophoto}{Author}
 Biography text here.
 \end{IEEEbiographynophoto}
 
@@ -482,7 +454,7 @@ Biography text here.
 % biographies
 %\newpage
 
-\begin{IEEEbiographynophoto}{Jane Doe}
+\begin{IEEEbiographynophoto}{Author}
 Biography text here.
 \end{IEEEbiographynophoto}
 
@@ -498,9 +470,6 @@ Biography text here.
 % is flush with the other column.
 %\enlargethispage{-5in}
 
-
-
-% that's all folks
 \end{document}
 
 

@@ -1,38 +1,82 @@
 \relax 
+\citation{AlteraCyclone}
+\citation{Virtex6}
 \@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {I-A}}Subsection Heading Here}{1}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {I-A}1}Subsubsection Heading Here}{1}}
-\@writefile{toc}{\contentsline {section}{\numberline {II}Carry Select Adder}{1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-A}}Introduction}{1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-B}}Timing Models for $n$-bit Carry Select Adder}{1}}
-\newlabel{CSA_SingleStageDelay}{{1}{1}}
-\newlabel{CSA_DelayEqual}{{2}{1}}
-\newlabel{CSA_DelayRep}{{3}{1}}
-\newlabel{CSA_WL}{{4}{1}}
-\newlabel{CSA_RCA}{{5}{1}}
-\newlabel{CSA_Timing}{{6}{1}}
-\newlabel{CSA_StageNumber}{{7}{1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-C}}Model Verification}{2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Fitted curve of (1\hbox {}) for the most significant stage ($i=0$), based on the given input word-length and the corresponding delay value obtained through the Xilinx Timing Analyzer.}}{2}}
-\newlabel{DelayFitting}{{1}{2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Comparison of the maximum word-length for a given operating frequency between the modelled value and the experimental results from FPGA simulations.}}{2}}
-\newlabel{CSA Model Verification}{{2}{2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-D}}Area Overhead}{2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Maximum word-length for RCA and CSA across a variety of frequencies.}}{2}}
-\newlabel{CSA3stage Timing}{{3}{2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-E}}Exploring Trade-offs Between Accuracy, Performance and Area}{2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Area overhead for RCA and CSA.}}{3}}
-\newlabel{CSA3stage Area}{{4}{3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces LUT=45}}{3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces LUT=35}}{3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces LUT=25}}{3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces LUT=15}}{3}}
+\@writefile{toc}{\contentsline {section}{\numberline {II}Ripple Carry Adder}{1}}
+\newlabel{section_RCA}{{II}{1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-A}}Adder Structures in FPGAs}{1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces An $n$-bit ripple carry adder in Virtex-6 FPGA.}}{1}}
+\newlabel{FPGA adder}{{1}{1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-B}}Probabilistic Model of Truncation Error}{1}}
+\citation{DigitalICDesign}
+\newlabel{ET at single input}{{1}{2}}
+\newlabel{TruncationError}{{2}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-C}}Probabilistic Model of Overclocking Error}{2}}
+\newlabel{subsub:Generation of Overclocking Error}{{\unhbox \voidb@x \hbox {II-C}1}{2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {II-C}1}Generation of Overclocking Error}{2}}
+\newlabel{Max.length of carry chain}{{3}{2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {II-C}2}Absolute Value of Overclocking Error}{2}}
+\newlabel{t_RCA}{{4}{2}}
+\newlabel{m_RCA}{{5}{2}}
+\newlabel{Output Error}{{6}{2}}
+\newlabel{etm}{{7}{2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {II-C}3}Probability of Overclocking Error}{2}}
+\newlabel{Ptm_RCA}{{8}{2}}
+\newlabel{Ptm2}{{9}{2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {II-C}4}Expectation of Overclocking Error}{2}}
+\newlabel{Eo_exp}{{10}{2}}
+\newlabel{Eo}{{11}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-D}}Comparison between Two Scenarios}{2}}
+\newlabel{Eo_trad_RCA}{{12}{2}}
+\newlabel{Eo_new_RCA}{{13}{2}}
+\newlabel{Comparison RCA}{{14}{2}}
+\@writefile{toc}{\contentsline {section}{\numberline {III}Constant Coefficient Multiplier}{3}}
+\newlabel{section_CCM}{{III}{3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Different types of carry chain in constant coefficient multiplier. The notion $s$ denotes the shifted bits and $BP$ denotes the binary point.}}{3}}
+\newlabel{CCM_fig}{{2}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-A}}Probabilistic Model of Truncation Error}{3}}
+\newlabel{Et_CCM}{{15}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-B}}Probabilistic Model of Overclocking Error}{3}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-B}1}Absolute Value of Overclocking Error}{3}}
+\newlabel{etm_CCM}{{16}{3}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-B}2}Probability of Overclocking Error}{3}}
+\newlabel{Ptm_CCM1}{{17}{3}}
+\newlabel{Ptm_CCM2}{{18}{3}}
+\newlabel{Ptm_CCM}{{19}{3}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-B}3}Expectation of Overclocking Error}{3}}
+\newlabel{t_CCM}{{20}{3}}
+\newlabel{m_CCM}{{21}{3}}
+\newlabel{Eo_CCM}{{22}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-C}}CCM with Multiple RCAs and Shifters}{3}}
+\newlabel{CCM_Multi}{{\unhbox \voidb@x \hbox {III-C}}{3}}
+\newlabel{ShiftNo}{{23}{3}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Carry Select Adder}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}}Introduction}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-B}}Timing Models for $n$-bit Carry Select Adder}{4}}
+\newlabel{CSA_SingleStageDelay}{{24}{4}}
+\newlabel{CSA_DelayEqual}{{25}{4}}
+\newlabel{CSA_DelayRep}{{26}{4}}
+\newlabel{CSA_WL}{{27}{4}}
+\newlabel{CSA_RCA}{{28}{4}}
+\newlabel{CSA_Timing}{{29}{4}}
+\newlabel{CSA_StageNumber}{{30}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}}Model Verification}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Comparison of the maximum word-length for a given operating frequency between the modelled value and the experimental results from FPGA simulations.}}{4}}
+\newlabel{CSA Model Verification}{{3}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-D}}Area Overhead}{4}}
 \bibcite{IEEEhowto:kopka}{1}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Trade-offs between accuracy, performance and area for 4 design methodologies.}}{4}}
-\newlabel{Tradeoff}{{9}{4}}
-\@writefile{toc}{\contentsline {section}{\numberline {III}Conclusion}{4}}
-\@writefile{toc}{\contentsline {section}{References}{4}}
-\@writefile{toc}{\contentsline {section}{Biographies}{4}}
-\@writefile{toc}{\contentsline {subsection}{Author}{4}}
-\@writefile{toc}{\contentsline {subsection}{Author}{4}}
-\@writefile{toc}{\contentsline {subsection}{Author}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Maximum word-length for RCA and CSA across a variety of frequencies.}}{5}}
+\newlabel{CSA3stage Timing}{{4}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Area overhead for RCA and CSA.}}{5}}
+\newlabel{CSA3stage Area}{{5}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-E}}Exploring Trade-offs Between Accuracy, Performance and Area}{5}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Conclusion}{5}}
+\@writefile{toc}{\contentsline {section}{References}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Trade-offs between accuracy, performance and area for 4 design methodologies.}}{6}}
+\newlabel{Tradeoff}{{6}{6}}
+\@writefile{toc}{\contentsline {section}{Biographies}{6}}
+\@writefile{toc}{\contentsline {subsection}{Author}{6}}
+\@writefile{toc}{\contentsline {subsection}{Author}{6}}
+\@writefile{toc}{\contentsline {subsection}{Author}{6}}
