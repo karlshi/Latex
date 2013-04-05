@@ -472,23 +472,29 @@ For those operations such as $B=37A=(A<<5)+(A<<2)+(A<<1)$, the CCM can be built 
 \subsection{Introduction}
 Since the delay of RCA is determined by the length of carry chain, there are several alternative adder architectures proposed to shorten the carry chain. For instance, the carry select adder (CSA) is designed to overlap carry propagation in sections such that the operating speed can be boosted. In a CSA, the carry chain is divided into multiple stages. Each stage contains two RCAs and two multiplexers. For a given input, computations are performed twice simultaneously, with the carry input as zero and one respectively. The results are then selected according to the actual carry input. Although this structure brings timing benefits, it costs extra hardware resources than RCA as the carry chain is duplicated and multiplexers are expensive especially in the FPGA technology. In this section, silicon area is incorporated as the third metric besides accuracy and performance. We explore the trade-offs between these three factors for both adder structures. The objective is to demonstrate the best design choice for a given set of design constraints.
 
+%\begin{figure*}[t]
+%  \centering
+%  \includegraphics[width=\textwidth]{./Figures/CSAstructure.pdf}
+%  \caption{Structure of an $s$-stage CSA.}
+%\end{figure*}
+
 %In addition to RCA, there are several
 
-\subsection{Timing Models for $n$-bit Carry Select Adder}
-We initially describe the modelling method for the CSA timing, with the aim of forming the relationship between the operating frequency and the corresponding maximum word-length of CSA. This information can be employed to determine the truncation error based on the models presented in Section.xxx.
+\subsection{Timing Models for Carry Select Adder}
+We initially describe the modelling method for the CSA timing, with the aim of forming the relationship between the operating frequency and the corresponding maximum word-length of CSA. This information can then be employed to determine the truncation error based on the models presented in Section.xxx.
 
-In a CSA with $s$ stages~($s\geqslant 2$), let the stage delay be denoted by $d_{0}\dots d_{s-1}$, where $d_{0}$ and $d_{s-1}$ represent the delay of the most significant stage and the least significant stage, respectively. Unlike other stages, the least significant stage is built by one RCA only, since it is directly driven by the carry input. In our analysis, we follow the previous assumption that delay is due to carry propagation as well as, in this case, multiplexing the carry output. Therefore the delay of the $i^{th}$ stage can be obtained through~(\ref{CSA_SingleStageDelay}), where $\mu_{c}$ denotes the delay of $1$-bit carry propagation and $\mu_{mux}$ denotes the delay of multiplexing.
+In a CSA with $s$ stages~($s\geqslant 2$), let the stage delay be denoted by $d_{0}\dots d_{s-1}$, where $d_{0}$ and $d_{s-1}$ represent the delay of the most significant stage and the least significant stage, respectively. Unlike other stages, the least significant stage is built by one RCA only, since it is directly driven by the carry input. In our analysis, we follow the previous assumption that the critical path delay is due to carry propagation as well as, in this case, multiplexing the carry output. Therefore, the delay of the $i^{th}$ stage can be obtained through~(\ref{CSA_SingleStageDelay}), where $\mu_{c}$ denotes the delay of $1$-bit carry propagation and $\mu_{mux}$ denotes the delay of multiplexing.
 %Note that the delay of the ${(s-1)}^{th}$ and ${(s-2)}^{th}$ stages are identical, because the least significant stage of CSA is built by RCA.
 \begin{eqnarray}\label{CSA_SingleStageDelay}
   d_i=\left\{
     \begin{matrix}
       n_i\cdot \mu_{c}+(i+1)\cdot\mu_{mux}, &\textrm{if $i\in\left[0,s-2\right]$}\\
-      d_{i-1}, & \textrm{if $i=s-1$}
+      d_{s-2}, & \textrm{if $i=s-1$}
     \end{matrix}
   \right.
 \end{eqnarray}
 
-Under the timing-driven design environment, the delay of each stage of CSA is set to be approximately uniform for the fastest operation. In this case we obtain~(\ref{CSA_DelayEqual}).
+Under the timing-driven design environment, the delay of each stage of CSA is equalized in order to achieve the fastest operation. That is,~(\ref{CSA_DelayEqual}) can be obtained.
 \begin{eqnarray}\label{CSA_DelayEqual}
   d_0=d_1=\cdots=d_{s-1}
 \end{eqnarray}
@@ -551,22 +557,36 @@ Using this information, we verify our timing model with experimental results, wh
 
 \subsection{Area Overhead}
 Fig.~\ref{CSA3stage Timing} demonstrates the maximum word-lengths for RCA and CSA with 2 stages and 3 stages under a range of operating frequencies. We only investigate 3 stages as the maximum stages number predicted in (\ref{CSA_StageNumber}) is 3. It can be seen that in comparison to RCA, CSA achieves greater word-length when frequency is initially increased. This corresponds to smaller truncation errors. RCA only outperforms than CSA when very high frequency is applied. In addition, the word-length of 3-stage CSA is always greater than 2-stage CSA across the entire frequency domain, as expected.
+%\begin{figure}[htbp]
+%  \centering
+%  \includegraphics[width=3.3in]{./Figures/CSA3stage_Timing.eps}
+%  \caption{Maximum word-length for RCA and CSA across a variety of frequencies.}
+%  \label{CSA3stage Timing}
+%\end{figure}
+
 \begin{figure}[htbp]
-  \centering
-  \includegraphics[width=3.3in]{./Figures/CSA3stage_Timing.eps}
-  \caption{Maximum word-length for RCA and CSA across a variety of frequencies.}
-  \label{CSA3stage Timing}
+    \begin{minipage}[b]{.48\textwidth}
+        \centering
+        \subfigure[Maximum word-length.]{
+            \includegraphics[width=3.3in]{./Figures/CSA3stage_Timing.eps}
+            \label{CSA3stage Timing}
+        }
+        \subfigure[Hardware resource usage.]{
+            \includegraphics[width=3.3in]{./Figures/CSA3stage_Area.eps}
+            \label{CSA3stage Area}
+        }
+    \end{minipage}
+    \centering
+    \caption{Comparison between RCA and CSA across a variety of frequency values in terms of the maximum word-length of input signal and the area consumption.}
 \end{figure}
-%CSA achieves greater word-length than RCA when frequency is initially increased
 
 However, the accuracy benefits brought by CSA comes with the cost of large area overhead. Fig.~\ref{CSA3stage Area} depicts the resource usage (in terms of the number of Look-Up Tables (LUTs) in the FPGA) used for all three structures. It can be seen that for a given frequency, the 3-stage CSA consumes $2.4\times\sim3.7\times$ area than RCA, while the number of the 2-stage CSA is $1.7\times\sim3.1\times$. This finding poses a question of whether CSA with higher stage numbers still offer better accuracy than RCA under a limited area budget.
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=3.3in]{./Figures/CSA3stage_Area.eps}
-  \caption{Area overhead for RCA and CSA.}
-  \label{CSA3stage Area}
-\end{figure}
-%the 3-stage CSA costs
+%\begin{figure}[htbp]
+%  \centering
+%  \includegraphics[width=3.3in]{./Figures/CSA3stage_Area.eps}
+%  \caption{Area overhead for RCA and CSA.}
+%  \label{CSA3stage Area}
+%\end{figure}
 
 \subsection{Exploring Trade-offs Between Accuracy, Performance and Area}
 %Although advanced architectures such as CSA inherently offer better performance than the basic structure, this would generate a large area overhead. In the following experiments,
@@ -578,7 +598,7 @@ To answer this question, we explore the trade-offs between accuracy, performance
   \item If the error expectation and area are identical for multiple designs, they are all treated as the optimum design.
 \end{itemize}
 
-The optimum design method for a variety of frequency and area constraints is demonstrated in Fig.~\ref{Tradeoff}, from which several observations can be made. If the available area is large enough, CSA serves as the optimum design option because it inherently operates faster than RCA, and it can be implemented with full precision in this situation. The 2-stage CSA is better than the 3-stage CSA when frequency is initially increased, as it consumes less area although both of them achieve the same error expectation. For a tighter area budget, only part of the CSA can be implemented, whilst RCA still keeps full precision. In this case, area instead of timing becomes the dominate factor for small frequency values. This leads to precision loss for CSA initially. Therefore we see RCA with overclocking is the best design across almost the whole frequency domain. For an even stringent area constraint, the word-length of RCA is also limited. This results in truncation error initially for all design scenarios. Meanwhile, CSA with high stage numbers could not even be implemented at all. 
+The optimum design method for a variety of frequency and area constraints is demonstrated in Fig.~\ref{Tradeoff}, from which several observations can be made. If the available area is large enough, CSA serves as the optimum design option because it inherently operates faster than RCA, and it can be implemented with full precision in this situation. The 2-stage CSA is better than the 3-stage CSA when frequency is initially increased, as it consumes less area although both of them achieve the same error expectation. For a tighter area budget, only part of the CSA can be implemented, whilst RCA still keeps full precision. In this case, area instead of timing becomes the dominate factor for small frequency values. This leads to precision loss for CSA initially. Therefore we see RCA with overclocking is the best design across almost the whole frequency domain. For an even stringent area constraint, the word-length of RCA is also limited. This results in truncation error initially for all design scenarios. Meanwhile, CSA with high stage numbers could not even be implemented at all.
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=3.5in]{./Figures/Tradeoff.eps}
@@ -586,7 +606,7 @@ The optimum design method for a variety of frequency and area constraints is dem
   \label{Tradeoff}
 \end{figure}
 
-%We also notice that for small frequencies, RCA with either overclocking or truncation of word-length of the input signal is the best design choice for any area constraint, since 
+%We also notice that for small frequencies, RCA with either overclocking or truncation of word-length of the input signal is the best design choice for any area constraint, since
 
 %\begin{figure}[htbp]
 %	\centering
