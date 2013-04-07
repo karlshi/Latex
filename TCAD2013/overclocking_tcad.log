@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.12.22)  5 APR 2013 11:52
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.12.22)  7 APR 2013 11:34
 entering extended mode
 **F:/Git/Latex/TCAD2013/overclocking_tcad.tex
 (F:/Git/Latex/TCAD2013/overclocking_tcad.tex
@@ -370,13 +370,21 @@ Package pdftex.def Info: ./Figures/FastCarryLogic3-eps-converted-to.pdf used on
 LaTeX Warning: Reference `Section_Experiments' on page 1 undefined on input lin
 e 166.
 
+
+Package amsmath Warning: Cannot use `split' here;
+(amsmath)                trying to recover with `aligned' on input line 179.
+
 [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
  <F:/Git/Latex/TCAD2013/Figures/FastCarryLogic3-eps-converted-to.pdf>]
 
-LaTeX Warning: Citation `DigitalICDesign' on page 2 undefined on input line 208
+LaTeX Warning: Citation `DigitalICDesign' on page 2 undefined on input line 211
 .
+
+
+Package amsmath Warning: Cannot use `split' here;
+(amsmath)                trying to recover with `aligned' on input line 254.
 
 [2]
 Package epstopdf Info: Source file: <./Figures/CCM_DataFlow3.eps>
@@ -388,7 +396,7 @@ df>
 (epstopdf)                    size: 67465 bytes
 (epstopdf)             Command: <epstopdf --outfile=./Figures/CCM_DataFlow3-eps
 -converted-to.pdf ./Figures/CCM_DataFlow3.eps>
-(epstopdf)             \includegraphics on input line 350.
+(epstopdf)             \includegraphics on input line 356.
 Package epstopdf Info: Output file is already uptodate.
 
 <./Figures/CCM_DataFlow3-eps-converted-to.pdf, id=35, 405.515pt x 163.61125pt>
@@ -396,12 +404,12 @@ File: ./Figures/CCM_DataFlow3-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Figures/CCM_DataFlow3-eps-converted-to.pdf>
 Package pdftex.def Info: ./Figures/CCM_DataFlow3-eps-converted-to.pdf used on i
-nput line 350.
+nput line 356.
 (pdftex.def)             Requested size: 238.49121pt x 96.22522pt.
  [3 <F:/Git/Latex/TCAD2013/Figures/CCM_DataFlow3-eps-converted-to.pdf>]
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 519.
+(amsmath)                trying to recover with `aligned' on input line 525.
 
 Package epstopdf Info: Source file: <./Figures/Model.eps>
 (epstopdf)                    date: 2013-04-05 00:11:03
@@ -411,14 +419,14 @@ Package epstopdf Info: Source file: <./Figures/Model.eps>
 (epstopdf)                    size: 4704 bytes
 (epstopdf)             Command: <epstopdf --outfile=./Figures/Model-eps-convert
 ed-to.pdf ./Figures/Model.eps>
-(epstopdf)             \includegraphics on input line 547.
+(epstopdf)             \includegraphics on input line 553.
 Package epstopdf Info: Output file is already uptodate.
 <./Figures/Model-eps-converted-to.pdf, id=43, 421.575pt x 317.185pt>
 File: ./Figures/Model-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Figures/Model-eps-converted-to.pdf>
 Package pdftex.def Info: ./Figures/Model-eps-converted-to.pdf used on input lin
-e 547.
+e 553.
 (pdftex.def)             Requested size: 216.81pt x 163.12703pt.
  [4 <F:/Git/Latex/TCAD2013/Figures/Model-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./Figures/CSA3stage_Timing.eps>
@@ -430,14 +438,14 @@ o.pdf>
 (epstopdf)                    size: 6999 bytes
 (epstopdf)             Command: <epstopdf --outfile=./Figures/CSA3stage_Timing-
 eps-converted-to.pdf ./Figures/CSA3stage_Timing.eps>
-(epstopdf)             \includegraphics on input line 569.
+(epstopdf)             \includegraphics on input line 575.
 Package epstopdf Info: Output file is already uptodate.
 
 <./Figures/CSA3stage_Timing-eps-converted-to.pdf, id=51, 421.575pt x 317.185pt>
 File: ./Figures/CSA3stage_Timing-eps-converted-to.pdf Graphic file (type pdf)
 <use ./Figures/CSA3stage_Timing-eps-converted-to.pdf>
 Package pdftex.def Info: ./Figures/CSA3stage_Timing-eps-converted-to.pdf used o
-n input line 569.
+n input line 575.
 (pdftex.def)             Requested size: 238.49121pt x 179.43732pt.
 Package epstopdf Info: Source file: <./Figures/CSA3stage_Area.eps>
 (epstopdf)                    date: 2013-04-04 11:58:44
@@ -448,7 +456,7 @@ pdf>
 (epstopdf)                    size: 6947 bytes
 (epstopdf)             Command: <epstopdf --outfile=./Figures/CSA3stage_Area-ep
 s-converted-to.pdf ./Figures/CSA3stage_Area.eps>
-(epstopdf)             \includegraphics on input line 573.
+(epstopdf)             \includegraphics on input line 579.
 Package epstopdf Info: Output file is already uptodate.
 
 <./Figures/CSA3stage_Area-eps-converted-to.pdf, id=52, 421.575pt x 317.185pt>
@@ -456,7 +464,7 @@ File: ./Figures/CSA3stage_Area-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Figures/CSA3stage_Area-eps-converted-to.pdf>
 Package pdftex.def Info: ./Figures/CSA3stage_Area-eps-converted-to.pdf used on 
-input line 573.
+input line 579.
 (pdftex.def)             Requested size: 238.49121pt x 179.43732pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -469,7 +477,7 @@ Package epstopdf Info: Source file: <./Figures/Tradeoff.eps>
 (epstopdf)                    size: 22811 bytes
 (epstopdf)             Command: <epstopdf --outfile=./Figures/Tradeoff-eps-conv
 erted-to.pdf ./Figures/Tradeoff.eps>
-(epstopdf)             \includegraphics on input line 599.
+(epstopdf)             \includegraphics on input line 609.
 Package epstopdf Info: Output file is already uptodate.
 
 <./Figures/Tradeoff-eps-converted-to.pdf, id=53, 418.56375pt x 314.17375pt>
@@ -477,30 +485,58 @@ File: ./Figures/Tradeoff-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Figures/Tradeoff-eps-converted-to.pdf>
 Package pdftex.def Info: ./Figures/Tradeoff-eps-converted-to.pdf used on input 
-line 599.
+line 609.
 (pdftex.def)             Requested size: 252.94499pt x 189.85757pt.
 
-Overfull \hbox (0.94499pt too wide) in paragraph at lines 599--600
+Overfull \hbox (0.94499pt too wide) in paragraph at lines 609--610
  [][] 
  []
 
-[5 <F:/Git/Latex/TCAD2013/Figures/CSA3stage_Timing-eps-converted-to.pdf> <F:/Gi
-t/Latex/TCAD2013/Figures/CSA3stage_Area-eps-converted-to.pdf>] [6
 
- <F:/Git/Latex/TCAD2013/Figures/Tradeoff-eps-converted-to.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 614--615
+[]\OT1/ptm/m/n/10 Similarly in the sec-ond case where a pair of
+ []
+
+[5 <F:/Git/Latex/TCAD2013/Figures/CSA3stage_Timing-eps-converted-to.pdf> <F:/Gi
+t/Latex/TCAD2013/Figures/CSA3stage_Area-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <./Figures/Tradeoff_Error.eps>
+(epstopdf)                    date: 2013-04-06 05:15:53
+(epstopdf)                    size: 45485 bytes
+(epstopdf)             Output file: <./Figures/Tradeoff_Error-eps-converted-to.
+pdf>
+(epstopdf)                    date: 2013-04-07 11:27:49
+(epstopdf)                    size: 10641 bytes
+(epstopdf)             Command: <epstopdf --outfile=./Figures/Tradeoff_Error-ep
+s-converted-to.pdf ./Figures/Tradeoff_Error.eps>
+(epstopdf)             \includegraphics on input line 623.
+Package epstopdf Info: Output file is already uptodate.
+
+<./Figures/Tradeoff_Error-eps-converted-to.pdf, id=64, 499.8675pt x 379.4175pt>
+File: ./Figures/Tradeoff_Error-eps-converted-to.pdf Graphic file (type pdf)
+<use ./Figures/Tradeoff_Error-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/Tradeoff_Error-eps-converted-to.pdf used on 
+input line 623.
+(pdftex.def)             Requested size: 252.94499pt x 191.9951pt.
+
+Overfull \hbox (0.94499pt too wide) in paragraph at lines 623--624
+ [][] 
+ []
+
+[6 <F:/Git/Latex/TCAD2013/Figures/Tradeoff-eps-converted-to.pdf> <F:/Git/Latex/
+TCAD2013/Figures/Tradeoff_Error-eps-converted-to.pdf>]
 (F:\Git\Latex\TCAD2013\overclocking_tcad.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 3418 strings out of 494045
- 50870 string characters out of 3145971
- 114805 words of memory out of 3000000
- 6641 multiletter control sequences out of 15000+200000
+ 3425 strings out of 494045
+ 51108 string characters out of 3145971
+ 115822 words of memory out of 3000000
+ 6647 multiletter control sequences out of 15000+200000
  48277 words of font info for 93 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 42i,17n,28p,1148b,302s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,17n,28p,1247b,302s stack positions out of 5000i,500n,10000p,200000b,50000s
 {E:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<E:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><E:/Program 
 Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><E:/Program Fi
@@ -518,9 +554,9 @@ ype1/public/amsfonts/cm/cmsy8.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type
 ype1/urw/times/utmb8a.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/ti
 mes/utmbi8a.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a
 .pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on overclocking_tcad.pdf (6 pages, 334024 bytes).
+Output written on overclocking_tcad.pdf (6 pages, 345721 bytes).
 PDF statistics:
- 124 PDF objects out of 1000 (max. 8388607)
+ 129 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
