@@ -1,0 +1,46 @@
+\begin{thebibliography}{1}
+\providecommand{\url}[1]{#1}
+\csname url@rmstyle\endcsname
+\providecommand{\newblock}{\relax}
+\providecommand{\bibinfo}[2]{#2}
+\providecommand\BIBentrySTDinterwordspacing{\spaceskip=0pt\relax}
+\providecommand\BIBentryALTinterwordstretchfactor{4}
+\providecommand\BIBentryALTinterwordspacing{\spaceskip=\fontdimen2\font plus
+\BIBentryALTinterwordstretchfactor\fontdimen3\font minus
+  \fontdimen4\font\relax}
+\providecommand\BIBforeignlanguage[2]{{%
+\expandafter\ifx\csname l@#1\endcsname\relax
+\typeout{** WARNING: IEEEtran.bst: No hyphenation pattern has been}%
+\typeout{** loaded for the language `#1'. Using the pattern for}%
+\typeout{** the default language instead.}%
+\else
+\language=\csname l@#1\endcsname
+\fi
+#2}}
+
+\bibitem{AlteraCyclone}
+Altera, ``Cyclone device handbook,'' 2008.
+
+\bibitem{Virtex6}
+Xilinx, ``Virtex-6 {FPGA} configurable logic block user guide,'' 2009.
+
+\bibitem{DigitalICDesign}
+J.~Rabaey, A.~Chandrakasan, and B.~Nikolic, \emph{Digital integrated circuits:
+  a design perspective (2nd edition)}.\hskip 1em plus 0.5em minus 0.4em\relax
+  Prentice-Hall, 2003.
+
+\bibitem{Virtex6Clocking}
+Xilinx, ``Virtex-6 {FPGA} clocking resources user guide,'' 2011.
+
+\bibitem{gojman2013FPGA}
+B.~Gojman, S.~Nalmela, N.~Mehta, N.~Howarth, and A.~DeHon, ``{GROK-LAB}:
+  generating real on-chip knowledge for intra-cluster delays using timing
+  extraction,'' in \emph{Proc. Int. Symp. on Field Programmable Gate Arrays},
+  2013, pp. 81--90.
+
+\bibitem{FPGAPV}
+H.~Wong, L.~Cheng, Y.~Lin, and L.~He, ``{FPGA} device and architecture
+  evaluation considering process variations,'' in \emph{Proc. Int. Conf. on
+  Computer-Aided Design}, 2005, pp. 19--24.
+
+\end{thebibliography}
