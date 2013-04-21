@@ -43,6 +43,7 @@
 %\usepackage{array}
 \usepackage[tight,footnotesize]{subfigure}
 \usepackage{stfloats}
+\usepackage{threeparttable}
 
 
 
@@ -350,15 +351,15 @@ Comparing (\ref{Eo_new_RCA}) and (\ref{Eo_trad_RCA}), we have (\ref{Comparison R
 
 \section{Carry Select Adder}
 \subsection{Introduction}
-Since the delay of RCA is determined by the length of carry chain, the carry select adder (CSA) is designed to shorten the carry chain by overlapping carry propagation in sections such that the operating speed can be boosted. The structure of a CSA is presented in Fig.~\ref{Fig_CSA_Structure}. In a CSA, the carry chain is divided into multiple stages. Each stage contains two RCAs and two multiplexers, as seen in Fig.~\ref{Fig_CSA_SingleStage}. For a given input, two computations are performed simultaneously where the carry input is zero and one respectively. One of these two results is then selected according to the actual carry input. Although this structure brings timing benefits, it costs extra hardware resources compared to a standard RCA because the carry chain is duplicated. Furthermore, in FPGA technology, multiplexers are expensive. Due to this reason, we explore the trade-offs between silicon area, accuracy and performance of these two adder structures in this section.
+Since the delay of RCA is determined by the length of carry chain, the parallel adder architectures, such as carry select, carry look-ahead and Kogge-Stone adders, are proposed to boost the performance. For instance, the carry select adder (CSA) is designed with a carry chain being divided and overlapped in sections such that the operating speed can be largely increased. The structure of a CSA is shown in Fig.~\ref{Fig_CSA_Structure}. There are multiple stages within a CSA. Each stage contains two RCAs and two multiplexers, as seen in Fig.~\ref{Fig_CSA_SingleStage}. For a given input, two additions are performed simultaneously where the carry input is zero and one respectively. One of these two results is then selected according to the actual carry input. Although this structure brings performance benefits, it costs extra hardware resources compared to a standard RCA because the carry chain is duplicated. Furthermore, in FPGA technology, multiplexers are expensive. Due to this reason, we explore the trade-offs between silicon area, accuracy and performance of these two adder structures in this section.
 
 \begin{figure}[htbp]
     \begin{minipage}[b]{.49\textwidth}
         \centering
         \subfigure[The structure diagram of a CSA with $s$ stages.]{
-            \includegraphics[width=\textwidth]{./Figures/CSA_structure.pdf}
+            \includegraphics[width=0.95\textwidth]{./Figures/CSA_structure.pdf}
             \label{Fig_CSA_Structure}
-        }\vspace{-3ex}
+        }\vspace{-2ex}
         \subfigure[The structure of the $i^{th}$ stage in the CSA.]{
         %\centering
             \includegraphics[width=2.4in]{./Figures/CSA_SingleStage.pdf}
@@ -443,36 +444,40 @@ Substitute~(\ref{WL_MSB_CSA}) into (\ref{CSA_WL}) to replace $n_{s-1}$, we deriv
 %\end{eqnarray}
 
 
-\subsection{Model Verification}
-%As seen in (\ref{CSA_Timing}), the value of $\mu_{mux}/\mu_c$ should be determined before applying the timing model. This ratio can be obtained through timing analysis instead of experiments. Specifically, varying the word-length of a single stage $n_i$ and recording the corresponding delay value $d_i$ from the timing analysis tool. According to~(\ref{CSA_SingleStageDelay}), the ratio can be obtained by fitting those values using linear polynomials.
-
+%\subsection{Model Verification}
 %Using this information, we verify our timing model with experimental results, which are obtained from post place and route simulations on Xilinx Virtex-6 FPGAs. Fig.~\ref{CSA Model Verification} illustrates both the modeled value and the experimental results of the maximum word-length of the 2-stage CSA for various operating frequencies. In the following experiments within this section, the input data are randomly sampled from a 16-bit data set, which follows uniform distribution. It can be seen that the the modeled value match well with the experimental results.
-The ratio $\mu_{mux}/\mu_c$ can be computed from experiments. We perform post place-and-route simulations on the CSA with 2 stages using Xilinx Virtex-6 FPGA. The delay of the $i^{th}$ stage $d_i$ in~(\ref{CSA_SingleStageDelay}) is recorded with respect to different word-lengths of this given stage ($n_i$). Then the total word-length of CSA can be predicted through~(\ref{CSA_Timing}). In addition, the maximum word-length of the 2-stage CSA is obtained experimentally by increasing $n_{CSA}$ until errors are observed at the output. The comparison between the modeled value and the empirical results of $n_{CSA}$ is illustrated in Fig.~(\ref{CSA Model Verification}). It can be seen that our model match well with the experimental results.
+
 %
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=3in]{./Figures/Model.eps}
-  \caption{Comparison of the maximum word-length between the modeled value and the experimental results from FPGA simulations.}
-  \label{CSA Model Verification}
-\end{figure}
+%\begin{figure}[thbp]
+%  \centering
+%  \includegraphics[width=3in]{./Figures/Model.eps}
+%  \caption{Comparison of the maximum word-length between the modeled value and the experimental results from FPGA simulations.}
+%  \label{CSA Model Verification}
+%\end{figure}
 
 \subsection{Accuracy Benefits and Area Overhead in CSA}
-As greater word-length corresponds to smaller truncation errors, we compare the maximum word-length of RCA and CSA with 2 stages and 3 stages over a range of operating frequencies, as presented in Fig.~\ref{CSA3stage Timing}. It can be seen from Fig.~\ref{CSA3stage Timing} that in comparison to RCA, CSA achieves greater word-length when frequency is initially increased. RCA only outperforms than CSA when very high frequency is applied. This is because at low frequencies, although the multiplexer delay limits the word-length of each stage in CSA when compared to RCA, the stage parallelism in CSA enables a greater word-length. However when frequency increases, the multiplexer delay becomes comparable to the delay of the carry chain, and this inhibits the benefits of parallelism. In addition, we can see that the word-length of 3-stage CSA is always greater than 2-stage CSA across the entire frequency domain.
+We first verify the models for RCA and CSA in terms of the maximum word-length under the given operating frequencies. For the CSA, the ratio $\mu_{mux}/\mu_c$ can be computed from experiments. We perform post place-and-route simulations on the CSA with 2 stages using Xilinx Virtex-6 FPGA. The delay of the $i^{th}$ stage $d_i$ in~(\ref{CSA_SingleStageDelay}) is recorded with respect to different word-lengths of this given stage ($n_i$). The total word-length of CSA can be predicted through~(\ref{CSA_Timing}). In addition, the maximum word-lengths of the 2-stage CSA and RCA are obtained experimentally by increasing $n_{CSA}$ and $n_{RCA}$ respectively until errors are observed at the output. The comparison between the modeled value and the empirical results is illustrated in Fig.~\ref{Fig_CSA3stage_Timing} with dotted lines. It can be seen that our models for both RCA and CSA match well with the experimental results.
+
 \begin{figure}[tbp]
-    \begin{minipage}[b]{.48\textwidth}
+    \begin{minipage}[b]{0.48\textwidth}
         \centering
-        \subfigure[Maximum word-length.]{
-            \includegraphics[width=3.3in]{./Figures/CSA3stage_Timing.eps}
-            \label{CSA3stage Timing}
+        \subfigure[The modeled value and the experimental results of the maximum word-length of RCA and CSA.]{
+            \centering
+            \includegraphics[width=0.95\textwidth]{./Figures/CSA3stage_Model_Timing.eps}
+            \label{Fig_CSA3stage Timing}
         }
-        \subfigure[Hardware resource usage.]{
-            \includegraphics[width=3.3in]{./Figures/CSA3stage_Area.eps}
+        \subfigure[Hardware resource usage for RCA and CSA with 2 and 3 stages.]{
+            \centering
+            \includegraphics[width=0.95\textwidth]{./Figures/CSA3stage_Area.eps}
             \label{CSA3stage Area}
         }
     \end{minipage}
     \centering
     \caption{A comparison between RCA and CSA in terms of the maximum word-length of input signal and the area consumption.}
 \end{figure}
+
+As greater word-length corresponds to smaller truncation errors, we compare the maximum word-length of RCA and CSA with 2 stages and 3 stages over a range of operating frequencies, as presented in Fig.~\ref{CSA3stage Timing}. It can be seen from Fig.~\ref{CSA3stage Timing} that in comparison to RCA, CSA achieves greater word-length when frequency is initially increased. RCA only outperforms than CSA when very high frequency is applied. This is because at low frequencies, although the multiplexer delay limits the word-length of each stage in CSA when compared to RCA, the stage parallelism in CSA enables a greater word-length. However when frequency increases, the multiplexer delay becomes comparable to the delay of the carry chain, and this inhibits the benefits of parallelism. In addition, we can see that the word-length of 3-stage CSA is always greater than 2-stage CSA across the entire frequency domain.
+
 
 However, the accuracy benefits brought by CSA comes at the cost of a large area overhead. Fig.~\ref{CSA3stage Area} depicts the number of Look-Up Tables (LUTs) in the FPGA used for all three structures. It can be seen that in order to meet a given frequency, the 3-stage CSA consumes $2.4\times\sim3.7\times$ area than RCA, while the 2-stage CSA requires $1.7\times\sim3.1\times$ extra area. This finding poses a question of which is the best adder structure for a specific area budget.
 
@@ -483,18 +488,18 @@ In Section~\ref{section_RCA}, we have discussed two design scenarios when consid
 
 %Our results could be of interest to a circuit designer in two aspects. On one hand, it is desirable to create a circuit that can run at a given frequency with the minimum achievable output errors and resource usage. On the other hand, the algorithm designer will wish the circuit to operate as fast as possible with the minimum area whilst a certain error budget can be tolerated. We select the optimum design methodology for both situations.
 
-First, suppose the designer would wish to create a circuit that can run at a given frequency with the minimum achievable output errors and resource usage. That is, a pair of $\{Area, Frequency\}$ constraint is applied. In this case, the optimum design method is selected based on the following criteria:
+First, suppose the algorithm designer would wish to create a circuit that can run at a given frequency with the minimum achievable output errors and resource usage. That is, a pair of $\{Area, Frequency\}$ constraint is applied. In this case, the optimum design method can be selected based on the following criteria:
 \begin{itemize}
   \item Design with the best accuracy at outputs is the optimum design;
   \item If multiple designs achieve the same accuracy, then the design with minimum area is the optimum design;
   \item If the accuracy and area are identical for multiple designs, they are all treated as the optimum design.
 \end{itemize}
 
-For instance let the available LUTs number be 25, the accuracy with respect to different operating frequencies for both design scenarios are presented in Fig.~(\ref{CSA_LUT25}), on which the optimum design metric is labeled. Note that the accuracy is defined in terms of the error expectation at the output.
-\begin{figure}[ht]
+For instance let the available LUTs number be 25, then the accuracy with respect to different operating frequencies for both design scenarios are presented in Fig.~\ref{CSA_LUT25}, on which the optimum design metric is labeled. Note that the accuracy is defined in terms of the error expectation at the output. In the following experiments within this section, the input data are randomly sampled from a 16-bit data set, which is uniformly distributed.
+\begin{figure}[th]
   \centering
   \includegraphics[width=3.3in]{./Figures/Error_LUT25.eps}
-  \caption{A comparison between two design scenarios when the number of LUT is set to 25. The RCA and CSA are investigated in the conventional scenario, while the RCA is explored in the proposed new scenario. The results are obtained from post place-and-route simulations on Xilinx Virtex FPGAs.}
+  \caption{A comparison between two design scenarios when the number of available LUT is 25. The RCA and CSA are investigated in the conventional scenario, while the RCA is explored in the proposed new scenario. The results are obtained from post place-and-route simulations on Xilinx Virtex-6 FPGAs.}
   \label{CSA_LUT25}
 \end{figure}
 
@@ -525,7 +530,7 @@ In our experiments, MRE is set ranging from $0.001\%$ to $50\%$. For a certain M
 
 For a tight accuracy requirement, i.e. $MRE<0.005\%$, CSA serves as the optimum design choice with respect to large accessible area, as it intrinsically operates faster than RCA. Once again, when the area budget shrinks, the RCA performs best because the precision of the CSA is limited. Similarly to the previous section, we see that the overclocked RCA achieves the fastest operating frequencies under most area constraints when the accuracy requirement is released.
 
-To sum up, it can be seen that for both design goals, CSA is the best option only when there is enough hardware resources. However this circumstance is unlikely to happen, especially with the continued technology scaling nowadays. Due to this reason, in the following sections we will focus on the situation where the hardware resources are limited, and therefore RCA is the design option in our following analysis and experiments.
+To sum up, the experiments reveal that for both design goals, CSA is the best option only when there is enough hardware resources. However this circumstance is unlikely to happen, especially with the continued technology scaling nowadays. Due to this reason, in the following sections we will focus on the situation where the hardware resources are limited, and therefore RCA is the design option in our following analysis and experiments.
 
 \section{Constant Coefficient Multiplier}\label{section_CCM}
 
@@ -660,26 +665,21 @@ For those operations such as $B=37A=(A<<5)+(A<<2)+(A<<1)$, the CCM can be built 
 \section{Test Platform}\label{Experiment}
 In our experiments, we compare two design perspectives. In the first scenario, the word-length of the input signal is truncated before propagating through the datapath in order to meet a given latency. In our proposed overclocking scenario, the circuit is overclocked while keeping the original operand word-length. The benefits of the proposed methodology are demonstrated over a set of DSP example designs, which are implemented on the Xilinx ML605 board with a Virtex-6 FPGA XC6VLX240T-1FFG1156.
 
-%two sources of input data are employed. The first
-%Five DSP examples are utilized: a 5-order FIR filter,
 \subsection{Experimental Setup} % (fold)
 \label{sub:experimental_setup}
-We initially build up a test framework on an FPGA. The general architecture is depicted in Figure~\ref{Test Framework}. The main body of the test framework consists of the circuit under test (CUT), the test frequency generator and the control logic, as shown in the dotted box in Figure~\ref{Test Framework}. The I/Os of the CUT are registered by the launch registers (LRs) and the sample registers (SRs), which are all triggered by the test clock. Input test vectors are stored in the on-chip memory during initialization. The results are sampled using Xilinx ChipScope. Finally, we perform an offline comparison of the output of the original circuit at the rated frequency with the output of the overclocked as well as the truncated designs using the same input vectors.
-%
-% into an off-line comparator. Errors can be obtained by comparing the sampled results against error-free results, which are either pre-computed according to the input vectors and the given CUT structure, or obtained through a pre-test with the rated frequency of CUT.
+We initially build up a test framework on an FPGA. The general architecture is depicted in Fig.~\ref{Test Framework}. The main body of the test framework consists of the circuit under test (CUT), the test frequency generator and the control logic, as shown in the dotted box in Fig.~\ref{Test Framework}. The I/Os of the CUT are registered by the launch registers (LRs) and the sample registers (SRs), which are all triggered by the test clock. Input test vectors are stored in the on-chip memory during initialization. The results are sampled using Xilinx ChipScope. Finally, we perform an offline comparison of the output of the original circuit at the rated frequency with the output of the overclocked as well as the truncated designs using the same input vectors.
 %
 \begin{figure}[htbp]
   \centering
   %\vspace{-3.5ex}
-  %\includegraphics[width=3.5in]{./Figures/TestFramework2.pdf}
   \includegraphics[width=3.3in]{./Figures/TestFramework2.eps}
   %\vspace{-4.5ex}
   \caption{FPGA Test framework, which is composed of a measurement architecture (the dotted box) and an off-line comparator.}
   \label{Test Framework}
-  \vspace{-1ex}
+  %\vspace{-1ex}
 \end{figure}
 
-The test frequency generator is implemented using two cascaded mixed-mode clock managers (MMCMs), created using Xilinx Core Generator~\cite{Virtex6Clocking}. Besides the outputs, the corresponding input vectors and memory addresses are also recorded into the comparator, as can be seen in Figure~\ref{Test Framework}, in order to ensure that the recorded errors arise from overclocking the CUT rather than the surrounding circuitry when high test frequencies are applied.
+The test frequency generator is implemented using two cascaded mixed-mode clock managers (MMCMs), created using Xilinx Core Generator~\cite{Virtex6Clocking}. Besides the outputs, the corresponding input vectors and memory addresses are also recorded into the comparator, as can be seen in Fig.~\ref{Test Framework}, in order to ensure that the recorded errors arise from overclocking the CUT rather than the surrounding circuitry when high test frequencies are applied.
 
 %the potential timing errors generated from the test framework instead of CUT, when high test frequencies are applied. Comparisons are performed between the sampled results and the expected values. If mismatch is found, the results will be discarded.
 
@@ -704,12 +704,11 @@ Three types of DSP designs are tested: digital filters (FIR, IIR and Butterworth
 \label{Rated_Frequency_table}
 \begin{center}
 \footnotesize
-\vspace{-4ex}
+%\vspace{-4ex}
 \begin{tabular}{ccc}
 \hline
 \hline
 Design & Frequency (MHz) & Description\\
-% & 1.10 & 1.22 & 1.38 & 1.57 & 1.83 & 2.20 & 2.75 \\
 \hline
 FIR Filter & 126.2 & $5^{th}$ order\\
 Sobel Edge Detector & 196.7 & $3\times 3$\\
@@ -721,7 +720,7 @@ DCT & 176.7 & 4-point\\
 \end{tabular}
 \normalsize
 \end{center}
-\vspace{-2.5ex}
+%\vspace{-2.5ex}
 \end{table}
 
 The input data are generated from two sources. One is called ``uniform independent inputs'', which are randomly sampled from a uniform distribution of 8-bit numbers. The other is referred to as ``real inputs'', which denote 8-bit pixel values of the $512\! \times\! 512$ Lena image.
@@ -731,37 +730,29 @@ The input data are generated from two sources. One is called ``uniform independe
 
 Generally, the operating frequency provided by EDA tools tends to be conservative to ensure the correct functionality under a wide range of operating environments and workloads. In a practical situation, this may result in a large gap between the predicted frequency and the actual frequency under which the correct operation is maintained~\cite{gojman2013FPGA}.
 
-%We initially explore the timing margin for each benchmark circuit with the aim of finding out the maximum error-free operating frequencies for different input word-lengths in practice. They are then employed to be the operating frequencies in the traditional scenario.
-
-For example, the predicted frequencies and the actual frequencies of a $5^{th}$~order FIR filter using different word-lengths are depicted in Figure~\ref{TimingMargin}. The ``actual'' maximum frequencies are computed by increasing the operating frequency from the rated value until errors are observed at the output; the maximum operating frequency with correct output is recorded for the current word-length. As can be seen in Figure~\ref{TimingMargin}, the circuit can operate without errors at a much higher frequency in practice than predicted according to our experiments. A maximum speed differential of $3.2\times$ is obtained when the input signal is 5-bit.
+For example, the predicted frequencies and the actual frequencies of a $5^{th}$~order FIR filter using different word-lengths are depicted in Fig.~\ref{TimingMargin}. The ``actual'' maximum frequencies are computed by increasing the operating frequency from the rated value until errors are observed at the output; the maximum operating frequency with correct output is recorded for the current word-length. As can be seen in Fig.~\ref{TimingMargin}, the circuit can operate without errors at a much higher frequency in practice than predicted according to our experiments. A maximum speed differential of $3.2\times$ is obtained when the input signal is 5-bit.
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=3.2in]{./Figures/Exp/FIR/RatedFrequency3.eps}
-  \vspace{-1.5ex}
+  %\vspace{-1.5ex}
   \caption{The maximum operating frequencies for different input word-lengths of an FIR filter. The dotted line depicts the rated frequency reported by the Xilinx Timing Analyzer. The solid line is obtained through real FPGA tests using our platform.}
   \label{TimingMargin}
-  \vspace{-3.5ex}
+  %\vspace{-3.5ex}
 \end{figure}
 
-In our experiments in Section~\ref{Section_Experiments}, the conservative timing margin is removed in the traditional scenario for a fairer comparison to the overclocking scenario. To do this, for each truncated word-length, we select the maximum frequency at which we see no overclocking error on the FPGA board in our lab. For example, in Figure~\ref{TimingMargin}, the operating frequency of the design when the word-lengths are truncated to 8,~5 and 2 bits are 400MHz,~450MHz and 500MHz respectively.
+In our experiments in Section~\ref{Section_Experiments}, the conservative timing margin is removed in the traditional scenario for a fairer comparison to the overclocking scenario. To do this, for each truncated word-length, we select the maximum frequency at which we see no overclocking error on the FPGA board in our lab. For example, in Fig.~\ref{TimingMargin}, the operating frequency of the design when the word-lengths are truncated to 8,~5 and 2 bits are 400MHz,~450MHz and 500MHz respectively.
 
-%Therefore we choose the maximum frequency where there is no overclocking error for each truncated bitwidth that we see in practice in our lab. This timing information is in turn employed to determine the input signal word-length when modeling truncation errors.
-
-Figure~\ref{TimingMargin} also demonstrates that when the circuit is truncated, it allows the circuit to operate at a higher frequency than the frequency of full precision implementation. However, a non-uniform period change can be observed for both results. For instance, the maximum operating frequency keeps almost constant when the operand word-length reduces from 8 to 6 or from 5 to 3 in both the experimental results and those of timing analyzer. This will cause a slight deviation between our analytical model which assumes that the single bit carry propagation delay to be a constant value, as discussed in (\ref{Eo_trad_RCA}) with expression $n=b-1$. This deviation will be influenced by many factors including how the architecture has been packed onto LUTs and CLBs and process variation causing non-uniform interconnection delays~\cite{FPGAPV}. However, we shall see that our model remains close to the true empirical results in Section~\ref{Section_Experiments}.
+Fig.~\ref{TimingMargin} also demonstrates that when the circuit is truncated, it allows the circuit to operate at a higher frequency than the frequency of full precision implementation. However, a non-uniform period change can be observed for both results. For instance, the maximum operating frequency keeps almost constant when the operand word-length reduces from 8 to 6 or from 5 to 3 in both the experimental results and those of timing analyzer. This will cause a slight deviation between our analytical model which assumes that the single bit carry propagation delay to be a constant value, as discussed in (\ref{Eo_trad_RCA}) with expression $n=b-1$. This deviation will be influenced by many factors including how the architecture has been packed onto LUTs and CLBs and process variation causing non-uniform interconnection delays~\cite{FPGAPV}. However, we shall see that our model remains close to the true empirical results in Section~\ref{Section_Experiments}.
 
 
 
 \subsection{Evaluation Metric of Outputs}
 The results are evaluated in terms of mean relative error (MRE), which represents the percentage of error at outputs. MRE is given by~(\ref{MRE}), where $E_{error}$ and $E_{out}$ refer to the mean value of error and the correct output respectively.
-%where $Exp_{out}$ denotes the error expectation at the outputs.
 %
 \begin{eqnarray}\label{MRE}
 %\small
-%\footnotesize
 \scriptsize
-  %MRE=\frac{E_{error}}{\sum_{i=1}^{Ns-1}|S_i|} \times 100\%
-  %MRE=\frac{\sum_{i=1}^{Ns-1}|S_i-\hat{S_i}|}{\sum_{i=1}^{Ns-1}|S_i|}\times 100\%
   MRE=\left|\frac{E_{error}}{E_{out}}\right|\times 100\%
 \end{eqnarray}
 \normalsize
@@ -793,17 +784,16 @@ Initially the maximum error-free frequency $f_0$ is applied. In this case we hav
 
 \section{Results and Discussion}\label{Section_Experiments}
 \subsection{Case study: FIR filter}
-%If the extra cost of error recovery is comparable to the benefits it brings,
-We first assess the accuracy of our proposed models of error. The modeled values of both overclocking error and truncation error of the FIR filter are presented in Figure~\ref{FIR} (dotted lines), as well as the actual measurements on the FPGA (solid lines) with two types of input data. The results demonstrate that our models match well with the practical results obtained using the uniform independent inputs.
+We first assess the accuracy of our proposed models of error. The modeled values of both overclocking error and truncation error of the FIR filter are presented in Fig.~\ref{FIR} (dotted lines), as well as the actual measurements on the FPGA (solid lines) with two types of input data. The results demonstrate that our models match well with the practical results obtained using the uniform independent inputs.
 % FIR
 \begin{figure}[htbp]
   \centering
-  \vspace{-2.5ex}
+%  \vspace{-2.5ex}
   \includegraphics[width=3.5in]{./Figures/Exp/FIR/FIR_Error_New2.eps}
-  \vspace{-5ex}
+%  \vspace{-5ex}
   \caption{A demonstration of two design perspectives with a $5^{th}$~order FIR filter, which is implemented on Virtex-6 FPGA. The modeled values of both overclocking errors and truncation errors are presented as dotted lines. The actual FPGA measurements are depicted using solid lines. Two types of inputs are employed in the overclocking scenario: the uniformly distributed data and the real image data from Lena.}
   \label{FIR}
-  \vspace{-1ex}
+%  \vspace{-1ex}
 \end{figure}
 
 %Lena image
@@ -858,19 +848,16 @@ We first assess the accuracy of our proposed models of error. The modeled values
     \includegraphics[width=1.8in]{./Figures/Exp/FIR/LenaImages/FIRLena_Q1T10.eps}
   \end{minipage}
   }
-\vspace{-2ex}
+%\vspace{-2ex}
 \caption{Output images of the FIR filter for both overclocking scenario (top row) and traditional scenario (bottom row) under various operating frequencies.}
 \label{FIR_Lena}
-\vspace{-2ex}
+%\vspace{-2ex}
 \end{figure*}
 
-According to Figure~\ref{FIR}, output errors are reduced in the overclocking scenario for both input types in comparison to the traditional scenario, as expected by our models. In addition, we see that using real data, more significant reduction of MRE are achieved, and that no errors are observed when frequency is initially increased. This is because for real data, long carry chains are typically generated with even smaller probabilities, and the longest carry chain rarely occurs.
+According to Fig.~\ref{FIR}, output errors are reduced in the overclocking scenario for both input types in comparison to the traditional scenario, as the analytical model validates. In addition, we see that using real data, more significant reduction of MRE are achieved, and that no errors are observed when frequency is initially increased. This is because for real data, long carry chains are typically generated with even smaller probabilities, and the longest carry chain rarely occurs.
 
-The output images of the FIR filter for both of the two scenarios with increasing frequencies are presented in Figure~\ref{FIR_Lena}, from which we can clearly see the differences between the errors generated in these two scenarios. In the overclocking scenario, we observe errors in the MSBs for certain input patterns. This leads to ``salt and pepper noise'', as shown on the images in the top row of Figure~\ref{FIR_Lena}. In the traditional scenario, truncation causes an overall degradation of the whole image, as can be seen in the bottom row of Figure~\ref{FIR_Lena}. Furthermore, it is difficult to recover from the latter type of error, since it is generated due to precision loss.
+The output images of the FIR filter for both of the two scenarios with increasing frequencies are presented in Fig.~\ref{FIR_Lena}, from which we can clearly see the differences between the errors generated in these two scenarios. In the overclocking scenario, we observe errors in the MSBs for certain input patterns. This leads to ``salt and pepper noise'', as shown on the images in the top row of Fig.~\ref{FIR_Lena}. In the traditional scenario, truncation causes an overall degradation of the whole image, as can be seen in the bottom row of Fig.~\ref{FIR_Lena}. Furthermore, it is difficult to recover from the latter type of error, since it is generated due to precision loss.
 
-%This finding provides the potential for the recovery of overclocking errors.
-
-%. In comparison, the salt and pepper noise can be mitigated by using median filter. This finding provides the potential for the recovery of overclocking errors. Tradeoffs should be made between the extra cost of implementing error recovery circuits and the benefits it brings.
 
 \subsection{Potential Benefits in Circuit Design}
 %The results can be interpreted in two folds.
@@ -881,17 +868,18 @@ Our results could be of interest to a circuit designer in two ways. Typically, e
   \frac{MRE_{Trad}-MRE_{ovrc}}{MRE_{Trad}}\times 100\%
 \end{eqnarray}
 \normalsize
-\vspace{-2ex}
+%\vspace{-2ex}
 
-In this table, the frequency is normalized to the maximum error-free frequency for each design when the input signal is 8-bit. The N/A in Table~\ref{Ratio_MRE} refers to the situations where a certain frequency simply cannot be achieved using the traditional scenario. It can be seen that a significant reduction of MRE can be achieved using the proposed overclocking scenario, and the geometric mean reduction varies from $67.9\%$ to $95.4\%$ using uniform input data. Even larger differences of MRE can be observed when testing with real image data for each design, ranging from $83.6\%$ to $98.8\%$, as expected given the results shown in Figure~\ref{FIR}.
+In this table, the frequency is normalized to the maximum error-free frequency for each design when the input signal is 8-bit. The N/A in Table~\ref{Ratio_MRE} refers to the situations where a certain frequency simply cannot be achieved using the traditional scenario. It can be seen that a significant reduction of MRE can be achieved using the proposed overclocking scenario, and the geometric mean reduction varies from $67.9\%$ to $95.4\%$ using uniform input data. Even larger differences of MRE can be observed when testing with real image data for each design, ranging from $83.6\%$ to $98.8\%$, as expected given the results shown in Fig.~\ref{FIR}.
 %Table goes here
- \begin{table*}[htbp]
+
+\begin{table*}[htbp]
  %\vspace{-2ex}
  %% increase table row spacing, adjust to taste
    \renewcommand{\arraystretch}{1.05}
    \setlength{\tabcolsep}{3.5pt}
    \caption{Relative Reduction of MRE in Overclocking Scenario for Various Normalized Frequencies Based on~(\ref{Relative Reduction MRE}).}
-   \vspace{-2ex}
+%   \vspace{-2ex}
    \centering
    \footnotesize
    %\vspace{-4mm}
@@ -906,10 +894,8 @@ In this table, the frequency is normalized to the maximum error-free frequency f
      \multicolumn{2}{c|}{\textbf{Butterworth}} &
      \multicolumn{2}{c||}{\textbf{DCT4}} &
      \multicolumn{2}{c}{\textbf{Geo.Mean}}\\
-     %\multirow{2}*{\begin{tabular}{c}\textbf{Geo.}\\\textbf{Mean}\end{tabular}}\\
      &  {Uniform} & {Lena } &  {Uniform} & {Lena } &  {Uniform} & {Lena  }
      &  {Uniform} & {Lena } &  {Uniform} & {Lena } &  {Uniform} & {Lena}\\
-%     \multirow{2}*{\begin{tabular}{c}\textbf{Geo.}\\\textbf{Mean}\end{tabular}} \\
      \hline
      1.04 & 99.85\%	& 100.00\%  & 99.51\% &	99.74\% &	 72.28\% &	90.09\% &	 79.03\% &	 100.00\% &	 83.58\% &	 98.06\% & 86.14\% & 97.50\%\\
      1.08 & 98.93\%	& 99.97\%	& 96.26\% &	93.75\% &	 71.64\% &	90.50\% &	 78.81\% &	 100.00\% &	 83.26\% &	 98.45\% & 85.15\% & 96.46\%\\
@@ -919,8 +905,6 @@ In this table, the frequency is normalized to the maximum error-free frequency f
      1.24 & 98.46\%	& 99.32\%   & 81.43\% &	81.67\% &	 70.47\% &	76.12\% &	 63.66\% &	 84.23\%  &	 N/A\tnote{*}	  & N/A\tnote{*} & 77.44\% & 84.92\%\\
      1.28 & 95.39\%	& 99.29\%   & 60.41\% &	78.24\% &	 N/A\tnote{*}	    &   N/A\tnote{*}     &	54.38\% &	 75.15\%  &	N/A\tnote{*}	  & N/A\tnote{*} & 67.92\% & 83.58\%\\
      1.32 & 95.37\%	& 98.75\%   & N/A\tnote{*}	  &	 N/A\tnote{*}	    &	 N/A\tnote{*}	    &	 N/A\tnote{*}   & N/A\tnote{*}   & N/A\tnote{*}    &    N/A\tnote{*}   & N/A\tnote{*} & 95.37\%	& 98.75\% \\
-  %   \hline
-  %   \textbf{Geo.Mean} & 97.22\% & 99.50\% & 83.06\% & 88.55\% & 71.97\% & 84.83\% & 71.00\% & 87.17\% & 83.76\% & 98.87\%\\
      \hline
      \hline
    \end{tabular}
@@ -931,7 +915,7 @@ In this table, the frequency is normalized to the maximum error-free frequency f
    \end{tablenotes}
    \end{threeparttable}
    \label{Ratio_MRE}
- \vspace{-1ex}
+% \vspace{-1ex}
  \end{table*}
 
 \begin{table*}[htbp]
@@ -940,14 +924,13 @@ In this table, the frequency is normalized to the maximum error-free frequency f
    \renewcommand{\arraystretch}{1.05}
    \setlength{\tabcolsep}{3.5pt}
    \caption{Frequency Speedups in Overclocking Scenario Under Various Error Budgets.}
-   \vspace{-2ex}
+%   \vspace{-2ex}
    \label{Exp_Real_Inputs}
    \centering
    \footnotesize
    \begin{tabular}{c|cc|cc|cc|cc|cc||cc}
      \hline
      \hline
-     %\multirow{2}*{\textbf{Error Budget}} & \multicolumn{7}{c|}{\textbf{Normalized Frequency}} &
      \multirow{2}*{\begin{tabular}{c}\textbf{Error Budget}\\\textbf{\%}\end{tabular}} &
      \multicolumn{2}{c|}{\textbf{FIR}} &
      \multicolumn{2}{c|}{\textbf{Sobel}} &
@@ -966,17 +949,24 @@ In this table, the frequency is normalized to the maximum error-free frequency f
      10   & 19.15\%&	25.53\%&	 10.64\%&	10.64\%&	 0.54\%&	1.09\%&	 6.92\%&	 13.21\%&	 4.91\%&	 4.911\%    &5.19\%    &7.19\%\\
      20   & 19.15\%&	25.53\%&	 5.77\%&	15.39\%&	 8.70\%&	8.70\%&	 3.26\%&	 3.26\%&	 6.70\%&	 10.88\%    &7.32\%    &10.39\%\\
      50   & 15.69\%&	15.69\%&	 10.53\%&	19.30\%&	 42.50\%&	50.00\%&	 46.74\%&	 54.89\%&	 15.06\%&	 19.25\%    &21.8\% &27.59\%\\
-  %   \hline
-  %   \textbf{Geo.Mean} &15.23\%&	 23.02\%&	10.59\%&	 12.53\%&	2.53\%&	 5.02\%&	 8.99\%&	11.75\%&	 2.51\%&	 7.89\%\\
      \hline
      \hline
    \end{tabular}
    \normalsize
    \label{Max_Frequency}
-\vspace{-3ex}
+%   \vspace{-3ex}
  \end{table*}
 
 Table~\ref{Max_Frequency} illustrates the frequency speedups for each design when the specified error tolerance varies from 0.05\% to 50\%. For all designs, we see that the overclocking scenario still outperforms the traditional scenario for each MRE budget in terms of operating frequency. Likewise, the frequency speedup is higher for real image inputs than uniform inputs. The geometric mean of frequency speedups of $3.1\%$ to $21.8\%$ can be achieved by using uniform data, while $5.3\%$ to $27.6\%$ when using real image data.
+
+\subsection{Area Overhead}
+
+
+\section{Conclusion}
+The conclusion goes here.
+
+\section*{Acknowledgment}
+The authors would like to acknowledge the support of the EPSRC (Grants EP/I020557/1 and EP/I012036/1).
 
 %\begin{figure}[htbp]
 %	\centering
@@ -1004,19 +994,7 @@ Table~\ref{Max_Frequency} illustrates the frequency speedups for each design whe
 %
 
 
-% An example of a floating figure using the graphicx package.
-% Note that \label must occur AFTER (or within) \caption.
-% For figures, \caption should occur after the \includegraphics.
-% Note that IEEEtran v1.7 and later has special internal code that
-% is designed to preserve the operation of \label within \caption
-% even when the captionsoff option is in effect. However, because
-% of issues like this, it may be the safest practice to put all your
-% \label just after \caption rather than within \caption{}.
-%
-% Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
-% option should be used if it is desired that the figures are to be
-% displayed while in draft mode.
-%
+
 %\begin{figure}[!t]
 %\centering
 %\includegraphics[width=2.5in]{myfigure}
@@ -1026,9 +1004,6 @@ Table~\ref{Max_Frequency} illustrates the frequency speedups for each design whe
 %\caption{Simulation Results.}
 %\label{fig_sim}
 %\end{figure}
-
-% Note that IEEE typically puts floats only at the top, even when this
-% results in a large percentage of a column being occupied by floats.
 
 
 % An example of a double column floating figure using two subfigures.
@@ -1050,9 +1025,6 @@ Table~\ref{Max_Frequency} illustrates the frequency speedups for each design whe
 %\label{fig_sim}
 %\end{figure*}
 %
-% Note that often IEEE papers with subfigures do not employ subfigure
-% captions (using the optional argument to \subfloat[]), but instead will
-% reference/describe all of them (a), (b), etc., within the main caption.
 
 
 % An example of a floating table. Note that, for IEEE style tables, the
@@ -1080,68 +1052,12 @@ Table~\ref{Max_Frequency} illustrates the frequency speedups for each design whe
 %\end{table}
 
 
-% Note that IEEE does not put floats in the very first column - or typically
-% anywhere on the first page for that matter. Also, in-text middle ("here")
-% positioning is not used. Most IEEE journals use top floats exclusively.
-% Note that, LaTeX2e, unlike IEEE journals, places footnotes above bottom
-% floats. This can be corrected via the \fnbelowfloat command of the
-% stfloats package.
 
-
-
-\section{Conclusion}
-The conclusion goes here.
-
-
-
-
-
-
-
-% use section* for acknowledgement
-\section*{Acknowledgment}
-
-
-The authors would like to thank...
-
-
-% Can use something like this to put references on a page
-% by themselves when using endfloat and the captionsoff option.
-\ifCLASSOPTIONcaptionsoff
-  \newpage
-\fi
-
-
-
-% trigger a \newpage just before the given reference
-% number - used to balance the columns on the last page
-% adjust value as needed - may need to be readjusted if
-% the document is modified later
-%\IEEEtriggeratref{8}
-% The "triggered" command can be changed if desired:
-%\IEEEtriggercmd{\enlargethispage{-5in}}
 
 % references section
+\bibliographystyle{./IEEEtran}
+\bibliography{./IEEEabrv,./Reference}
 
-% can use a bibliography generated by BibTeX as a .bbl file
-% BibTeX documentation can be easily obtained at:
-% http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/
-% The IEEEtran BibTeX style support page is at:
-% http://www.michaelshell.org/tex/ieeetran/bibtex/
-%\bibliographystyle{IEEEtran}
-% argument is your BibTeX string definitions and bibliography database(s)
-%\bibliography{IEEEabrv,../bib/paper}
-%
-% <OR> manually copy in the resultant .bbl file
-% set second argument of \begin to the number of references
-% (used to reserve space for the reference number labels box)
-\begin{thebibliography}{1}
-
-\bibitem{IEEEhowto:kopka}
-H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
-
-\end{thebibliography}
 
 % biography section
 %

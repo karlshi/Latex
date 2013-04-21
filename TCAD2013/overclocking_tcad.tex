@@ -351,15 +351,15 @@ Comparing (\ref{Eo_new_RCA}) and (\ref{Eo_trad_RCA}), we have (\ref{Comparison R
 
 \section{Carry Select Adder}
 \subsection{Introduction}
-Since the delay of RCA is determined by the length of carry chain, the carry select adder (CSA) is designed to shorten the carry chain by overlapping carry propagation in sections such that the operating speed can be boosted. The structure of a CSA is presented in Fig.~\ref{Fig_CSA_Structure}. In a CSA, the carry chain is divided into multiple stages. Each stage contains two RCAs and two multiplexers, as seen in Fig.~\ref{Fig_CSA_SingleStage}. For a given input, two computations are performed simultaneously where the carry input is zero and one respectively. One of these two results is then selected according to the actual carry input. Although this structure brings timing benefits, it costs extra hardware resources compared to a standard RCA because the carry chain is duplicated. Furthermore, in FPGA technology, multiplexers are expensive. Due to this reason, we explore the trade-offs between silicon area, accuracy and performance of these two adder structures in this section.
+Since the delay of RCA is determined by the length of carry chain, the parallel adder architectures, such as carry select, carry look-ahead and Kogge-Stone adders, are proposed to boost the performance. For instance, the carry select adder (CSA) is designed with a carry chain being divided and overlapped in sections such that the operating speed can be largely increased. The structure of a CSA is shown in Fig.~\ref{Fig_CSA_Structure}. There are multiple stages within a CSA. Each stage contains two RCAs and two multiplexers, as seen in Fig.~\ref{Fig_CSA_SingleStage}. For a given input, two additions are performed simultaneously where the carry input is zero and one respectively. One of these two results is then selected according to the actual carry input. Although this structure brings performance benefits, it costs extra hardware resources compared to a standard RCA because the carry chain is duplicated. Furthermore, in FPGA technology, multiplexers are expensive. Due to this reason, we explore the trade-offs between silicon area, accuracy and performance of these two adder structures in this section.
 
 \begin{figure}[htbp]
     \begin{minipage}[b]{.49\textwidth}
         \centering
         \subfigure[The structure diagram of a CSA with $s$ stages.]{
-            \includegraphics[width=\textwidth]{./Figures/CSA_structure.pdf}
+            \includegraphics[width=0.95\textwidth]{./Figures/CSA_structure.pdf}
             \label{Fig_CSA_Structure}
-        }\vspace{-3ex}
+        }\vspace{-2ex}
         \subfigure[The structure of the $i^{th}$ stage in the CSA.]{
         %\centering
             \includegraphics[width=2.4in]{./Figures/CSA_SingleStage.pdf}
@@ -444,36 +444,40 @@ Substitute~(\ref{WL_MSB_CSA}) into (\ref{CSA_WL}) to replace $n_{s-1}$, we deriv
 %\end{eqnarray}
 
 
-\subsection{Model Verification}
-%As seen in (\ref{CSA_Timing}), the value of $\mu_{mux}/\mu_c$ should be determined before applying the timing model. This ratio can be obtained through timing analysis instead of experiments. Specifically, varying the word-length of a single stage $n_i$ and recording the corresponding delay value $d_i$ from the timing analysis tool. According to~(\ref{CSA_SingleStageDelay}), the ratio can be obtained by fitting those values using linear polynomials.
-
+%\subsection{Model Verification}
 %Using this information, we verify our timing model with experimental results, which are obtained from post place and route simulations on Xilinx Virtex-6 FPGAs. Fig.~\ref{CSA Model Verification} illustrates both the modeled value and the experimental results of the maximum word-length of the 2-stage CSA for various operating frequencies. In the following experiments within this section, the input data are randomly sampled from a 16-bit data set, which follows uniform distribution. It can be seen that the the modeled value match well with the experimental results.
-The ratio $\mu_{mux}/\mu_c$ can be computed from experiments. We perform post place-and-route simulations on the CSA with 2 stages using Xilinx Virtex-6 FPGA. The delay of the $i^{th}$ stage $d_i$ in~(\ref{CSA_SingleStageDelay}) is recorded with respect to different word-lengths of this given stage ($n_i$). Then the total word-length of CSA can be predicted through~(\ref{CSA_Timing}). In addition, the maximum word-length of the 2-stage CSA is obtained experimentally by increasing $n_{CSA}$ until errors are observed at the output. The comparison between the modeled value and the empirical results of $n_{CSA}$ is illustrated in Fig.~(\ref{CSA Model Verification}). It can be seen that our model match well with the experimental results.
+
 %
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=3in]{./Figures/Model.eps}
-  \caption{Comparison of the maximum word-length between the modeled value and the experimental results from FPGA simulations.}
-  \label{CSA Model Verification}
-\end{figure}
+%\begin{figure}[thbp]
+%  \centering
+%  \includegraphics[width=3in]{./Figures/Model.eps}
+%  \caption{Comparison of the maximum word-length between the modeled value and the experimental results from FPGA simulations.}
+%  \label{CSA Model Verification}
+%\end{figure}
 
 \subsection{Accuracy Benefits and Area Overhead in CSA}
-As greater word-length corresponds to smaller truncation errors, we compare the maximum word-length of RCA and CSA with 2 stages and 3 stages over a range of operating frequencies, as presented in Fig.~\ref{CSA3stage Timing}. It can be seen from Fig.~\ref{CSA3stage Timing} that in comparison to RCA, CSA achieves greater word-length when frequency is initially increased. RCA only outperforms than CSA when very high frequency is applied. This is because at low frequencies, although the multiplexer delay limits the word-length of each stage in CSA when compared to RCA, the stage parallelism in CSA enables a greater word-length. However when frequency increases, the multiplexer delay becomes comparable to the delay of the carry chain, and this inhibits the benefits of parallelism. In addition, we can see that the word-length of 3-stage CSA is always greater than 2-stage CSA across the entire frequency domain.
+We first verify the models for RCA and CSA in terms of the maximum word-length under the given operating frequencies. For the CSA, the ratio $\mu_{mux}/\mu_c$ can be computed from experiments. We perform post place-and-route simulations on the CSA with 2 stages using Xilinx Virtex-6 FPGA. The delay of the $i^{th}$ stage $d_i$ in~(\ref{CSA_SingleStageDelay}) is recorded with respect to different word-lengths of this given stage ($n_i$). The total word-length of CSA can be predicted through~(\ref{CSA_Timing}). In addition, the maximum word-lengths of the 2-stage CSA and RCA are obtained experimentally by increasing $n_{CSA}$ and $n_{RCA}$ respectively until errors are observed at the output. The comparison between the modeled value and the empirical results is illustrated in Fig.~\ref{Fig_CSA3stage_Timing} with dotted lines. It can be seen that our models for both RCA and CSA match well with the experimental results.
+
 \begin{figure}[tbp]
-    \begin{minipage}[b]{.48\textwidth}
+    \begin{minipage}[b]{0.48\textwidth}
         \centering
-        \subfigure[Maximum word-length.]{
-            \includegraphics[width=3.3in]{./Figures/CSA3stage_Timing.eps}
-            \label{CSA3stage Timing}
+        \subfigure[The modeled value and the experimental results of the maximum word-length of RCA and CSA.]{
+            \centering
+            \includegraphics[width=0.95\textwidth]{./Figures/CSA3stage_Model_Timing.eps}
+            \label{Fig_CSA3stage Timing}
         }
-        \subfigure[Hardware resource usage.]{
-            \includegraphics[width=3.3in]{./Figures/CSA3stage_Area.eps}
+        \subfigure[Hardware resource usage for RCA and CSA with 2 and 3 stages.]{
+            \centering
+            \includegraphics[width=0.95\textwidth]{./Figures/CSA3stage_Area.eps}
             \label{CSA3stage Area}
         }
     \end{minipage}
     \centering
     \caption{A comparison between RCA and CSA in terms of the maximum word-length of input signal and the area consumption.}
 \end{figure}
+
+As greater word-length corresponds to smaller truncation errors, we compare the maximum word-length of RCA and CSA with 2 stages and 3 stages over a range of operating frequencies, as presented in Fig.~\ref{CSA3stage Timing}. It can be seen from Fig.~\ref{CSA3stage Timing} that in comparison to RCA, CSA achieves greater word-length when frequency is initially increased. RCA only outperforms than CSA when very high frequency is applied. This is because at low frequencies, although the multiplexer delay limits the word-length of each stage in CSA when compared to RCA, the stage parallelism in CSA enables a greater word-length. However when frequency increases, the multiplexer delay becomes comparable to the delay of the carry chain, and this inhibits the benefits of parallelism. In addition, we can see that the word-length of 3-stage CSA is always greater than 2-stage CSA across the entire frequency domain.
+
 
 However, the accuracy benefits brought by CSA comes at the cost of a large area overhead. Fig.~\ref{CSA3stage Area} depicts the number of Look-Up Tables (LUTs) in the FPGA used for all three structures. It can be seen that in order to meet a given frequency, the 3-stage CSA consumes $2.4\times\sim3.7\times$ area than RCA, while the 2-stage CSA requires $1.7\times\sim3.1\times$ extra area. This finding poses a question of which is the best adder structure for a specific area budget.
 
@@ -484,18 +488,18 @@ In Section~\ref{section_RCA}, we have discussed two design scenarios when consid
 
 %Our results could be of interest to a circuit designer in two aspects. On one hand, it is desirable to create a circuit that can run at a given frequency with the minimum achievable output errors and resource usage. On the other hand, the algorithm designer will wish the circuit to operate as fast as possible with the minimum area whilst a certain error budget can be tolerated. We select the optimum design methodology for both situations.
 
-First, suppose the designer would wish to create a circuit that can run at a given frequency with the minimum achievable output errors and resource usage. That is, a pair of $\{Area, Frequency\}$ constraint is applied. In this case, the optimum design method is selected based on the following criteria:
+First, suppose the algorithm designer would wish to create a circuit that can run at a given frequency with the minimum achievable output errors and resource usage. That is, a pair of $\{Area, Frequency\}$ constraint is applied. In this case, the optimum design method can be selected based on the following criteria:
 \begin{itemize}
   \item Design with the best accuracy at outputs is the optimum design;
   \item If multiple designs achieve the same accuracy, then the design with minimum area is the optimum design;
   \item If the accuracy and area are identical for multiple designs, they are all treated as the optimum design.
 \end{itemize}
 
-For instance let the available LUTs number be 25, the accuracy with respect to different operating frequencies for both design scenarios are presented in Fig.~(\ref{CSA_LUT25}), on which the optimum design metric is labeled. Note that the accuracy is defined in terms of the error expectation at the output.
-\begin{figure}[ht]
+For instance let the available LUTs number be 25, then the accuracy with respect to different operating frequencies for both design scenarios are presented in Fig.~\ref{CSA_LUT25}, on which the optimum design metric is labeled. Note that the accuracy is defined in terms of the error expectation at the output. In the following experiments within this section, the input data are randomly sampled from a 16-bit data set, which is uniformly distributed.
+\begin{figure}[th]
   \centering
   \includegraphics[width=3.3in]{./Figures/Error_LUT25.eps}
-  \caption{A comparison between two design scenarios when the number of LUT is set to 25. The RCA and CSA are investigated in the conventional scenario, while the RCA is explored in the proposed new scenario. The results are obtained from post place-and-route simulations on Xilinx Virtex FPGAs.}
+  \caption{A comparison between two design scenarios when the number of available LUT is 25. The RCA and CSA are investigated in the conventional scenario, while the RCA is explored in the proposed new scenario. The results are obtained from post place-and-route simulations on Xilinx Virtex-6 FPGAs.}
   \label{CSA_LUT25}
 \end{figure}
 
@@ -526,7 +530,7 @@ In our experiments, MRE is set ranging from $0.001\%$ to $50\%$. For a certain M
 
 For a tight accuracy requirement, i.e. $MRE<0.005\%$, CSA serves as the optimum design choice with respect to large accessible area, as it intrinsically operates faster than RCA. Once again, when the area budget shrinks, the RCA performs best because the precision of the CSA is limited. Similarly to the previous section, we see that the overclocked RCA achieves the fastest operating frequencies under most area constraints when the accuracy requirement is released.
 
-To sum up, it can be seen that for both design goals, CSA is the best option only when there is enough hardware resources. However this circumstance is unlikely to happen, especially with the continued technology scaling nowadays. Due to this reason, in the following sections we will focus on the situation where the hardware resources are limited, and therefore RCA is the design option in our following analysis and experiments.
+To sum up, the experiments reveal that for both design goals, CSA is the best option only when there is enough hardware resources. However this circumstance is unlikely to happen, especially with the continued technology scaling nowadays. Due to this reason, in the following sections we will focus on the situation where the hardware resources are limited, and therefore RCA is the design option in our following analysis and experiments.
 
 \section{Constant Coefficient Multiplier}\label{section_CCM}
 
@@ -850,7 +854,7 @@ We first assess the accuracy of our proposed models of error. The modeled values
 %\vspace{-2ex}
 \end{figure*}
 
-According to Fig.~\ref{FIR}, output errors are reduced in the overclocking scenario for both input types in comparison to the traditional scenario, as expected by our models. In addition, we see that using real data, more significant reduction of MRE are achieved, and that no errors are observed when frequency is initially increased. This is because for real data, long carry chains are typically generated with even smaller probabilities, and the longest carry chain rarely occurs.
+According to Fig.~\ref{FIR}, output errors are reduced in the overclocking scenario for both input types in comparison to the traditional scenario, as the analytical model validates. In addition, we see that using real data, more significant reduction of MRE are achieved, and that no errors are observed when frequency is initially increased. This is because for real data, long carry chains are typically generated with even smaller probabilities, and the longest carry chain rarely occurs.
 
 The output images of the FIR filter for both of the two scenarios with increasing frequencies are presented in Fig.~\ref{FIR_Lena}, from which we can clearly see the differences between the errors generated in these two scenarios. In the overclocking scenario, we observe errors in the MSBs for certain input patterns. This leads to ``salt and pepper noise'', as shown on the images in the top row of Fig.~\ref{FIR_Lena}. In the traditional scenario, truncation causes an overall degradation of the whole image, as can be seen in the bottom row of Fig.~\ref{FIR_Lena}. Furthermore, it is difficult to recover from the latter type of error, since it is generated due to precision loss.
 
@@ -954,6 +958,93 @@ In this table, the frequency is normalized to the maximum error-free frequency f
  \end{table*}
 
 Table~\ref{Max_Frequency} illustrates the frequency speedups for each design when the specified error tolerance varies from 0.05\% to 50\%. For all designs, we see that the overclocking scenario still outperforms the traditional scenario for each MRE budget in terms of operating frequency. Likewise, the frequency speedup is higher for real image inputs than uniform inputs. The geometric mean of frequency speedups of $3.1\%$ to $21.8\%$ can be achieved by using uniform data, while $5.3\%$ to $27.6\%$ when using real image data.
+
+\subsection{Area Overhead}
+\begin{table*}[htbp]
+ %\vspace{-2ex}
+ %% increase table row spacing, adjust to taste
+   \renewcommand{\arraystretch}{1.05}
+   \setlength{\tabcolsep}{3.5pt}
+   %\caption{Relative Reduction of MRE in Overclocking Scenario for Various Normalized Frequencies Based on~(\ref{Relative Reduction MRE}).}
+   \caption{Area Overhead of Out Approach with respect to Given Frequency Requirements}
+%   \vspace{-2ex}
+   \centering
+   \footnotesize
+   %\vspace{-4mm}
+   \begin{threeparttable}
+   \begin{tabular}{c|cc|cc|cc|cc|cc||cc}
+     \hline
+     \hline
+     \multirow{2}*{\begin{tabular}{c}\textbf{Normalized}\\\textbf{Frequency}\end{tabular}} &
+     \multicolumn{2}{c|}{\textbf{FIR}} &
+     \multicolumn{2}{c|}{\textbf{Sobel}} &
+     \multicolumn{2}{c|}{\textbf{IIR}} &
+     \multicolumn{2}{c|}{\textbf{Butterworth}} &
+     \multicolumn{2}{c||}{\textbf{DCT4}} &
+     \multicolumn{2}{c}{\textbf{Geo.Mean}}\\
+     &  {LUTs} & {Slices } &  {LUTs} & {Slices } &  {LUTs} & {Slices  }
+     &  {LUTs} & {Slices } &  {LUTs} & {Slices } &  {LUTs} & {Slices}\\
+     \hline
+     1.04 & 1.24	& 1.05  & 1.12 &	1.22 &	 1.26 &	1.42 &	 1.16 &	 1.11 &	 1.13 &	 1.00 & 1.18 & 1.15\\
+     1.08 & 1.24	& 1.05	& 1.03 &	1.08 &	 1.26 &	1.42 &	 1.16 &	 1.11 &	 1.11 &	 1.15 & 1.16 & 1.16\\
+     1.12 & 1.24	& 1.05   & 1.03 &	1.08 &	 1.26 & 1.42 &	 1.37 &	1.54  &	 2.30 &	 2.17 & 1.38 & 1.40\\
+     1.16 & 2.95	& 2.56   & 1.03 &	1.08 &	 1.61 & 1.71 &	 1.99 &	 2.03  &	 4.60 &	 2.89 &2.14 & 1.95\\
+     1.20 & 2.95	& 2.56   & 1.66 &	1.39 &	 2.77 &	3.48 &	3.17 &	 3.50  &	 N/A\tnote{*}	  & N/A\tnote{*} & 2.56 & 2.57 \\
+     1.24 & 4.42	& 3.15  & 4.00 &	3.55 &	 7.87 &	6.73 &	6.92 &	 5.25  &	 N/A\tnote{*}	  & N/A\tnote{*} & 5.57 & 4.46\\
+     1.28 & 4.42	& 3.15   & 4.00 &	3.55 &	 N/A\tnote{*}	    &   N/A\tnote{*}     &	6.92 &	 5.25  &	N/A\tnote{*}	  & N/A\tnote{*} & 4.97& 3.89\\
+     1.32 & 4.42	& 3.15   & N/A\tnote{*}	  &	 N/A\tnote{*}	    &	 N/A\tnote{*}	    &	 N/A\tnote{*}   & N/A\tnote{*}   & N/A\tnote{*}    &    N/A\tnote{*}   & N/A\tnote{*} & 4.42	& 3.15 \\
+     \hline
+     \hline
+   \end{tabular}
+   \normalsize
+   \begin{tablenotes}
+   \footnotesize
+    \item[*] Current frequency cannot be achieved in the traditional scenario. These points are excluded from the calculation of geometric means.
+   \end{tablenotes}
+   \end{threeparttable}
+   \label{Ratio_MRE}
+% \vspace{-1ex}
+ \end{table*}
+ 
+ \begin{table*}[htbp]
+ %\vspace{-2ex}
+ %% increase table row spacing, adjust to taste
+   \renewcommand{\arraystretch}{1.05}
+   \setlength{\tabcolsep}{3.5pt}
+   %\caption{Frequency Speedups in Overclocking Scenario Under Various Error Budgets.}
+   \caption{Area Overhead of Our Approach with respect to Given Error Budgets.}
+%   \vspace{-2ex}
+   \label{Exp_Real_Inputs}
+   \centering
+   \footnotesize
+   \begin{tabular}{c|cc|cc|cc|cc|cc||cc}
+     \hline
+     \hline
+     \multirow{2}*{\begin{tabular}{c}\textbf{Error Budget}\\\textbf{\%}\end{tabular}} &
+     \multicolumn{2}{c|}{\textbf{FIR}} &
+     \multicolumn{2}{c|}{\textbf{Sobel}} &
+     \multicolumn{2}{c|}{\textbf{IIR}} &
+     \multicolumn{2}{c|}{\textbf{Butterworth}} &
+     \multicolumn{2}{c||}{\textbf{DCT4}} &
+     \multicolumn{2}{c}{\textbf{Geo.Mean}} \\
+     %\multirow{2}*{\begin{tabular}{c}\textbf{Geo.}\\\textbf{Mean}\end{tabular}}\\
+     & {LUTs} & {Slices } &  {LUTs} & {Slices } &  {LUTs} & {Slices }
+     & {LUTs} & {Slices } &  {LUTs} & {Slices } &  {LUTs} & {Slices }\\
+     \hline
+     0.05 & 1.00&	1.00& 1.00&	1.00& 1.00&	 1.00&	1.00&	 1.00&	1.00&	 1.00  &1.00  &  1.00\\
+     0.5  & 1.02&	1.15& 1.00&	1.00& 1.00&	 1.00&	1.00&	 1.00&	1.00&	 1.00   &1.00 &1.03\\
+     1    & 1.02&	1.15& 1.00&	1.00& 1.00&	 1.00&	1.00&	 1.00&	1.00&	 1.00   &1.00 &1.03\\
+     5    & 1.24&	1.05& 1.00&	1.00& 1.26&   1.42&   1.65&   1.11&	 1.00&    1.00   &1.18    &1.18\\
+     10   & 1.24&	1.05& 1.12&	1.22& 1.26&	1.42& 1.65&	1.11& 1.11&	 1.15&    1.18    &1.18\\
+     20   & 1.24&	1.05& 1.03&	1.08& 1.26&	1.42& 6.92&	 5.25&   3.45&	 2.17   &2.07    &11.78\\
+     50   & 2.95&	2.56& 4.00&	3.55& 7.87&	6.73& 6.92&	 5.25&   3.45&	 2.12	&4.67 &3.70\\
+     \hline
+     \hline
+   \end{tabular}
+   \normalsize
+   \label{Max_Frequency}
+%   \vspace{-3ex}
+ \end{table*}
 
 \section{Conclusion}
 The conclusion goes here.
