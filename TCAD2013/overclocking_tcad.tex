@@ -409,7 +409,7 @@ In this case, combining~(\ref{CSA_SingleStageDelay}) and (\ref{CSA_DelayEqual}) 
     \right.
 \end{eqnarray}
 
-Summing up $n_i$ gives the total word-length of the CSA in (\ref{CSA_WL}).
+Sum up $n_i$ to give the total word-length of the CSA in (\ref{CSA_WL}).
 %The total word-length of the CSA is the sum of every stage, as given by (\ref{CSA_WL}).
 \begin{eqnarray}\label{CSA_WL}
   \begin{split}
@@ -432,7 +432,7 @@ Hence for the same frequency requirement, we can form the relationship between t
 
 %, the word-lengths of RCAs and CSAs are selected to avoid timing violation, as presented in~(\ref{CSA_RCA}).
 
-Substitute~(\ref{WL_MSB_CSA}) into (\ref{CSA_WL}) to replace $n_{s-1}$, we derive the representation of the word-length of CSA in terms of a given timing constraint, as presented in~(\ref{CSA_Timing}).
+Substitute~(\ref{WL_MSB_CSA}) into (\ref{CSA_WL}) to replace $n_{s-1}$, we derive the representation of the word-length of CSA in terms of $b$, as presented in~(\ref{CSA_Timing}).
 % we form the relationship between the word-length of CSA and RCA under a given timing constraint, as presented in~(\ref{CSA_Timing}).
 \begin{eqnarray}\label{CSA_Timing}
   n_{CSA}=s\cdot (b-1)-\frac{\mu_{mux}}{\mu_{c}}\cdot\frac{(s+2)(s-1)}{2}
@@ -464,38 +464,40 @@ We first verify the models for RCA and CSA in terms of the maximum word-length u
         \subfigure[The modeled value and the experimental results of the maximum word-length of RCA and CSA.]{
             \centering
             \includegraphics[width=0.95\textwidth]{./Figures/CSA3stage_Model_Timing.eps}
-            \label{Fig_CSA3stage Timing}
+            \label{Fig_CSA3stage_Timing}
         }
         \subfigure[Hardware resource usage for RCA and CSA with 2 and 3 stages.]{
             \centering
             \includegraphics[width=0.95\textwidth]{./Figures/CSA3stage_Area.eps}
-            \label{CSA3stage Area}
+            \label{Fig_CSA3stage_Area}
         }
     \end{minipage}
     \centering
     \caption{A comparison between RCA and CSA in terms of the maximum word-length of input signal and the area consumption.}
 \end{figure}
 
-As greater word-length corresponds to smaller truncation errors, we compare the maximum word-length of RCA and CSA with 2 stages and 3 stages over a range of operating frequencies, as presented in Fig.~\ref{CSA3stage Timing}. It can be seen from Fig.~\ref{CSA3stage Timing} that in comparison to RCA, CSA achieves greater word-length when frequency is initially increased. RCA only outperforms than CSA when very high frequency is applied. This is because at low frequencies, although the multiplexer delay limits the word-length of each stage in CSA when compared to RCA, the stage parallelism in CSA enables a greater word-length. However when frequency increases, the multiplexer delay becomes comparable to the delay of the carry chain, and this inhibits the benefits of parallelism. In addition, we can see that the word-length of 3-stage CSA is always greater than 2-stage CSA across the entire frequency domain.
+As greater word-length corresponds to smaller truncation errors, we compare the maximum word-length of RCA and CSA with 2 stages and 3 stages over a range of operating frequencies, as presented in Fig.~\ref{Fig_CSA3stage_Timing}. It can be seen that in comparison to RCA, CSA achieves greater word-length when frequency is initially increased. RCA only outperforms than CSA when very high frequency is applied. This is because at low frequencies, although the multiplexer delay limits the word-length of each stage in CSA when compared to RCA, the stage parallelism in CSA enables a greater word-length. However when frequency increases, the multiplexer delay becomes comparable to the delay of the carry chain, and this inhibits the benefits of parallelism. In addition, we can see that the word-length of 3-stage CSA is always greater than 2-stage CSA across the entire frequency domain.
 
 
-However, the accuracy benefits brought by CSA comes at the cost of a large area overhead. Fig.~\ref{CSA3stage Area} depicts the number of Look-Up Tables (LUTs) in the FPGA used for all three structures. It can be seen that in order to meet a given frequency, the 3-stage CSA consumes $2.4\times\sim3.7\times$ area than RCA, while the 2-stage CSA requires $1.7\times\sim3.1\times$ extra area. This finding poses a question of which is the best adder structure for a specific area budget.
+However, the accuracy benefits brought by CSA comes at the cost of a large area overhead. Fig.~\ref{Fig_CSA3stage_Area} depicts the number of Look-Up Tables (LUTs) in the FPGA used for all three structures. It can be seen that in order to meet a given frequency, the 3-stage CSA consumes $2.4\times\sim3.7\times$ area than RCA, while the 2-stage CSA requires $1.7\times\sim3.1\times$ extra area. This finding poses a question of which is the best adder structure for a specific area budget.
 
-\subsection{Exploring Trade-offs Between Accuracy, Performance and Area}
-In Section~\ref{section_RCA}, we have discussed two design scenarios when considering timing constraints. In this section, we expand our analysis by incorporating the silicon area as another evaluation metric, and investigate the accuracy, performance and area trade-offs for different adder structures. In the conventional design scenario, the word-length of RCA and CSA is limited by the given frequency constraint, or/and the available hardware resources. The precision loss potentially generates large errors even without timing violations. However in the new design scenario, we use RCA with the maximum possible word-length under the given area budget, and the timing constraints are allowed to be violated. This process might result in timing errors as well as truncation errors due to area limitation. We compare these two scenarios with different design goals, with the aim of targeting the optimum design methodology under each situation.
+%\subsection{Exploring Trade-offs Between Accuracy, Performance and Area}
+\section{The Optimum Adder Structure}
+In Section~\ref{section_RCA}, we have discussed two design scenarios in RCA when considering timing constraints. In this section, we expand our analysis by incorporating the silicon area as another evaluation metric, and investigate the accuracy, performance and area trade-offs for different adder structures. In the conventional design scenario, the word-length of RCA and CSA is limited by the given frequency constraint, or/and the available hardware resources. The precision loss potentially generates large errors even without timing violations. However in the new design scenario, we use RCA with the maximum possible word-length under the given area budget, and the timing constraints are allowed to be violated. This process might result in timing errors as well as truncation errors due to area limitation. We compare these two scenarios with different design goals, with the aim of targeting the optimum design methodology under each situation.
 
 %To answer this question, the silicon area is incorporated into the trade-offs together with accuracy and performance. If the available hardware resources are limited, the full word-length of both CSA and RCA might not be implemented. The precision loss might results in large errors even at low frequencies. This is demonstrated by experiments where area constraints are applied besides the timing requirement. In the conventional design scenario, both of the constraints are met by reducing the word-length of the input signal. The errors at the outputs are recorded with the reference to the original word-length, which is 16 bits in the following experiments. In addition, we propose another circuit designing method where RCA is implemented with the maximum possible word-length under the given area budget, while the timing constraints are met by overclocking.
 
 %Our results could be of interest to a circuit designer in two aspects. On one hand, it is desirable to create a circuit that can run at a given frequency with the minimum achievable output errors and resource usage. On the other hand, the algorithm designer will wish the circuit to operate as fast as possible with the minimum area whilst a certain error budget can be tolerated. We select the optimum design methodology for both situations.
-
-First, suppose the algorithm designer would wish to create a circuit that can run at a given frequency with the minimum achievable output errors and resource usage. That is, a pair of $\{Area, Frequency\}$ constraint is applied. In this case, the optimum design method can be selected based on the following criteria:
+\subsection{Determination of the Optimum Adder Structure for Given Frequency Requirements}
+First, suppose the algorithm designer would wish to create a circuit that can run at a given frequency with the minimum achievable output errors and minimum resource usage. That is, a pair of $\{Area, Frequency\}$ constraint is applied. In this case, the optimum design method can be selected based on the following criteria:
 \begin{itemize}
-  \item Design with the best accuracy at outputs is the optimum design;
+  \item Design with the minimum value of errors at outputs is the optimum design;
   \item If multiple designs achieve the same accuracy, then the design with minimum area is the optimum design;
-  \item If the accuracy and area are identical for multiple designs, they are all treated as the optimum design.
+  \item If both the accuracy and area are identical for multiple designs, they are all treated as the optimum design.
 \end{itemize}
 
-For instance let the available LUTs number be 25, then the accuracy with respect to different operating frequencies for both design scenarios are presented in Fig.~\ref{CSA_LUT25}, on which the optimum design metric is labeled. Note that the accuracy is defined in terms of the error expectation at the output. In the following experiments within this section, the input data are randomly sampled from a 16-bit data set, which is uniformly distributed.
+For instance, we record the mean value of error at outputs with respect to different operating frequencies for both design scenarios, when the number of the available LUTs is set to 25. The experimental results are shown in Fig.~\ref{CSA_LUT25}, on which the optimum adder structure is labeled. In the following experiments within this section, the input data are randomly generated following uniform distribution, in order to keep consistence with our models.
+% sampled from a 16-bit data set, which is uniformly distributed.
 \begin{figure}[th]
   \centering
   \includegraphics[width=3.3in]{./Figures/Error_LUT25.eps}
@@ -503,9 +505,9 @@ For instance let the available LUTs number be 25, then the accuracy with respect
   \label{CSA_LUT25}
 \end{figure}
 
-We first notice that for all frequency values, the overclocked RCA achieves smaller error expectation than the RCA with truncated operand word-lengths, as predicted by the models in Section~\ref{section_RCA_Comparison}. It can also be observed that CSA cannot be implemented with full word-length due to the limited area budget, and this leads to large truncation errors initially for CSA.
+We first notice that for all frequency values, the overclocked RCA achieves smaller error expectation than the RCA with truncated operand word-lengths, as predicted by the models for RCA in Section~\ref{section_RCA_Comparison}. It can also be observed that CSA cannot be implemented with the original word-length due to the limited area budget, and this leads to large truncation errors initially.
 
-We then perform the similar experiments with a variety of area constraints. The optimum design method with respect to different operating frequencies and area consumptions is demonstrated in Fig.~\ref{Fig_CSA_Tradeoff}. From this figure, several observations can be made. If the available area is large enough to implement a CSA in full precision, it will be the optimum design. This is expected from our earlier analysis in Fig.~\ref{CSA3stage Timing}. The 2-stage CSA is better than the 3-stage CSA when frequency is initially increased, as it consumes less area although both of them achieve the same error expectation. For a tighter area budget, only part of the CSA can be implemented, whereas the RCA still keeps full precision. In this case, area becomes the dominate factor and precision is lost for the CSA. We see the RCA with overclocking is the optimum design method across almost the whole frequency domain. For a more stringent area constraint, the word-length of RCA is also limited. This results in truncation errors initially for all design scenarios. However, the RCA with overclocking can still be employed as the optimum design, because it loses less precision than CSA under the same area constraint.
+We then perform the similar experiments with a variety of area constraints. The optimum design methods with respect to different operating frequencies and area consumptions are demonstrated in Fig.~\ref{Fig_CSA_Tradeoff}. From this figure, several observations can be made. Firstly, if the available area is large enough to implement a CSA in full precision, it will be the optimum design. This is expected from our earlier analysis in Fig.~\ref{Fig_CSA3stage_Timing}. Secondly, the 2-stage CSA is better than the 3-stage CSA when frequency is initially increased, as it consumes less area although both of them achieve the same error expectation. Thirdly, only part of the CSA can be implemented if under a tighter area budget, whereas the RCA still keeps full precision. In this case, area becomes the dominate factor and precision is lost for the CSA. We see the RCA with overclocking is the optimum design method across almost the whole frequency domain in this situation. Last but not the least, for a more stringent area constraint, the word-length of RCA is also limited. This results in truncation errors initially for all design scenarios. However, the RCA with overclocking can still be employed as the optimum design, because it loses less precision than CSA under the same area constraint.
 \begin{figure}[t]
   \centering
   \includegraphics[width=3.5in]{./Figures/Tradeoff.eps}
@@ -513,12 +515,13 @@ We then perform the similar experiments with a variety of area constraints. The 
   \label{Fig_CSA_Tradeoff}
 \end{figure}
 
-Similarly if the design goal is to operate the circuit as fast as possible with the minimum area whilst a certain error budget can be tolerated, the optimum design methodology can be decided as illustrated in Fig.~\ref{Fig_CSA_Tradeoff_Error}. In this situation, the error specifications are evaluated in terms of the mean relative error (MRE), as presented in~(\ref{MRE}), where $E_{error}$ and $E_{out}$ refer to the mean value of error and the mean value of outputs, respectively.
+\subsection{Determination of the Optimum Adder Structure for Given Accuracy Requirements}
+If the design goal is to operate the circuit as fast as possible with the minimum area whilst a certain error budget can be tolerated, the optimum design methodology can be decided as illustrated in Fig.~\ref{Fig_CSA_Tradeoff_Error}. In this situation, the error specifications are evaluated in terms of the mean relative error (MRE), as fiben by~(\ref{MRE}), where $E_{error}$ and $E_{out}$ refer to the mean value of error and the mean value of outputs, respectively.
 \begin{eqnarray}\label{MRE}
   MRE=\left|\frac{E_{error}}{E_{out}}\right|\times 100\%
 \end{eqnarray}
 
-In our experiments, MRE is set ranging from $0.001\%$ to $50\%$. For a certain MRE, the design with the maximum operating frequencies is selected as the optimum design. Moreover, the smallest design is the optimum one if multiple structures operate at the same frequency, with a certain area requirement. Fig.~\ref{Fig_CSA_Tradeoff_Error} can thus be obtained based on these criteria.
+In our experiments, MRE is set ranging from $0.001\%$ to $50\%$. For a certain value of MRE, the design with the maximum operating frequencies is selected as the optimum design. Moreover, the smallest design is the optimum one if multiple structures operate at the same frequency, with a certain area requirement. Fig.~\ref{Fig_CSA_Tradeoff_Error} can thus be obtained based on these criteria.
 %Based on these criteria, the decision graph is depicted in
 %We also notice that for small frequencies, RCA with either overclocking or truncation of word-length of the input signal is the best design choice for any area constraint, since
 \begin{figure}[t]
@@ -528,9 +531,10 @@ In our experiments, MRE is set ranging from $0.001\%$ to $50\%$. For a certain M
     \label{Fig_CSA_Tradeoff_Error}
 \end{figure}
 
-For a tight accuracy requirement, i.e. $MRE<0.005\%$, CSA serves as the optimum design choice with respect to large accessible area, as it intrinsically operates faster than RCA. Once again, when the area budget shrinks, the RCA performs best because the precision of the CSA is limited. Similarly to the previous section, we see that the overclocked RCA achieves the fastest operating frequencies under most area constraints when the accuracy requirement is released.
+For a tight accuracy requirement, i.e. $MRE<0.005\%$, CSA serves as the optimum design choice with respect to large accessible area, as it intrinsically operates faster than RCA. Once again, when the area budget shrinks, the RCA performs best because the precision of the CSA is limited. Similarly to the results in Fig.~\ref{Fig_CSA_Tradeoff}, we see that the overclocked RCA achieves the fastest operating frequencies under most area constraints when the accuracy requirement is released.
 
-To sum up, the experiments reveal that for both design goals, CSA is the best option only when there is enough hardware resources. However this circumstance is unlikely to happen, especially with the continued technology scaling nowadays. Due to this reason, in the following sections we will focus on the situation where the hardware resources are limited, and therefore RCA is the design option in our following analysis and experiments.
+\subsection{Design Guidance}
+To sum up, the experiments reveal that for both design goals, CSA is the best option only when there is enough hardware resources. However this circumstance is unlikely to happen in the practice, especially with the continued technology scaling nowadays. Due to this reason, in the following sections we will focus on the situation where the hardware resources are limited, and therefore RCA is the design option in our following analysis and experiments.
 
 \section{Constant Coefficient Multiplier}\label{section_CCM}
 
@@ -747,15 +751,15 @@ Fig.~\ref{TimingMargin} also demonstrates that when the circuit is truncated, it
 
 
 
-\subsection{Evaluation Metric of Outputs}
-The results are evaluated in terms of mean relative error (MRE), which represents the percentage of error at outputs. MRE is given by~(\ref{MRE}), where $E_{error}$ and $E_{out}$ refer to the mean value of error and the correct output respectively.
-%
-\begin{eqnarray}\label{MRE}
-%\small
-\scriptsize
-  MRE=\left|\frac{E_{error}}{E_{out}}\right|\times 100\%
-\end{eqnarray}
-\normalsize
+%\subsection{Evaluation Metric of Outputs}
+%The results are evaluated in terms of mean relative error (MRE), which represents the percentage of error at outputs. MRE is given by~(\ref{MRE}), where $E_{error}$ and $E_{out}$ refer to the mean value of error and the correct output respectively.
+%%
+%\begin{eqnarray}\label{MRE}
+%%\small
+%\scriptsize
+%  MRE=\left|\frac{E_{error}}{E_{out}}\right|\times 100\%
+%\end{eqnarray}
+%\normalsize
 
 \subsection{Computing Model Parameters}
 The accuracy of our proposed models is examined with practical results on Virtex-6 FPGA. We first determine the model parameters. There are two types of parameters in the models of overclocking error. The first is based on the circuit architecture. For example, the word-length of RCAs and CCMs ($n$), the shifted bits of the shifters in CCM ($s$), and the word-length of the input signal ($k$). This is determined through static analysis. The second depends on timing information, such as the single bit carry propagation delay $\mu$. In order to keep consistency with the assumption made in models that $\mu$ is a fixed value, it is obtained according to the actual FPGA measurement results.
@@ -966,7 +970,7 @@ Table~\ref{Max_Frequency} illustrates the frequency speedups for each design whe
    \renewcommand{\arraystretch}{1.05}
    \setlength{\tabcolsep}{3.5pt}
    %\caption{Relative Reduction of MRE in Overclocking Scenario for Various Normalized Frequencies Based on~(\ref{Relative Reduction MRE}).}
-   \caption{Area Overhead of Out Approach with respect to Given Frequency Requirements}
+   \caption{Area Overhead of Our Approach with respect to Given Frequency Requirements}
 %   \vspace{-2ex}
    \centering
    \footnotesize
@@ -1005,7 +1009,7 @@ Table~\ref{Max_Frequency} illustrates the frequency speedups for each design whe
    \label{Ratio_MRE}
 % \vspace{-1ex}
  \end{table*}
- 
+
  \begin{table*}[htbp]
  %\vspace{-2ex}
  %% increase table row spacing, adjust to taste
@@ -1034,9 +1038,9 @@ Table~\ref{Max_Frequency} illustrates the frequency speedups for each design whe
      0.05 & 1.00&	1.00& 1.00&	1.00& 1.00&	 1.00&	1.00&	 1.00&	1.00&	 1.00  &1.00  &  1.00\\
      0.5  & 1.02&	1.15& 1.00&	1.00& 1.00&	 1.00&	1.00&	 1.00&	1.00&	 1.00   &1.00 &1.03\\
      1    & 1.02&	1.15& 1.00&	1.00& 1.00&	 1.00&	1.00&	 1.00&	1.00&	 1.00   &1.00 &1.03\\
-     5    & 1.24&	1.05& 1.00&	1.00& 1.26&   1.42&   1.65&   1.11&	 1.00&    1.00   &1.18    &1.18\\
+     5    & 1.24&	1.05& 1.00&	1.00& 1.26&   1.42&   1.65&   1.11&	 1.00&    1.00   &1.13    &1.11\\
      10   & 1.24&	1.05& 1.12&	1.22& 1.26&	1.42& 1.65&	1.11& 1.11&	 1.15&    1.18    &1.18\\
-     20   & 1.24&	1.05& 1.03&	1.08& 1.26&	1.42& 6.92&	 5.25&   3.45&	 2.17   &2.07    &11.78\\
+     20   & 1.24&	1.05& 1.03&	1.08& 1.26&	1.42& 6.92&	 5.25&   3.45&	 2.17   &2.07    &1.79\\
      50   & 2.95&	2.56& 4.00&	3.55& 7.87&	6.73& 6.92&	 5.25&   3.45&	 2.12	&4.67 &3.70\\
      \hline
      \hline
