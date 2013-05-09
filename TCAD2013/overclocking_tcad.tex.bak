@@ -49,7 +49,8 @@
 
 \begin{document}
 
-\title{Imprecise Computing in Datapath Design: Precision Loss or Timing Violations}
+\title{Imprecise Computing in Datapath Design: An Overclocking Approach}
+%Imprecise Computing in Datapath Design: Precision Loss or Timing Violations}
 %Imprecise Datapath Design: An Overclocking Approach
 %Imprecise Computation Through Overclocking
 
@@ -126,23 +127,55 @@ The abstract.
 %
 % Here we have the typical use of a "T" for an initial drop letter
 % and "HIS" in caps to complete the first word.
-\IEEEPARstart{T}{his} demo file is intended to serve as a ``starter file''
-for IEEE journal papers produced under \LaTeX\ using
-IEEEtran.cls version 1.8 and later.
-% You must have at least 2 lines in the paragraph with the drop letter
-% (should never be an issue)
-I wish you the best of success.
+%\IEEEPARstart{T}{his} demo file is intended to serve as a ``starter file''
+%for IEEE journal papers produced under \LaTeX\ using
+%IEEEtran.cls version 1.8 and later.
+%% You must have at least 2 lines in the paragraph with the drop letter
+%I wish you the best of success.
 
-\hfill mds
+\IEEEPARstart{C}{ircuit} performance has increased tremendously over the past decades, as CMOS technology continues to shrink to the nanometer regime. However, the drastic variations introduced by higher integration densities is anticipated to be the major obstacle when designing reliable, high performance circuits. Traditionally, hardware designers employ safety margins to ensure a uniform functionality across a variety of possible working environments. However, there are two major problems if we keep using this approach. One is that the uniform performance should no longer be expected in the future, because the highly scaled CMOS devices would inevitably exhibit probabilistic behavior. The other problem is that covering all possible worst cases would become increasingly difficult, expensive and result in large yield loss.
 
-\hfill December 27, 2012
+In addition, we also notice that the clock frequency is no longer scaling significantly with time, and the dark silicon becomes an important issue in circuit design since energy efficiency is considered to be the main limitation for embedded or mobile applications. In this case, designers tend to employ multi-core systems, heterogeneous platforms and massive parallel accelerators (such as FPGAs) to sustain the performance scaling.
 
-\subsection{Subsection Heading Here}
-Subsection text here.
+Specifically, large volume of current studies has demonstrated that, significant performance gains can be achieved by FPGA-based accelerators over software designs across a wide range of applications. However, one of the major factors that limits the performance of these accelerators is that they typically run at much lower clock frequencies than general purpose processors (GPPs) or GPUs. Furthermore, timing analysis tools typically report a very conservative clock frequency for ``safe'' operations. This substantially limits the potential performance of the device to a further extent. 
+
+In order to boost the operating frequency of a datapath, the standard approaches are either to heavily pipeline the design, or reduce the precision throughout the datapath. For the former method, pipelining will not tend to reduce the circuit latency. Actually the latency in terms of clock cycles will increase. As a result, this method will not be applicable to many embedded applications, which typically have strict latency requirements, or in datapath containing feedback where C-slow retiming is inappropriate. For the second approach, reducing the datapath precision would subtract out the latency, but at the cost of introducing quantization errors into the design. For hardware platforms such as FPGAs or ASICs, research into exploiting the potential benefits of using the minimum precision necessary to satisfy a design specification has been an extensive topic, as it is possible to use a number system with customized precisions on these platforms. A brief review of existing approaches in this area will be discussed in Section.xxx.
+
+Unfortunately, neither of the conventional approaches tends to remove the conservative safety margin. In recent years, we have seen a growth of research that explores the potential power or performance benefits that can be obtained when relaxing the variation-induced guard-bands. The detailed review of this research area will be presented in Section.xxx.
+
+In this paper, we describe an alternative circuit design methodology when considering performance-accuracy-area tradeoffs. We suggest that for certain applications it is beneficial to move away from the traditional model of creating a conservative design that is guaranteed to avoid timing violations. Instead, it may be preferable to create a design in which timing violations may occur, under the knowledge that they only occur rarely because specific input patterns are required to generate the worst case errors. This paper elaborates on the prior work [xxx], by incorporating silicon area as another evaluation metric for the trade-offs. Based on this premise, we explicitly demonstrate the optimum design choice of the basic arithmetic operators (i.e. binary adders) under various design constraints. A summary of the main contributions of this work are as follows:
+
+The rest of this paper is organized as follows. It first reviews in detail the current literature regarding the existing approaches that are used in word-length optimization and approximate datapath design in Section.xxx. The analytical error models for two different adder structures: RCA and CSA, are discussed in Section.xxx and Section.xxx, respectively. The decision of the optimum adder structure under the accuracy-performance-area trade-offs, is then put forward in Section.xxx. It is followed by a description of the probabilistic error models for CCM in Section.xxx. Section.xxx discusses a practical experimental setup to verify our models and test the proposed design methodology. The demonstration of the benefits of our proposed approach is then demonstrated in Section.xxx. Finally, Section.xxx discusses the conclusions of this work and the possible research directions in the future.
+
+\section{Background}
+\subsection{Word-length Optimization}
+There exists a significant amount of work demonstrating that optimizing the precision used throughout the datapath would bring a substantial benefits on clock speed, silicon area and power consumption. As loosing precisions causes truncation or overflow errors, a main stream of research focus on analyzing errors generated from using the minimum precision and providing bounds of inputs to ensure the overall error are within the given accuracy specification. Current literatures report two major approaches in this area: the simulation-based approach [xxx] and the analytical-based approach including interval arithmetic [xxx], affine arithmetic [xxx], SAT-modulo theory [xxx] and polynomial representations [xxx]. A detailed summary of these methods can be found in [xxx].
+
+\subsection{Imprecise Circuit Design Methodology}
+However, the choice of precision is not the only source of errors when designing a datapath. Recently we have seen a growth of parallel streams of research which aim at exploring alternative methods to trade accuracy for performance or energy efficiency. This strand of research is motivated by the fact that it becomes increasingly difficult and expensive to cover all possible worst cases when designing circuits, because the rapid scaling of technology introduces drastic variations on circuit performance.
+
+To address this problem, the international technology roadmap for semiconductors (ITRS07) pointed out that extra benefits of manufacturing, test, power and timing can be obtained if the tight requirement of absolute correctness is released for devices and interconnects [xxx]. This topic is expected to be of growing importance in the future, because we will face new challenges as the technology scales further.
+
+According to the existing literatures, one way to operating circuits beyond the deterministic region is to relax the design constraints and the guard-bands that are conventionally used to avoid the worst cases. Research in this area is based on the observations that in practice, the worst case happens rarely. A series of work known as ``Better-Than-Worst-Case (BTWC) Design'' introduced a universal framework to push the circuit performance to its limits. In general, a BTWC design is composed of cores and checkers. The cores are operated with high performance by eliminating the conservative guard-bands, while the possible timing errors are diagnosed by the checkers. Optionally the system can be recovered at the observation of errors. As an exemplary design, the Razor project [xxx] was proposed to shave the conservative timing margins by overscaling the supply voltage and clock frequency, while monitoring the output error rates by utilizing a self-checking circuit. This work demonstrated that the benefits brought by removing the safe margin outweigh the cost of monitoring and recovering from errors. For example, $22\%$ or over $30\%$ power consumption can be saved with $\sim0.01\%$ or $\sim1\%$ error rates at the output, respectively. Related work includes a similar frequency overscaling technique by operating circuits slightly slower than the critical path delay with dedicated checker circuits to ensure that timing errors will not occur [xxx], developing timing analysis tools that decide the optimum operating frequencies in the non-deterministic region due to process variation [xxx] or xxx.
+
+Another key observation that has been made from existing work is that the worst-case normally happens with specific input patterns. Meanwhile, many studies have shown that errors can be potentially tolerated in various applications, e.g. DSP applications concerning human perceptions. In this case, an even greater performance/power benefits can be achieved, as the design overhead of the checkers can be eliminated. Current research in this area is focusing on designing ``probabilistic circuits'' that employ techniques from either software level or hardware level. For instance at the programming language level, a tool was proposed [UWashington x2] to divide the program into precise part and approximate part, both of which are mapped to different hardwares with different speed-grades, supply voltages etc. This technique enables a relatively high service quality, in the meantime energy reduction can be obtained due to approximation. Similar ideas have also been applied on hardware directly. As an example, Palem et.al. [xxx] described a non-uniform voltage scaling technique for the ripple carry adder. In this study, multiple voltage regions are employed for different bits along a carry chain. That is, higher voltage would be applied for computations generating most significant bits, and vice versa.
+
+While the aforementioned literatures take advantage of the fact that only specific input patterns could cause timing errors, research on imprecise architectures take this one step further to design a simplified circuit for peformance/energy efficiency. For example, Lu et.al. proposed a ``shrinking'' datapath that can be utilized to mimic and speculate the original logic functions [xxx]. Kulkarni et.al. described an underdesigned $2\times2$ multiplier unit, of which the worst case was replaced by a normal case based on the straight-forward Karnaugh Map analysis [UCLA]. In this case, reduction of area and power consumption can be achieved with the cost of accuracy. In addition, Gupta et.al. developed approximate adders at the transistor level and compared the energy efficiency of their proposed architectures over truncation of input word-length of conventional structures [xxx].
+
+However, the limitations of the existing work cannot be neglected. Firstly, some techniques, such as employing several voltages regions within a ripple carry adder, are not practical to achieve in real situations, and the overhead of applying this technique is not discussed. Secondly, many studies propose alternative architectures, which means the adaptability of this kind of technique is limited on current hardware platforms. Thirdly, the link between the probability of output correctness and energy savings or performance improvements are not analyzed.
+
+In this work, we propose an alternative methodology to remove these limitations. It is argued in this paper that our method can be easily applied onto existing hardware arithmetic operators such as RCAs and CCMs with almost no hardware overhead. We support this hypothesis experimentally and analytically by presenting theoretical probabilistic error models.
 
 
-\subsubsection{Subsubsection Heading Here}
-Subsubsection text here.
+%, by simply allowing timing violations to happen. We compare to the situation where a specific timing requirement is met by reducing datapath precisions. Instead of simply performing experiments, we also present analytical models of errors generated due to both timing violation and precision loss.
+
+%In addition, a variety of research aimed at designing imprecise architectures to get rid of the worst cases. 
+
+%such as non-uniform voltage scaling or imprecise architectures for computations.
+
+%achieving a uniform circuit performance and 100\% accuracy becomes increasingly difficult and expensive, especially when technology shrinks to the nanometer regime.
+
+
 \section{Ripple Carry Adder}\label{section_RCA}
 \subsection{Adder Structures in FPGAs}
 %something about fast carry logic in FPGA and pictures
@@ -155,8 +188,8 @@ While the fast carry logic reduces the time of each individual carry-propagation
 \begin{figure}[t]
   \centering
   \includegraphics[width=3in]{./Figures/FastCarryLogic3.eps}
-%  \vspace{-2ex}
-  \caption{An $n$-bit ripple carry adder in Virtex-6 FPGA.}
+  %  \vspace{-2ex}
+  \caption{An $n$-bit ripple carry adder in the Xilinx Virtex-6 FPGA.}
   \label{FPGA adder}
   %\vspace{-3.5ex}
 \end{figure}
@@ -458,7 +491,7 @@ Substitute~(\ref{WL_MSB_CSA}) into (\ref{CSA_WL}) to replace $n_{s-1}$, we deriv
 %\end{figure}
 
 \subsection{Accuracy Benefits and Area Overhead in CSA}
-We first verify the models for the RCA and CSA in terms of the maximum word-length under the given operating frequencies. For the CSA, the ratio $\mu_{mux}/\mu_c$ can be computed experimentally. We perform post place-and-route simulations on the CSA with 2 stages using Xilinx Virtex-6 FPGA. The delay of the $i^{th}$ stage $d_i$ in~(\ref{CSA_SingleStageDelay}) is recorded with respect to different word-lengths. The total word-length of CSA can be predicted through~(\ref{CSA_Timing}). In addition, the maximum word-lengths of the 2-stage CSA and RCA are obtained experimentally by increasing $n_{CSA}$ and $n_{RCA}$ respectively until errors are observed at the output. The comparison between the modeled value and the empirical results is illustrated in Fig.~\ref{Fig_CSA2stage_Timing} with dotted lines. It can be seen that our models for both RCA and CSA match well with the experimental results.
+We first verify the models for the RCA and CSA in terms of the maximum word-length under the given operating frequencies. For the CSA, the ratio $\mu_{mux}/\mu_c$ can be computed experimentally. We perform post place-and-route simulations on the CSA with 2 stages using Xilinx Virtex-6 FPGA. The delay of the $i^{th}$ stage $d_i$ in~(\ref{CSA_SingleStageDelay}) is recorded with respect to different word-lengths. The total word-length of CSA can be predicted through~(\ref{CSA_Timing}). In addition, the maximum word-lengths of the 2-stage CSA and RCA are obtained experimentally by increasing $n_{CSA}$ and $n_{RCA}$ respectively until errors are observed at the output. The comparison between the modeled value and the empirical results is illustrated in Fig.~\ref{Fig_CSA2stage_Timing}. It can be seen that our models for both RCA and CSA match well with the experimental results.
 
 \begin{figure}[tbp]
     \begin{minipage}[b]{0.48\textwidth}
@@ -468,7 +501,7 @@ We first verify the models for the RCA and CSA in terms of the maximum word-leng
             \includegraphics[width=0.95\textwidth]{./Figures/CSA2stage_Model_Timing.eps}
             \label{Fig_CSA2stage_Timing}
         }
-        \subfigure[Hardware resource usage for RCA and CSA with 2 and 3 stages.]{
+        \subfigure[Hardware resource usage for an RCA and a CSA with 2 and 3 stages.]{
             \centering
             \includegraphics[width=0.95\textwidth]{./Figures/CSA3stage_Area.eps}
             \label{Fig_CSA3stage_Area}
@@ -480,11 +513,11 @@ We first verify the models for the RCA and CSA in terms of the maximum word-leng
 
 %As greater word-length corresponds to smaller truncation errors, we compare the maximum word-length of RCA and CSA with 2 stages and 3 stages over a range of operating frequencies, as presented in
 
-Fig.~\ref{Fig_CSA2stage_Timing} also highlight that in comparison to the RCA, the CSA achieves greater word-length when frequency is initially increased. The RCA only outperforms than the CSA when very high frequency is applied. This is because at low frequencies, although the multiplexer delay limits the word-length of each stage in CSA when compared to RCA, the stage parallelism in CSA enables a greater word-length. However when frequency increases, the multiplexer delay becomes comparable to the delay of the carry chain, and this inhibits the benefits of parallelism.
+Fig.~\ref{Fig_CSA2stage_Timing} also highlights that in comparison to the RCA, the CSA achieves greater word-length when frequency is initially increased. The RCA only outperforms than the CSA when very high frequency is applied. This is because at low frequencies, although the multiplexer delay limits the word-length of each stage in CSA when compared to RCA, the stage parallelism in CSA enables a greater word-length. However when frequency increases, the multiplexer delay becomes comparable to the delay of the carry chain, and this inhibits the benefits of parallelism.
 %In addition, we can see that the word-length of 3-stage CSA is always greater than 2-stage CSA across the entire frequency domain.
 
 
-However, the accuracy benefits brought by CSA comes at the cost of a large area overhead. Fig.~\ref{Fig_CSA3stage_Area} depicts the number of Look-Up Tables (LUTs) in the FPGA used for a RCA, a 2-stage CSA and a 3-stage CSA. It can be seen that in order to meet a given frequency, the 3-stage CSA consumes $2.4\times\sim3.7\times$ area than RCA, while the 2-stage CSA requires $1.7\times\sim3.1\times$ extra area. This finding poses a question of which is the best adder structure for a specific area budget.
+However, the accuracy benefits brought by CSA comes at the cost of a large area overhead. Fig.~\ref{Fig_CSA3stage_Area} depicts the number of Look-Up Tables (LUTs) in the FPGA used for an RCA, a 2-stage CSA and a 3-stage CSA. It can be seen that in order to meet a given frequency, the 3-stage CSA consumes $2.4\times\sim3.7\times$ area than RCA, while the 2-stage CSA requires $1.7\times\sim3.1\times$ extra area. This finding poses a question of which is the best adder structure for a specific area budget.
 
 %\subsection{Exploring Trade-offs Between Accuracy, Performance and Area}
 \section{Choosing the Optimum Adder Structure}
@@ -512,9 +545,9 @@ For instance, in Fig.~\ref{Fig_CSA_LUT25} we record the mean value of error at o
   \label{Fig_CSA_LUT25}
 \end{figure}
 
-We first notice that for all frequency values, the overclocked RCA achieves smaller error expectation than the RCA with truncated operand word-lengths, as predicted by the models for the RCA in Section~\ref{section_RCA_Comparison}. It can also be observed that the CSA cannot be implemented with the original word-length due to the limited area budget and this leads to large truncation errors. Although CSA with 3 stages outperforms temporarily when frequency is further increased, the overclocked RCA is still the optimum design when high operating frequencies are applied.
+We first notice that for all frequency values, the overclocked RCA achieves smaller error expectation than the RCA with truncated operand word-lengths, as predicted by the models for the RCA in Section~\ref{section_RCA_Comparison}. It can also be observed that the CSA cannot be implemented with the original word-length due to the limited area budget and this leads to large truncation errors. Although the CSA with 3 stages outperforms temporarily when frequency is further increased, the overclocked RCA is still the optimum design when high operating frequencies are applied.
 
-We then perform similar experiments with a variety of area constraints. The optimum design methods with respect to different operating frequencies and area consumptions are demonstrated in Fig.~\ref{Fig_CSA_Tradeoff}. From this figure, several observations can be made. Firstly, if the available area is large enough to implement a CSA in full precision, it will be the optimum design. This is expected from our earlier analysis in Fig.~\ref{Fig_CSA3stage_Timing}. Secondly, the 2-stage CSA is better than the 3-stage CSA when frequency is initially increased, as it consumes less area although both achieve the same error expectation. Thirdly, only part of the CSA can be implemented under a tighter area budget, whereas the RCA still keeps full precision. In this case, area becomes the dominate factor and precision is lost for the CSA, meaning the RCA with overclocking is the optimum design method across almost the whole frequency domain in this situation. Last but not the least, for a more stringent area constraint, the word-length of RCA is also limited. This results in truncation errors initially for all design scenarios. However, the RCA with overclocking can still be employed as the optimum design, because it loses less precision than the CSA under the same area constraint.
+We then perform similar experiments with a variety of area constraints. The optimum design methods with respect to different operating frequencies and area consumptions are demonstrated in Fig.~\ref{Fig_CSA_Tradeoff}. From this figure, several observations can be made. Firstly, if the available area is large enough to implement a CSA in full precision, it will be the optimum design. This is expected from our earlier analysis in Fig.~\ref{Fig_CSA2stage_Timing}. Secondly, the 2-stage CSA is better than the 3-stage CSA when frequency is initially increased, as it consumes less area although both achieve the same error expectation. Thirdly, only part of the CSA can be implemented under a tighter area budget, whereas the RCA still keeps full precision. In this case, area becomes the dominate factor and precision is lost for the CSA, meaning the RCA with overclocking is the optimum design method across almost the whole frequency domain in this situation. Last but not the least, for a more stringent area constraint, the word-length of RCA is also limited. This results in truncation errors initially for all design scenarios. However, the RCA with overclocking can still be employed as the optimum design, because it loses less precision than the CSA under the same area constraint.
 
 \begin{figure}[t]
   \centering
@@ -871,6 +904,24 @@ We first assess the accuracy of our proposed models of error. The modeled values
 According to Fig.~\ref{FIR}, output errors are reduced in the overclocking scenario for both input types in comparison to the traditional scenario, as the analytical model validates. In addition, we see that using real data, more significant reduction of MRE are achieved, and that no errors are observed when frequency is initially increased. This is because for real data, long carry chains are typically generated with even smaller probabilities, and the longest carry chain rarely occurs.
 
 The output images of the FIR filter for both of the two scenarios with increasing frequencies are presented in Fig.~\ref{FIR_Lena}, from which we can clearly see the differences between the errors generated in these two scenarios. In the overclocking scenario, we observe errors in the MSBs for certain input patterns. This leads to ``salt and pepper noise'', as shown on the images in the top row of Fig.~\ref{FIR_Lena}. In the traditional scenario, truncation causes an overall degradation of the whole image, as can be seen in the bottom row of Fig.~\ref{FIR_Lena}. Furthermore, it is difficult to recover from the latter type of error, since it is generated due to precision loss.
+
+\begin{figure}[tbp]
+    \begin{minipage}[b]{0.48\textwidth}
+        \centering
+        \subfigure[The cumulative distribution function with respect to both type of input data.]{
+            \centering
+            \includegraphics[width=0.95\textwidth]{./Figures/CDF.eps}
+            \label{Fig_CSA2stage_Timing}
+        }
+        \subfigure[Probability distribution of different length of carry chains in the $5^{th}$ order FIR filter, using both type of input data.]{
+            \centering
+            \includegraphics[width=0.95\textwidth]{./Figures/CC_length2.eps}
+            \label{Fig_CSA3stage_Area}
+        }
+    \end{minipage}
+    \centering
+    \caption{Statistical analysis of two types of input data: the uniform data and the real image data: Lena.}
+\end{figure}
 
 
 \subsection{Potential Benefits in Circuit Design}

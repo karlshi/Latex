@@ -1,26 +1,3 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% General Review Paper
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-@article{FutureMicroprocessor2005,
-  title={The future of microprocessors},
-  author={Olukotun, Kunle and Hammond, Lance},
-  journal={Communications of the {ACM}},
-  volume={3},
-  number={7},
-  pages={26--29},
-  year={2009}
-}
-
-@inproceedings{DarkSilicon2011,
-  title={Dark silicon and the end of multicore scaling},
-  author={Esmaeilzadeh, Hadi and Blem, Emily and Amant, Renee St and Sankaralingam, Karthikeyan and Burger Doug},
-  booktitle={Int. Symp. Computer Architecture},
-  pages={365--376},
-  year={2011}
-}
-
-
 @article{borkar2005designing,
   title={Designing reliable systems from unreliable components: the challenges of transistor variability and degradation},
   author={Borkar, S.},
@@ -44,25 +21,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Razor
-@inproceedings{Razor2003,
+@inproceedings{Reference:Razor,
   title         ="Razor: A low-power pipeline based on circuit-level timing speculation",
   author        ="Ernst, D. and Kim, N.S. and Das, S. and Pant, S. and Rao, R. and Pham, T. and Ziesler, C. and Blaauw, D. and Austin, T. and Flautner, K. and others",
   booktitle     ="Int. Symp. on Microarchitecture",
   pages         ="7--18",
   year          ="2003"
 };
-
-@article{Razor2004,
-  title={Making typical silicon matter with razor},
-  author={Austin, Todd and Blaauw, David and Mudge, Trevor and Flautner, Kriszti{\'a}n},
-  journal={Computer},
-  volume={37},
-  number={3},
-  pages={57--65},
-  year={2004},
-  publisher={IEEE}
-}
-
 
 %% Rice Univ.
 %% Overview of Palem
@@ -174,27 +139,6 @@ ISSN={Pending},}
   year={2012}
 }
 
-%% University of Washington
-@inproceedings{EnerJ2011Uwash,
-  title={EnerJ: Approximate data types for safe and general low-power computation},
-  author={Sampson, Adrian and Dietl, Werner and Fortuna, Emily and Gnanapragasam, Danushen and Ceze, Luis and Grossman, Dan},
-  booktitle={ACM SIGPLAN Notices},
-  volume={46},
-  number={6},
-  pages={164--174},
-  year={2011},
-  organization={ACM}
-}
-
-@inproceedings{Truffle2012Uwash,
-  title={Architecture support for disciplined approximate programming},
-  author={Esmaeilzadeh, Hadi and Sampson, Adrian and Ceze, Luis and Burger, Doug},
-  booktitle={Proc. Int. Conf. Architectural Support for Programming Languages and Operating Systems},
-  pages={301-312},
-  year={2012}
-
-}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Word-length Optimization
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -219,7 +163,16 @@ pages={8-17}
   publisher={IEEE}
 }
 
-
+@article{SAT2010,
+  title={Bit-width allocation for hardware accelerators for scientific computing using SAT-modulo theory},
+  author={Kinsman, A.B. and Nicolici, N.},
+  journal={Computer-Aided Design of Integrated Circuits and Systems, IEEE Trans. on},
+  volume={29},
+  number={3},
+  pages={405--413},
+  year={2010},
+  publisher={IEEE}
+}
 
 @article{buttari2007mixed,
   title={Mixed precision iterative refinement techniques for the solution of dense linear systems},
@@ -248,34 +201,8 @@ pages={8-17}
   journal={Numerical Algorithms},
   volume={37},
   number={1-4},
-  pages={147--158},
-  year={2004}
+  pages={147--158}
 }
-
-% SAT
-@article{SAT2010,
-  title={Bit-width allocation for hardware accelerators for scientific computing using SAT-modulo theory},
-  author={Kinsman, A.B. and Nicolici, N.},
-  journal={Computer-Aided Design of Integrated Circuits and Systems, IEEE Trans. on},
-  volume={29},
-  number={3},
-  pages={405--413},
-  year={2010},
-  publisher={IEEE}
-}
-
-% Polynomial representation
-@article{Boland2011TCAD,
-  title={Bounding variable values and round-off effects using handelman representations},
-  author={Boland, David and Constantinides, George A},
-  journal={Computer-Aided Design of Integrated Circuits and Systems, IEEE Trans on},
-  volume={30},
-  number={11},
-  pages={1691--1704},
-  year={2011},
-  publisher={IEEE}
-}
-
 
 % Digital IC Design: BOOK
 @book{DigitalICDesign,

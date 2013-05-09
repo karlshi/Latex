@@ -5,8 +5,9 @@ Database file #2: ./Reference.bib
 -- IEEEtran.bst version 1.11 (2003/04/02) by Michael Shell.
 -- http://www.ctan.org/tex-archive/macros/latex/contrib/supported/IEEEtran/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--empty booktitle in BetterThanWS2005
 Warning--empty journal in Virtex6
 Warning--empty journal in Virtex6Clocking
 
 Done.
-(There were 2 warnings)
+(There were 3 warnings)

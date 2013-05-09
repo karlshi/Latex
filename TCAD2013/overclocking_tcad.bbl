@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 \providecommand{\url}[1]{#1}
 \csname url@rmstyle\endcsname
 \providecommand{\newblock}{\relax}
@@ -17,6 +17,110 @@
 \language=\csname l@#1\endcsname
 \fi
 #2}}
+
+\bibitem{FutureMicroprocessor2005}
+K.~Olukotun and L.~Hammond, ``The future of microprocessors,''
+  \emph{Communications of the {ACM}}, vol.~3, no.~7, pp. 26--29, 2009.
+
+\bibitem{DarkSilicon2011}
+H.~Esmaeilzadeh, E.~Blem, R.~S. Amant, K.~Sankaralingam, and B.~Doug, ``Dark
+  silicon and the end of multicore scaling,'' in \emph{Int. Symp. Computer
+  Architecture}, 2011, pp. 365--376.
+
+\bibitem{GeorgeDT11}
+G.~Constantinides, N.~Nicolici, and A.~Kinsman, ``Numerical data
+  representations for {FPGA}-based scientific computing,'' \emph{IEEE Design
+  Test of Computers}, vol.~28, no.~4, pp. 8--17, 2011.
+
+\bibitem{NewBox2004}
+B.~Colwell, ``We may need a new box,'' \emph{Computer}, vol.~37, no.~3, pp.
+  40--41, 2004.
+
+\bibitem{moore1966IA}
+R.~Moore, \emph{Interval analysis}.\hskip 1em plus 0.5em minus 0.4em\relax
+  Prentice-Hall Englewood Cliffs, NJ, 1966, vol.~60.
+
+\bibitem{de2004affine}
+L.~H. De~Figueiredo and J.~Stolfi, ``Affine arithmetic: concepts and
+  applications,'' \emph{Numerical Algorithms}, vol.~37, no. 1-4, pp. 147--158,
+  2004.
+
+\bibitem{SAT2010}
+A.~Kinsman and N.~Nicolici, ``Bit-width allocation for hardware accelerators
+  for scientific computing using sat-modulo theory,'' \emph{Computer-Aided
+  Design of Integrated Circuits and Systems, IEEE Trans. on}, vol.~29, no.~3,
+  pp. 405--413, 2010.
+
+\bibitem{Boland2011TCAD}
+D.~Boland and G.~A. Constantinides, ``Bounding variable values and round-off
+  effects using handelman representations,'' \emph{Computer-Aided Design of
+  Integrated Circuits and Systems, IEEE Trans on}, vol.~30, no.~11, pp.
+  1691--1704, 2011.
+
+\bibitem{lee2006accuracy}
+D.~Lee, A.~Gaffar, R.~Cheung, O.~Mencer, W.~Luk, and G.~Constantinides,
+  ``Accuracy-guaranteed bit-width optimization,'' \emph{Computer-Aided Design
+  of Integrated Circuits and Systems, IEEE Transactions on}, vol.~25, no.~10,
+  pp. 1990--2000, 2006.
+
+\bibitem{semiconductor2007international}
+S.~I. Association, ``International technology roadmap for semiconductors
+  ({ITRS}),'' 2007.
+
+\bibitem{BetterThanWS2005}
+T.~Austin, V.~Bertacco, D.~Blaauw, and T.~Mudge, ``Opportunities and challenges
+  for better than worst-case design,'' 2005, pp. 2--7.
+
+\bibitem{Razor2003}
+D.~Ernst, N.~Kim, S.~Das, S.~Pant, R.~Rao, T.~Pham, C.~Ziesler, D.~Blaauw,
+  T.~Austin, K.~Flautner, \emph{et~al.}, ``Razor: A low-power pipeline based on
+  circuit-level timing speculation,'' in \emph{Int. Symp. on
+  Microarchitecture}, 2003, pp. 7--18.
+
+\bibitem{Razor2004}
+T.~Austin, D.~Blaauw, T.~Mudge, and K.~Flautner, ``Making typical silicon
+  matter with razor,'' \emph{Computer}, vol.~37, no.~3, pp. 57--65, 2004.
+
+\bibitem{TEAtime2004}
+A.~Uht, ``Going beyond worst-case specs with {TEA}time,'' \emph{Computer},
+  vol.~37, no.~3, pp. 51--56, 2004.
+
+\bibitem{ProbabilisticSTA}
+K.~Keutzer and M.~Orshansky, ``From blind certainty to informed uncertainty,''
+  in \emph{Proc. Int. workshop on Timing Issues in the Specification and
+  Synthesis of Digital Systems}, 2002, pp. 37--41.
+
+\bibitem{EnerJ2011Uwash}
+A.~Sampson, W.~Dietl, E.~Fortuna, D.~Gnanapragasam, L.~Ceze, and D.~Grossman,
+  ``Enerj: Approximate data types for safe and general low-power computation,''
+  in \emph{ACM SIGPLAN Notices}, vol.~46, no.~6.\hskip 1em plus 0.5em minus
+  0.4em\relax ACM, 2011, pp. 164--174.
+
+\bibitem{Truffle2012Uwash}
+H.~Esmaeilzadeh, A.~Sampson, L.~Ceze, and D.~Burger, ``Architecture support for
+  disciplined approximate programming,'' in \emph{Proc. Int. Conf.
+  Architectural Support for Programming Languages and Operating Systems}, 2012,
+  pp. 301--312.
+
+\bibitem{NonUniformScaling}
+Z.~Kedem, V.~Mooney, K.~Muntimadugu, and K.~Palem, ``An approach to
+  energy-error tradeoffs in approximate ripple carry adders,'' in \emph{Int.
+  Symp. on Low Power Electronics and Design}, 2011, pp. 211 --216.
+
+\bibitem{IntelSpeeding}
+S.~Lu, ``Speeding up processing with approximation circuits,'' \emph{IEEE
+  Computer}, vol.~37, no.~3, pp. 67--73, 2004.
+
+\bibitem{Undersigned2x2multiplier}
+P.~Kulkarni, P.~Gupta, and M.~Ercegovac, ``Trading accuracy for power with an
+  underdesigned multiplier architecture,'' in \emph{Int. Conf. on VLSI Design},
+  2011, pp. 346--351.
+
+\bibitem{Gupta2013TransCADICS}
+V.~Gupta, D.~Mohapatra, A.~Raghunathan, and K.~Roy, ``Low-power digital signal
+  processing using approximate adders,'' \emph{Computer-Aided Design of
+  Integrated Circuits and Systems, IEEE Trans. on}, vol.~32, no.~1, pp.
+  124--137, 2013.
 
 \bibitem{AlteraCyclone}
 Altera, ``Cyclone device handbook,'' 2008.
