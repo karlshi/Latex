@@ -96,14 +96,14 @@
 \newlabel{Fig_CSA_Tradeoff_Error}{{6}{7}}
 \@writefile{toc}{\contentsline {section}{\numberline {VI}Constant Coefficient Multiplier}{7}}
 \newlabel{section_CCM}{{VI}{7}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Different types of carry chain in constant coefficient multiplier. The notion $s$ denotes the shifted bits and $BP$ denotes the binary point.}}{7}}
-\newlabel{CCM_fig}{{7}{7}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VI-A}}Probabilistic Model of Truncation Error}{7}}
+\newlabel{Et_CCM}{{23}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VI-B}}Probabilistic Model of Overclocking Error}{7}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {VI-B}1}Absolute Value of Overclocking Error}{7}}
+\newlabel{etm_CCM}{{24}{7}}
 \citation{Virtex6Clocking}
-\newlabel{Et_CCM}{{23}{8}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VI-B}}Probabilistic Model of Overclocking Error}{8}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {VI-B}1}Absolute Value of Overclocking Error}{8}}
-\newlabel{etm_CCM}{{24}{8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Four possible carry chain types in a constant coefficient multiplier with $n$-bit inputs. The notion $s$ denotes the shifted bits and $BP$ denotes the binary point.}}{8}}
+\newlabel{CCM_fig}{{7}{8}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {VI-B}2}Probability of Overclocking Error}{8}}
 \newlabel{Ptm_CCM1}{{25}{8}}
 \newlabel{Ptm_CCM2}{{26}{8}}
@@ -119,10 +119,10 @@
 \newlabel{Experiment}{{VII}{8}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VII-A}}Experimental Setup}{8}}
 \newlabel{sub:experimental_setup}{{\unhbox \voidb@x \hbox {VII-A}}{8}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces FPGA Test framework, which is composed of a measurement architecture (the dotted box) and an off-line comparator.}}{8}}
-\newlabel{Test Framework}{{8}{8}}
 \citation{gojman2013FPGA}
 \citation{FPGAPV}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces FPGA Test framework, which is composed of a measurement architecture (the dotted box) and an off-line comparator.}}{9}}
+\newlabel{Test Framework}{{8}{9}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VII-B}}Benchmark Circuits}{9}}
 \@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Rated Frequencies of Example Designs.}}{9}}
 \newlabel{Rated_Frequency_table}{{I}{9}}
@@ -131,15 +131,14 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces The maximum operating frequencies for different input word-lengths of an FIR filter. The dotted line depicts the rated frequency reported by the Xilinx Timing Analyzer. The solid line is obtained through real FPGA tests using our platform.}}{9}}
 \newlabel{TimingMargin}{{9}{9}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VII-D}}Computing Model Parameters}{9}}
-\newlabel{Eq_decideMu_0}{{32}{9}}
-\newlabel{Eq_decideMu_1}{{33}{9}}
-\newlabel{Eq_decideMu_2}{{34}{9}}
+\newlabel{Eq_decideMu_0}{{32}{10}}
+\newlabel{Eq_decideMu_1}{{33}{10}}
+\newlabel{Eq_decideMu_2}{{34}{10}}
 \@writefile{toc}{\contentsline {section}{\numberline {VIII}Results and Discussion}{10}}
 \newlabel{Section_Experiments}{{VIII}{10}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VIII-A}}Case study: FIR filter}{10}}
 \@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces A demonstration of two design perspectives with a $5^{th}$\nobreakspace  {}order FIR filter, which is implemented on Virtex-6 FPGA. The modeled values of both overclocking errors and truncation errors are presented as dotted lines. The actual FPGA measurements are depicted using solid lines. Two types of inputs are employed in the overclocking scenario: the uniformly distributed data and the real image data from Lena.}}{10}}
 \newlabel{FIR}{{10}{10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VIII-B}}Potential Benefits in Circuit Design}{10}}
 \newlabel{Fig_CSA2stage_Timing}{{12(a)}{10}}
 \newlabel{sub@Fig_CSA2stage_Timing}{{(a)}{10}}
 \newlabel{Fig_CSA3stage_Area}{{12(b)}{10}}
@@ -147,22 +146,7 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Statistical analysis of two types of input data: the uniform data and the real image data: Lena.}}{10}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {The cumulative distribution function with respect to both type of input data.}}}{10}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Probability distribution of different length of carry chains in the $5^{th}$ order FIR filter, using both type of input data.}}}{10}}
-\newlabel{Relative Reduction MRE}{{35}{10}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Output images of the FIR filter for both overclocking scenario (top row) and traditional scenario (bottom row) under various operating frequencies.}}{11}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {425MHz,\nobreakspace {}n=8\nobreakspace {},\nobreakspace {}no errors observed}}}{11}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {430MHz,\nobreakspace {}n=8,\nobreakspace {}SNR=47.15dB}}}{11}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {480MHz,\nobreakspace {}n=8,\nobreakspace {}SNR=24.1dB}}}{11}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {520MHz,\nobreakspace {}n=8,\nobreakspace {}SNR=10.86dB}}}{11}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(e)}{\ignorespaces {425MHz,\nobreakspace {}n=7,\nobreakspace {}SNR=26.06dB}}}{11}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(f)}{\ignorespaces {430MHz,\nobreakspace {}n=5,\nobreakspace {}SNR=24.85dB}}}{11}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(g)}{\ignorespaces {480MHz,\nobreakspace {}n=2,\nobreakspace {}SNR=6.57dB}}}{11}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(h)}{\ignorespaces {520MHz,\nobreakspace {}n=1,\nobreakspace {}SNR=3.95dB}}}{11}}
-\newlabel{FIR_Lena}{{11}{11}}
-\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces Relative Reduction of MRE in Overclocking Scenario for Various Normalized Frequencies Based on\nobreakspace  {}(35\hbox {}).}}{11}}
-\newlabel{Ratio_MRE}{{II}{11}}
-\@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces Frequency Speedups in Overclocking Scenario Under Various Error Budgets.}}{11}}
-\newlabel{Exp_Real_Inputs}{{III}{11}}
-\newlabel{Max_Frequency}{{III}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VIII-B}}Potential Benefits in Circuit Design}{10}}
 \bibstyle{./IEEEtran}
 \bibdata{./IEEEabrv,./Reference}
 \bibcite{FutureMicroprocessor2005}{1}
@@ -177,6 +161,30 @@
 \bibcite{semiconductor2007international}{10}
 \bibcite{BetterThanWS2005}{11}
 \bibcite{Razor2003}{12}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Output images of the FIR filter for both overclocking scenario (top row) and traditional scenario (bottom row) under various operating frequencies.}}{11}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {425MHz,\nobreakspace {}n=8\nobreakspace {},\nobreakspace {}SNR=47.97dB}}}{11}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {450MHz,\nobreakspace {}n=8,\nobreakspace {}SNR=44.94dB}}}{11}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {480MHz,\nobreakspace {}n=8,\nobreakspace {}SNR=21.58dB}}}{11}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {520MHz,\nobreakspace {}n=8,\nobreakspace {}SNR=10.03dB}}}{11}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(e)}{\ignorespaces {425MHz,\nobreakspace {}n=7,\nobreakspace {}SNR=26.02dB}}}{11}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(f)}{\ignorespaces {450MHz,\nobreakspace {}n=5,\nobreakspace {}SNR=21.76dB}}}{11}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(g)}{\ignorespaces {480MHz,\nobreakspace {}n=2,\nobreakspace {}SNR=6.57dB}}}{11}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(h)}{\ignorespaces {520MHz,\nobreakspace {}n=1,\nobreakspace {}SNR=3.95dB}}}{11}}
+\newlabel{FIR_Lena}{{11}{11}}
+\newlabel{Relative Reduction MRE}{{35}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VIII-C}}Area Overhead}{11}}
+\@writefile{toc}{\contentsline {section}{\numberline {IX}Conclusion}{11}}
+\@writefile{toc}{\contentsline {section}{References}{11}}
+\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces Relative Reduction of MRE in Overclocking Scenario for Various Normalized Frequencies Based on\nobreakspace  {}(35\hbox {}).}}{12}}
+\newlabel{Ratio_MRE}{{II}{12}}
+\@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces Frequency Speedups in Overclocking Scenario Under Various Error Budgets.}}{12}}
+\newlabel{Exp_Real_Inputs}{{III}{12}}
+\newlabel{Max_Frequency}{{III}{12}}
+\@writefile{lot}{\contentsline {table}{\numberline {IV}{\ignorespaces Area Overhead of Our Approach with respect to Given Frequency Requirements}}{12}}
+\newlabel{Ratio_MRE}{{IV}{12}}
+\@writefile{lot}{\contentsline {table}{\numberline {V}{\ignorespaces Area Overhead of Our Approach with respect to Given Error Budgets.}}{12}}
+\newlabel{Exp_Real_Inputs}{{V}{12}}
+\newlabel{Max_Frequency}{{V}{12}}
 \bibcite{Razor2004}{13}
 \bibcite{TEAtime2004}{14}
 \bibcite{ProbabilisticSTA}{15}
@@ -192,15 +200,7 @@
 \bibcite{Virtex6Clocking}{25}
 \bibcite{gojman2013FPGA}{26}
 \bibcite{FPGAPV}{27}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VIII-C}}Area Overhead}{12}}
-\@writefile{toc}{\contentsline {section}{\numberline {IX}Conclusion}{12}}
-\@writefile{toc}{\contentsline {section}{References}{12}}
-\@writefile{toc}{\contentsline {section}{Biographies}{12}}
-\@writefile{toc}{\contentsline {subsection}{Author}{12}}
-\@writefile{toc}{\contentsline {subsection}{Author}{12}}
-\@writefile{toc}{\contentsline {subsection}{Author}{12}}
-\@writefile{lot}{\contentsline {table}{\numberline {IV}{\ignorespaces Area Overhead of Our Approach with respect to Given Frequency Requirements}}{13}}
-\newlabel{Ratio_MRE}{{IV}{13}}
-\@writefile{lot}{\contentsline {table}{\numberline {V}{\ignorespaces Area Overhead of Our Approach with respect to Given Error Budgets.}}{13}}
-\newlabel{Exp_Real_Inputs}{{V}{13}}
-\newlabel{Max_Frequency}{{V}{13}}
+\@writefile{toc}{\contentsline {section}{Biographies}{13}}
+\@writefile{toc}{\contentsline {subsection}{Author}{13}}
+\@writefile{toc}{\contentsline {subsection}{Author}{13}}
+\@writefile{toc}{\contentsline {subsection}{Author}{13}}
