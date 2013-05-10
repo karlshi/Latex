@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.12.22)  10 MAY 2013 05:00
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.12.22)  10 MAY 2013 19:21
 entering extended mode
 **F:/Git/Latex/TCAD2013/overclocking_tcad.tex
 (F:/Git/Latex/TCAD2013/overclocking_tcad.tex
@@ -883,27 +883,17 @@ t line 897.
 (pdftex.def)             Requested size: 235.29314pt x 188.79669pt.
  [10 <F:/Git/Latex/TCAD2013/Figures/Exp/FIR/FIR_Error_New_TCAD-eps-converted-to
 .pdf> <F:/Git/Latex/TCAD2013/Figures/CDF-eps-converted-to.pdf> <F:/Git/Latex/TC
-AD2013/Figures/CC_length2-eps-converted-to.pdf>]
-
-LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 909.
-
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-(F:\Git\Latex\TCAD2013\overclocking_tcad.bbl [11 <F:/Git/Latex/TCAD2013/Figures
-/Exp/FIR/LenaImages/FIRLena_T8-eps-converted-to.pdf> <F:/Git/Latex/TCAD2013/Fig
-ures/Exp/FIR/LenaImages/FIRLena_T65-eps-converted-to.pdf> <F:/Git/Latex/TCAD201
-3/Figures/Exp/FIR/LenaImages/FIRLena_T62-eps-converted-to.pdf> <F:/Git/Latex/TC
-AD2013/Figures/Exp/FIR/LenaImages/FIRLena_T6-eps-converted-to.pdf> <F:/Git/Late
-x/TCAD2013/Figures/Exp/FIR/LenaImages/FIRLena_Q7T10-eps-converted-to.pdf> <F:/G
-it/Latex/TCAD2013/Figures/Exp/FIR/LenaImages/FIRLena_Q4T10-eps-converted-to.pdf
-> <F:/Git/Latex/TCAD2013/Figures/Exp/FIR/LenaImages/FIRLena_Q2T10-eps-converted
--to.pdf> <F:/Git/Latex/TCAD2013/Figures/Exp/FIR/LenaImages/FIRLena_Q1T10-eps-co
-nverted-to.pdf>] [12]) [13
-
-] (F:\Git\Latex\TCAD2013\overclocking_tcad.aux)
+AD2013/Figures/CC_length2-eps-converted-to.pdf>] (F:\Git\Latex\TCAD2013\overclo
+cking_tcad.bbl [11 <F:/Git/Latex/TCAD2013/Figures/Exp/FIR/LenaImages/FIRLena_T8
+-eps-converted-to.pdf> <F:/Git/Latex/TCAD2013/Figures/Exp/FIR/LenaImages/FIRLen
+a_T65-eps-converted-to.pdf> <F:/Git/Latex/TCAD2013/Figures/Exp/FIR/LenaImages/F
+IRLena_T62-eps-converted-to.pdf> <F:/Git/Latex/TCAD2013/Figures/Exp/FIR/LenaIma
+ges/FIRLena_T6-eps-converted-to.pdf> <F:/Git/Latex/TCAD2013/Figures/Exp/FIR/Len
+aImages/FIRLena_Q7T10-eps-converted-to.pdf> <F:/Git/Latex/TCAD2013/Figures/Exp/
+FIR/LenaImages/FIRLena_Q4T10-eps-converted-to.pdf> <F:/Git/Latex/TCAD2013/Figur
+es/Exp/FIR/LenaImages/FIRLena_Q2T10-eps-converted-to.pdf> <F:/Git/Latex/TCAD201
+3/Figures/Exp/FIR/LenaImages/FIRLena_Q1T10-eps-converted-to.pdf>] [12]) [13]
+(F:\Git\Latex\TCAD2013\overclocking_tcad.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -911,11 +901,11 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  3623 strings out of 494045
  56914 string characters out of 3145971
- 139329 words of memory out of 3000000
+ 138329 words of memory out of 3000000
  6821 multiletter control sequences out of 15000+200000
  48795 words of font info for 94 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 42i,17n,28p,1747b,370s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,17n,28p,1743b,368s stack positions out of 5000i,500n,10000p,200000b,50000s
 {E:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<E:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><E:/Program 
 Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><E:/Program Fi
@@ -935,7 +925,7 @@ c/amsfonts/symbols/msam10.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type1/ur
 w/times/utmb8a.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utm
 bi8a.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><E
 :/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on overclocking_tcad.pdf (13 pages, 2581354 bytes).
+Output written on overclocking_tcad.pdf (13 pages, 2582329 bytes).
 PDF statistics:
  283 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

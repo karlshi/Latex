@@ -137,13 +137,13 @@ Note that, however, the choice of precision is not the only source of errors whe
 
 To address this problem, the international technology roadmap for semiconductors (ITRS07) pointed out that extra benefits of manufacturing, test, power and timing can be obtained if the tight requirement of absolute correctness is released for devices and interconnects~\cite{semiconductor2007international}. This topic is expected to be of growing importance in the future, because we will face new challenges as the technology scales further.
 
-According to the existing literatures, one way to operating circuits beyond the deterministic region is to relax the design constraints and the guard-bands that are conventionally used to avoid the worst cases. Research in this area is based on the observations that in practice, the worst case happens rarely. A series of work known as ``Better-Than-Worst-Case (BTWC) Design'' introduced a universal framework to push the circuit performance to its limits~\cite{BetterThanWS2005}. In general, a BTWC design is composed of cores and checkers. The cores are operated with high performance by eliminating the guard-bands, meanwhile the possible timing errors are diagnosed by the checkers. Optionally the system can be recovered at the observation of errors. As an exemplary design, the Razor project~\cite{Razor2003,Razor2004} was proposed to shave the conservative timing margins by overscaling the supply voltage and clock frequency, while monitoring the output error rates by utilizing a self-checking circuit. This work demonstrated that the benefits brought by removing the safe margin outweigh the cost of monitoring and recovering from errors. For example, $22\%$ or over $30\%$ power consumption can be saved with $\sim0.01\%$ or $\sim1\%$ error rates at the output, respectively. Related work includes a similar frequency overscaling technique by operating circuits slightly slower than the critical path delay with dedicated checker circuits to ensure that timing errors will not occur~\cite{TEAtime2004}, developing timing analysis tools that decide the optimum operating frequencies in the non-deterministic region due to process variation~\cite{ProbabilisticSTA} or xxx.
+According to the existing literatures, one way to operating circuits beyond the deterministic region is to relax the design constraints and the guard-bands that are conventionally used to avoid the worst cases. Research in this area is based on the observations that in practice, the worst case happens rarely. A series of work known as ``Better-Than-Worst-Case (BTWC) Design'' introduced a universal framework to push the circuit performance to its limits~\cite{BetterThanWS2005}. In general, a BTWC design is composed of cores and checkers. The cores are operated with high performance by eliminating the guard-bands, meanwhile the possible timing errors are diagnosed by the checkers. Optionally the system can be recovered at the observation of errors. As an exemplary design, the Razor project~\cite{Razor2003,Razor2004} was proposed to shave the conservative timing margins by overscaling the supply voltage and clock frequency, while monitoring the output error rates by utilizing a self-checking circuit. This work demonstrated that the benefits brought by removing the safe margin outweigh the cost of monitoring and recovering from errors. For example, $22\%$ or over $30\%$ power consumption can be saved with $\sim0.01\%$ or $\sim1\%$ error rates at the output, respectively. Related work includes a similar frequency overscaling technique by operating circuits slightly slower than the critical path delay with dedicated checker circuits to ensure that timing errors will not occur~\cite{TEAtime2004}, or developing timing analysis tools that decide the optimum operating frequencies in the non-deterministic region due to process variation~\cite{ProbabilisticSTA}.
 
 Another key observation that has been made from existing work is that the worst-case normally happens with specific input patterns. Meanwhile, many studies have shown that errors can be potentially tolerated in various applications, e.g. DSP applications concerning human perceptions. In this case, an even greater performance/power benefits can be achieved, as the design overhead of the checkers can be eliminated. Current research in this area is focusing on designing probabilistic or imprecise circuits that employ techniques from either software level or hardware level. For instance at the programming language level, a tool was proposed~\cite{EnerJ2011Uwash,Truffle2012Uwash} to divide the program into the precise parts and the approximate parts, both of which are mapped to different hardware with different speed-grades, supply voltages etc. This technique enables a relatively high service quality, in the meantime energy reduction can be obtained due to approximation. Similar ideas have also been applied on hardware directly. As an example, Palem et~al.~\cite{NonUniformScaling} described a non-uniform voltage scaling technique for the ripple carry adder. In this study, multiple voltage regions are employed for different bits along a carry chain. That is, higher voltage would be applied for computations generating most significant bits, and vice versa.
 
-While the aforementioned literatures take advantage of the fact that only specific input patterns could cause timing errors, research on imprecise architectures take this one step further by designing simplified circuits for peformance/energy efficiency. For example, Lu et~al. proposed a ``shrinking'' datapath that can be utilized to mimic and speculate the original logic functions~\cite{IntelSpeeding}. Kulkarni et.al. described an underdesigned $2\times2$ multiplier unit, of which the worst case was replaced by a normal case based on the straight-forward Karnaugh Map analysis~\cite{Undersigned2x2multiplier}. In both cases, reduction of area and power consumption can be achieved with the cost of accuracy. In addition, Gupta et.al. developed approximate adders at the transistor level and compared the energy efficiency of their proposed architectures over truncation of input word-length of conventional structures~\cite{Gupta2013TransCADICS}.
+While the aforementioned literatures take advantage of the fact that only specific input patterns could cause timing errors, research on imprecise architectures take this one step further by designing simplified circuits for peformance/energy efficiency. For example, Lu et~al. proposed a ``shrinking'' datapath that can be utilized to mimic and speculate the original logic functions~\cite{IntelSpeeding}. Kulkarni et.al. described an underdesigned $2\times2$ multiplier unit, of which the worst case was replaced by a normal case based on the straight-forward Karnaugh-Map analysis~\cite{Undersigned2x2multiplier}. In both cases, reduction of area and power consumption can be achieved with the cost of accuracy. In addition, Gupta et~al. developed approximate adders at the transistor level and compared the energy efficiency of their proposed architectures over truncation of input word-length of conventional structures~\cite{Gupta2013TransCADICS}.
 
-However, the limitations of the existing work should not be neglected. Firstly, some techniques, such as employing several voltages regions within a ripple carry adder, are not practical to achieve in real situations, and the overhead of applying this technique is not discussed. Secondly, many studies propose alternative architectures, which means the adaptability of this kind of technique is limited on current hardware platforms. More importantly, correct results would never be obtained by using approximate architectures. Thirdly, the link between the probability of output correctness and energy savings or performance improvements are rarely analyzed from current research.
+However, the limitations of the existing work should not be neglected. Firstly, some techniques, such as employing several voltages regions within a ripple carry adder, are not practical to achieve in real situations, and the overhead of applying this technique is not discussed. Secondly, many studies propose alternative architectures, which means the adaptability of this kind of technique is limited on current hardware platforms. More importantly, correct results would never be obtained as long as the approximate architectures were employed. Thirdly, the link between the probability of output correctness and energy savings or performance improvements are rarely analyzed from current research.
 
 In this work, we propose an alternative methodology to remove these limitations. It is argued in this paper that our method can be easily applied onto existing hardware arithmetic operators such as RCAs and CCMs with almost no hardware overhead. We support this hypothesis experimentally and analytically by presenting theoretical probabilistic error models.
 
@@ -847,7 +847,7 @@ We first assess the accuracy of our proposed models of error. The modeled values
     \centering
     \includegraphics[width=1.8in]{./Figures/Exp/FIR/LenaImages/FIRLena_T6.eps}
   \end{minipage}
-  }\vspace{-1ex}
+  }
   \subfigure[425MHz,~n=7,~SNR=26.02dB]{
   \begin{minipage}[c]{0.24\textwidth}
     \centering
@@ -903,14 +903,11 @@ The output images of the FIR filter for both of the two scenarios with increasin
 
 \subsection{Potential Benefits in Circuit Design}
 %The results can be interpreted in two folds.
-Our results could be of interest to a circuit designer in two ways. Typically, either the designer will want to create a circuit that can run at a given frequency with the minimum possible MRE, or the algorithm designer will wish to run as fast as possible whilst maintaining a specific error tolerance. In the first case, the experimental results for all five example designs on FPGA are summarized in Table~\ref{Ratio_MRE} in terms of the relative reduction of MRE as given in~(\ref{Relative Reduction MRE}) where $MRE_{Trad}$ and $MRE_{ovrc}$ denote the value obtained in the traditional scenario and in the overclocking scenario, respectively.
+As we mentioned in Section~xxx, our results could be of interest to a circuit designer in two ways. Typically, either the designer will want to create a circuit that can run at a given frequency with the minimum possible MRE, or the algorithm designer will wish to run as fast as possible whilst maintaining a specific error tolerance. For the first design target, the experimental results for all five example designs on FPGA are summarized in Table~\ref{Ratio_MRE} in terms of the relative reduction of MRE as given in~(\ref{Relative Reduction MRE}) where $MRE_{Trad}$ and $MRE_{ovrc}$ denote the value obtained in the traditional scenario and in the overclocking scenario, respectively.
+
 \begin{eqnarray}\label{Relative Reduction MRE}
-%\small
-\scriptsize
   \frac{MRE_{Trad}-MRE_{ovrc}}{MRE_{Trad}}\times 100\%
 \end{eqnarray}
-\normalsize
-%\vspace{-2ex}
 
 In this table, the frequency is normalized to the maximum error-free frequency for each design when the input signal is 8-bit. The N/A in Table~\ref{Ratio_MRE} refers to the situations where a certain frequency simply cannot be achieved using the traditional scenario. It can be seen that a significant reduction of MRE can be achieved using the proposed overclocking scenario, and the geometric mean reduction varies from $67.9\%$ to $95.4\%$ using uniform input data. Even larger differences of MRE can be observed when testing with real image data for each design, ranging from $83.6\%$ to $98.8\%$, as expected given the results shown in Fig.~\ref{FIR}.
 %Table goes here
@@ -1002,17 +999,19 @@ In this table, the frequency is normalized to the maximum error-free frequency f
 Table~\ref{Max_Frequency} illustrates the frequency speedups for each design when the specified error tolerance varies from 0.05\% to 50\%. For all designs, we see that the overclocking scenario still outperforms the traditional scenario for each MRE budget in terms of operating frequency. Likewise, the frequency speedup is higher for real image inputs than uniform inputs. The geometric mean of frequency speedups of $3.1\%$ to $21.8\%$ can be achieved by using uniform data, while $5.3\%$ to $27.6\%$ when using real image data.
 
 \subsection{Area Overhead}
+For both aforementioned design goals, it should be noted that an extra benefit of using the traditional approach is that reducing datapath precision would potentially leads to a smaller design, in comparison to our proposed overclocking scenario. Consequently, the area overheads of our approach are summarized in Table xxx and Table xxx for both design goals. In our experiments, the area overhead is evaluated in terms of the number of LUTs and Slices in the FPGA technology, while similar metrics can also be employed if applying our approach into other hardware platforms. It can be seen that for a given frequency requirement with minimum possible errors, the geometric mean of area overhead ranges from $1.16\times$ and $1.15\times$ to $5.57\times$ and $4.46\times$ for LUTs and Slices, respectively.
+
+An even smaller area overhead can be found for a specified error budget with the maximum clock frequencies. As seen in Table xxx, the geometric mean of area overhead in terms of LUTs and Slices is $1.00\times\sim4.67\times$ and $1.00\times\sim3.70\times$ respectively. Notice that an area overhead of $1\times$ means both the overclocking scenario and the traditional scenario use the original precision, however the former achieves frequency speedups as seen in Tablexxx, because a specific error budget can be tolerated.
+
+In general, we can observe a relatively small area overhead of our approach, especially when frequency is initially increased or with a small error budget (i.e. $\sim10\%$).
+
 \begin{table*}[htbp]
- %\vspace{-2ex}
  %% increase table row spacing, adjust to taste
    \renewcommand{\arraystretch}{1.05}
    \setlength{\tabcolsep}{3.5pt}
-   %\caption{Relative Reduction of MRE in Overclocking Scenario for Various Normalized Frequencies Based on~(\ref{Relative Reduction MRE}).}
    \caption{Area Overhead of Our Approach with respect to Given Frequency Requirements}
-%   \vspace{-2ex}
    \centering
    \footnotesize
-   %\vspace{-4mm}
    \begin{threeparttable}
    \begin{tabular}{c|cc|cc|cc|cc|cc||cc}
      \hline
@@ -1045,17 +1044,13 @@ Table~\ref{Max_Frequency} illustrates the frequency speedups for each design whe
    \end{tablenotes}
    \end{threeparttable}
    \label{Ratio_MRE}
-% \vspace{-1ex}
  \end{table*}
 
  \begin{table*}[htbp]
- %\vspace{-2ex}
  %% increase table row spacing, adjust to taste
    \renewcommand{\arraystretch}{1.05}
    \setlength{\tabcolsep}{3.5pt}
-   %\caption{Frequency Speedups in Overclocking Scenario Under Various Error Budgets.}
    \caption{Area Overhead of Our Approach with respect to Given Error Budgets.}
-%   \vspace{-2ex}
    \label{Exp_Real_Inputs}
    \centering
    \footnotesize
@@ -1085,7 +1080,6 @@ Table~\ref{Max_Frequency} illustrates the frequency speedups for each design whe
    \end{tabular}
    \normalsize
    \label{Max_Frequency}
-%   \vspace{-3ex}
  \end{table*}
 
 \section{Conclusion}
@@ -1093,32 +1087,6 @@ The conclusion goes here.
 
 \section*{Acknowledgment}
 The authors would like to acknowledge the support of the EPSRC (Grants EP/I020557/1 and EP/I012036/1).
-
-%\begin{figure}[htbp]
-%	\centering
-%	\includegraphics[width=3.3in]{./Figures/Error_LUT45.eps}
-%	\caption{LUT=45}
-%\end{figure}
-%
-%\begin{figure}[htbp]
-%	\centering
-%	\includegraphics[width=3.3in]{./Figures/Error_LUT35.eps}
-%	\caption{LUT=35}
-%\end{figure}
-%
-%\begin{figure}[htbp]
-%	\centering
-%	\includegraphics[width=3.3in]{./Figures/Error_LUT25.eps}
-%	\caption{LUT=25}
-%\end{figure}
-%
-%\begin{figure}[htbp]
-%	\centering
-%	\includegraphics[width=3.3in]{./Figures/Error_LUT15.eps}
-%	\caption{LUT=15}
-%\end{figure}
-%
-
 
 
 %\begin{figure}[!t]

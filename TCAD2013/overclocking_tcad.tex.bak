@@ -563,11 +563,11 @@ To sum up, the experiments reveal that for both design goals, CSA is the best op
 
 As another key primitive of arithmetic operations, CCM can be implemented using RCA and shifters. For example, operation $B=9A$ is equivalent to $B=A+8A=A+(A<<3)$, which can be built using one RCA and one shifter. We first focus on a single RCA and single shifter structure. We describe how more complex structures consisting of multiple RCAs and multiple shifters can be built in accordance with this baseline structure in Section~\ref{CCM_Multi}.
 
-In this CCM structure, let the two inputs of the RCA be denoted by $A_S$ and $A_O$ respectively, which are both two's complement numbers. $A_S$ denotes the ``shifted signal", with zeros padded after LSB, while $A_O$ denotes the ``original signal" with MSB sign extension. For an $n$-bit input signal, it should be noted that an $n$-bit RCA is sufficient for this operation, because no carry will be generated or propagated when adding with zeros, as shown in Figure~\ref{CCM_fig}.
+In this CCM structure, let the two inputs of the RCA be denoted by $A_S$ and $A_O$ respectively, which are both two's complement numbers. $A_S$ denotes the ``shifted signal", with zeros padded after LSB, while $A_O$ denotes the ``original signal" with MSB sign extension. For an $n$-bit input signal, it should be noted that an $n$-bit RCA is sufficient for this operation, because no carry will be generated or propagated when adding with zeros, as shown in Fig.~\ref{CCM_fig}.
 \begin{figure*}[htbp]
   \centering
   \includegraphics[width=0.99\textwidth]{./Figures/CCM_CarryChain.pdf}
-  \caption{Different types of carry chain in constant coefficient multiplier. The notion $s$ denotes the shifted bits and $BP$ denotes the binary point.}
+  \caption{Four possible carry chain types in a constant coefficient multiplier with $n$-bit inputs. The notion $s$ denotes the shifted bits and $BP$ denotes the binary point.}
   \label{CCM_fig}
 \end{figure*}
 
@@ -686,7 +686,8 @@ In the case where a CCM is composed of two shifters and one RCA, such as operati
 For those operations such as $B=37A=(A<<5)+(A<<2)+(A<<1)$, the CCM can be built using a tree structure. Each root node is the baseline CCM and the errors are propagated through an adder tree, of which the error can be determined based on our previous RCA model.
 
 \section{Test Platform}\label{Experiment}
-In our experiments, we compare two design perspectives. In the first scenario, the word-length of the input signal is truncated before propagating through the datapath in order to meet a given latency. In our proposed overclocking scenario, the circuit is overclocked while keeping the original operand word-length. The benefits of the proposed methodology are demonstrated over a set of DSP example designs, which are implemented on the Xilinx ML605 board with a Virtex-6 FPGA XC6VLX240T-1FFG1156.
+In our experiments, we compare two design perspectives. In the first scenario, the word-length of the input signal is truncated before propagating through the datapath in order to meet a given latency. In our proposed overclocking scenario, the circuit is overclocked while keeping the original operand word-length. The benefits of the proposed methodology are demonstrated over a set of DSP example designs, which are implemented on the Xilinx ML605 board with a Virtex-6 FPGA. 
+%XC6VLX240T-1FFG1156.
 
 \subsection{Experimental Setup} % (fold)
 \label{sub:experimental_setup}
@@ -812,7 +813,7 @@ We first assess the accuracy of our proposed models of error. The modeled values
 \begin{figure}[htbp]
   \centering
 %  \vspace{-2.5ex}
-  \includegraphics[width=3.5in]{./Figures/Exp/FIR/FIR_Error_New2.eps}
+  \includegraphics[width=3.5in]{./Figures/Exp/FIR/FIR_Error_New_TCAD.eps}
 %  \vspace{-5ex}
   \caption{A demonstration of two design perspectives with a $5^{th}$~order FIR filter, which is implemented on Virtex-6 FPGA. The modeled values of both overclocking errors and truncation errors are presented as dotted lines. The actual FPGA measurements are depicted using solid lines. Two types of inputs are employed in the overclocking scenario: the uniformly distributed data and the real image data from Lena.}
   \label{FIR}
@@ -823,37 +824,37 @@ We first assess the accuracy of our proposed models of error. The modeled values
 \begin{figure*}[htbp]
   %\vspace{-2ex}
   \centering
-  \subfigure[425MHz,~n=8~,~no errors observed]{
+  \subfigure[425MHz,~n=8~,~SNR=47.97dB]{
   \begin{minipage}[c]{0.24\textwidth}
     \centering
     \includegraphics[width=1.8in]{./Figures/Exp/FIR/LenaImages/FIRLena_T8.eps}
   \end{minipage}%
   }% This is important! use % to indicate same line, otherwise new line
-  \subfigure[430MHz,~n=8,~SNR=47.15dB]{
+  \subfigure[450MHz,~n=8,~SNR=44.94dB]{
   \begin{minipage}[c]{0.24\textwidth}
     \centering
     \includegraphics[width=1.8in]{./Figures/Exp/FIR/LenaImages/FIRLena_T65.eps}
   \end{minipage}
   }%
-  \subfigure[480MHz,~n=8,~SNR=24.1dB]{
+  \subfigure[480MHz,~n=8,~SNR=21.58dB]{
   \begin{minipage}[c]{0.24\textwidth}
     \centering
     \includegraphics[width=1.8in]{./Figures/Exp/FIR/LenaImages/FIRLena_T62.eps}
   \end{minipage}
   }%
-  \subfigure[520MHz,~n=8,~SNR=10.86dB]{
+  \subfigure[520MHz,~n=8,~SNR=10.03dB]{
   \begin{minipage}[c]{0.24\textwidth}
     \centering
     \includegraphics[width=1.8in]{./Figures/Exp/FIR/LenaImages/FIRLena_T6.eps}
   \end{minipage}
   }\vspace{-1ex}
-  \subfigure[425MHz,~n=7,~SNR=26.06dB]{
+  \subfigure[425MHz,~n=7,~SNR=26.02dB]{
   \begin{minipage}[c]{0.24\textwidth}
     \centering
     \includegraphics[width=1.8in]{./Figures/Exp/FIR/LenaImages/FIRLena_Q7T10.eps}
   \end{minipage}%
   }% This is important! use % to indicate same line, otherwise new line
-  \subfigure[430MHz,~n=5,~SNR=24.85dB]{
+  \subfigure[450MHz,~n=5,~SNR=21.76dB]{
   \begin{minipage}[c]{0.24\textwidth}
     \centering
     \includegraphics[width=1.8in]{./Figures/Exp/FIR/LenaImages/FIRLena_Q4T10.eps}
@@ -1002,16 +1003,12 @@ Table~\ref{Max_Frequency} illustrates the frequency speedups for each design whe
 
 \subsection{Area Overhead}
 \begin{table*}[htbp]
- %\vspace{-2ex}
  %% increase table row spacing, adjust to taste
    \renewcommand{\arraystretch}{1.05}
    \setlength{\tabcolsep}{3.5pt}
-   %\caption{Relative Reduction of MRE in Overclocking Scenario for Various Normalized Frequencies Based on~(\ref{Relative Reduction MRE}).}
    \caption{Area Overhead of Our Approach with respect to Given Frequency Requirements}
-%   \vspace{-2ex}
    \centering
    \footnotesize
-   %\vspace{-4mm}
    \begin{threeparttable}
    \begin{tabular}{c|cc|cc|cc|cc|cc||cc}
      \hline
