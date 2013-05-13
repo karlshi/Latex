@@ -91,11 +91,11 @@
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
 \begin{abstract}
-The abstract.
+As process scaling introduces significant performance variations, releasing the tight accuracy requirement rather than covering all possible worst cases would potentially offer the greater freedom to create a design with better performance or energy efficiency. In this paper, we compare two different approaches that could trade accuracy for performance. One is the traditional approach where the precision used in the datapath is limited to meet a target latency. The other is a proposed new approach to boost the clock frequency by simply allowing the datapath to operate without timing closure. We demonstrate analytically and experimentally that on average, our approach obtains either smaller errors or faster operating frequencies in comparison to the traditional approach, since the worst case caused by timing violations only happens rarely, while the precision loss results in errors to all data. We also show that for embedded applications where silicon area is also a limited factor, using the proposed approach on simple arithmetic primitives could achieve better accuracy or performance than using the traditional method on advanced operators.
 \end{abstract}
 
 \begin{IEEEkeywords}
-
+Overclocking, Imprecise Computing, Numerical Analysis.
 \end{IEEEkeywords}
 
 
@@ -124,7 +124,7 @@ Unfortunately, neither of the conventional approaches tends to remove the conser
 
 In this paper, we describe an alternative circuit design methodology when considering tradeoffs between accuracy, performance and area. We suggest that for certain applications it is beneficial to move away from the traditional model of creating a conservative design that is guaranteed to avoid timing violations. Instead, it may be preferable to create a design in which timing violations may occur, under the knowledge that they only occur rarely because specific input patterns are required to generate the worst case errors. This paper elaborates on the prior work [xxx], with a further enrichment by incorporating silicon area as another evaluation metric for the trade-offs. In this work, we explicitly demonstrate the optimum design choice of the basic arithmetic operators (i.e. binary adders) under various design constraints. A summary of the main contributions of this work are as follows:
 
-The rest of this paper is organized as follows. It first reviews in detail the current literature regarding the existing approaches that are used in word-length optimization and approximate datapath design in Section~\ref{Section_Background}. The analytical error models for two different adder structures: RCA and CSA, are discussed in Section~\ref{section_RCA} and Section~\ref{Section_CSA}, respectively. The decision of the optimum adder structure under the accuracy-performance-area trade-offs, is then put forward in Section~\ref{Section_OptimumAdder}. It is followed by a description of the probabilistic error models for CCM in Section~\ref{section_CCM}. Section.xxx discusses a practical experimental setup to verify our models and test the proposed design methodology. The demonstration of the benefits of our proposed approach is then demonstrated in Section.xxx. Finally, Section.xxx discusses the conclusions of this work and the possible research directions in the future.
+The rest of this paper is organized as follows. It first reviews in detail the current literature regarding the existing approaches that are used in word-length optimization and approximate datapath design in Section~\ref{Section_Background}. The analytical error models for two different adder structures: RCA and CSA, are discussed in Section~\ref{section_RCA} and Section~\ref{Section_CSA}, respectively. The decision of the optimum adder structure under the accuracy-performance-area trade-offs, is then put forward in Section~\ref{Section_OptimumAdder}. It is followed by a description of the probabilistic error models for CCM in Section~\ref{section_CCM}. Section~\ref{Section_ExpSetup} discusses a practical experimental setup to verify our models and test the proposed design methodology. The demonstration of the benefits of our proposed approach is then demonstrated in Section~\ref{Section_Experiments}. Finally, Section~\ref{Section_Conclusion} discusses the conclusions of this work and the possible research directions in the future.
 
 \section{Background}\label{Section_Background}
 \subsection{Word-length Optimization}\label{Section_Background_WL}
@@ -137,13 +137,13 @@ Note that, however, the choice of precision is not the only source of errors whe
 
 To address this problem, the international technology roadmap for semiconductors (ITRS07) pointed out that extra benefits of manufacturing, test, power and timing can be obtained if the tight requirement of absolute correctness is released for devices and interconnects~\cite{semiconductor2007international}. This topic is expected to be of growing importance in the future, because we will face new challenges as the technology scales further.
 
-According to the existing literatures, one way to operating circuits beyond the deterministic region is to relax the design constraints and the guard-bands that are conventionally used to avoid the worst cases. Research in this area is based on the observations that in practice, the worst case happens rarely. A series of work known as ``Better-Than-Worst-Case (BTWC) Design'' introduced a universal framework to push the circuit performance to its limits~\cite{BetterThanWS2005}. In general, a BTWC design is composed of cores and checkers. The cores are operated with high performance by eliminating the guard-bands, meanwhile the possible timing errors are diagnosed by the checkers. Optionally the system can be recovered at the observation of errors. As an exemplary design, the Razor project~\cite{Razor2003,Razor2004} was proposed to shave the conservative timing margins by overscaling the supply voltage and clock frequency, while monitoring the output error rates by utilizing a self-checking circuit. This work demonstrated that the benefits brought by removing the safe margin outweigh the cost of monitoring and recovering from errors. For example, $22\%$ or over $30\%$ power consumption can be saved with $\sim0.01\%$ or $\sim1\%$ error rates at the output, respectively. Related work includes a similar frequency overscaling technique by operating circuits slightly slower than the critical path delay with dedicated checker circuits to ensure that timing errors will not occur~\cite{TEAtime2004}, developing timing analysis tools that decide the optimum operating frequencies in the non-deterministic region due to process variation~\cite{ProbabilisticSTA} or xxx.
+According to the existing literatures, one way to operating circuits beyond the deterministic region is to relax the design constraints and the guard-bands that are conventionally used to avoid the worst cases. Research in this area is based on the observations that in practice, the worst case happens rarely. A series of work known as ``Better-Than-Worst-Case (BTWC) Design'' introduced a universal framework to push the circuit performance to its limits~\cite{BetterThanWS2005}. In general, a BTWC design is composed of cores and checkers. The cores are operated with high performance by eliminating the guard-bands, meanwhile the possible timing errors are diagnosed by the checkers. Optionally the system can be recovered at the observation of errors. As an exemplary design, the Razor project~\cite{Razor2003,Razor2004} was proposed to shave the conservative timing margins by overscaling the supply voltage and clock frequency, while monitoring the output error rates by utilizing a self-checking circuit. This work demonstrated that the benefits brought by removing the safe margin outweigh the cost of monitoring and recovering from errors. For example, $22\%$ or over $30\%$ power consumption can be saved with $\sim0.01\%$ or $\sim1\%$ error rates at the output, respectively. Related work includes a similar frequency overscaling technique by operating circuits slightly slower than the critical path delay with dedicated checker circuits to ensure that timing errors will not occur~\cite{TEAtime2004}, or developing timing analysis tools that decide the optimum operating frequencies in the non-deterministic region due to process variation~\cite{ProbabilisticSTA}.
 
 Another key observation that has been made from existing work is that the worst-case normally happens with specific input patterns. Meanwhile, many studies have shown that errors can be potentially tolerated in various applications, e.g. DSP applications concerning human perceptions. In this case, an even greater performance/power benefits can be achieved, as the design overhead of the checkers can be eliminated. Current research in this area is focusing on designing probabilistic or imprecise circuits that employ techniques from either software level or hardware level. For instance at the programming language level, a tool was proposed~\cite{EnerJ2011Uwash,Truffle2012Uwash} to divide the program into the precise parts and the approximate parts, both of which are mapped to different hardware with different speed-grades, supply voltages etc. This technique enables a relatively high service quality, in the meantime energy reduction can be obtained due to approximation. Similar ideas have also been applied on hardware directly. As an example, Palem et~al.~\cite{NonUniformScaling} described a non-uniform voltage scaling technique for the ripple carry adder. In this study, multiple voltage regions are employed for different bits along a carry chain. That is, higher voltage would be applied for computations generating most significant bits, and vice versa.
 
-While the aforementioned literatures take advantage of the fact that only specific input patterns could cause timing errors, research on imprecise architectures take this one step further by designing simplified circuits for peformance/energy efficiency. For example, Lu et~al. proposed a ``shrinking'' datapath that can be utilized to mimic and speculate the original logic functions~\cite{IntelSpeeding}. Kulkarni et.al. described an underdesigned $2\times2$ multiplier unit, of which the worst case was replaced by a normal case based on the straight-forward Karnaugh Map analysis~\cite{Undersigned2x2multiplier}. In both cases, reduction of area and power consumption can be achieved with the cost of accuracy. In addition, Gupta et.al. developed approximate adders at the transistor level and compared the energy efficiency of their proposed architectures over truncation of input word-length of conventional structures~\cite{Gupta2013TransCADICS}.
+While the aforementioned literatures take advantage of the fact that only specific input patterns could cause timing errors, research on imprecise architectures take this one step further by designing simplified circuits for peformance/energy efficiency. For example, Lu et~al. proposed a ``shrinking'' datapath that can be utilized to mimic and speculate the original logic functions~\cite{IntelSpeeding}. Kulkarni et.al. described an underdesigned $2\times2$ multiplier unit, of which the worst case was replaced by a normal case based on the straight-forward Karnaugh-Map analysis~\cite{Undersigned2x2multiplier}. In both cases, reduction of area and power consumption can be achieved with the cost of accuracy. In addition, Gupta et~al. developed approximate adders at the transistor level and compared the energy efficiency of their proposed architectures over truncation of input word-length of conventional structures~\cite{Gupta2013TransCADICS}.
 
-However, the limitations of the existing work should not be neglected. Firstly, some techniques, such as employing several voltages regions within a ripple carry adder, are not practical to achieve in real situations, and the overhead of applying this technique is not discussed. Secondly, many studies propose alternative architectures, which means the adaptability of this kind of technique is limited on current hardware platforms. More importantly, correct results would never be obtained by using approximate architectures. Thirdly, the link between the probability of output correctness and energy savings or performance improvements are rarely analyzed from current research.
+However, the limitations of the existing work should not be neglected. Firstly, some techniques, such as employing several voltages regions within a ripple carry adder, are not practical to achieve in real situations, and the overhead of applying this technique is not discussed. Secondly, many studies propose alternative architectures, which means the adaptability of this kind of technique is limited on current hardware platforms. More importantly, correct results would never be obtained as long as the approximate architectures were employed. Thirdly, the link between the probability of output correctness and energy savings or performance improvements are rarely analyzed from current research.
 
 In this work, we propose an alternative methodology to remove these limitations. It is argued in this paper that our method can be easily applied onto existing hardware arithmetic operators such as RCAs and CCMs with almost no hardware overhead. We support this hypothesis experimentally and analytically by presenting theoretical probabilistic error models.
 
@@ -685,12 +685,11 @@ In the case where a CCM is composed of two shifters and one RCA, such as operati
 
 For those operations such as $B=37A=(A<<5)+(A<<2)+(A<<1)$, the CCM can be built using a tree structure. Each root node is the baseline CCM and the errors are propagated through an adder tree, of which the error can be determined based on our previous RCA model.
 
-\section{Test Platform}\label{Experiment}
-In our experiments, we compare two design perspectives. In the first scenario, the word-length of the input signal is truncated before propagating through the datapath in order to meet a given latency. In our proposed overclocking scenario, the circuit is overclocked while keeping the original operand word-length. The benefits of the proposed methodology are demonstrated over a set of DSP example designs, which are implemented on the Xilinx ML605 board with a Virtex-6 FPGA. 
+\section{Test Platform}\label{Section_ExpSetup}
+In our experiments, we compare two design perspectives. In the first scenario, the word-length of the input signal is truncated before propagating through the datapath in order to meet a given latency. In our proposed overclocking scenario, the circuit is overclocked while keeping the original operand word-length. The benefits of the proposed methodology are demonstrated over a set of DSP example designs, which are implemented on the Xilinx ML605 board with a Virtex-6 FPGA.
 %XC6VLX240T-1FFG1156.
 
-\subsection{Experimental Setup} % (fold)
-\label{sub:experimental_setup}
+\subsection{Experimental Setup} \label{sub:experimental_setup}
 We initially build up a test framework on an FPGA. The general architecture is depicted in Fig.~\ref{Test Framework}. The main body of the test framework consists of the circuit under test (CUT), the test frequency generator and the control logic, as shown in the dotted box in Fig.~\ref{Test Framework}. The I/Os of the CUT are registered by the launch registers (LRs) and the sample registers (SRs), which are all triggered by the test clock. Input test vectors are stored in the on-chip memory during initialization. The results are sampled using Xilinx ChipScope. Finally, we perform an offline comparison of the output of the original circuit at the rated frequency with the output of the overclocked as well as the truncated designs using the same input vectors.
 %
 \begin{figure}[htbp]
@@ -698,7 +697,7 @@ We initially build up a test framework on an FPGA. The general architecture is d
   %\vspace{-3.5ex}
   \includegraphics[width=3.3in]{./Figures/TestFramework2.eps}
   %\vspace{-4.5ex}
-  \caption{FPGA Test framework, which is composed of a measurement architecture (the dotted box) and an off-line comparator.}
+  \caption{Test framework, which is composed of a measurement architecture (the dotted box) on an FPGA and an off-line comparator using software.}
   \label{Test Framework}
   %\vspace{-1ex}
 \end{figure}
@@ -711,11 +710,7 @@ The test frequency generator is implemented using two cascaded mixed-mode clock 
 
 %In our experiments, the test clock frequency starts from the rated operating frequency of CUT, and increases with a step of 10MHz until the output error expectation stabilizes.
 
-%In order to avoid the potential timing errors generated from the test framework instead of CUT under high test frequencies, several methods are adopted. Firstly, the control signals for the test frequency generator is triggered by the system clock, which is 33.33MHz in our experiments. This will guarantee that the test clock generation will not be affected by high frequencies. Secondly, since the address counter for the on-chip memory is driven by the test frequency, a deeply pipelined counter structure with initial delay of 258 cycles is used to ensure the correct sample of each address bit. Thirdly, the key internal control signals such as memory address and corresponding operands are recorded together with the outputs to the comparator. Comparisons are performed between these values and the corresponding original values. The results will be discarded if mismatch is found.
-% without reimplement the whole design.
-% subsection experimental_setup (end)
-% \subsection{Experimental Results} % (fold)
-% \label{sub:subsubsection_name}
+%In order to avoid the potential timing errors generated from the test framework instead of CUT under high test frequencies, several methods are adopted. Firstly, the control signals for the test frequency generator is triggered by the system clock, which is much lower than the test frequency. This will guarantee a correct generation of the test clock. Secondly, since the address counter for the on-chip memory is driven by the test frequency, a deeply pipelined counter structure with initial delay of 258 cycles is used to ensure the correct sample of each address bit. Thirdly, the key internal control signals such as memory address and corresponding operands are recorded together with the outputs to the comparator. Comparisons are performed between these values and the corresponding original values. The results will be discarded if mismatch is found.
 
 \subsection{Benchmark Circuits}
 Three types of DSP designs are tested: digital filters (FIR, IIR and Butterworth), a Sobel edge detector and a direct implementation of a Discrete Cosine Transformation (DCT). The filter parameters are generated through MATLAB filter design toolbox, and they are normalized to integers for implementation. Table~\ref{Rated_Frequency_table} summarizes the operating frequency of each implemented design in Xilinx ISE14.1 when the word-length of input signal is 8-bit.
@@ -760,7 +755,7 @@ For example, the predicted frequencies and the actual frequencies of a $5^{th}$~
   \centering
   \includegraphics[width=3.2in]{./Figures/Exp/FIR/RatedFrequency3.eps}
   %\vspace{-1.5ex}
-  \caption{The maximum operating frequencies for different input word-lengths of an FIR filter. The dotted line depicts the rated frequency reported by the Xilinx Timing Analyzer. The solid line is obtained through real FPGA tests using our platform.}
+  \caption{The maximum operating frequencies for different input word-lengths of an FIR filter. The dotted line depicts the rated frequency reported by the timing analysis tool. The solid line is obtained through real FPGA tests using our platform.}
   \label{TimingMargin}
   %\vspace{-3.5ex}
 \end{figure}
@@ -784,40 +779,35 @@ Fig.~\ref{TimingMargin} also demonstrates that when the circuit is truncated, it
 \subsection{Computing Model Parameters}
 The accuracy of our proposed models is examined with practical results on Virtex-6 FPGA. We first determine the model parameters. There are two types of parameters in the models of overclocking error. The first is based on the circuit architecture. For example, the word-length of RCAs and CCMs ($n$), the shifted bits of the shifters in CCM ($s$), and the word-length of the input signal ($k$). This is determined through static analysis. The second depends on timing information, such as the single bit carry propagation delay $\mu$. In order to keep consistency with the assumption made in models that $\mu$ is a fixed value, it is obtained according to the actual FPGA measurement results.
 
-Initially the maximum error-free frequency $f_0$ is applied. In this case we have~(\ref{Eq_decideMu_0}) where $d_c$ is a constant value which denotes the interconnection delay. The frequency is then increased such that~(\ref{Eq_decideMu_1}) is obtained. This process repeats until the maximum frequency $f_{n-1}$ is applied in~(\ref{Eq_decideMu_2}). Based on these frequency values, $\mu$ can be determined.
+Initially the maximum error-free frequency $f_0$ is applied. In this case we have~(\ref{Eq_decideMu_0}) where $d_c$ is a constant value which denotes the interconnection delay, and $d_0=1/f_0$. The frequency is then increased such that~(\ref{Eq_decideMu_1}) is obtained. This process repeats until the maximum frequency $f_{n-1}$ is applied in~(\ref{Eq_decideMu_2}). Based on these frequency values, $\mu$ can be determined.
+
 \begin{eqnarray}\label{Eq_decideMu_0}
-\vspace{-1ex}
-%\small
-%\footnotesize
-\scriptsize
-  f_0 &= n\mu+d_c
-  \vspace{-12ex}
+  %\frac{1}{f_0} &= n\mu+d_c
+  d_0 &= n\mu+d_c
+  \vspace{-13ex}
 \end{eqnarray}
-\vspace{-5ex}
+\vspace{-4ex}
 \begin{align}\label{Eq_decideMu_1}
-  f_1 &= (n-1)\mu+d_c    \\
+  d_1 &= (n-1)\mu+d_c    \\
   &\cdots               \notag
   \vspace{-3ex}
 \end{align}
-\vspace{-5.5ex}
+\vspace{-4ex}
 \begin{eqnarray}\label{Eq_decideMu_2}
-  f_{n-1} &= \mu+d_c
-%  \vspace{-2ex}
+  {d_{n-1}} &= \mu+d_c
 \end{eqnarray}
-\normalsize
 
 \section{Results and Discussion}\label{Section_Experiments}
 \subsection{Case study: FIR filter}
 We first assess the accuracy of our proposed models of error. The modeled values of both overclocking error and truncation error of the FIR filter are presented in Fig.~\ref{FIR} (dotted lines), as well as the actual measurements on the FPGA (solid lines) with two types of input data. The results demonstrate that our models match well with the practical results obtained using the uniform independent inputs.
 % FIR
-\begin{figure}[htbp]
+\begin{figure}[tbp]
   \centering
 %  \vspace{-2.5ex}
   \includegraphics[width=3.5in]{./Figures/Exp/FIR/FIR_Error_New_TCAD.eps}
 %  \vspace{-5ex}
   \caption{A demonstration of two design perspectives with a $5^{th}$~order FIR filter, which is implemented on Virtex-6 FPGA. The modeled values of both overclocking errors and truncation errors are presented as dotted lines. The actual FPGA measurements are depicted using solid lines. Two types of inputs are employed in the overclocking scenario: the uniformly distributed data and the real image data from Lena.}
   \label{FIR}
-%  \vspace{-1ex}
 \end{figure}
 
 %Lena image
@@ -847,7 +837,7 @@ We first assess the accuracy of our proposed models of error. The modeled values
     \centering
     \includegraphics[width=1.8in]{./Figures/Exp/FIR/LenaImages/FIRLena_T6.eps}
   \end{minipage}
-  }\vspace{-1ex}
+  }
   \subfigure[425MHz,~n=7,~SNR=26.02dB]{
   \begin{minipage}[c]{0.24\textwidth}
     \centering
@@ -875,42 +865,51 @@ We first assess the accuracy of our proposed models of error. The modeled values
 %\vspace{-2ex}
 \caption{Output images of the FIR filter for both overclocking scenario (top row) and traditional scenario (bottom row) under various operating frequencies.}
 \label{FIR_Lena}
-%\vspace{-2ex}
 \end{figure*}
 
 According to Fig.~\ref{FIR}, output errors are reduced in the overclocking scenario for both input types in comparison to the traditional scenario, as the analytical model validates. In addition, we see that using real data, more significant reduction of MRE are achieved, and that no errors are observed when frequency is initially increased. This is because for real data, long carry chains are typically generated with even smaller probabilities, and the longest carry chain rarely occurs.
 
 The output images of the FIR filter for both of the two scenarios with increasing frequencies are presented in Fig.~\ref{FIR_Lena}, from which we can clearly see the differences between the errors generated in these two scenarios. In the overclocking scenario, we observe errors in the MSBs for certain input patterns. This leads to ``salt and pepper noise'', as shown on the images in the top row of Fig.~\ref{FIR_Lena}. In the traditional scenario, truncation causes an overall degradation of the whole image, as can be seen in the bottom row of Fig.~\ref{FIR_Lena}. Furthermore, it is difficult to recover from the latter type of error, since it is generated due to precision loss.
 
+In addition, we record the probability distribution of different length of carry chains using an 8-bit RCA with both data types, as shown in Fig.xxx. As the input data is 8-bit, the longest possible carry chain length is 9-bit. It can be observed that when using Lena data,  the probability is only higher for carry chain with a length of 3-bit. While in other situations, using uniform data leads to higher probability, especially for long carry chain length. This finding explicitly demonstrates that longer carry chains happens with an even smaller probability when utilizing real data.
+
+% for short carry chains (i.e. carry chain length of 2-bit or 3-bit),
+
+%In detail, the difference between the two types of data is explicitly
+
 \begin{figure}[tbp]
-    \begin{minipage}[b]{0.48\textwidth}
-        \centering
-        \subfigure[The cumulative distribution function with respect to both type of input data.]{
-            \centering
-            \includegraphics[width=0.95\textwidth]{./Figures/CDF.eps}
-            \label{Fig_CSA2stage_Timing}
-        }
-        \subfigure[Probability distribution of different length of carry chains in the $5^{th}$ order FIR filter, using both type of input data.]{
-            \centering
-            \includegraphics[width=0.95\textwidth]{./Figures/CC_length2.eps}
-            \label{Fig_CSA3stage_Area}
-        }
-    \end{minipage}
-    \centering
-    \caption{Statistical analysis of two types of input data: the uniform data and the real image data: Lena.}
+  \centering
+  \includegraphics[width=3.5in]{./Figures/CC_length2.eps}
+  \caption{Probability distribution of different length of carry chains in a 8-bit RCA. For the uniform data, two inputs of RCA are randomly sampled from a uniform distribution. For the image data Lena, one input of RCA uses the original data and the other uses the delayed original data for several clock cycles.}
+  \label{CarryDistribution}
 \end{figure}
 
+%\begin{figure}[tbp]
+%    \begin{minipage}[b]{0.48\textwidth}
+%        \centering
+%        \subfigure[The cumulative distribution function with respect to both type of input data.]{
+%            \centering
+%            \includegraphics[width=0.95\textwidth]{./Figures/CDF.eps}
+%            \label{Fig_CSA2stage_Timing}
+%        }
+%        \subfigure[Probability distribution of different length of carry chains in the $5^{th}$ order FIR filter, using both type of input data.]{
+%            \centering
+%            \includegraphics[width=0.95\textwidth]{./Figures/CC_length2.eps}
+%            \label{Fig_CSA3stage_Area}
+%        }
+%    \end{minipage}
+%    \centering
+%    \caption{Statistical analysis of two types of input data: the uniform data and the real image data: Lena.}
+%\end{figure}
 
-\subsection{Potential Benefits in Circuit Design}
+
+\subsection{Potential Benefits in Datapath Design}
 %The results can be interpreted in two folds.
-Our results could be of interest to a circuit designer in two ways. Typically, either the designer will want to create a circuit that can run at a given frequency with the minimum possible MRE, or the algorithm designer will wish to run as fast as possible whilst maintaining a specific error tolerance. In the first case, the experimental results for all five example designs on FPGA are summarized in Table~\ref{Ratio_MRE} in terms of the relative reduction of MRE as given in~(\ref{Relative Reduction MRE}) where $MRE_{Trad}$ and $MRE_{ovrc}$ denote the value obtained in the traditional scenario and in the overclocking scenario, respectively.
+As we mentioned in Section~\ref{Section_OptimumAdder}, our results could be of interest to a circuit designer in two ways. Typically, either the designer will want to create a circuit that can run at a given frequency with the minimum possible MRE, or the algorithm designer will wish to run as fast as possible whilst maintaining a specific error tolerance. For the first design target, the experimental results for all five example designs on FPGA are summarized in Table~\ref{Ratio_MRE} in terms of the relative reduction of MRE as given in~(\ref{Relative Reduction MRE}) where $MRE_{Trad}$ and $MRE_{ovrc}$ denote the value obtained in the traditional scenario and in the overclocking scenario, respectively.
+
 \begin{eqnarray}\label{Relative Reduction MRE}
-%\small
-\scriptsize
   \frac{MRE_{Trad}-MRE_{ovrc}}{MRE_{Trad}}\times 100\%
 \end{eqnarray}
-\normalsize
-%\vspace{-2ex}
 
 In this table, the frequency is normalized to the maximum error-free frequency for each design when the input signal is 8-bit. The N/A in Table~\ref{Ratio_MRE} refers to the situations where a certain frequency simply cannot be achieved using the traditional scenario. It can be seen that a significant reduction of MRE can be achieved using the proposed overclocking scenario, and the geometric mean reduction varies from $67.9\%$ to $95.4\%$ using uniform input data. Even larger differences of MRE can be observed when testing with real image data for each design, ranging from $83.6\%$ to $98.8\%$, as expected given the results shown in Fig.~\ref{FIR}.
 %Table goes here
@@ -1002,6 +1001,12 @@ In this table, the frequency is normalized to the maximum error-free frequency f
 Table~\ref{Max_Frequency} illustrates the frequency speedups for each design when the specified error tolerance varies from 0.05\% to 50\%. For all designs, we see that the overclocking scenario still outperforms the traditional scenario for each MRE budget in terms of operating frequency. Likewise, the frequency speedup is higher for real image inputs than uniform inputs. The geometric mean of frequency speedups of $3.1\%$ to $21.8\%$ can be achieved by using uniform data, while $5.3\%$ to $27.6\%$ when using real image data.
 
 \subsection{Area Overhead}
+For both aforementioned design goals, it should be noted that an extra benefit of using the traditional approach is that reducing datapath precision would potentially leads to a smaller design, in comparison to our proposed overclocking scenario. Consequently, the area overheads of our approach are summarized in Table xxx and Table xxx for both design goals. In our experiments, the area overhead is evaluated in terms of the number of LUTs and Slices in the FPGA technology, while similar metrics can also be employed if applying our approach into other hardware platforms. It can be seen that for a given frequency requirement with minimum possible errors, the geometric mean of area overhead ranges from $1.16\times$ and $1.15\times$ to $5.57\times$ and $4.46\times$ for LUTs and Slices, respectively.
+
+An even smaller area overhead can be found for a specified error budget with the maximum clock frequencies. As seen in Table xxx, the geometric mean of area overhead in terms of LUTs and Slices is $1.00\times\sim4.67\times$ and $1.00\times\sim3.70\times$ respectively. Notice that an area overhead of $1\times$ means both the overclocking scenario and the traditional scenario use the original precision, however the former achieves frequency speedups as seen in Tablexxx, because a specific error budget can be tolerated.
+
+In general, we can observe a relatively small area overhead of our approach, especially when frequency is initially increased or with a small error budget (i.e. $\sim10\%$).
+
 \begin{table*}[htbp]
  %% increase table row spacing, adjust to taste
    \renewcommand{\arraystretch}{1.05}
@@ -1041,17 +1046,13 @@ Table~\ref{Max_Frequency} illustrates the frequency speedups for each design whe
    \end{tablenotes}
    \end{threeparttable}
    \label{Ratio_MRE}
-% \vspace{-1ex}
  \end{table*}
 
  \begin{table*}[htbp]
- %\vspace{-2ex}
  %% increase table row spacing, adjust to taste
    \renewcommand{\arraystretch}{1.05}
    \setlength{\tabcolsep}{3.5pt}
-   %\caption{Frequency Speedups in Overclocking Scenario Under Various Error Budgets.}
    \caption{Area Overhead of Our Approach with respect to Given Error Budgets.}
-%   \vspace{-2ex}
    \label{Exp_Real_Inputs}
    \centering
    \footnotesize
@@ -1081,40 +1082,13 @@ Table~\ref{Max_Frequency} illustrates the frequency speedups for each design whe
    \end{tabular}
    \normalsize
    \label{Max_Frequency}
-%   \vspace{-3ex}
  \end{table*}
 
-\section{Conclusion}
+\section{Conclusion}  \label{Section_Conclusion}
 The conclusion goes here.
 
 \section*{Acknowledgment}
 The authors would like to acknowledge the support of the EPSRC (Grants EP/I020557/1 and EP/I012036/1).
-
-%\begin{figure}[htbp]
-%	\centering
-%	\includegraphics[width=3.3in]{./Figures/Error_LUT45.eps}
-%	\caption{LUT=45}
-%\end{figure}
-%
-%\begin{figure}[htbp]
-%	\centering
-%	\includegraphics[width=3.3in]{./Figures/Error_LUT35.eps}
-%	\caption{LUT=35}
-%\end{figure}
-%
-%\begin{figure}[htbp]
-%	\centering
-%	\includegraphics[width=3.3in]{./Figures/Error_LUT25.eps}
-%	\caption{LUT=25}
-%\end{figure}
-%
-%\begin{figure}[htbp]
-%	\centering
-%	\includegraphics[width=3.3in]{./Figures/Error_LUT15.eps}
-%	\caption{LUT=15}
-%\end{figure}
-%
-
 
 
 %\begin{figure}[!t]
