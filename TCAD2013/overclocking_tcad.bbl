@@ -18,15 +18,6 @@
 \fi
 #2}}
 
-\bibitem{FutureMicroprocessor2005}
-K.~Olukotun and L.~Hammond, ``The future of microprocessors,''
-  \emph{Communications of the {ACM}}, vol.~3, no.~7, pp. 26--29, 2009.
-
-\bibitem{DarkSilicon2011}
-H.~Esmaeilzadeh, E.~Blem, R.~S. Amant, K.~Sankaralingam, and B.~Doug, ``Dark
-  silicon and the end of multicore scaling,'' in \emph{Int. Symp. Computer
-  Architecture}, 2011, pp. 365--376.
-
 \bibitem{GeorgeDT11}
 G.~Constantinides, N.~Nicolici, and A.~Kinsman, ``Numerical data
   representations for {FPGA}-based scientific computing,'' \emph{IEEE Design
