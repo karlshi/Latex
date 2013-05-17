@@ -1,0 +1,1446 @@
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.12.22)  18 MAY 2013 01:30
+entering extended mode
+**F:/Git/Latex/TRETS2013/TRETS_overclocking.tex
+(F:/Git/Latex/TRETS2013/TRETS_overclocking.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2009-06-19, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, lao, latin, lat
+vian, lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerm
+an, ngerman-x-2009-06-19, nynorsk, oriya, panjabi, pinyin, polish, portuguese, 
+romanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swis
+sgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, u
+senglishmax, welsh, loaded.
+(F:\Git\Latex\TRETS2013\acmsmall.cls
+Document Class: acmsmall 2012/03/05, fonts included on 28 June 2010
+("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\ltxmisc\url.sty"
+\Urlmuskip=\muskip10
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
+ACM, Production Font style: 2010/06/28 by Aptara
+
+Using ACM, TRETS option: 2010/05/04 by Aptara
+
+("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\latexsym.sty"
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
+)
+("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\color.sty"
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+
+("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+("E:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/message (HO)
+)
+("E:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count79
+))
+("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+)
+\Gin@req@height=\dimen102
+\Gin@req@width=\dimen103
+)
+Document Class `acmsmall' Electronic Submissions v1.4 <July 09, 2012> (ACM).
+\@firstpg=\count80
+\@lastpg=\count81
+\trimheight=\dimen104
+\trimwidth=\dimen105
+\normaltextheight=\dimen106
+\tempdimen=\dimen107
+\tempbox=\box26
+\tbbox=\box27
+\tabledim=\dimen108
+\symnewlargesymbols=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \bigsqcup on input line 2037.
+\normalparindent=\dimen109
+\footheight=\skip41
+\@maxsep=\skip42
+\@dblmaxsep=\skip43
+\@totalpg=\count82
+\@abstract=\box28
+\@permissionbox=\box29
+\c@part=\count83
+\c@section=\count84
+\c@subsection=\count85
+\c@subsubsection=\count86
+\c@paragraph=\count87
+\enumdim=\dimen110
+\c@theorem=\count88
+\belowcaptionskip=\skip44
+\abovecaptionskip=\skip45
+\c@figure=\count89
+\c@table=\count90
+\@narrowfig=\dimen111
+\@nfigbox=\box30
+\@nfcapbox=\box31
+\@nfigbox=\box32
+\@nfcapbox=\box33
+\bibindent=\dimen112
+LaTeX Font Info:    Overwriting math alphabet `\mathbb' in version `normal'
+(Font)                  OT1/ams/bx/n --> OT1/ams/bx/n on input line 3619.
+LaTeX Font Info:    Overwriting math alphabet `\mathbb' in version `bold'
+(Font)                  OT1/ams/bx/n --> OT1/ams/bx/n on input line 3620.
+) (F:\Git\Latex\TRETS2013\algorithm2e.sty
+Package: algorithm2e 2008/00/00 v3.10 algorithms environments
+\c@AlgoLine=\count91
+
+("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\xspace.sty"
+Package: xspace 2009/10/20 v1.13 Space after command names (DPC,MH)
+)
+("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\ltxmisc\relsize.sty"
+Package: relsize 2003/07/04 ver 3.1
+)
+********************************************************
+Package `algorithm2e' Release 4.01 -- december 14 2009 --
+- algorithm2e-announce@lirmm.fr mailing list for announcement about releases
+- algorithm2e-discussion@lirmm.fr mailing list for discussion about package
+subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
+- Author: Christophe Fiorio (fiorio@lirmm.fr)
+********************************************************
+\skiptotal=\skip46
+\skiplinenumber=\skip47
+\skiprule=\skip48
+\skiphlne=\skip49
+\skiptext=\skip50
+\skiplength=\skip51
+\algomargin=\skip52
+\skipalgocfslide=\skip53
+\algowidth=\dimen113
+\inoutsize=\dimen114
+\inoutline=\dimen115
+\interspacetitleruled=\dimen116
+\interspacealgoruled=\dimen117
+\interspacetitleboxruled=\dimen118
+\algocf@inoutbox=\box34
+\algocf@inputbox=\box35
+\AlCapSkip=\skip54
+\AlCapHSkip=\skip55
+\algocf@nlbox=\box36
+\algocf@hangingbox=\box37
+\algocf@capbox=\box38
+\algoheightruledefault=\skip56
+\algoheightrule=\skip57
+\algotitleheightruledefault=\skip58
+\algotitleheightrule=\skip59
+\c@algocfline=\count92
+\c@algocfproc=\count93
+\c@algocf=\count94
+\algocf@algoframe=\box39
+\algocf@algobox=\box40
+) ("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\epstopdf.sty"
+Package: epstopdf 2010/02/09 v2.5 Conversion with epstopdf on the fly (HO)
+
+("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
+Package: grfext 2010/08/19 v1.1 Managing graphics extensions (HO)
+
+("E:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\kvdefinekeys.sty"
+Package: kvdefinekeys 2011/04/07 v1.3 Defining keys (HO)
+))
+("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+Package: kvoptions 2010/12/23 v3.10 Keyval support for LaTeX options (HO)
+
+("E:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\kvsetkeys.sty"
+Package: kvsetkeys 2011/04/07 v1.13 Key value parser (HO)
+
+("E:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\etexcmds.sty"
+Package: etexcmds 2011/02/16 v1.5 Prefix for e-TeX command names (HO)
+
+("E:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty"
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+("E:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
+Package: pdftexcmds 2011/04/22 v0.16 Utilities of pdfTeX for LuaTeX (HO)
+
+("E:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+))
+("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\multirow\multirow.sty"
+\bigstrutjot=\dimen119
+)
+("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
+Package: amssymb 2009/06/22 v3.00
+
+("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
+Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
+\@emptytoks=\toks15
+\symAMSa=\mathgroup6
+\symAMSb=\mathgroup7
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
+LaTeX Font Info:    Redeclaring math alphabet \mathbb on input line 97.
+))
+("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amsmath.sty"
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip60
+
+For additional information on amsmath, use the `?' option.
+("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amstext.sty"
+Package: amstext 2000/06/29 v2.01
+
+("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks16
+\ex@=\dimen120
+)
+LaTeX Info: Redefining \text on input line 53.
+)
+("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen121
+)
+("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amsopn.sty"
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count95
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count96
+\leftroot@=\count97
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count98
+\DOTSCASE@=\count99
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box41
+\strutbox@=\box42
+\big@size=\dimen122
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count100
+\c@MaxMatrixCols=\count101
+\dotsspace@=\muskip11
+\c@parentequation=\count102
+\dspbrk@lvl=\count103
+\tag@help=\toks17
+\row@=\count104
+\column@=\count105
+\maxfields@=\count106
+\andhelp@=\toks18
+\eqnshift@=\dimen123
+\alignsep@=\dimen124
+\tagshift@=\dimen125
+\tagwidth@=\dimen126
+\totwidth@=\dimen127
+\lineht@=\dimen128
+\@envbody=\toks19
+\multlinegap=\skip61
+\multlinetaggap=\skip62
+\mathdisplay@stack=\toks20
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\subfigure\subfigure.sty"
+Package: subfigure 2002/07/30 v2.1.4 subfigure package
+\subfigtopskip=\skip63
+\subfigcapskip=\skip64
+\subfigcaptopadj=\dimen129
+\subfigbottomskip=\skip65
+\subfigcapmargin=\dimen130
+\subfiglabelskip=\skip66
+\c@subfigure=\count107
+\c@lofdepth=\count108
+\c@subtable=\count109
+\c@lotdepth=\count110
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\subfigure\subfigure.cfg")
+\subfig@top=\skip67
+\subfig@bottom=\skip68
+)
+("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\sttools\stfloats.sty"
+Package: stfloats 1999/10/22
+\@dblbotnum=\count111
+\c@dblbotnumber=\count112
+)
+("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\threeparttable\threeparttable.sty
+"
+Package: threeparttable 2003/06/13  v 3.0
+\@tempboxb=\box43
+) (F:\Git\Latex\TRETS2013\TRETS_overclocking.aux
+
+LaTeX Warning: Label `Ratio_MRE' multiply defined.
+
+
+LaTeX Warning: Label `Max_Frequency' multiply defined.
+
+)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Try loading font information for OT1+pnc on input line 38.
+ ("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\ot1pnc.fd"
+File: ot1pnc.fd 2001/06/04 font definitions for OT1/pnc.
+)
+("E:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count113
+\scratchdimen=\dimen131
+\scratchbox=\box44
+\nofMPsegments=\count114
+\nofMParguments=\count115
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count116
+\MPscratchDim=\dimen132
+\MPnumerator=\count117
+\makeMPintoPDFobject=\count118
+\everyMPtoPDFconversion=\toks22
+)
+LaTeX Font Info:    Try loading font information for U+lasy on input line 71.
+ ("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ulasy.fd"
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 71.
+
+("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 71.
+
+("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for OMS+pnc on input line 71.
+
+("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\omspnc.fd"
+File: omspnc.fd 
+)
+LaTeX Font Info:    Font shape `OMS/pnc/m/n' in size <8> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 71.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 73.
+
+("E:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\ot1phv.fd"
+File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
+)
+LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 73.
+LaTeX Font Info:    Font shape `OT1/pnc/bx/n' in size <8> not available
+(Font)              Font shape `OT1/pnc/b/n' tried instead on input line 73.
+LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <9> not available
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 76.
+
+Overfull \vbox (72.27pt too high) has occurred while \output is active []
+
+ [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
+Non-PDF special ignored!
+
+]
+LaTeX Font Info:    Font shape `OT1/pnc/bx/n' in size <10> not available
+(Font)              Font shape `OT1/pnc/b/n' tried instead on input line 91.
+
+
+LaTeX Warning: Citation ` lee2006accuracy' on page 2 undefined on input line 91
+.
+
+
+Underfull \vbox (badness 7777) has occurred while \output is active []
+
+ [2]
+[3]
+Package epstopdf Info: Source file: <./Figures/FastCarryLogic3.eps>
+(epstopdf)                    date: 2013-05-16 23:42:36
+(epstopdf)                    size: 219002 bytes
+(epstopdf)             Output file: <./Figures/FastCarryLogic3-eps-converted-to
+.pdf>
+(epstopdf)                    date: 2013-05-16 23:42:36
+(epstopdf)                    size: 29418 bytes
+(epstopdf)             Command: <epstopdf --outfile=./Figures/FastCarryLogic3-e
+ps-converted-to.pdf ./Figures/FastCarryLogic3.eps>
+(epstopdf)             \includegraphics on input line 114.
+Package epstopdf Info: Output file is already uptodate.
+
+<./Figures/FastCarryLogic3-eps-converted-to.pdf, id=22, 360.34625pt x 428.60126
+pt>
+File: ./Figures/FastCarryLogic3-eps-converted-to.pdf Graphic file (type pdf)
+ <use ./Figures/FastCarryLogic3-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/FastCarryLogic3-eps-converted-to.pdf used on
+ input line 114.
+(pdftex.def)             Requested size: 216.81pt x 257.87558pt.
+
+Underfull \vbox (badness 7777) has occurred while \output is active []
+
+ [4]
+
+Package amsmath Warning: Cannot use `split' here;
+(amsmath)                trying to recover with `aligned' on input line 135.
+
+
+Underfull \vbox (badness 1325) has occurred while \output is active []
+
+ [5 <F:/Git/Latex/TRETS2013/Figures/FastCarryLogic3-eps-converted-to.pdf>]
+LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <9> not available
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 154.
+
+
+Package amsmath Warning: Cannot use `split' here;
+(amsmath)                trying to recover with `aligned' on input line 197.
+
+[6] [7] <./Figures/CSA_structure.pdf, id=55, 382.07915pt x 195.97205pt>
+File: ./Figures/CSA_structure.pdf Graphic file (type pdf)
+
+<use ./Figures/CSA_structure.pdf>
+Package pdftex.def Info: ./Figures/CSA_structure.pdf used on input line 291.
+(pdftex.def)             Requested size: 184.33946pt x 94.54694pt.
+
+<./Figures/CSA_SingleStage.pdf, id=56, 267.24844pt x 249.18094pt>
+File: ./Figures/CSA_SingleStage.pdf Graphic file (type pdf)
+
+<use ./Figures/CSA_SingleStage.pdf>
+Package pdftex.def Info: ./Figures/CSA_SingleStage.pdf used on input line 296.
+(pdftex.def)             Requested size: 173.44756pt x 161.72614pt.
+
+Overfull \hbox (174.86441pt too wide) in paragraph at lines 291--297
+ [][][] 
+ []
+
+[8 <F:/Git/Latex/TRETS2013/Figures/CSA_structure.pdf> <F:/Git/Latex/TRETS2013/F
+igures/CSA_SingleStage.pdf>]
+
+Package amsmath Warning: Cannot use `split' here;
+(amsmath)                trying to recover with `aligned' on input line 336.
+
+Package epstopdf Info: Source file: <./Figures/CSA2stage_Model_Timing.eps>
+(epstopdf)                    date: 2013-05-16 23:42:36
+(epstopdf)                    size: 16844 bytes
+(epstopdf)             Output file: <./Figures/CSA2stage_Model_Timing-eps-conve
+rted-to.pdf>
+(epstopdf)                    date: 2013-05-16 23:42:36
+(epstopdf)                    size: 7846 bytes
+(epstopdf)             Command: <epstopdf --outfile=./Figures/CSA2stage_Model_T
+iming-eps-converted-to.pdf ./Figures/CSA2stage_Model_Timing.eps>
+(epstopdf)             \includegraphics on input line 366.
+Package epstopdf Info: Output file is already uptodate.
+
+<./Figures/CSA2stage_Model_Timing-eps-converted-to.pdf, id=93, 455.7025pt x 314
+.17375pt>
+File: ./Figures/CSA2stage_Model_Timing-eps-converted-to.pdf Graphic file (type 
+pdf)
+ <use ./Figures/CSA2stage_Model_Timing-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/CSA2stage_Model_Timing-eps-converted-to.pdf 
+used on input line 366.
+(pdftex.def)             Requested size: 180.5738pt x 124.49275pt.
+Package epstopdf Info: Source file: <./Figures/CSA3stage_Area.eps>
+(epstopdf)                    date: 2013-05-16 23:42:36
+(epstopdf)                    size: 14412 bytes
+(epstopdf)             Output file: <./Figures/CSA3stage_Area-eps-converted-to.
+pdf>
+(epstopdf)                    date: 2013-05-16 23:42:36
+(epstopdf)                    size: 6791 bytes
+(epstopdf)             Command: <epstopdf --outfile=./Figures/CSA3stage_Area-ep
+s-converted-to.pdf ./Figures/CSA3stage_Area.eps>
+(epstopdf)             \includegraphics on input line 371.
+Package epstopdf Info: Output file is already uptodate.
+
+<./Figures/CSA3stage_Area-eps-converted-to.pdf, id=94, 455.7025pt x 314.17375pt
+>
+File: ./Figures/CSA3stage_Area-eps-converted-to.pdf Graphic file (type pdf)
+ <use ./Figures/CSA3stage_Area-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/CSA3stage_Area-eps-converted-to.pdf used on 
+input line 371.
+(pdftex.def)             Requested size: 180.5738pt x 124.49275pt.
+
+Overfull \hbox (182.18887pt too wide) in paragraph at lines 366--372
+ [][][] 
+ []
+
+[9]
+Package epstopdf Info: Source file: <./Figures/Error_LUT25.eps>
+(epstopdf)                    date: 2013-04-04 11:58:44
+(epstopdf)                    size: 28432 bytes
+(epstopdf)             Output file: <./Figures/Error_LUT25-eps-converted-to.pdf
+>
+(epstopdf)                    date: 2013-04-04 11:58:44
+(epstopdf)                    size: 8397 bytes
+(epstopdf)             Command: <epstopdf --outfile=./Figures/Error_LUT25-eps-c
+onverted-to.pdf ./Figures/Error_LUT25.eps>
+(epstopdf)             \includegraphics on input line 396.
+Package epstopdf Info: Output file is already uptodate.
+ <./Figures/Error_LUT25-eps-converted-to.pdf, id=98, 421.575pt x 317.185pt>
+File: ./Figures/Error_LUT25-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./Figures/Error_LUT25-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/Error_LUT25-eps-converted-to.pdf used on inp
+ut line 396.
+(pdftex.def)             Requested size: 238.49121pt x 179.43732pt.
+ [10 <F:/Git/Latex/TRETS2013/Figures/CSA2stage_Model_Timing-eps-converted-to.pd
+f> <F:/Git/Latex/TRETS2013/Figures/CSA3stage_Area-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <./Figures/Tradeoff.eps>
+(epstopdf)                    date: 2013-05-16 23:42:36
+(epstopdf)                    size: 111548 bytes
+(epstopdf)             Output file: <./Figures/Tradeoff-eps-converted-to.pdf>
+(epstopdf)                    date: 2013-05-16 23:42:36
+(epstopdf)                    size: 23488 bytes
+(epstopdf)             Command: <epstopdf --outfile=./Figures/Tradeoff-eps-conv
+erted-to.pdf ./Figures/Tradeoff.eps>
+(epstopdf)             \includegraphics on input line 407.
+Package epstopdf Info: Output file is already uptodate.
+
+<./Figures/Tradeoff-eps-converted-to.pdf, id=111, 505.89pt x 380.42125pt>
+File: ./Figures/Tradeoff-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./Figures/Tradeoff-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/Tradeoff-eps-converted-to.pdf used on input 
+line 407.
+(pdftex.def)             Requested size: 252.94499pt x 190.21014pt.
+ [11 <F:/Git/Latex/TRETS2013/Figures/Error_LUT25-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <./Figures/Tradeoff_Error.eps>
+(epstopdf)                    date: 2013-05-16 23:42:36
+(epstopdf)                    size: 45557 bytes
+(epstopdf)             Output file: <./Figures/Tradeoff_Error-eps-converted-to.
+pdf>
+(epstopdf)                    date: 2013-05-16 23:42:36
+(epstopdf)                    size: 10637 bytes
+(epstopdf)             Command: <epstopdf --outfile=./Figures/Tradeoff_Error-ep
+s-converted-to.pdf ./Figures/Tradeoff_Error.eps>
+(epstopdf)             \includegraphics on input line 422.
+Package epstopdf Info: Output file is already uptodate.
+
+<./Figures/Tradeoff_Error-eps-converted-to.pdf, id=120, 503.8825pt x 359.3425pt
+>
+File: ./Figures/Tradeoff_Error-eps-converted-to.pdf Graphic file (type pdf)
+ <use ./Figures/Tradeoff_Error-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/Tradeoff_Error-eps-converted-to.pdf used on 
+input line 422.
+(pdftex.def)             Requested size: 267.39877pt x 190.69186pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [12 <F:/Git/Latex/TRETS2013/Figures/Tradeoff-eps-converted-to.pdf> <F:/Git/Lat
+ex/TRETS2013/Figures/Tradeoff_Error-eps-converted-to.pdf>]
+<./Figures/CCM_CarryChain.pdf, id=133, 827.49153pt x 213.19649pt>
+File: ./Figures/CCM_CarryChain.pdf Graphic file (type pdf)
+
+<use ./Figures/CCM_CarryChain.pdf>
+Package pdftex.def Info: ./Figures/CCM_CarryChain.pdf used on input line 439.
+(pdftex.def)             Requested size: 392.04218pt x 101.00587pt.
+ [13 <F:/Git/Latex/TRETS2013/Figures/CCM_CarryChain.pdf>] [14]
+<./Figures/TestFramework.pdf, id=163, 540.82048pt x 626.94223pt>
+File: ./Figures/TestFramework.pdf Graphic file (type pdf)
+
+<use ./Figures/TestFramework.pdf>
+Package pdftex.def Info: ./Figures/TestFramework.pdf used on input line 560.
+(pdftex.def)             Requested size: 252.94499pt x 293.22794pt.
+
+Underfull \vbox (badness 1019) has occurred while \output is active []
+
+ [15 <F:/Git/Latex/TRETS2013/Figures/TestFramework.pdf>]
+Package epstopdf Info: Source file: <./Figures/Exp/FIR/RatedFrequency3.eps>
+(epstopdf)                    date: 2013-05-16 23:42:36
+(epstopdf)                    size: 11514 bytes
+(epstopdf)             Output file: <./Figures/Exp/FIR/RatedFrequency3-eps-conv
+erted-to.pdf>
+(epstopdf)                    date: 2013-05-16 23:42:36
+(epstopdf)                    size: 4292 bytes
+(epstopdf)             Command: <epstopdf --outfile=./Figures/Exp/FIR/RatedFreq
+uency3-eps-converted-to.pdf ./Figures/Exp/FIR/RatedFrequency3.eps>
+(epstopdf)             \includegraphics on input line 598.
+Package epstopdf Info: Output file is already uptodate.
+
+<./Figures/Exp/FIR/RatedFrequency3-eps-converted-to.pdf, id=185, 432.61626pt x 
+253.94875pt>
+File: ./Figures/Exp/FIR/RatedFrequency3-eps-converted-to.pdf Graphic file (type
+ pdf)
+ <use ./Figures/Exp/FIR/RatedFrequency3-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/Exp/FIR/RatedFrequency3-eps-converted-to.pdf
+ used on input line 598.
+(pdftex.def)             Requested size: 231.26378pt x 135.75467pt.
+
+[16]
+Package epstopdf Info: Source file: <./Figures/Exp/FIR/FIR_Error_New_TCAD.eps>
+(epstopdf)                    date: 2013-05-16 23:42:36
+(epstopdf)                    size: 21949 bytes
+(epstopdf)             Output file: <./Figures/Exp/FIR/FIR_Error_New_TCAD-eps-c
+onverted-to.pdf>
+(epstopdf)                    date: 2013-05-16 23:42:36
+(epstopdf)                    size: 8256 bytes
+(epstopdf)             Command: <epstopdf --outfile=./Figures/Exp/FIR/FIR_Error
+_New_TCAD-eps-converted-to.pdf ./Figures/Exp/FIR/FIR_Error_New_TCAD.eps>
+(epstopdf)             \includegraphics on input line 637.
+Package epstopdf Info: Output file is already uptodate.
+
+<./Figures/Exp/FIR/FIR_Error_New_TCAD-eps-converted-to.pdf, id=189, 421.575pt x
+ 338.26375pt>
+File: ./Figures/Exp/FIR/FIR_Error_New_TCAD-eps-converted-to.pdf Graphic file (t
+ype pdf)
+ <use ./Figures/Exp/FIR/FIR_Error_New_TCAD-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/Exp/FIR/FIR_Error_New_TCAD-eps-converted-to.
+pdf used on input line 637.
+(pdftex.def)             Requested size: 252.94499pt x 202.95981pt.
+
+[17 <F:/Git/Latex/TRETS2013/Figures/Exp/FIR/RatedFrequency3-eps-converted-to.pd
+f>]
+Package epstopdf Info: Source file: <./Figures/Exp/FIR/LenaImages/FIRLena_T8.ep
+s>
+(epstopdf)                    date: 2013-05-16 23:42:36
+(epstopdf)                    size: 345417 bytes
+(epstopdf)             Output file: <./Figures/Exp/FIR/LenaImages/FIRLena_T8-ep
+s-converted-to.pdf>
+(epstopdf)                    date: 2013-05-16 23:42:36
+(epstopdf)                    size: 217860 bytes
+(epstopdf)             Command: <epstopdf --outfile=./Figures/Exp/FIR/LenaImage
+s/FIRLena_T8-eps-converted-to.pdf ./Figures/Exp/FIR/LenaImages/FIRLena_T8.eps>
+(epstopdf)             \includegraphics on input line 651.
+Package epstopdf Info: Output file is already uptodate.
+
+<./Figures/Exp/FIR/LenaImages/FIRLena_T8-eps-converted-to.pdf, id=198, 508.9012
+5pt x 450.68375pt>
+File: ./Figures/Exp/FIR/LenaImages/FIRLena_T8-eps-converted-to.pdf Graphic file
+ (type pdf)
+
+<use ./Figures/Exp/FIR/LenaImages/FIRLena_T8-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/Exp/FIR/LenaImages/FIRLena_T8-eps-converted-
+to.pdf used on input line 651.
+(pdftex.def)             Requested size: 130.08621pt x 115.20134pt.
+
+Overfull \hbox (35.04404pt too wide) in paragraph at lines 651--651
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 651--651
+[]\OT1/pnc/m/n/8 (a)
+ []
+
+
+Overfull \hbox (9.87286pt too wide) in paragraph at lines 651--651
+\OT1/pnc/m/n/8 425MHz, n=8 , SNR=47.97dB 
+ []
+
+Package epstopdf Info: Source file: <./Figures/Exp/FIR/LenaImages/FIRLena_T65.e
+ps>
+(epstopdf)                    date: 2013-05-16 23:42:36
+(epstopdf)                    size: 345418 bytes
+(epstopdf)             Output file: <./Figures/Exp/FIR/LenaImages/FIRLena_T65-e
+ps-converted-to.pdf>
+(epstopdf)                    date: 2013-05-16 23:42:36
+(epstopdf)                    size: 218034 bytes
+(epstopdf)             Command: <epstopdf --outfile=./Figures/Exp/FIR/LenaImage
+s/FIRLena_T65-eps-converted-to.pdf ./Figures/Exp/FIR/LenaImages/FIRLena_T65.eps
+>
+(epstopdf)             \includegraphics on input line 657.
+Package epstopdf Info: Output file is already uptodate.
+
+<./Figures/Exp/FIR/LenaImages/FIRLena_T65-eps-converted-to.pdf, id=199, 508.901
+25pt x 450.68375pt>
+File: ./Figures/Exp/FIR/LenaImages/FIRLena_T65-eps-converted-to.pdf Graphic fil
+e (type pdf)
+
+<use ./Figures/Exp/FIR/LenaImages/FIRLena_T65-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/Exp/FIR/LenaImages/FIRLena_T65-eps-converted
+-to.pdf used on input line 657.
+(pdftex.def)             Requested size: 130.08621pt x 115.20134pt.
+
+Overfull \hbox (35.04404pt too wide) in paragraph at lines 657--657
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 657--657
+[]\OT1/pnc/m/n/8 (b)
+ []
+
+
+Overfull \hbox (5.39697pt too wide) in paragraph at lines 657--657
+\OT1/pnc/m/n/8 450MHz, n=8, SNR=44.94dB 
+ []
+
+Package epstopdf Info: Source file: <./Figures/Exp/FIR/LenaImages/FIRLena_T62.e
+ps>
+(epstopdf)                    date: 2013-05-16 23:42:36
+(epstopdf)                    size: 345537 bytes
+(epstopdf)             Output file: <./Figures/Exp/FIR/LenaImages/FIRLena_T62-e
+ps-converted-to.pdf>
+(epstopdf)                    date: 2013-05-16 23:42:36
+(epstopdf)                    size: 221857 bytes
+(epstopdf)             Command: <epstopdf --outfile=./Figures/Exp/FIR/LenaImage
+s/FIRLena_T62-eps-converted-to.pdf ./Figures/Exp/FIR/LenaImages/FIRLena_T62.eps
+>
+(epstopdf)             \includegraphics on input line 663.
+Package epstopdf Info: Output file is already uptodate.
+
+<./Figures/Exp/FIR/LenaImages/FIRLena_T62-eps-converted-to.pdf, id=200, 508.901
+25pt x 450.68375pt>
+File: ./Figures/Exp/FIR/LenaImages/FIRLena_T62-eps-converted-to.pdf Graphic fil
+e (type pdf)
+
+<use ./Figures/Exp/FIR/LenaImages/FIRLena_T62-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/Exp/FIR/LenaImages/FIRLena_T62-eps-converted
+-to.pdf used on input line 663.
+(pdftex.def)             Requested size: 130.08621pt x 115.20134pt.
+
+Overfull \hbox (35.04404pt too wide) in paragraph at lines 663--663
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 663--663
+[]\OT1/pnc/m/n/8 (c)
+ []
+
+
+Overfull \hbox (5.39697pt too wide) in paragraph at lines 663--663
+\OT1/pnc/m/n/8 480MHz, n=8, SNR=21.58dB 
+ []
+
+Package epstopdf Info: Source file: <./Figures/Exp/FIR/LenaImages/FIRLena_T6.ep
+s>
+(epstopdf)                    date: 2013-05-16 23:42:36
+(epstopdf)                    size: 346574 bytes
+(epstopdf)             Output file: <./Figures/Exp/FIR/LenaImages/FIRLena_T6-ep
+s-converted-to.pdf>
+(epstopdf)                    date: 2013-05-16 23:42:36
+(epstopdf)                    size: 237449 bytes
+(epstopdf)             Command: <epstopdf --outfile=./Figures/Exp/FIR/LenaImage
+s/FIRLena_T6-eps-converted-to.pdf ./Figures/Exp/FIR/LenaImages/FIRLena_T6.eps>
+(epstopdf)             \includegraphics on input line 669.
+Package epstopdf Info: Output file is already uptodate.
+
+<./Figures/Exp/FIR/LenaImages/FIRLena_T6-eps-converted-to.pdf, id=201, 508.9012
+5pt x 450.68375pt>
+File: ./Figures/Exp/FIR/LenaImages/FIRLena_T6-eps-converted-to.pdf Graphic file
+ (type pdf)
+
+<use ./Figures/Exp/FIR/LenaImages/FIRLena_T6-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/Exp/FIR/LenaImages/FIRLena_T6-eps-converted-
+to.pdf used on input line 669.
+(pdftex.def)             Requested size: 130.08621pt x 115.20134pt.
+
+Overfull \hbox (35.04404pt too wide) in paragraph at lines 669--669
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 669--669
+[]\OT1/pnc/m/n/8 (d)
+ []
+
+
+Overfull \hbox (5.39697pt too wide) in paragraph at lines 669--669
+\OT1/pnc/m/n/8 520MHz, n=8, SNR=10.03dB 
+ []
+
+Package epstopdf Info: Source file: <./Figures/Exp/FIR/LenaImages/FIRLena_Q7T10
+.eps>
+(epstopdf)                    date: 2013-05-16 23:42:36
+(epstopdf)                    size: 345377 bytes
+(epstopdf)             Output file: <./Figures/Exp/FIR/LenaImages/FIRLena_Q7T10
+-eps-converted-to.pdf>
+(epstopdf)                    date: 2013-05-16 23:42:36
+(epstopdf)                    size: 218550 bytes
+(epstopdf)             Command: <epstopdf --outfile=./Figures/Exp/FIR/LenaImage
+s/FIRLena_Q7T10-eps-converted-to.pdf ./Figures/Exp/FIR/LenaImages/FIRLena_Q7T10
+.eps>
+(epstopdf)             \includegraphics on input line 675.
+Package epstopdf Info: Output file is already uptodate.
+
+<./Figures/Exp/FIR/LenaImages/FIRLena_Q7T10-eps-converted-to.pdf, id=202, 508.9
+0125pt x 450.68375pt>
+File: ./Figures/Exp/FIR/LenaImages/FIRLena_Q7T10-eps-converted-to.pdf Graphic f
+ile (type pdf)
+
+<use ./Figures/Exp/FIR/LenaImages/FIRLena_Q7T10-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/Exp/FIR/LenaImages/FIRLena_Q7T10-eps-convert
+ed-to.pdf used on input line 675.
+(pdftex.def)             Requested size: 130.08621pt x 115.20134pt.
+
+Overfull \hbox (35.04404pt too wide) in paragraph at lines 675--675
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 675--675
+[]\OT1/pnc/m/n/8 (e)
+ []
+
+
+Overfull \hbox (8.17686pt too wide) in paragraph at lines 675--675
+\OT1/pnc/m/n/8 425MHz, n=7, SNR=26.02dB 
+ []
+
+Package epstopdf Info: Source file: <./Figures/Exp/FIR/LenaImages/FIRLena_Q4T10
+.eps>
+(epstopdf)                    date: 2013-05-16 23:42:36
+(epstopdf)                    size: 281465 bytes
+(epstopdf)             Output file: <./Figures/Exp/FIR/LenaImages/FIRLena_Q4T10
+-eps-converted-to.pdf>
+(epstopdf)                    date: 2013-05-16 23:42:36
+(epstopdf)                    size: 145470 bytes
+(epstopdf)             Command: <epstopdf --outfile=./Figures/Exp/FIR/LenaImage
+s/FIRLena_Q4T10-eps-converted-to.pdf ./Figures/Exp/FIR/LenaImages/FIRLena_Q4T10
+.eps>
+(epstopdf)             \includegraphics on input line 681.
+Package epstopdf Info: Output file is already uptodate.
+
+<./Figures/Exp/FIR/LenaImages/FIRLena_Q4T10-eps-converted-to.pdf, id=203, 508.9
+0125pt x 450.68375pt>
+File: ./Figures/Exp/FIR/LenaImages/FIRLena_Q4T10-eps-converted-to.pdf Graphic f
+ile (type pdf)
+
+<use ./Figures/Exp/FIR/LenaImages/FIRLena_Q4T10-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/Exp/FIR/LenaImages/FIRLena_Q4T10-eps-convert
+ed-to.pdf used on input line 681.
+(pdftex.def)             Requested size: 130.08621pt x 115.20134pt.
+
+Overfull \hbox (35.04404pt too wide) in paragraph at lines 681--681
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 681--681
+[]\OT1/pnc/m/n/8 (f)
+ []
+
+
+Overfull \hbox (5.39697pt too wide) in paragraph at lines 681--681
+\OT1/pnc/m/n/8 450MHz, n=5, SNR=21.76dB 
+ []
+
+Package epstopdf Info: Source file: <./Figures/Exp/FIR/LenaImages/FIRLena_Q2T10
+.eps>
+(epstopdf)                    date: 2013-05-16 23:42:36
+(epstopdf)                    size: 139698 bytes
+(epstopdf)             Output file: <./Figures/Exp/FIR/LenaImages/FIRLena_Q2T10
+-eps-converted-to.pdf>
+(epstopdf)                    date: 2013-05-16 23:42:36
+(epstopdf)                    size: 64815 bytes
+(epstopdf)             Command: <epstopdf --outfile=./Figures/Exp/FIR/LenaImage
+s/FIRLena_Q2T10-eps-converted-to.pdf ./Figures/Exp/FIR/LenaImages/FIRLena_Q2T10
+.eps>
+(epstopdf)             \includegraphics on input line 687.
+Package epstopdf Info: Output file is already uptodate.
+
+<./Figures/Exp/FIR/LenaImages/FIRLena_Q2T10-eps-converted-to.pdf, id=204, 508.9
+0125pt x 450.68375pt>
+File: ./Figures/Exp/FIR/LenaImages/FIRLena_Q2T10-eps-converted-to.pdf Graphic f
+ile (type pdf)
+
+<use ./Figures/Exp/FIR/LenaImages/FIRLena_Q2T10-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/Exp/FIR/LenaImages/FIRLena_Q2T10-eps-convert
+ed-to.pdf used on input line 687.
+(pdftex.def)             Requested size: 130.08621pt x 115.20134pt.
+
+Overfull \hbox (35.04404pt too wide) in paragraph at lines 687--687
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 687--687
+[]\OT1/pnc/m/n/8 (g)
+ []
+
+
+Overfull \hbox (0.94902pt too wide) in paragraph at lines 687--687
+\OT1/pnc/m/n/8 480MHz, n=2, SNR=6.57dB 
+ []
+
+Package epstopdf Info: Source file: <./Figures/Exp/FIR/LenaImages/FIRLena_Q1T10
+.eps>
+(epstopdf)                    date: 2013-05-16 23:42:36
+(epstopdf)                    size: 77851 bytes
+(epstopdf)             Output file: <./Figures/Exp/FIR/LenaImages/FIRLena_Q1T10
+-eps-converted-to.pdf>
+(epstopdf)                    date: 2013-05-16 23:42:36
+(epstopdf)                    size: 37386 bytes
+(epstopdf)             Command: <epstopdf --outfile=./Figures/Exp/FIR/LenaImage
+s/FIRLena_Q1T10-eps-converted-to.pdf ./Figures/Exp/FIR/LenaImages/FIRLena_Q1T10
+.eps>
+(epstopdf)             \includegraphics on input line 693.
+Package epstopdf Info: Output file is already uptodate.
+
+<./Figures/Exp/FIR/LenaImages/FIRLena_Q1T10-eps-converted-to.pdf, id=205, 508.9
+0125pt x 450.68375pt>
+File: ./Figures/Exp/FIR/LenaImages/FIRLena_Q1T10-eps-converted-to.pdf Graphic f
+ile (type pdf)
+
+<use ./Figures/Exp/FIR/LenaImages/FIRLena_Q1T10-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/Exp/FIR/LenaImages/FIRLena_Q1T10-eps-convert
+ed-to.pdf used on input line 693.
+(pdftex.def)             Requested size: 130.08621pt x 115.20134pt.
+
+Overfull \hbox (35.04404pt too wide) in paragraph at lines 693--693
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 693--693
+[]\OT1/pnc/m/n/8 (h)
+ []
+
+
+Overfull \hbox (0.94902pt too wide) in paragraph at lines 693--693
+\OT1/pnc/m/n/8 520MHz, n=1, SNR=3.95dB 
+ []
+
+
+Overfull \hbox (3.62794pt too wide) in paragraph at lines 651--695
+ [][][][][] 
+ []
+
+
+Overfull \hbox (3.62794pt too wide) in paragraph at lines 651--695
+ [][][][] 
+ []
+
+Package epstopdf Info: Source file: <./Figures/CC_length2.eps>
+(epstopdf)                    date: 2013-05-16 23:42:36
+(epstopdf)                    size: 13270 bytes
+(epstopdf)             Output file: <./Figures/CC_length2-eps-converted-to.pdf>
+
+(epstopdf)                    date: 2013-05-16 23:42:36
+(epstopdf)                    size: 4574 bytes
+(epstopdf)             Command: <epstopdf --outfile=./Figures/CC_length2-eps-co
+nverted-to.pdf ./Figures/CC_length2.eps>
+(epstopdf)             \includegraphics on input line 707.
+Package epstopdf Info: Output file is already uptodate.
+<./Figures/CC_length2-eps-converted-to.pdf, id=206, 421.575pt x 338.26375pt>
+File: ./Figures/CC_length2-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./Figures/CC_length2-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/CC_length2-eps-converted-to.pdf used on inpu
+t line 707.
+(pdftex.def)             Requested size: 252.94499pt x 202.95981pt.
+ [18 <F:/Git/Latex/TRETS2013/Figures/Exp/FIR/FIR_Error_New_TCAD-eps-converted-t
+o.pdf>] [19 <F:/Git/Latex/TRETS2013/Figures/Exp/FIR/LenaImages/FIRLena_T8-eps-c
+onverted-to.pdf> <F:/Git/Latex/TRETS2013/Figures/Exp/FIR/LenaImages/FIRLena_T65
+-eps-converted-to.pdf> <F:/Git/Latex/TRETS2013/Figures/Exp/FIR/LenaImages/FIRLe
+na_T62-eps-converted-to.pdf> <F:/Git/Latex/TRETS2013/Figures/Exp/FIR/LenaImages
+/FIRLena_T6-eps-converted-to.pdf> <F:/Git/Latex/TRETS2013/Figures/Exp/FIR/LenaI
+mages/FIRLena_Q7T10-eps-converted-to.pdf> <F:/Git/Latex/TRETS2013/Figures/Exp/F
+IR/LenaImages/FIRLena_Q4T10-eps-converted-to.pdf> <F:/Git/Latex/TRETS2013/Figur
+es/Exp/FIR/LenaImages/FIRLena_Q2T10-eps-converted-to.pdf> <F:/Git/Latex/TRETS20
+13/Figures/Exp/FIR/LenaImages/FIRLena_Q1T10-eps-converted-to.pdf> <F:/Git/Latex
+/TRETS2013/Figures/CC_length2-eps-converted-to.pdf>]
+Overfull \hbox (27.25566pt too wide) in paragraph at lines 726--726
+[]\OT1/phv/m/n/8 Table II.
+ []
+
+
+Overfull \hbox (14.66386pt too wide) in paragraph at lines 726--726
+\OT1/phv/m/n/8 Rel-
+ []
+
+
+Overfull \hbox (7.11192pt too wide) in paragraph at lines 726--726
+\OT1/phv/m/n/8 a-
+ []
+
+
+Overfull \hbox (12.24785pt too wide) in paragraph at lines 726--726
+\OT1/phv/m/n/8 tive
+ []
+
+
+Overfull \hbox (12.8879pt too wide) in paragraph at lines 726--726
+\OT1/phv/m/n/8 Re-
+ []
+
+
+Overfull \hbox (15.55988pt too wide) in paragraph at lines 726--726
+\OT1/phv/m/n/8 duc-
+ []
+
+
+Overfull \hbox (12.8958pt too wide) in paragraph at lines 726--726
+\OT1/phv/m/n/8 tion
+ []
+
+
+Overfull \hbox (6.67188pt too wide) in paragraph at lines 726--726
+\OT1/phv/m/n/8 of
+ []
+
+
+Overfull \hbox (17.77588pt too wide) in paragraph at lines 726--726
+\OT1/phv/m/n/8 MRE
+ []
+
+
+Overfull \hbox (6.22392pt too wide) in paragraph at lines 726--726
+\OT1/phv/m/n/8 in
+ []
+
+
+Overfull \hbox (19.79982pt too wide) in paragraph at lines 726--726
+\OT1/phv/m/n/8 Over-
+ []
+
+
+Overfull \hbox (20.72794pt too wide) in paragraph at lines 726--726
+\OT1/phv/m/n/8 clock-
+ []
+
+
+Overfull \hbox (10.67188pt too wide) in paragraph at lines 726--726
+\OT1/phv/m/n/8 ing
+ []
+
+
+Overfull \hbox (16.44786pt too wide) in paragraph at lines 726--726
+\OT1/phv/m/n/8 Sce-
+ []
+
+
+Overfull \hbox (17.90372pt too wide) in paragraph at lines 726--726
+\OT1/phv/m/n/8 nario
+ []
+
+
+Overfull \hbox (9.0959pt too wide) in paragraph at lines 726--726
+\OT1/phv/m/n/8 for
+ []
+
+
+Overfull \hbox (14.55186pt too wide) in paragraph at lines 726--726
+\OT1/phv/m/n/8 Var-
+ []
+
+
+Overfull \hbox (4.43994pt too wide) in paragraph at lines 726--726
+\OT1/phv/m/n/8 i-
+ []
+
+
+Overfull \hbox (12.8959pt too wide) in paragraph at lines 726--726
+\OT1/phv/m/n/8 ous
+ []
+
+
+Overfull \hbox (15.55186pt too wide) in paragraph at lines 726--726
+\OT1/phv/m/n/8 Nor-
+ []
+
+
+Overfull \hbox (15.55186pt too wide) in paragraph at lines 726--726
+\OT1/phv/m/n/8 mal-
+ []
+
+
+Overfull \hbox (14.55196pt too wide) in paragraph at lines 726--726
+\OT1/phv/m/n/8 ized
+ []
+
+
+Overfull \hbox (14.30391pt too wide) in paragraph at lines 726--726
+\OT1/phv/m/n/8 Fre-
+ []
+
+
+Overfull \hbox (20.45578pt too wide) in paragraph at lines 726--726
+\OT1/phv/m/n/8 quen-
+ []
+
+
+Overfull \hbox (14.22392pt too wide) in paragraph at lines 726--726
+\OT1/phv/m/n/8 cies
+ []
+
+
+Overfull \hbox (22.6798pt too wide) in paragraph at lines 726--726
+\OT1/phv/m/n/8 Based
+ []
+
+
+Overfull \hbox (27.03967pt too wide) in paragraph at lines 726--726
+\OT1/phv/m/n/8 on (35[]). 
+ []
+
+
+Overfull \hbox (108.80368pt too wide) in paragraph at lines 731--763
+ [] 
+ []
+
+
+Overfull \hbox (29.47958pt too wide) in paragraph at lines 770--770
+[]\OT1/phv/m/n/8 Table III.
+ []
+
+
+Overfull \hbox (14.30391pt too wide) in paragraph at lines 770--770
+\OT1/phv/m/n/8 Fre-
+ []
+
+
+Overfull \hbox (25.79181pt too wide) in paragraph at lines 770--770
+\OT1/phv/m/n/8 quency
+ []
+
+
+Overfull \hbox (36.02365pt too wide) in paragraph at lines 770--770
+\OT1/phv/m/n/8 Speedups
+ []
+
+
+Overfull \hbox (6.22392pt too wide) in paragraph at lines 770--770
+\OT1/phv/m/n/8 in
+ []
+
+
+Overfull \hbox (19.79982pt too wide) in paragraph at lines 770--770
+\OT1/phv/m/n/8 Over-
+ []
+
+
+Overfull \hbox (20.72794pt too wide) in paragraph at lines 770--770
+\OT1/phv/m/n/8 clock-
+ []
+
+
+Overfull \hbox (10.67188pt too wide) in paragraph at lines 770--770
+\OT1/phv/m/n/8 ing
+ []
+
+
+Overfull \hbox (16.44786pt too wide) in paragraph at lines 770--770
+\OT1/phv/m/n/8 Sce-
+ []
+
+
+Overfull \hbox (17.90372pt too wide) in paragraph at lines 770--770
+\OT1/phv/m/n/8 nario
+ []
+
+
+Overfull \hbox (12.8879pt too wide) in paragraph at lines 770--770
+\OT1/phv/m/n/8 Un-
+ []
+
+
+Overfull \hbox (11.55988pt too wide) in paragraph at lines 770--770
+\OT1/phv/m/n/8 der
+ []
+
+
+Overfull \hbox (14.55186pt too wide) in paragraph at lines 770--770
+\OT1/phv/m/n/8 Var-
+ []
+
+
+Overfull \hbox (4.43994pt too wide) in paragraph at lines 770--770
+\OT1/phv/m/n/8 i-
+ []
+
+
+Overfull \hbox (12.8959pt too wide) in paragraph at lines 770--770
+\OT1/phv/m/n/8 ous
+ []
+
+
+Overfull \hbox (10.66388pt too wide) in paragraph at lines 770--770
+\OT1/phv/m/n/8 Er-
+ []
+
+
+Overfull \hbox (9.7759pt too wide) in paragraph at lines 770--770
+\OT1/phv/m/n/8 ror
+ []
+
+
+Overfull \hbox (16.89581pt too wide) in paragraph at lines 770--770
+\OT1/phv/m/n/8 Bud-
+ []
+
+
+Overfull \hbox (17.22383pt too wide) in paragraph at lines 770--770
+\OT1/phv/m/n/8 gets. 
+ []
+
+
+Overfull \hbox (107.25171pt too wide) in paragraph at lines 775--802
+ [][] 
+ []
+
+[20]
+Overfull \hbox (29.36768pt too wide) in paragraph at lines 817--817
+[]\OT1/phv/m/n/8 Table IV.
+ []
+
+
+Overfull \hbox (16.89581pt too wide) in paragraph at lines 817--817
+\OT1/phv/m/n/8 Area
+ []
+
+
+Overfull \hbox (19.79982pt too wide) in paragraph at lines 817--817
+\OT1/phv/m/n/8 Over-
+ []
+
+
+Overfull \hbox (17.79181pt too wide) in paragraph at lines 817--817
+\OT1/phv/m/n/8 head
+ []
+
+
+Overfull \hbox (6.67188pt too wide) in paragraph at lines 817--817
+\OT1/phv/m/n/8 of
+ []
+
+
+Overfull \hbox (13.33585pt too wide) in paragraph at lines 817--817
+\OT1/phv/m/n/8 Our
+ []
+
+
+Overfull \hbox (12.44786pt too wide) in paragraph at lines 817--817
+\OT1/phv/m/n/8 Ap-
+ []
+
+
+Overfull \hbox (24.45578pt too wide) in paragraph at lines 817--817
+\OT1/phv/m/n/8 proach
+ []
+
+
+Overfull \hbox (14.22382pt too wide) in paragraph at lines 817--817
+\OT1/phv/m/n/8 with
+ []
+
+
+Overfull \hbox (9.7759pt too wide) in paragraph at lines 817--817
+\OT1/phv/m/n/8 re-
+ []
+
+
+Overfull \hbox (19.11983pt too wide) in paragraph at lines 817--817
+\OT1/phv/m/n/8 spect
+ []
+
+
+Overfull \hbox (6.67188pt too wide) in paragraph at lines 817--817
+\OT1/phv/m/n/8 to
+ []
+
+
+Overfull \hbox (20.6958pt too wide) in paragraph at lines 817--817
+\OT1/phv/m/n/8 Given
+ []
+
+
+Overfull \hbox (14.30391pt too wide) in paragraph at lines 817--817
+\OT1/phv/m/n/8 Fre-
+ []
+
+
+Overfull \hbox (25.79181pt too wide) in paragraph at lines 817--817
+\OT1/phv/m/n/8 quency
+ []
+
+
+Overfull \hbox (12.8879pt too wide) in paragraph at lines 817--817
+\OT1/phv/m/n/8 Re-
+ []
+
+
+Overfull \hbox (20.44777pt too wide) in paragraph at lines 817--817
+\OT1/phv/m/n/8 quire-
+ []
+
+
+Overfull \hbox (21.7838pt too wide) in paragraph at lines 817--817
+\OT1/phv/m/n/8 ments 
+ []
+
+
+Overfull \hbox (17.65132pt too wide) in paragraph at lines 822--853
+ [] 
+ []
+
+
+Overfull \hbox (27.14375pt too wide) in paragraph at lines 859--859
+[]\OT1/phv/m/n/8 Table V.
+ []
+
+
+Overfull \hbox (16.89581pt too wide) in paragraph at lines 859--859
+\OT1/phv/m/n/8 Area
+ []
+
+
+Overfull \hbox (19.79982pt too wide) in paragraph at lines 859--859
+\OT1/phv/m/n/8 Over-
+ []
+
+
+Overfull \hbox (17.79181pt too wide) in paragraph at lines 859--859
+\OT1/phv/m/n/8 head
+ []
+
+
+Overfull \hbox (6.67188pt too wide) in paragraph at lines 859--859
+\OT1/phv/m/n/8 of
+ []
+
+
+Overfull \hbox (13.33585pt too wide) in paragraph at lines 859--859
+\OT1/phv/m/n/8 Our
+ []
+
+
+Overfull \hbox (12.44786pt too wide) in paragraph at lines 859--859
+\OT1/phv/m/n/8 Ap-
+ []
+
+
+Overfull \hbox (24.45578pt too wide) in paragraph at lines 859--859
+\OT1/phv/m/n/8 proach
+ []
+
+
+Overfull \hbox (14.22382pt too wide) in paragraph at lines 859--859
+\OT1/phv/m/n/8 with
+ []
+
+
+Overfull \hbox (9.7759pt too wide) in paragraph at lines 859--859
+\OT1/phv/m/n/8 re-
+ []
+
+
+Overfull \hbox (19.11983pt too wide) in paragraph at lines 859--859
+\OT1/phv/m/n/8 spect
+ []
+
+
+Overfull \hbox (6.67188pt too wide) in paragraph at lines 859--859
+\OT1/phv/m/n/8 to
+ []
+
+
+Overfull \hbox (20.6958pt too wide) in paragraph at lines 859--859
+\OT1/phv/m/n/8 Given
+ []
+
+
+Overfull \hbox (10.66388pt too wide) in paragraph at lines 859--859
+\OT1/phv/m/n/8 Er-
+ []
+
+
+Overfull \hbox (9.7759pt too wide) in paragraph at lines 859--859
+\OT1/phv/m/n/8 ror
+ []
+
+
+Overfull \hbox (16.89581pt too wide) in paragraph at lines 859--859
+\OT1/phv/m/n/8 Bud-
+ []
+
+
+Overfull \hbox (17.22383pt too wide) in paragraph at lines 859--859
+\OT1/phv/m/n/8 gets. 
+ []
+
+
+Overfull \hbox (24.99525pt too wide) in paragraph at lines 863--889
+ [][] 
+ []
+
+
+Underfull \vbox (badness 1769) has occurred while \output is active []
+
+ [21]
+[22] (F:\Git\Latex\TRETS2013\TRETS_overclocking.bbl [23]) [24] [1
+
+]
+(F:\Git\Latex\TRETS2013\TRETS_overclocking.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 4655 strings out of 494045
+ 64689 string characters out of 3145971
+ 160887 words of memory out of 3000000
+ 7821 multiletter control sequences out of 15000+200000
+ 30657 words of font info for 70 fonts, out of 3000000 for 9000
+ 715 hyphenation exceptions out of 8191
+ 42i,18n,24p,1774b,386s stack positions out of 5000i,500n,10000p,200000b,50000s
+{E:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<E:/Progra
+m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><E:/Program 
+Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><E:/Program Fi
+les (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><E:/Program Files
+ (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><E:/Program Files (x
+86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><E:/Program Files (x86)
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><E:/Program Files (x86)/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><E:/Program Files (x86)/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><E:/Program Files (x86)/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmr7.pfb><E:/Program Files (x86)/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmr8.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmsy10.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmsy5.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmsy7.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmsy8.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmtt8.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/a
+msfonts/symbols/msam10.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/h
+elvetic/uhvb8a.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/helvetic/
+uhvr8a.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8a.
+pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/ncntrsbk/uncb8a.pfb><E:/
+Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/ncntrsbk/uncr8a.pfb><E:/Program 
+Files (x86)/MiKTeX 2.9/fonts/type1/urw/ncntrsbk/uncri8a.pfb>
+Output written on TRETS_overclocking.pdf (25 pages, 2573387 bytes).
+PDF statistics:
+ 344 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 106 words of extra memory for PDF output out of 10000 (max. 10000000)
+

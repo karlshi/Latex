@@ -1,0 +1,35 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: TRETS_overclocking.aux
+White space in argument---line 9 of file TRETS_overclocking.aux
+ : \citation{GeorgeDT11,
+ :                       lee2006accuracy}
+I'm skipping whatever remains of this command
+The style file: ACM-Reference-Format-Journals.bst
+Database file #1: Reference.bib
+Warning--empty booktitle in BetterThanWS2005
+Warning--no number and no volume in BetterThanWS2005
+Warning--empty publisher in Razor2003
+Warning--empty address in Razor2003
+Warning--empty publisher in Truffle2012Uwash
+Warning--empty address in Truffle2012Uwash
+Warning--empty publisher in gojman2013FPGA
+Warning--empty address in gojman2013FPGA
+Warning--empty publisher in NonUniformScaling
+Warning--empty address in NonUniformScaling
+Warning--empty publisher in ProbabilisticSTA
+Warning--empty address in ProbabilisticSTA
+Warning--empty publisher in Undersigned2x2multiplier
+Warning--empty address in Undersigned2x2multiplier
+Warning--empty address in moore1966IA
+Warning--empty address in DigitalICDesign
+Warning--can't use both volume and number fields in EnerJ2011Uwash
+Warning--empty publisher in EnerJ2011Uwash
+Warning--empty address in EnerJ2011Uwash
+Warning--empty publisher in FPGAPV
+Warning--empty address in FPGAPV
+Warning--no journal in Virtex6
+Warning--no number and no volume in Virtex6
+Warning--page numbers missing in both pages and numpages fields in Virtex6
+Warning--no journal in Virtex6Clocking
+Warning--no number and no volume in Virtex6Clocking
+Warning--page numbers missing in both pages and numpages fields in Virtex6Clocking
+(There was 1 error message)

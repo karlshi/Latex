@@ -1,0 +1,201 @@
+% Compilation using 'acmsmall.cls' - version 1.3 (March 2012), Aptara Inc.
+% Steps to compile: latex, bibtex, latex latex
+
+\documentclass[prodmode,acmtrets]{acmsmall} % Aptara syntax
+
+% Package to generate and customize Algorithm as per ACM style
+%\usepackage[ruled]{algorithm2e}
+%\usepackage{amsmath,epsfig}
+%\usepackage[table]{xcolor}
+%\usepackage{amsmath,amsfonts,epsfig}
+%\usepackage{multirow}
+%\usepackage{fancyhdr}
+%\usepackage{mathdots,colortbl,dcolumn,rotating,subfigure,appendix}
+%\usepackage[scriptsize,it]{caption}
+
+
+\renewcommand{\algorithmcfname}{ALGORITHM}
+\SetAlFnt{\small}
+\SetAlCapFnt{\small}
+\SetAlCapNameFnt{\small}
+\SetAlCapHSkip{0pt}
+\IncMargin{-\parindent}
+
+% Metadata Information for publication
+\acmVolume{0}
+\acmNumber{0}
+\acmArticle{0}
+\acmYear{2014}
+\acmMonth{0}
+
+% Document starts
+\begin{document}
+
+% Page heads
+\markboth{K. Shi et al.}{Imprecise Datapath Design: An Overclocking Approach}
+
+% Title portion
+\title{Imprecise Datapath Design: An Overclocking Approach}
+\author{KAN SHI, DAVID BOLAND\\
+and GEORGE A CONSTANTINIDES
+\affil{Imperial College London}
+}
+
+
+\begin{abstract}
+As process scaling introduces significant performance variations, much more conservative timing margins will have to be applied to avoid timing violations. Potentially, releasing the tight accuracy requirement would offer greater freedom to create a design with better performance or energy efficiency. In this paper, we compare two different approaches that could trade accuracy for performance. One is the traditional approach where the precision used in the datapath is limited to meet a target latency. The other is a proposed new approach which simply allows the datapath to operate without timing closure. We demonstrate analytically and experimentally that on average our approach obtains either smaller errors or faster operating frequencies in comparison to the traditional approach. This is because the worst case caused by timing violations only happens rarely, while the precision loss results in errors to most data. We also show that for basic arithmetic operations such as addition, applying our approach to simple operators (i.e. ripple carry adders) can achieve better accuracy or performance than using the traditional method to both original operators and intrinsically faster operators (i.e. carry select adders) which consumes the same silicon area.
+\end{abstract}
+
+\category{C.2.2}{Computer-Communication Networks}{Network Protocols}
+
+\terms{Design, Algorithms, Performance}
+
+\keywords{A,B}
+
+\acmformat{Kan Shi, David Boland,
+and George A. Constantinides, 2013. Imprecise Datapath Design: An Overclocking Approach.}
+
+\begin{bottomstuff}
+This work is supported by the EPSRC, under
+grant EP/I020557/1 and grand EP/I012036/1.
+
+Author's addresses: K. Shi, D. Boland {and} G. A. Contantinides,
+Department of Electrical and Electronic Engineering,
+Imperial College London.
+\end{bottomstuff}
+
+\maketitle
+
+
+\section{Introduction}
+
+
+% Head 1
+\section{MMSN Protocol}
+
+% Head 2
+\subsection{Frequency Assignment}
+
+
+% Numbered Equation
+\begin{equation}
+\label{eqn:01}
+P(t)=\frac{b^{\frac{t+1}{T+1}}-b^{\frac{t}{T+1}}}{b-1},
+\end{equation}
+where $t=0,{\ldots}\,,T$, and $b$ is a number greater than $1$.
+
+
+% Unnumbered Equation
+\[
+i=\lfloor(T+1)\log_b[\alpha(b-1)+1]\rfloor.
+\]
+It can be easily proven that the distribution of $i$ conforms to Equation
+(\ref{eqn:01}).
+
+% Head 3
+\subsubsection{Exclusive Frequency Assignment}
+
+In exclusive frequency assignment, nodes first exchange their IDs
+among two communication hops so that each node knows its two-hop
+neighbors' IDs. In the second broadcast, each node beacons all
+neighbors' IDs it has collected during the first broadcast period.
+
+% Head 4
+\paragraph{Eavesdropping}
+
+\subsection{Basic Notations}
+
+% Figure
+%\begin{figure}
+%\centerline{\includegraphics{acmsmall-mouse}}
+%\caption{Code before preprocessing.}
+%\label{fig:one}
+%\end{figure}
+
+%\begin{figure}
+%  \centering
+%  \includegraphics[width=\textwidth]{./acmsmall-mouse.eps}
+%  \caption{Figure}
+
+% Table
+\begin{table}%
+\tbl{Simulation Configuration\label{tab:one}}{%
+\begin{tabular}{|l|l|}
+\hline
+TERRAIN{$^a$}   & (200m$\times$200m) Square\\\hline
+Node Number     & 289\\\hline
+Node Placement  & Uniform\\\hline
+Application     & Many-to-Many/Gossip CBR Streams\\\hline
+Payload Size    & 32 bytes\\\hline
+Routing Layer   & GF\\\hline
+MAC Layer       & CSMA/MMSN\\\hline
+Radio Layer     & RADIO-ACCNOISE\\\hline
+Radio Bandwidth & 250Kbps\\\hline
+Radio Range     & 20m--45m\\\hline
+\end{tabular}}
+\begin{tabnote}%
+\Note{Source:}{This is a table
+sourcenote. This is a table sourcenote. This is a table
+sourcenote.}
+\vskip2pt
+\Note{Note:}{This is a table footnote.}
+\tabnoteentry{$^a$}{This is a table footnote. This is a
+table footnote. This is a table footnote.}
+\end{tabnote}%
+\end{table}%
+
+\section{Conclusions}
+
+Conclusion.
+% Start of "Sample References" section
+
+\section{Typical references in new ACM Reference Format}
+A paginated journal article \cite{Abril07}, an enumerated
+journal article \cite{Cohen07}, a reference to an entire issue \cite{JCohen96},
+a monograph (whole book) \cite{Kosiur01}, a monograph/whole book in a series (see 2a in spec. document)
+\cite{Harel79}, a divisible-book such as an anthology or compilation \cite{Editor00}
+followed by the same example, however we only output the series if the volume number is given
+\cite{Editor00a} (so Editor00a's series should NOT be present since it has no vol. no.),
+a chapter in a divisible book \cite{Spector90}, a chapter in a divisible book
+in a series \cite{Douglass98}, a multi-volume work as book \cite{Knuth97},
+an article in a proceedings (of a conference, symposium, workshop for example)
+(paginated proceedings article) \cite{Andler79}, a proceedings article
+with all possible elements \cite{Smith10}, an example of an enumerated
+proceedings article \cite{VanGundy07},
+an informally published work \cite{Harel78}, a doctoral dissertation \cite{Clarkson85},
+a master's thesis: \cite{anisi03}, an online document / world wide web resource \cite{Thornburg01}, \cite{Ablamowicz07},
+\cite{Poker06}, a video game (Case 1) \cite{Obama08} and (Case 2) \cite{Novak03}
+and \cite{Lee05} and (Case 3) a patent \cite{JoeScientist001},
+work accepted for publication \cite{rous08}, 'YYYYb'-test for prolific author
+\cite{SaeediMEJ10} and \cite{SaeediJETC10}. Other cites might contain
+'duplicate' DOI and URLs (some SIAM articles) \cite{Kirschmer:2010:AEI:1958016.1958018}.
+Boris / Barbara Beeton: multi-volume works as books
+\cite{MR781536} and \cite{MR781537}.
+
+% Acknowledgments
+\begin{acks}
+The authors would like to thank Dr. Maura Turolla of Telecom
+Italia for providing specifications about the application scenario.
+\end{acks}
+
+% Bibliography
+\bibliographystyle{ACM-Reference-Format-Journals}
+\bibliography{acmsmall-sample-bibfile}
+                             % Sample .bib file with references that match those in
+                             % the 'Specifications Document (V1.5)' as well containing
+                             % 'legacy' bibs and bibs with 'alternate codings'.
+                             % Gerry Murray - March 2012
+
+% History dates
+\received{February 2007}{March 2009}{June 2009}
+
+% Electronic Appendix
+\elecappendix
+
+\medskip
+
+
+\end{document}
+% End of v2-acmsmall-sample.tex (March 2012) - Gerry Murray, ACM
+
+
