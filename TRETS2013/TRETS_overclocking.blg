@@ -1,12 +1,29 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: TRETS_overclocking.aux
-White space in argument---line 9 of file TRETS_overclocking.aux
- : \citation{GeorgeDT11,
- :                       lee2006accuracy}
-I'm skipping whatever remains of this command
 The style file: ACM-Reference-Format-Journals.bst
 Database file #1: Reference.bib
+I was expecting a `,' or a `}'---line 335 of file Reference.bib
+ :   
+ :   %organization={International Society for Optics and Photonics}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 398 of file Reference.bib
+ :   
+ :   year={2011}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 411 of file Reference.bib
+ :   
+ :   year={2009}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--empty organization in semiconductor2007international
 Warning--empty booktitle in BetterThanWS2005
 Warning--no number and no volume in BetterThanWS2005
+Warning--empty publisher in David_MINRES
+Warning--empty address in David_MINRES
+Warning--empty publisher in Ercegovac_Overview
+Warning--empty address in Ercegovac_Overview
+Warning--empty address in Ercegovac_Book
 Warning--empty publisher in Razor2003
 Warning--empty address in Razor2003
 Warning--empty publisher in Truffle2012Uwash
@@ -21,15 +38,17 @@ Warning--empty publisher in Undersigned2x2multiplier
 Warning--empty address in Undersigned2x2multiplier
 Warning--empty address in moore1966IA
 Warning--empty address in DigitalICDesign
+Warning--empty publisher in RoldaoWLop_Simulation
+Warning--empty address in RoldaoWLop_Simulation
 Warning--can't use both volume and number fields in EnerJ2011Uwash
 Warning--empty publisher in EnerJ2011Uwash
 Warning--empty address in EnerJ2011Uwash
+Warning--empty publisher in UnderwoodFPGAvsCPU
+Warning--empty address in UnderwoodFPGAvsCPU
 Warning--empty publisher in FPGAPV
 Warning--empty address in FPGAPV
-Warning--no journal in Virtex6
-Warning--no number and no volume in Virtex6
-Warning--page numbers missing in both pages and numpages fields in Virtex6
-Warning--no journal in Virtex6Clocking
-Warning--no number and no volume in Virtex6Clocking
-Warning--page numbers missing in both pages and numpages fields in Virtex6Clocking
-(There was 1 error message)
+Warning--empty year in Virtex6Clocking
+Warning--empty organization in Virtex6Clocking
+Warning--empty year in Virtex6
+Warning--empty organization in Virtex6
+(There were 3 error messages)

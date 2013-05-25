@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.12.22)  23 MAY 2013 15:12
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.12.22)  25 MAY 2013 14:52
 entering extended mode
 **F:/Git/Latex/TRETS2013/TRETS_overclocking.tex
 (F:/Git/Latex/TRETS2013/TRETS_overclocking.tex
@@ -387,14 +387,6 @@ Overfull \vbox (72.27pt too high) has occurred while \output is active []
 Non-PDF special ignored!
 
 ]
-LaTeX Font Info:    Font shape `OT1/pnc/bx/n' in size <10> not available
-(Font)              Font shape `OT1/pnc/b/n' tried instead on input line 91.
-
-
-LaTeX Warning: Citation ` lee2006accuracy' on page 2 undefined on input line 91
-.
-
-
 Underfull \vbox (badness 7777) has occurred while \output is active []
 
  [2]
@@ -422,18 +414,20 @@ Package pdftex.def Info: ./Figures/FastCarryLogic3-eps-converted-to.pdf used on
 Underfull \vbox (badness 7777) has occurred while \output is active []
 
  [4]
-[5 <F:/Git/Latex/TRETS2013/Figures/FastCarryLogic3-eps-converted-to.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5 <F:/Git/Latex/TRETS2013/Figures/FastCarryLogic3-eps-converted-to.pdf>]
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <9> not available
 (Font)              Font shape `OT1/phv/m/sl' tried instead on input line 153.
-
-[6] <./Figures/CSA_structure.pdf, id=51, 382.07915pt x 195.97205pt>
+ [6]
+<./Figures/CSA_structure.pdf, id=48, 382.07915pt x 195.97205pt>
 File: ./Figures/CSA_structure.pdf Graphic file (type pdf)
 
 <use ./Figures/CSA_structure.pdf>
 Package pdftex.def Info: ./Figures/CSA_structure.pdf used on input line 287.
 (pdftex.def)             Requested size: 237.60242pt x 121.86621pt.
 
-<./Figures/CSA_SingleStage.pdf, id=52, 267.24844pt x 249.18094pt>
+<./Figures/CSA_SingleStage.pdf, id=49, 267.24844pt x 249.18094pt>
 File: ./Figures/CSA_SingleStage.pdf Graphic file (type pdf)
 
 <use ./Figures/CSA_SingleStage.pdf>
@@ -485,7 +479,8 @@ File: ./Figures/CSA3stage_Area-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./Figures/CSA3stage_Area-eps-converted-to.pdf used on 
 input line 367.
 (pdftex.def)             Requested size: 252.94499pt x 174.39246pt.
- [9]
+ [9] [10 <F:/Git/Latex/TRETS2013/Figures/CSA2stage_Model_Timing-eps-converted-t
+o.pdf> <F:/Git/Latex/TRETS2013/Figures/CSA3stage_Area-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./Figures/Error_LUT25.eps>
 (epstopdf)                    date: 2013-04-04 11:58:44
 (epstopdf)                    size: 28432 bytes
@@ -498,18 +493,13 @@ onverted-to.pdf ./Figures/Error_LUT25.eps>
 (epstopdf)             \includegraphics on input line 391.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Figures/Error_LUT25-eps-converted-to.pdf, id=98, 421.575pt x 317.185pt>
+<./Figures/Error_LUT25-eps-converted-to.pdf, id=110, 421.575pt x 317.185pt>
 File: ./Figures/Error_LUT25-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Figures/Error_LUT25-eps-converted-to.pdf>
 Package pdftex.def Info: ./Figures/Error_LUT25-eps-converted-to.pdf used on inp
 ut line 391.
 (pdftex.def)             Requested size: 238.49121pt x 179.43732pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [10 <F:/Git/Latex/TRETS2013/Figures/CSA2stage_Model_Timing-eps-converted-to.pd
-f> <F:/Git/Latex/TRETS2013/Figures/CSA3stage_Area-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./Figures/Tradeoff.eps>
 (epstopdf)                    date: 2013-05-16 23:42:36
 (epstopdf)                    size: 111548 bytes
@@ -529,7 +519,7 @@ Package pdftex.def Info: ./Figures/Tradeoff-eps-converted-to.pdf used on input
 line 403.
 (pdftex.def)             Requested size: 252.94499pt x 190.21014pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 4303) has occurred while \output is active []
 
  [11 <F:/Git/Latex/TRETS2013/Figures/Error_LUT25-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./Figures/Tradeoff_Error.eps>
@@ -567,6 +557,9 @@ File: ./Figures/TestFramework.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./Figures/TestFramework.pdf used on input line 563.
 (pdftex.def)             Requested size: 252.94499pt x 293.22794pt.
  [15]
+Underfull \vbox (badness 1112) has occurred while \output is active []
+
+ [16 <F:/Git/Latex/TRETS2013/Figures/TestFramework.pdf>]
 Package epstopdf Info: Source file: <./Figures/Exp/FIR/RatedFrequency3.eps>
 (epstopdf)                    date: 2013-05-16 23:42:36
 (epstopdf)                    size: 11514 bytes
@@ -579,7 +572,7 @@ uency3-eps-converted-to.pdf ./Figures/Exp/FIR/RatedFrequency3.eps>
 (epstopdf)             \includegraphics on input line 601.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Figures/Exp/FIR/RatedFrequency3-eps-converted-to.pdf, id=172, 432.61626pt x 
+<./Figures/Exp/FIR/RatedFrequency3-eps-converted-to.pdf, id=193, 432.61626pt x 
 253.94875pt>
 File: ./Figures/Exp/FIR/RatedFrequency3-eps-converted-to.pdf Graphic file (type
  pdf)
@@ -588,8 +581,10 @@ Package pdftex.def Info: ./Figures/Exp/FIR/RatedFrequency3-eps-converted-to.pdf
  used on input line 601.
 (pdftex.def)             Requested size: 231.26378pt x 135.75467pt.
 
-[16 <F:/Git/Latex/TRETS2013/Figures/TestFramework.pdf>] [17 <F:/Git/Latex/TRETS
-2013/Figures/Exp/FIR/RatedFrequency3-eps-converted-to.pdf>]
+Underfull \vbox (badness 6173) has occurred while \output is active []
+
+ [17 <F:/Git/Latex/TRETS2013/Figures/Exp/FIR/RatedFrequency3-eps-converted-to.p
+df>]
 Package epstopdf Info: Source file: <./Figures/Exp/FIR/FIR_Error_New_TCAD.eps>
 (epstopdf)                    date: 2013-05-16 23:42:36
 (epstopdf)                    size: 21949 bytes
@@ -823,9 +818,6 @@ File: ./Figures/CC_length2-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./Figures/CC_length2-eps-converted-to.pdf used on inpu
 t line 687.
 (pdftex.def)             Requested size: 252.94499pt x 202.95981pt.
-
-Underfull \vbox (badness 1354) has occurred while \output is active []
-
  [19 <F:/Git/Latex/TRETS2013/Figures/Exp/FIR/LenaImages/FIRLena_T8-eps-converte
 d-to.pdf> <F:/Git/Latex/TRETS2013/Figures/Exp/FIR/LenaImages/FIRLena_T65-eps-co
 nverted-to.pdf> <F:/Git/Latex/TRETS2013/Figures/Exp/FIR/LenaImages/FIRLena_T62-
@@ -835,12 +827,12 @@ IRLena_Q7T10-eps-converted-to.pdf> <F:/Git/Latex/TRETS2013/Figures/Exp/FIR/Lena
 Images/FIRLena_Q4T10-eps-converted-to.pdf> <F:/Git/Latex/TRETS2013/Figures/Exp/
 FIR/LenaImages/FIRLena_Q2T10-eps-converted-to.pdf> <F:/Git/Latex/TRETS2013/Figu
 res/Exp/FIR/LenaImages/FIRLena_Q1T10-eps-converted-to.pdf>] [20 <F:/Git/Latex/T
-RETS2013/Figures/CC_length2-eps-converted-to.pdf>] [21]
-(F:\Git\Latex\TRETS2013\TRETS_overclocking.bbl
-Underfull \vbox (badness 2237) has occurred while \output is active []
+RETS2013/Figures/CC_length2-eps-converted-to.pdf>] [21] (F:\Git\Latex\TRETS2013
+\TRETS_overclocking.bbl [22])
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [22])
-[23] [1
+ [23]
+[24] [1
 
 ] (F:\Git\Latex\TRETS2013\TRETS_overclocking.aux)
 
@@ -848,11 +840,11 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4654 strings out of 494045
- 64680 string characters out of 3145971
- 152879 words of memory out of 3000000
- 7820 multiletter control sequences out of 15000+200000
- 30657 words of font info for 70 fonts, out of 3000000 for 9000
+ 4657 strings out of 494045
+ 64782 string characters out of 3145971
+ 160379 words of memory out of 3000000
+ 7824 multiletter control sequences out of 15000+200000
+ 29463 words of font info for 68 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  42i,18n,24p,1774b,419s stack positions out of 5000i,500n,10000p,200000b,50000s
 {E:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<E:/Progra
@@ -877,9 +869,9 @@ uhvr8a.pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8a.
 pfb><E:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/ncntrsbk/uncb8a.pfb><E:/
 Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/ncntrsbk/uncr8a.pfb><E:/Program 
 Files (x86)/MiKTeX 2.9/fonts/type1/urw/ncntrsbk/uncri8a.pfb>
-Output written on TRETS_overclocking.pdf (24 pages, 2687152 bytes).
+Output written on TRETS_overclocking.pdf (25 pages, 2689277 bytes).
 PDF statistics:
- 346 PDF objects out of 1000 (max. 8388607)
+ 350 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  106 words of extra memory for PDF output out of 10000 (max. 10000000)
 

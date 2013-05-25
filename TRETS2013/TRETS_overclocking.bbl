@@ -43,8 +43,7 @@
 \bibitem[\protect\citeauthoryear{Association}{Association}{2007}]%
         {semiconductor2007international}
 {Semiconductor~Industry Association}. 2007.
-\newblock International technology roadmap for semiconductors ({ITRS}).
-\newblock   (2007).
+\newblock {\em International technology roadmap for semiconductors ({ITRS})}.
 \newblock
 
 
@@ -60,21 +59,30 @@
 \bibitem[\protect\citeauthoryear{Austin, Blaauw, Mudge, and Flautner}{Austin
   et~al\mbox{.}}{2004}]%
         {Razor2004}
-{Todd Austin}, {David Blaauw}, {Trevor Mudge}, {and} {Kriszti{\'a}n Flautner}.
-  2004.
+{T. Austin}, {D. Blaauw}, {T. Mudge}, {and} {K. Flautner}. 2004.
 \newblock \showarticletitle{Making typical silicon matter with razor}.
-\newblock {\em Computer\/} {37}, 3 (2004), 57--65.
+\newblock {\em IEEE Trans. on Computer\/} {37}, 3 (2004), 57--65.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Boland and Constantinides}{Boland and
+  Constantinides}{2008}]%
+        {David_MINRES}
+{D. Boland} {and} {G.~A. Constantinides}. 2008.
+\newblock \showarticletitle{An {FPGA}-based implementation of the MINRES
+  algorithm}. In {\em Proc. Int. Conf. Field Programmable Logic and
+  Applications.} IEEE, 379--384.
 \newblock
 
 
 \bibitem[\protect\citeauthoryear{Boland and Constantinides}{Boland and
   Constantinides}{2011}]%
         {Boland2011TCAD}
-{David Boland} {and} {George~A Constantinides}. 2011.
+{D. Boland} {and} {G.~A. Constantinides}. 2011.
 \newblock \showarticletitle{Bounding variable values and round-off effects
   using handelman representations}.
-\newblock {\em Computer-Aided Design of Integrated Circuits and Systems, IEEE
-  Trans on\/} {30}, 11 (2011), 1691--1704.
+\newblock {\em IEEE Trans. on Computer-Aided Design of Integrated Circuits and
+  Systems\/} {30}, 11 (2011), 1691--1704.
 \newblock
 
 
@@ -82,26 +90,43 @@
         {NewBox2004}
 {B. Colwell}. 2004.
 \newblock \showarticletitle{We may need a new box}.
-\newblock {\em Computer\/} {37}, 3 (2004), 40--41.
+\newblock {\em IEEE Trans. on Computer\/} {37}, 3 (2004), 40--41.
 \newblock
 
 
 \bibitem[\protect\citeauthoryear{Constantinides, Nicolici, and
   Kinsman}{Constantinides et~al\mbox{.}}{2011}]%
         {GeorgeDT11}
-{G.A. Constantinides}, {N. Nicolici}, {and} {A.B. Kinsman}. 2011.
+{G.~A. Constantinides}, {N. Nicolici}, {and} {A.~B. Kinsman}. 2011.
 \newblock \showarticletitle{Numerical Data Representations for {FPGA}-Based
   Scientific Computing}.
 \newblock {\em IEEE Design Test of Computers\/} {28}, 4 (2011), 8--17.
 \newblock
 
 
-\bibitem[\protect\citeauthoryear{De~Figueiredo and Stolfi}{De~Figueiredo and
-  Stolfi}{2004}]%
+\bibitem[\protect\citeauthoryear{De, Luiz, and Stolfi}{De
+  et~al\mbox{.}}{2004}]%
         {de2004affine}
-{Luiz~Henrique De~Figueiredo} {and} {Jorge Stolfi}. 2004.
+{F. De}, {H. Luiz}, {and} {J. Stolfi}. 2004.
 \newblock \showarticletitle{Affine arithmetic: concepts and applications}.
 \newblock {\em Numerical Algorithms\/} {37}, 1-4 (2004), 147--158.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Ercegovac}{Ercegovac}{1984}]%
+        {Ercegovac_Overview}
+{M.~D. Ercegovac}. 1984.
+\newblock \showarticletitle{On-line arithmetic: An overview}. In {\em Proc.
+  Annual Technical Symp. Real time signal processing VII}. 86--93.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Ercegovac and Lang}{Ercegovac and
+  Lang}{2003}]%
+        {Ercegovac_Book}
+{M.~D. Ercegovac} {and} {T. Lang}. 2003.
+\newblock {\em Digital arithmetic}.
+\newblock Morgan Kaufmann.
 \newblock
 
 
@@ -111,14 +136,14 @@
 {D. Ernst}, {N.S. Kim}, {S. Das}, {S. Pant}, {R. Rao}, {T. Pham}, {C. Ziesler},
   {D. Blaauw}, {T. Austin}, {K. Flautner}, {and} {others}. 2003.
 \newblock \showarticletitle{Razor: A low-power pipeline based on circuit-level
-  timing speculation}. In {\em Int. Symp. on Microarchitecture}. 7--18.
+  timing speculation}. In {\em Proc. Int. Symp. on Microarchitecture}. 7--18.
 \newblock
 
 
 \bibitem[\protect\citeauthoryear{Esmaeilzadeh, Sampson, Ceze, and
   Burger}{Esmaeilzadeh et~al\mbox{.}}{2012}]%
         {Truffle2012Uwash}
-{Hadi Esmaeilzadeh}, {Adrian Sampson}, {Luis Ceze}, {and} {Doug Burger}. 2012.
+{H. Esmaeilzadeh}, {A. Sampson}, {L. Ceze}, {and} {D. Burger}. 2012.
 \newblock \showarticletitle{Architecture support for disciplined approximate
   programming}. In {\em Proc. Int. Conf. Architectural Support for Programming
   Languages and Operating Systems}. 301--312.
@@ -128,8 +153,7 @@
 \bibitem[\protect\citeauthoryear{Gojman, Nalmela, Mehta, Howarth, and
   DeHon}{Gojman et~al\mbox{.}}{2013}]%
         {gojman2013FPGA}
-{Benjamin Gojman}, {Sirisha Nalmela}, {Nikil Mehta}, {Nicholas Howarth}, {and}
-  {Andr{\'e} DeHon}. 2013.
+{B. Gojman}, {S. Nalmela}, {N. Mehta}, {N. Howarth}, {and} {A. DeHon}. 2013.
 \newblock \showarticletitle{{GROK-LAB}: generating real on-chip knowledge for
   intra-cluster delays using timing extraction}. In {\em Proc. Int. Symp. on
   Field Programmable Gate Arrays}. 81--90.
@@ -139,26 +163,33 @@
 \bibitem[\protect\citeauthoryear{Gupta, Mohapatra, Raghunathan, and Roy}{Gupta
   et~al\mbox{.}}{2013}]%
         {Gupta2013TransCADICS}
-{Vaibhav Gupta}, {Debabrata Mohapatra}, {Anand Raghunathan}, {and} {Kaushik
-  Roy}. 2013.
+{V. Gupta}, {D. Mohapatra}, {A. Raghunathan}, {and} {K. Roy}. 2013.
 \newblock \showarticletitle{Low-Power Digital Signal Processing Using
   Approximate Adders}.
-\newblock {\em Computer-Aided Design of Integrated Circuits and Systems, IEEE
-  Trans. on\/} {32}, 1 (2013), 124--137.
+\newblock {\em IEEE Trans. on Computer-Aided Design of Integrated Circuits and
+  Systems\/} {32}, 1 (2013), 124--137.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Harata, Nakamura, Nagase, Takigawa, and
+  Takagi}{Harata et~al\mbox{.}}{1987}]%
+        {RedundantMult_1987}
+{Y. Harata}, {Y. Nakamura}, {H. Nagase}, {M. Takigawa}, {and} {N. Takagi}.
+  1987.
+\newblock \showarticletitle{A high-speed multiplier using a redundant binary
+  adder tree}.
+\newblock {\em IEEE Jourl. of Solid-State Circuits\/} {22}, 1 (1987), 28--34.
 \newblock
 
 
 \bibitem[\protect\citeauthoryear{Kedem, Mooney, Muntimadugu, and Palem}{Kedem
   et~al\mbox{.}}{2011}]%
         {NonUniformScaling}
-{Z.M. Kedem}, {V.J. Mooney}, {K.K. Muntimadugu}, {and} {K.V. Palem}. 2011.
+{Z.~M. Kedem}, {V.~J. Mooney}, {K.~K. Muntimadugu}, {and} {K.~V. Palem}. 2011.
 \newblock \showarticletitle{An approach to energy-error tradeoffs in
-  approximate ripple carry adders}. In {\em Int. Symp. on Low Power Electronics
-  and Design}. 211 --216.
+  approximate ripple carry adders}. In {\em Proc. Int. Symp. on Low Power
+  Electronics and Design}. 211--216.
 \newblock
-\showISSN{Pending}
-\showDOI{%
-\url{http://dx.doi.org/10.1109/ISLPED.2011.5993638}}
 
 
 \bibitem[\protect\citeauthoryear{Keutzer and Orshansky}{Keutzer and
@@ -174,11 +205,11 @@
 \bibitem[\protect\citeauthoryear{Kinsman and Nicolici}{Kinsman and
   Nicolici}{2010}]%
         {SAT2010}
-{A.B. Kinsman} {and} {N. Nicolici}. 2010.
+{A.~B. Kinsman} {and} {N. Nicolici}. 2010.
 \newblock \showarticletitle{Bit-width allocation for hardware accelerators for
   scientific computing using SAT-modulo theory}.
-\newblock {\em Computer-Aided Design of Integrated Circuits and Systems, IEEE
-  Trans. on\/} {29}, 3 (2010), 405--413.
+\newblock {\em IEEE Trans. on Computer-Aided Design of Integrated Circuits and
+  Systems\/} {29}, 3 (2010), 405--413.
 \newblock
 
 
@@ -187,22 +218,33 @@
         {Undersigned2x2multiplier}
 {P. Kulkarni}, {P. Gupta}, {and} {M. Ercegovac}. 2011.
 \newblock \showarticletitle{Trading accuracy for power with an underdesigned
-  multiplier architecture}. In {\em Int. Conf. on VLSI Design}. 346--351.
+  multiplier architecture}. In {\em Proc. Int. Conf. on VLSI Design}. 346--351.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Lee, Gaffar, Cheung, Mencer, Luk, and
+  Constantinides}{Lee et~al\mbox{.}}{2006}]%
+        {lee2006accuracy}
+{D.~U. Lee}, {A.~A. Gaffar}, {R.~C.~C. Cheung}, {O. Mencer}, {W. Luk}, {and}
+  {G.~A. Constantinides}. 2006.
+\newblock \showarticletitle{Accuracy-guaranteed bit-width optimization}.
+\newblock {\em IEEE Trans. on Computer-Aided Design of Integrated Circuits and
+  Systems\/} {25}, 10 (2006), 1990--2000.
 \newblock
 
 
 \bibitem[\protect\citeauthoryear{Lu}{Lu}{2004}]%
         {IntelSpeeding}
-{S.L. Lu}. 2004.
+{S.~L. Lu}. 2004.
 \newblock \showarticletitle{Speeding up processing with approximation
   circuits}.
-\newblock {\em IEEE Computer\/} {37}, 3 (2004), 67--73.
+\newblock {\em IEEE Trans. on Computer\/} {37}, 3 (2004), 67--73.
 \newblock
 
 
 \bibitem[\protect\citeauthoryear{Moore}{Moore}{1966}]%
         {moore1966IA}
-{R.E. Moore}. 1966.
+{R.~E. Moore}. 1966.
 \newblock {\em Interval analysis}. Vol.~60.
 \newblock Prentice-Hall Englewood Cliffs, NJ.
 \newblock
@@ -211,55 +253,93 @@
 \bibitem[\protect\citeauthoryear{Rabaey, Chandrakasan, and Nikolic}{Rabaey
   et~al\mbox{.}}{2003}]%
         {DigitalICDesign}
-{J.M. Rabaey}, {A.P. Chandrakasan}, {and} {B. Nikolic}. 2003.
+{J.~M. Rabaey}, {A.~P. Chandrakasan}, {and} {B. Nikolic}. 2003.
 \newblock {\em Digital integrated circuits: a design perspective (2nd
   edition)}.
 \newblock Prentice-Hall.
 \newblock
 
 
+\bibitem[\protect\citeauthoryear{Roldao-Lopes, Shahzad, Constantinides, and
+  Kerrigan}{Roldao-Lopes et~al\mbox{.}}{2009}]%
+        {RoldaoWLop_Simulation}
+{A. Roldao-Lopes}, {A. Shahzad}, {G.~A. Constantinides}, {and} {E.~C.
+  Kerrigan}. 2009.
+\newblock \showarticletitle{More {flops} or more precision? accuracy
+  parameterizable linear equation solvers for model predictive control}. In
+  {\em Proc. Int. Symp. Field Programmable Custom Computing Machines}.
+  209--216.
+\newblock
+
+
 \bibitem[\protect\citeauthoryear{Sampson, Dietl, Fortuna, Gnanapragasam, Ceze,
   and Grossman}{Sampson et~al\mbox{.}}{2011}]%
         {EnerJ2011Uwash}
-{Adrian Sampson}, {Werner Dietl}, {Emily Fortuna}, {Danushen Gnanapragasam},
-  {Luis Ceze}, {and} {Dan Grossman}. 2011.
+{A. Sampson}, {W. Dietl}, {E. Fortuna}, {D. Gnanapragasam}, {L. Ceze}, {and}
+  {D. Grossman}. 2011.
 \newblock \showarticletitle{EnerJ: Approximate data types for safe and general
-  low-power computation}. In {\em ACM SIGPLAN Notices}, Vol.~46. ACM, 164--174.
+  low-power computation}. In {\em Proc. {ACM} SIGPLAN Notices}, Vol.~46.
+  164--174.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Sung and Kum}{Sung and Kum}{1995}]%
+        {SungWLop_Simulation}
+{W. Sung} {and} {K. Kum}. 1995.
+\newblock \showarticletitle{Simulation-based word-length optimization method
+  for fixed-point digital signal processing systems}.
+\newblock {\em IEEE Trans. on Signal Processing\/} {43}, 12 (1995), 3087--3090.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Takagi, Yasuura, and Yajima}{Takagi
+  et~al\mbox{.}}{1985}]%
+        {RedundantMult_1985}
+{N. Takagi}, {H. Yasuura}, {and} {S. Yajima}. 1985.
+\newblock \showarticletitle{High-speed VLSI multiplication algorithm with a
+  redundant binary addition tree}.
+\newblock {\em IEEE Trans. on Computers\/} {100}, 9 (1985), 789--796.
 \newblock
 
 
 \bibitem[\protect\citeauthoryear{Uht}{Uht}{2004}]%
         {TEAtime2004}
-{A.K. Uht}. 2004.
+{A.~K. Uht}. 2004.
 \newblock \showarticletitle{Going beyond worst-case specs with {TEA}time}.
-\newblock {\em Computer\/} {37}, 3 (2004), 51--56.
+\newblock {\em IEEE Trans. on Computer\/} {37}, 3 (2004), 51--56.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Underwood}{Underwood}{2004}]%
+        {UnderwoodFPGAvsCPU}
+{K. Underwood}. 2004.
+\newblock \showarticletitle{{FPGAs} vs. {CPUs}: trends in peak floating-point
+  performance}. In {\em Proc. Int. Symp. Field Programmable Gate Arrays}.
+  171--180.
 \newblock
 
 
 \bibitem[\protect\citeauthoryear{Wong, Cheng, Lin, and He}{Wong
   et~al\mbox{.}}{2005}]%
         {FPGAPV}
-{H.Y. Wong}, {L. Cheng}, {Y. Lin}, {and} {L. He}. 2005.
+{H.~Y. Wong}, {L. Cheng}, {Y. Lin}, {and} {L. He}. 2005.
 \newblock \showarticletitle{{FPGA} device and architecture evaluation
   considering process variations}. In {\em Proc. Int. Conf. on Computer-Aided
   Design}. 19--24.
 \newblock
 
 
-\bibitem[\protect\citeauthoryear{Xilinx}{Xilinx}{2009}]%
-        {Virtex6}
-{Xilinx}. 2009.
-\newblock \showarticletitle{Virtex-6 {FPGA} Configurable Logic Block User
-  Guide}.
-\newblock  (2009).
+\bibitem[\protect\citeauthoryear{Xilinx}{Xilinx}{a}]%
+        {Virtex6Clocking}
+{Xilinx}.
+\newblock {\em Virtex-6 {FPGA} Clocking Resources User Guide}.
 \newblock
 
 
-\bibitem[\protect\citeauthoryear{Xilinx}{Xilinx}{2011}]%
-        {Virtex6Clocking}
-{Xilinx}. 2011.
-\newblock \showarticletitle{Virtex-6 {FPGA} Clocking Resources User Guide}.
-\newblock  (2011).
+\bibitem[\protect\citeauthoryear{Xilinx}{Xilinx}{b}]%
+        {Virtex6}
+{Xilinx}.
+\newblock {\em Virtex-6 {FPGA} Configurable Logic Block User Guide}.
 \newblock
 
 
