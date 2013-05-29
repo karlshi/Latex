@@ -1,38 +1,200 @@
 \relax 
+\citation{GeorgeDT11}
+\citation{NewBox2004}
 \@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {I-A}}Subsection Heading Here}{1}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {I-A}1}Subsubsection Heading Here}{1}}
-\@writefile{toc}{\contentsline {section}{\numberline {II}Carry Select Adder}{1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-A}}Introduction}{1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-B}}Timing Models for $n$-bit Carry Select Adder}{1}}
-\newlabel{CSA_SingleStageDelay}{{1}{1}}
-\newlabel{CSA_DelayEqual}{{2}{1}}
-\newlabel{CSA_DelayRep}{{3}{1}}
-\newlabel{CSA_WL}{{4}{1}}
-\newlabel{CSA_RCA}{{5}{1}}
-\newlabel{CSA_Timing}{{6}{1}}
-\newlabel{CSA_StageNumber}{{7}{1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-C}}Model Verification}{2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Fitted curve of (1\hbox {}) for the most significant stage ($i=0$), based on the given input word-length and the corresponding delay value obtained through the Xilinx Timing Analyzer.}}{2}}
-\newlabel{DelayFitting}{{1}{2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Comparison of the maximum word-length for a given operating frequency between the modelled value and the experimental results from FPGA simulations.}}{2}}
-\newlabel{CSA Model Verification}{{2}{2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-D}}Area Overhead}{2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Maximum word-length for RCA and CSA across a variety of frequencies.}}{2}}
-\newlabel{CSA3stage Timing}{{3}{2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-E}}Exploring Trade-offs Between Accuracy, Performance and Area}{2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Area overhead for RCA and CSA.}}{3}}
-\newlabel{CSA3stage Area}{{4}{3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces LUT=45}}{3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces LUT=35}}{3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces LUT=25}}{3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces LUT=15}}{3}}
-\bibcite{IEEEhowto:kopka}{1}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Trade-offs between accuracy, performance and area for 4 design methodologies.}}{4}}
-\newlabel{Tradeoff}{{9}{4}}
-\@writefile{toc}{\contentsline {section}{\numberline {III}Conclusion}{4}}
-\@writefile{toc}{\contentsline {section}{References}{4}}
-\@writefile{toc}{\contentsline {section}{Biographies}{4}}
-\@writefile{toc}{\contentsline {subsection}{Author}{4}}
-\@writefile{toc}{\contentsline {subsection}{Author}{4}}
-\@writefile{toc}{\contentsline {subsection}{Author}{4}}
+\citation{moore1966IA}
+\citation{de2004affine}
+\citation{SAT2010}
+\citation{Boland2011TCAD}
+\citation{GeorgeDT11,lee2006accuracy}
+\citation{semiconductor2007international}
+\citation{BetterThanWS2005}
+\citation{Razor2003,Razor2004}
+\citation{TEAtime2004}
+\citation{ProbabilisticSTA}
+\citation{EnerJ2011Uwash,Truffle2012Uwash}
+\citation{NonUniformScaling}
+\citation{IntelSpeeding}
+\citation{Undersigned2x2multiplier}
+\citation{Gupta2013TransCADICS}
+\@writefile{toc}{\contentsline {section}{\numberline {II}Background}{2}}
+\newlabel{Section_Background}{{II}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-A}}Word-length Optimization}{2}}
+\newlabel{Section_Background_WL}{{\unhbox \voidb@x \hbox {II-A}}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-B}}Imprecise Circuit Design Methodology}{2}}
+\newlabel{Section_Background_Imprecise}{{\unhbox \voidb@x \hbox {II-B}}{2}}
+\citation{AlteraCyclone}
+\citation{Virtex6}
+\citation{DigitalICDesign}
+\@writefile{toc}{\contentsline {section}{\numberline {III}Ripple Carry Adder}{3}}
+\newlabel{section_RCA}{{III}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-A}}Adder Structures in FPGAs}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-B}}Probabilistic Model of Truncation Error}{3}}
+\newlabel{section_RCA_TruncationError}{{\unhbox \voidb@x \hbox {III-B}}{3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces An $n$-bit ripple carry adder in the Xilinx Virtex-6 FPGA.}}{3}}
+\newlabel{FPGA adder}{{1}{3}}
+\newlabel{ET at single input}{{1}{3}}
+\newlabel{TruncationError}{{2}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-C}}Probabilistic Model of Overclocking Error}{3}}
+\newlabel{subsub:Generation of Overclocking Error}{{\unhbox \voidb@x \hbox {III-C}1}{3}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-C}1}Generation of Overclocking Error}{3}}
+\newlabel{Max.length of carry chain}{{3}{3}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-C}2}Absolute Value of Overclocking Error}{4}}
+\newlabel{t_RCA}{{4}{4}}
+\newlabel{m_RCA}{{5}{4}}
+\newlabel{Output Error}{{6}{4}}
+\newlabel{etm}{{7}{4}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-C}3}Probability of Overclocking Error}{4}}
+\newlabel{Ptm_RCA}{{8}{4}}
+\newlabel{Ptm2}{{9}{4}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {III-C}4}Expectation of Overclocking Error}{4}}
+\newlabel{Eo_exp}{{10}{4}}
+\newlabel{Eo}{{11}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-D}}Comparison between Two Scenarios}{4}}
+\newlabel{section_RCA_Comparison}{{\unhbox \voidb@x \hbox {III-D}}{4}}
+\newlabel{Eo_trad_RCA}{{12}{4}}
+\newlabel{Eo_new_RCA}{{13}{4}}
+\newlabel{Comparison RCA}{{14}{4}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Carry Select Adder}{4}}
+\newlabel{Section_CSA}{{IV}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}}Introduction}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-B}}Timing Models for Carry Select Adder}{4}}
+\newlabel{Fig_CSA_Structure}{{2(a)}{5}}
+\newlabel{sub@Fig_CSA_Structure}{{(a)}{5}}
+\newlabel{Fig_CSA_SingleStage}{{2(b)}{5}}
+\newlabel{sub@Fig_CSA_SingleStage}{{(b)}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces The structure diagram of CSA.}}{5}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {The structure diagram of a CSA with $s$ stages.}}}{5}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {The structure of the $i^{th}$ stage in the CSA.}}}{5}}
+\newlabel{CSA_SingleStageDelay}{{15}{5}}
+\newlabel{CSA_DelayEqual}{{16}{5}}
+\newlabel{CSA_DelayRep}{{17}{5}}
+\newlabel{CSA_WL}{{18}{5}}
+\newlabel{TimingConstraint_CSA}{{19}{5}}
+\newlabel{WL_MSB_CSA}{{20}{5}}
+\newlabel{CSA_Timing}{{21}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}}Accuracy Benefits and Area Overhead in CSA}{5}}
+\newlabel{Fig_CSA2stage_Timing}{{3(a)}{6}}
+\newlabel{sub@Fig_CSA2stage_Timing}{{(a)}{6}}
+\newlabel{Fig_CSA3stage_Area}{{3(b)}{6}}
+\newlabel{sub@Fig_CSA3stage_Area}{{(b)}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces A comparison between RCA and CSA in terms of the maximum word-length of input signal and the area consumption.}}{6}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {The modeled value and the experimental results of the maximum word-length of RCA and CSA.}}}{6}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Hardware resource usage for an RCA and a CSA with 2 and 3 stages.}}}{6}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Choosing the Optimum Adder Structure}{6}}
+\newlabel{Section_OptimumAdder}{{V}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-A}}Determination of the Optimum Adder Structure for Given Frequency Requirements}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces A comparison between two design scenarios when the number of available LUT is 25. The RCA and CSA are investigated in the conventional scenario, while the RCA is explored in the proposed new scenario. The results are obtained from post place-and-route simulations on Xilinx Virtex-6 FPGAs.}}{6}}
+\newlabel{Fig_CSA_LUT25}{{4}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces A demonstration of the optimum design methodology which achieves the minimum error at outputs with respect to a variety of frequency and area constraints.}}{7}}
+\newlabel{Fig_CSA_Tradeoff}{{5}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-B}}Determination of the Optimum Adder Structure for Given Accuracy Requirements}{7}}
+\newlabel{MRE}{{22}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces A demonstration of the optimum design methodology which runs at the fastest frequency with respect to a variety of accuracy and area constraints.}}{7}}
+\newlabel{Fig_CSA_Tradeoff_Error}{{6}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-C}}Design Guidance}{7}}
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Constant Coefficient Multiplier}{7}}
+\newlabel{section_CCM}{{VI}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VI-A}}Probabilistic Model of Truncation Error}{7}}
+\newlabel{Et_CCM}{{23}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Four possible carry chain types in a constant coefficient multiplier with $n$-bit inputs. The notion $s$ denotes the shifted bits and $BP$ denotes the binary point.}}{8}}
+\newlabel{CCM_fig}{{7}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VI-B}}Probabilistic Model of Overclocking Error}{8}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {VI-B}1}Absolute Value of Overclocking Error}{8}}
+\newlabel{etm_CCM}{{24}{8}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {VI-B}2}Probability of Overclocking Error}{8}}
+\newlabel{Ptm_CCM1}{{25}{8}}
+\newlabel{Ptm_CCM2}{{26}{8}}
+\newlabel{Ptm_CCM}{{27}{8}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {VI-B}3}Expectation of Overclocking Error}{8}}
+\newlabel{t_CCM}{{28}{8}}
+\newlabel{m_CCM}{{29}{8}}
+\newlabel{Eo_CCM}{{30}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VI-C}}CCM with Multiple RCAs and Shifters}{8}}
+\newlabel{CCM_Multi}{{\unhbox \voidb@x \hbox {VI-C}}{8}}
+\newlabel{ShiftNo}{{31}{8}}
+\@writefile{toc}{\contentsline {section}{\numberline {VII}Test Platform}{8}}
+\newlabel{Section_ExpSetup}{{VII}{8}}
+\citation{Virtex6Clocking}
+\citation{gojman2013FPGA}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VII-A}}Experimental Setup}{9}}
+\newlabel{sub:experimental_setup}{{\unhbox \voidb@x \hbox {VII-A}}{9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Test framework, which is composed of a measurement architecture (the dotted box) on an FPGA and an off-line comparator using software. Note that the error-free data are obtained by either pre-computation or initial run with low frequencies.}}{9}}
+\newlabel{Test Framework}{{8}{9}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VII-B}}Benchmark Circuits}{9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces The maximum operating frequencies for different input word-lengths of an FIR filter. The dotted line depicts the rated frequency reported by the timing analysis tool. The solid line is obtained through real FPGA tests using our platform.}}{9}}
+\newlabel{TimingMargin}{{9}{9}}
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Rated Frequencies of Example Designs.}}{9}}
+\newlabel{Rated_Frequency_table}{{I}{9}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VII-C}}Exploring the Conservative Timing Margin}{9}}
+\newlabel{sub:exploring_the_conservative_timing_margin}{{\unhbox \voidb@x \hbox {VII-C}}{9}}
+\citation{FPGAPV}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VII-D}}Computing Model Parameters}{10}}
+\newlabel{Eq_decideMu_0}{{32}{10}}
+\newlabel{Eq_decideMu_1}{{33}{10}}
+\newlabel{Eq_decideMu_2}{{34}{10}}
+\@writefile{toc}{\contentsline {section}{\numberline {VIII}Results and Discussion}{10}}
+\newlabel{Section_Experiments}{{VIII}{10}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VIII-A}}Case study: FIR filter}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces A demonstration of two design perspectives with a $5^{th}$\nobreakspace  {}order FIR filter, which is implemented on Virtex-6 FPGA. The modeled values of both overclocking errors and truncation errors are presented as dotted lines. The actual FPGA measurements are depicted using solid lines. Two types of inputs are employed in the overclocking scenario: the uniformly distributed data and the real image data from Lena.}}{10}}
+\newlabel{FIR}{{10}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Output images of the FIR filter for both overclocking scenario (top row) and traditional scenario (bottom row) under various operating frequencies.}}{11}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {425MHz,\nobreakspace {}n=8\nobreakspace {},\nobreakspace {}SNR=47.97dB}}}{11}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {450MHz,\nobreakspace {}n=8,\nobreakspace {}SNR=44.94dB}}}{11}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {480MHz,\nobreakspace {}n=8,\nobreakspace {}SNR=21.58dB}}}{11}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {520MHz,\nobreakspace {}n=8,\nobreakspace {}SNR=10.03dB}}}{11}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(e)}{\ignorespaces {425MHz,\nobreakspace {}n=7,\nobreakspace {}SNR=26.02dB}}}{11}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(f)}{\ignorespaces {450MHz,\nobreakspace {}n=5,\nobreakspace {}SNR=21.76dB}}}{11}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(g)}{\ignorespaces {480MHz,\nobreakspace {}n=2,\nobreakspace {}SNR=6.57dB}}}{11}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(h)}{\ignorespaces {520MHz,\nobreakspace {}n=1,\nobreakspace {}SNR=3.95dB}}}{11}}
+\newlabel{FIR_Lena}{{11}{11}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Probability distribution of different length of carry chains in a 8-bit RCA. For the uniform data, two inputs of RCA are randomly sampled from a uniform distribution. For the image data Lena, one input of RCA uses the original data and the other uses the delayed original data for several clock cycles.}}{11}}
+\newlabel{CarryDistribution}{{12}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VIII-B}}Potential Benefits in Datapath Design}{11}}
+\newlabel{Relative Reduction MRE}{{35}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VIII-C}}Area Overhead of Our Approach}{11}}
+\bibstyle{./IEEEtran}
+\bibdata{./IEEEabrv,./Reference}
+\bibcite{GeorgeDT11}{1}
+\bibcite{NewBox2004}{2}
+\bibcite{moore1966IA}{3}
+\bibcite{de2004affine}{4}
+\bibcite{SAT2010}{5}
+\bibcite{Boland2011TCAD}{6}
+\bibcite{lee2006accuracy}{7}
+\bibcite{semiconductor2007international}{8}
+\bibcite{BetterThanWS2005}{9}
+\bibcite{Razor2003}{10}
+\bibcite{Razor2004}{11}
+\bibcite{TEAtime2004}{12}
+\bibcite{ProbabilisticSTA}{13}
+\bibcite{EnerJ2011Uwash}{14}
+\bibcite{Truffle2012Uwash}{15}
+\bibcite{NonUniformScaling}{16}
+\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces Relative Reduction of MRE in Overclocking Scenario for Various Normalized Frequencies Based on\nobreakspace  {}(35\hbox {}).}}{12}}
+\newlabel{Ratio_MRE}{{II}{12}}
+\@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces Frequency Speedups in Overclocking Scenario Under Various Error Budgets.}}{12}}
+\newlabel{Exp_Real_Inputs}{{III}{12}}
+\newlabel{Max_Frequency}{{III}{12}}
+\@writefile{toc}{\contentsline {section}{\numberline {IX}Conclusion}{12}}
+\newlabel{Section_Conclusion}{{IX}{12}}
+\@writefile{toc}{\contentsline {section}{References}{12}}
+\bibcite{IntelSpeeding}{17}
+\bibcite{Undersigned2x2multiplier}{18}
+\bibcite{Gupta2013TransCADICS}{19}
+\bibcite{AlteraCyclone}{20}
+\bibcite{Virtex6}{21}
+\bibcite{DigitalICDesign}{22}
+\bibcite{Virtex6Clocking}{23}
+\bibcite{gojman2013FPGA}{24}
+\bibcite{FPGAPV}{25}
+\@writefile{lot}{\contentsline {table}{\numberline {IV}{\ignorespaces Area Overhead of Our Approach with respect to Given Frequency Requirements}}{13}}
+\newlabel{Table_AreaFrequency}{{IV}{13}}
+\newlabel{Ratio_MRE}{{IV}{13}}
+\@writefile{lot}{\contentsline {table}{\numberline {V}{\ignorespaces Area Overhead of Our Approach with respect to Given Error Budgets.}}{13}}
+\newlabel{Table_AreaError}{{V}{13}}
+\newlabel{Max_Frequency}{{V}{13}}
+\@writefile{toc}{\contentsline {section}{Biographies}{13}}
+\@writefile{toc}{\contentsline {subsection}{Author}{13}}
+\@writefile{toc}{\contentsline {subsection}{Author}{13}}
+\@writefile{toc}{\contentsline {subsection}{Author}{13}}
