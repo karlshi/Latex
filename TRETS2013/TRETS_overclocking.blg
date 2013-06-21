@@ -26,9 +26,6 @@ Warning--empty booktitle in BetterThanWS2005
 Warning--no number and no volume in BetterThanWS2005
 Warning--empty publisher in David_MINRES
 Warning--empty address in David_MINRES
-Warning--empty publisher in Ercegovac_Overview
-Warning--empty address in Ercegovac_Overview
-Warning--empty address in Ercegovac_Book
 Warning--empty publisher in Razor2003
 Warning--empty address in Razor2003
 Warning--empty publisher in Truffle2012Uwash
@@ -56,45 +53,45 @@ Warning--empty year in Virtex6Clocking
 Warning--empty organization in Virtex6Clocking
 Warning--empty year in Virtex6
 Warning--empty organization in Virtex6
-You've used 33 entries,
+You've used 28 entries,
             5290 wiz_defined-function locations,
-            1429 strings with 19661 characters,
-and the built_in function-call counts, 33994 in all, are:
-= -- 4346
-> -- 1398
+            1394 strings with 18831 characters,
+and the built_in function-call counts, 28542 in all, are:
+= -- 3593
+> -- 1162
 < -- 2
-+ -- 423
-- -- 479
-* -- 2180
-:= -- 3787
-add.period$ -- 166
-call.type$ -- 33
-change.case$ -- 229
-chr.to.int$ -- 32
-cite$ -- 68
-duplicate$ -- 2810
-empty$ -- 1991
-format.name$ -- 571
-if$ -- 8319
++ -- 349
+- -- 399
+* -- 1820
+:= -- 3187
+add.period$ -- 140
+call.type$ -- 28
+change.case$ -- 192
+chr.to.int$ -- 27
+cite$ -- 60
+duplicate$ -- 2388
+empty$ -- 1690
+format.name$ -- 475
+if$ -- 6956
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 123
-newline$ -- 282
-num.names$ -- 263
-pop$ -- 1154
+missing$ -- 104
+newline$ -- 243
+num.names$ -- 223
+pop$ -- 993
 preamble$ -- 1
-purify$ -- 393
+purify$ -- 331
 quote$ -- 0
-skip$ -- 813
+skip$ -- 685
 stack$ -- 0
-substring$ -- 2502
-swap$ -- 302
+substring$ -- 2104
+swap$ -- 254
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 444
-warning$ -- 35
-while$ -- 271
+type$ -- 380
+warning$ -- 32
+while$ -- 231
 width$ -- 0
-write$ -- 573
+write$ -- 489
 (There were 3 error messages)
