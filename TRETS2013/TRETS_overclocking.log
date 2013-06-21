@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  21 JUN 2013 14:33
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  21 JUN 2013 15:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -361,38 +361,38 @@ File: ot1pnc.fd 2001/06/04 font definitions for OT1/pnc.
 \makeMPintoPDFobject=\count118
 \everyMPtoPDFconversion=\toks22
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 74.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 75.
  (/usr/local/texlive/2012/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 74.
+LaTeX Font Info:    Try loading font information for U+msa on input line 75.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 74.
+LaTeX Font Info:    Try loading font information for U+msb on input line 75.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for OMS+pnc on input line 74.
+LaTeX Font Info:    Try loading font information for OMS+pnc on input line 75.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/psnfss/omspnc.fd
 File: omspnc.fd 
 )
 LaTeX Font Info:    Font shape `OMS/pnc/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 74.
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 76.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 75.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 77.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 76.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 77.
 LaTeX Font Info:    Font shape `OT1/pnc/bx/n' in size <8> not available
-(Font)              Font shape `OT1/pnc/b/n' tried instead on input line 76.
+(Font)              Font shape `OT1/pnc/b/n' tried instead on input line 77.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <9> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 79.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 80.
 
 Overfull \vbox (72.27pt too high) has occurred while \output is active []
 
@@ -412,7 +412,7 @@ Package epstopdf Info: Source file: <./Figures/FastCarryLogic3.eps>
 (epstopdf)                    size: 29418 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/FastCarryLogic3-
 eps-converted-to.pdf ./Figures/FastCarryLogic3.eps>
-(epstopdf)             \includegraphics on input line 136.
+(epstopdf)             \includegraphics on input line 137.
 Package epstopdf Info: Output file is already uptodate.
 
 <./Figures/FastCarryLogic3-eps-converted-to.pdf, id=26, 360.34625pt x 428.60126
@@ -420,27 +420,27 @@ pt>
 File: ./Figures/FastCarryLogic3-eps-converted-to.pdf Graphic file (type pdf)
  <use ./Figures/FastCarryLogic3-eps-converted-to.pdf>
 Package pdftex.def Info: ./Figures/FastCarryLogic3-eps-converted-to.pdf used on
- input line 136.
+ input line 137.
 (pdftex.def)             Requested size: 216.81pt x 257.87558pt.
  [5 <./Figures/FastCarryLogic3-eps-converted-to.pdf>]
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <9> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 175.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 176.
  [6]
 <./Figures/CSA_structure.pdf, id=49, 382.07915pt x 195.97205pt>
 File: ./Figures/CSA_structure.pdf Graphic file (type pdf)
 
 <use ./Figures/CSA_structure.pdf>
-Package pdftex.def Info: ./Figures/CSA_structure.pdf used on input line 312.
+Package pdftex.def Info: ./Figures/CSA_structure.pdf used on input line 314.
 (pdftex.def)             Requested size: 237.60242pt x 121.86621pt.
 
 <./Figures/CSA_SingleStage.pdf, id=50, 267.24844pt x 249.18094pt>
 File: ./Figures/CSA_SingleStage.pdf Graphic file (type pdf)
 
 <use ./Figures/CSA_SingleStage.pdf>
-Package pdftex.def Info: ./Figures/CSA_SingleStage.pdf used on input line 317.
+Package pdftex.def Info: ./Figures/CSA_SingleStage.pdf used on input line 319.
 (pdftex.def)             Requested size: 158.99377pt x 148.25117pt.
 
-Overfull \hbox (11.71576pt too wide) in paragraph at lines 312--318
+Overfull \hbox (11.71576pt too wide) in paragraph at lines 314--320
  [][][] 
  []
 
@@ -458,7 +458,7 @@ rted-to.pdf>
 (epstopdf)                    size: 7846 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/CSA2stage_Model_
 Timing-eps-converted-to.pdf ./Figures/CSA2stage_Model_Timing.eps>
-(epstopdf)             \includegraphics on input line 388.
+(epstopdf)             \includegraphics on input line 392.
 Package epstopdf Info: Output file is already uptodate.
 
 <./Figures/CSA2stage_Model_Timing-eps-converted-to.pdf, id=94, 455.7025pt x 314
@@ -467,7 +467,7 @@ File: ./Figures/CSA2stage_Model_Timing-eps-converted-to.pdf Graphic file (type
 pdf)
  <use ./Figures/CSA2stage_Model_Timing-eps-converted-to.pdf>
 Package pdftex.def Info: ./Figures/CSA2stage_Model_Timing-eps-converted-to.pdf 
-used on input line 388.
+used on input line 392.
 (pdftex.def)             Requested size: 252.94499pt x 174.39246pt.
 Package epstopdf Info: Source file: <./Figures/CSA3stage_Area.eps>
 (epstopdf)                    date: 2013-05-29 09:19:58
@@ -478,7 +478,7 @@ pdf>
 (epstopdf)                    size: 6791 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/CSA3stage_Area-e
 ps-converted-to.pdf ./Figures/CSA3stage_Area.eps>
-(epstopdf)             \includegraphics on input line 392.
+(epstopdf)             \includegraphics on input line 396.
 Package epstopdf Info: Output file is already uptodate.
 
 <./Figures/CSA3stage_Area-eps-converted-to.pdf, id=95, 455.7025pt x 314.17375pt
@@ -486,7 +486,7 @@ Package epstopdf Info: Output file is already uptodate.
 File: ./Figures/CSA3stage_Area-eps-converted-to.pdf Graphic file (type pdf)
  <use ./Figures/CSA3stage_Area-eps-converted-to.pdf>
 Package pdftex.def Info: ./Figures/CSA3stage_Area-eps-converted-to.pdf used on 
-input line 392.
+input line 396.
 (pdftex.def)             Requested size: 252.94499pt x 174.39246pt.
  [9] [10 <./Figures/CSA2stage_Model_Timing-eps-converted-to.pdf> <./Figures/CSA
 3stage_Area-eps-converted-to.pdf>]
@@ -499,7 +499,7 @@ Package epstopdf Info: Source file: <./Figures/Error_LUT25.eps>
 (epstopdf)                    size: 8397 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/Error_LUT25-eps-
 converted-to.pdf ./Figures/Error_LUT25.eps>
-(epstopdf)             \includegraphics on input line 420.
+(epstopdf)             \includegraphics on input line 426.
 Package epstopdf Info: Output file is already uptodate.
 
 <./Figures/Error_LUT25-eps-converted-to.pdf, id=110, 421.575pt x 317.185pt>
@@ -507,9 +507,8 @@ File: ./Figures/Error_LUT25-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Figures/Error_LUT25-eps-converted-to.pdf>
 Package pdftex.def Info: ./Figures/Error_LUT25-eps-converted-to.pdf used on inp
-ut line 420.
+ut line 426.
 (pdftex.def)             Requested size: 238.49121pt x 179.43732pt.
- [11 <./Figures/Error_LUT25-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./Figures/Tradeoff.eps>
 (epstopdf)                    date: 2013-05-29 09:19:58
 (epstopdf)                    size: 104875 bytes
@@ -518,16 +517,17 @@ Package epstopdf Info: Source file: <./Figures/Tradeoff.eps>
 (epstopdf)                    size: 23488 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/Tradeoff-eps-con
 verted-to.pdf ./Figures/Tradeoff.eps>
-(epstopdf)             \includegraphics on input line 432.
+(epstopdf)             \includegraphics on input line 440.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Figures/Tradeoff-eps-converted-to.pdf, id=118, 505.89pt x 380.42125pt>
+<./Figures/Tradeoff-eps-converted-to.pdf, id=111, 505.89pt x 380.42125pt>
 File: ./Figures/Tradeoff-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Figures/Tradeoff-eps-converted-to.pdf>
 Package pdftex.def Info: ./Figures/Tradeoff-eps-converted-to.pdf used on input 
-line 432.
+line 440.
 (pdftex.def)             Requested size: 252.94499pt x 190.21014pt.
+ [11 <./Figures/Error_LUT25-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./Figures/Tradeoff_Error.eps>
 (epstopdf)                    date: 2013-05-29 09:19:58
 (epstopdf)                    size: 43052 bytes
@@ -537,7 +537,7 @@ pdf>
 (epstopdf)                    size: 10637 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/Tradeoff_Error-e
 ps-converted-to.pdf ./Figures/Tradeoff_Error.eps>
-(epstopdf)             \includegraphics on input line 448.
+(epstopdf)             \includegraphics on input line 458.
 Package epstopdf Info: Output file is already uptodate.
 
 <./Figures/Tradeoff_Error-eps-converted-to.pdf, id=119, 503.8825pt x 359.3425pt
@@ -545,14 +545,14 @@ Package epstopdf Info: Output file is already uptodate.
 File: ./Figures/Tradeoff_Error-eps-converted-to.pdf Graphic file (type pdf)
  <use ./Figures/Tradeoff_Error-eps-converted-to.pdf>
 Package pdftex.def Info: ./Figures/Tradeoff_Error-eps-converted-to.pdf used on 
-input line 448.
+input line 458.
 (pdftex.def)             Requested size: 267.39877pt x 190.69186pt.
  [12 <./Figures/Tradeoff-eps-converted-to.pdf>]
 <./Figures/CCM_CarryChain.pdf, id=127, 562.50153pt x 354.12299pt>
 File: ./Figures/CCM_CarryChain.pdf Graphic file (type pdf)
 
 <use ./Figures/CCM_CarryChain.pdf>
-Package pdftex.def Info: ./Figures/CCM_CarryChain.pdf used on input line 469.
+Package pdftex.def Info: ./Figures/CCM_CarryChain.pdf used on input line 480.
 (pdftex.def)             Requested size: 396.0pt x 249.3001pt.
  [13 <./Figures/Tradeoff_Error-eps-converted-to.pdf>] [14 <./Figures/CCM_CarryC
 hain.pdf>]
@@ -560,9 +560,9 @@ hain.pdf>]
 File: ./Figures/TestFramework.pdf Graphic file (type pdf)
 
 <use ./Figures/TestFramework.pdf>
-Package pdftex.def Info: ./Figures/TestFramework.pdf used on input line 595.
+Package pdftex.def Info: ./Figures/TestFramework.pdf used on input line 606.
 (pdftex.def)             Requested size: 252.94499pt x 293.22794pt.
- [15] [16 <./Figures/TestFramework.pdf>]
+ [15]
 Package epstopdf Info: Source file: <./Figures/Exp/FIR/RatedFrequency3.eps>
 (epstopdf)                    date: 2013-05-29 09:19:58
 (epstopdf)                    size: 11084 bytes
@@ -572,19 +572,22 @@ erted-to.pdf>
 (epstopdf)                    size: 4292 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/Exp/FIR/RatedFre
 quency3-eps-converted-to.pdf ./Figures/Exp/FIR/RatedFrequency3.eps>
-(epstopdf)             \includegraphics on input line 633.
+(epstopdf)             \includegraphics on input line 645.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Figures/Exp/FIR/RatedFrequency3-eps-converted-to.pdf, id=191, 432.61626pt x 
+<./Figures/Exp/FIR/RatedFrequency3-eps-converted-to.pdf, id=169, 432.61626pt x 
 253.94875pt>
 File: ./Figures/Exp/FIR/RatedFrequency3-eps-converted-to.pdf Graphic file (type
  pdf)
  <use ./Figures/Exp/FIR/RatedFrequency3-eps-converted-to.pdf>
 Package pdftex.def Info: ./Figures/Exp/FIR/RatedFrequency3-eps-converted-to.pdf
- used on input line 633.
+ used on input line 645.
 (pdftex.def)             Requested size: 231.26378pt x 135.75467pt.
 
-[17 <./Figures/Exp/FIR/RatedFrequency3-eps-converted-to.pdf>]
+Underfull \vbox (badness 2005) has occurred while \output is active []
+
+ [16 <./Figures/TestFramework.pdf>] [17 <./Figures/Exp/FIR/RatedFrequency3-eps-
+converted-to.pdf>]
 Package epstopdf Info: Source file: <./Figures/Exp/FIR/FIR_Error_New_TCAD.eps>
 (epstopdf)                    date: 2013-05-29 09:19:58
 (epstopdf)                    size: 21065 bytes
@@ -594,7 +597,7 @@ onverted-to.pdf>
 (epstopdf)                    size: 8256 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/Exp/FIR/FIR_Erro
 r_New_TCAD-eps-converted-to.pdf ./Figures/Exp/FIR/FIR_Error_New_TCAD.eps>
-(epstopdf)             \includegraphics on input line 672.
+(epstopdf)             \includegraphics on input line 684.
 Package epstopdf Info: Output file is already uptodate.
 
 <./Figures/Exp/FIR/FIR_Error_New_TCAD-eps-converted-to.pdf, id=199, 421.575pt x
@@ -603,7 +606,7 @@ File: ./Figures/Exp/FIR/FIR_Error_New_TCAD-eps-converted-to.pdf Graphic file (t
 ype pdf)
  <use ./Figures/Exp/FIR/FIR_Error_New_TCAD-eps-converted-to.pdf>
 Package pdftex.def Info: ./Figures/Exp/FIR/FIR_Error_New_TCAD-eps-converted-to.
-pdf used on input line 672.
+pdf used on input line 684.
 (pdftex.def)             Requested size: 252.94499pt x 202.95981pt.
 Package epstopdf Info: Source file: <./Figures/Exp/FIR/LenaImages/FIRLena_T8.ep
 s>
@@ -616,7 +619,7 @@ s-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./Figures/Exp/FIR/LenaImag
 es/FIRLena_T8-eps-converted-to.pdf ./Figures/Exp/FIR/LenaImages/FIRLena_T8.eps>
 
-(epstopdf)             \includegraphics on input line 684.
+(epstopdf)             \includegraphics on input line 696.
 Package epstopdf Info: Output file is already uptodate.
 
 <./Figures/Exp/FIR/LenaImages/FIRLena_T8-eps-converted-to.pdf, id=200, 508.9012
@@ -626,7 +629,7 @@ File: ./Figures/Exp/FIR/LenaImages/FIRLena_T8-eps-converted-to.pdf Graphic file
 
 <use ./Figures/Exp/FIR/LenaImages/FIRLena_T8-eps-converted-to.pdf>
 Package pdftex.def Info: ./Figures/Exp/FIR/LenaImages/FIRLena_T8-eps-converted-
-to.pdf used on input line 684.
+to.pdf used on input line 696.
 (pdftex.def)             Requested size: 95.04218pt x 84.16602pt.
 Package epstopdf Info: Source file: <./Figures/Exp/FIR/LenaImages/FIRLena_T65.e
 ps>
@@ -639,7 +642,7 @@ ps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./Figures/Exp/FIR/LenaImag
 es/FIRLena_T65-eps-converted-to.pdf ./Figures/Exp/FIR/LenaImages/FIRLena_T65.ep
 s>
-(epstopdf)             \includegraphics on input line 687.
+(epstopdf)             \includegraphics on input line 699.
 Package epstopdf Info: Output file is already uptodate.
 
 <./Figures/Exp/FIR/LenaImages/FIRLena_T65-eps-converted-to.pdf, id=201, 508.901
@@ -649,7 +652,7 @@ e (type pdf)
 
 <use ./Figures/Exp/FIR/LenaImages/FIRLena_T65-eps-converted-to.pdf>
 Package pdftex.def Info: ./Figures/Exp/FIR/LenaImages/FIRLena_T65-eps-converted
--to.pdf used on input line 687.
+-to.pdf used on input line 699.
 (pdftex.def)             Requested size: 95.04218pt x 84.16602pt.
 Package epstopdf Info: Source file: <./Figures/Exp/FIR/LenaImages/FIRLena_T62.e
 ps>
@@ -662,7 +665,7 @@ ps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./Figures/Exp/FIR/LenaImag
 es/FIRLena_T62-eps-converted-to.pdf ./Figures/Exp/FIR/LenaImages/FIRLena_T62.ep
 s>
-(epstopdf)             \includegraphics on input line 690.
+(epstopdf)             \includegraphics on input line 702.
 Package epstopdf Info: Output file is already uptodate.
 
 <./Figures/Exp/FIR/LenaImages/FIRLena_T62-eps-converted-to.pdf, id=202, 508.901
@@ -672,7 +675,7 @@ e (type pdf)
 
 <use ./Figures/Exp/FIR/LenaImages/FIRLena_T62-eps-converted-to.pdf>
 Package pdftex.def Info: ./Figures/Exp/FIR/LenaImages/FIRLena_T62-eps-converted
--to.pdf used on input line 690.
+-to.pdf used on input line 702.
 (pdftex.def)             Requested size: 95.04218pt x 84.16602pt.
 Package epstopdf Info: Source file: <./Figures/Exp/FIR/LenaImages/FIRLena_T6.ep
 s>
@@ -685,7 +688,7 @@ s-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=./Figures/Exp/FIR/LenaImag
 es/FIRLena_T6-eps-converted-to.pdf ./Figures/Exp/FIR/LenaImages/FIRLena_T6.eps>
 
-(epstopdf)             \includegraphics on input line 693.
+(epstopdf)             \includegraphics on input line 705.
 Package epstopdf Info: Output file is already uptodate.
 
 <./Figures/Exp/FIR/LenaImages/FIRLena_T6-eps-converted-to.pdf, id=203, 508.9012
@@ -695,7 +698,7 @@ File: ./Figures/Exp/FIR/LenaImages/FIRLena_T6-eps-converted-to.pdf Graphic file
 
 <use ./Figures/Exp/FIR/LenaImages/FIRLena_T6-eps-converted-to.pdf>
 Package pdftex.def Info: ./Figures/Exp/FIR/LenaImages/FIRLena_T6-eps-converted-
-to.pdf used on input line 693.
+to.pdf used on input line 705.
 (pdftex.def)             Requested size: 95.04218pt x 84.16602pt.
 Package epstopdf Info: Source file: <./Figures/Exp/FIR/LenaImages/FIRLena_Q7T10
 .eps>
@@ -708,7 +711,7 @@ Package epstopdf Info: Source file: <./Figures/Exp/FIR/LenaImages/FIRLena_Q7T10
 (epstopdf)             Command: <repstopdf --outfile=./Figures/Exp/FIR/LenaImag
 es/FIRLena_Q7T10-eps-converted-to.pdf ./Figures/Exp/FIR/LenaImages/FIRLena_Q7T1
 0.eps>
-(epstopdf)             \includegraphics on input line 696.
+(epstopdf)             \includegraphics on input line 708.
 Package epstopdf Info: Output file is already uptodate.
 
 <./Figures/Exp/FIR/LenaImages/FIRLena_Q7T10-eps-converted-to.pdf, id=204, 508.9
@@ -718,7 +721,7 @@ ile (type pdf)
 
 <use ./Figures/Exp/FIR/LenaImages/FIRLena_Q7T10-eps-converted-to.pdf>
 Package pdftex.def Info: ./Figures/Exp/FIR/LenaImages/FIRLena_Q7T10-eps-convert
-ed-to.pdf used on input line 696.
+ed-to.pdf used on input line 708.
 (pdftex.def)             Requested size: 95.04218pt x 84.16602pt.
 Package epstopdf Info: Source file: <./Figures/Exp/FIR/LenaImages/FIRLena_Q4T10
 .eps>
@@ -731,7 +734,7 @@ Package epstopdf Info: Source file: <./Figures/Exp/FIR/LenaImages/FIRLena_Q4T10
 (epstopdf)             Command: <repstopdf --outfile=./Figures/Exp/FIR/LenaImag
 es/FIRLena_Q4T10-eps-converted-to.pdf ./Figures/Exp/FIR/LenaImages/FIRLena_Q4T1
 0.eps>
-(epstopdf)             \includegraphics on input line 699.
+(epstopdf)             \includegraphics on input line 711.
 Package epstopdf Info: Output file is already uptodate.
 
 <./Figures/Exp/FIR/LenaImages/FIRLena_Q4T10-eps-converted-to.pdf, id=205, 508.9
@@ -741,7 +744,7 @@ ile (type pdf)
 
 <use ./Figures/Exp/FIR/LenaImages/FIRLena_Q4T10-eps-converted-to.pdf>
 Package pdftex.def Info: ./Figures/Exp/FIR/LenaImages/FIRLena_Q4T10-eps-convert
-ed-to.pdf used on input line 699.
+ed-to.pdf used on input line 711.
 (pdftex.def)             Requested size: 95.04218pt x 84.16602pt.
 Package epstopdf Info: Source file: <./Figures/Exp/FIR/LenaImages/FIRLena_Q2T10
 .eps>
@@ -754,7 +757,7 @@ Package epstopdf Info: Source file: <./Figures/Exp/FIR/LenaImages/FIRLena_Q2T10
 (epstopdf)             Command: <repstopdf --outfile=./Figures/Exp/FIR/LenaImag
 es/FIRLena_Q2T10-eps-converted-to.pdf ./Figures/Exp/FIR/LenaImages/FIRLena_Q2T1
 0.eps>
-(epstopdf)             \includegraphics on input line 702.
+(epstopdf)             \includegraphics on input line 714.
 Package epstopdf Info: Output file is already uptodate.
 
 <./Figures/Exp/FIR/LenaImages/FIRLena_Q2T10-eps-converted-to.pdf, id=206, 508.9
@@ -764,7 +767,7 @@ ile (type pdf)
 
 <use ./Figures/Exp/FIR/LenaImages/FIRLena_Q2T10-eps-converted-to.pdf>
 Package pdftex.def Info: ./Figures/Exp/FIR/LenaImages/FIRLena_Q2T10-eps-convert
-ed-to.pdf used on input line 702.
+ed-to.pdf used on input line 714.
 (pdftex.def)             Requested size: 95.04218pt x 84.16602pt.
 Package epstopdf Info: Source file: <./Figures/Exp/FIR/LenaImages/FIRLena_Q1T10
 .eps>
@@ -777,7 +780,7 @@ Package epstopdf Info: Source file: <./Figures/Exp/FIR/LenaImages/FIRLena_Q1T10
 (epstopdf)             Command: <repstopdf --outfile=./Figures/Exp/FIR/LenaImag
 es/FIRLena_Q1T10-eps-converted-to.pdf ./Figures/Exp/FIR/LenaImages/FIRLena_Q1T1
 0.eps>
-(epstopdf)             \includegraphics on input line 705.
+(epstopdf)             \includegraphics on input line 717.
 Package epstopdf Info: Output file is already uptodate.
 
 <./Figures/Exp/FIR/LenaImages/FIRLena_Q1T10-eps-converted-to.pdf, id=207, 508.9
@@ -787,19 +790,18 @@ ile (type pdf)
 
 <use ./Figures/Exp/FIR/LenaImages/FIRLena_Q1T10-eps-converted-to.pdf>
 Package pdftex.def Info: ./Figures/Exp/FIR/LenaImages/FIRLena_Q1T10-eps-convert
-ed-to.pdf used on input line 705.
+ed-to.pdf used on input line 717.
 (pdftex.def)             Requested size: 95.04218pt x 84.16602pt.
 
-Overfull \hbox (6.40784pt too wide) in paragraph at lines 684--707
+Overfull \hbox (6.40784pt too wide) in paragraph at lines 696--719
  [][][][][] 
  []
 
 
-Overfull \hbox (6.40784pt too wide) in paragraph at lines 684--707
+Overfull \hbox (6.40784pt too wide) in paragraph at lines 696--719
  [][][][] 
  []
 
-[18 <./Figures/Exp/FIR/FIR_Error_New_TCAD-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./Figures/CC_length2.eps>
 (epstopdf)                    date: 2013-05-29 09:19:58
 (epstopdf)                    size: 12791 bytes
@@ -809,28 +811,26 @@ Package epstopdf Info: Source file: <./Figures/CC_length2.eps>
 (epstopdf)                    size: 4574 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/CC_length2-eps-c
 onverted-to.pdf ./Figures/CC_length2.eps>
-(epstopdf)             \includegraphics on input line 721.
+(epstopdf)             \includegraphics on input line 734.
 Package epstopdf Info: Output file is already uptodate.
-
-<./Figures/CC_length2-eps-converted-to.pdf, id=215, 421.575pt x 338.26375pt>
+<./Figures/CC_length2-eps-converted-to.pdf, id=208, 421.575pt x 338.26375pt>
 File: ./Figures/CC_length2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Figures/CC_length2-eps-converted-to.pdf>
 Package pdftex.def Info: ./Figures/CC_length2-eps-converted-to.pdf used on inpu
-t line 721.
+t line 734.
 (pdftex.def)             Requested size: 252.94499pt x 202.95981pt.
-
+ [18 <./Figures/Exp/FIR/FIR_Error_New_TCAD-eps-converted-to.pdf>] [19 <./Figure
+s/Exp/FIR/LenaImages/FIRLena_T8-eps-converted-to.pdf> <./Figures/Exp/FIR/LenaIm
+ages/FIRLena_T65-eps-converted-to.pdf> <./Figures/Exp/FIR/LenaImages/FIRLena_T6
+2-eps-converted-to.pdf> <./Figures/Exp/FIR/LenaImages/FIRLena_T6-eps-converted-
+to.pdf> <./Figures/Exp/FIR/LenaImages/FIRLena_Q7T10-eps-converted-to.pdf> <./Fi
+gures/Exp/FIR/LenaImages/FIRLena_Q4T10-eps-converted-to.pdf> <./Figures/Exp/FIR
+/LenaImages/FIRLena_Q2T10-eps-converted-to.pdf> <./Figures/Exp/FIR/LenaImages/F
+IRLena_Q1T10-eps-converted-to.pdf> <./Figures/CC_length2-eps-converted-to.pdf>]
+ [20] [21]
+(./TRETS_overclocking.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [19 <./Figures/Exp/FIR/LenaImages/FIRLena_T8-eps-converted-to.pdf> <./Figures/
-Exp/FIR/LenaImages/FIRLena_T65-eps-converted-to.pdf> <./Figures/Exp/FIR/LenaIma
-ges/FIRLena_T62-eps-converted-to.pdf> <./Figures/Exp/FIR/LenaImages/FIRLena_T6-
-eps-converted-to.pdf> <./Figures/Exp/FIR/LenaImages/FIRLena_Q7T10-eps-converted
--to.pdf> <./Figures/Exp/FIR/LenaImages/FIRLena_Q4T10-eps-converted-to.pdf> <./F
-igures/Exp/FIR/LenaImages/FIRLena_Q2T10-eps-converted-to.pdf> <./Figures/Exp/FI
-R/LenaImages/FIRLena_Q1T10-eps-converted-to.pdf>] [20 <./Figures/CC_length2-eps
--converted-to.pdf>] [21] (./TRETS_overclocking.bbl
-Underfull \vbox (badness 4403) has occurred while \output is active []
 
  [22])
 [23] [1
@@ -839,7 +839,7 @@ Underfull \vbox (badness 4403) has occurred while \output is active []
 Here is how much of TeX's memory you used:
  4692 strings out of 493488
  65442 string characters out of 3141326
- 162375 words of memory out of 3000000
+ 155375 words of memory out of 3000000
  7871 multiletter control sequences out of 15000+200000
  29463 words of font info for 68 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
@@ -867,7 +867,7 @@ texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/local/texlive/2012/texmf-
 dist/fonts/type1/urw/ncntrsbk/uncb8a.pfb></usr/local/texlive/2012/texmf-dist/fo
 nts/type1/urw/ncntrsbk/uncr8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/typ
 e1/urw/ncntrsbk/uncri8a.pfb>
-Output written on TRETS_overclocking.pdf (24 pages, 2634299 bytes).
+Output written on TRETS_overclocking.pdf (24 pages, 2634473 bytes).
 PDF statistics:
  342 PDF objects out of 1000 (max. 8388607)
  227 compressed objects within 3 object streams
