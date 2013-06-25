@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex TRETS_overclocking"] 1371825909 "TRETS_overclocking.aux" "TRETS_overclocking.bbl" "TRETS_overclocking" 1372068028
+["bibtex TRETS_overclocking"] 1372174302 "TRETS_overclocking.aux" "TRETS_overclocking.bbl" "TRETS_overclocking" 1372174304
   "./ACM-Reference-Format-Journals.bst" 1369815598 91035 bd3822f9643d8cf52b82f5d913a11058 ""
   "Reference.bib" 1369815598 13048 63524a665ff61b3fde4d73a277ebe9d1 ""
-  "TRETS_overclocking.aux" 1372068028 12456 b20f180704e3813e327f2980329a12ce ""
+  "TRETS_overclocking.aux" 1372174303 12456 f30a618ae2c385820c1bfbc894cc3147 ""
   "TRETS_overclocking.bcf" 0 -1 0 ""
   (generated)
   "TRETS_overclocking.bbl"
   "TRETS_overclocking.blg"
-["pdflatex"] 1372068027 "TRETS_overclocking.tex" "TRETS_overclocking.pdf" "TRETS_overclocking" 1372068028
+["pdflatex"] 1372174303 "TRETS_overclocking.tex" "TRETS_overclocking.pdf" "TRETS_overclocking" 1372174304
   "./Figures/CCM_CarryChain.pdf" 1369815598 402532 e22d9ce9023e592f2f6709d11bceb530 ""
   "./Figures/CC_length2-eps-converted-to.pdf" 1369815598 4574 a380fcc7b4cf07d55c3f30ac23b37969 ""
   "./Figures/CC_length2.eps" 1369815598 12791 7cc9fb61de8f78d0aff7dda021a90368 ""
@@ -197,9 +197,9 @@
   "Figures/Tradeoff_Error2.eps" 1372067987 46104 caffa70ca6983d754e3e7dbed785bbc4 ""
   "Figures/Tradeoff_Freq-eps-converted-to.pdf" 1372068026 27215 98bf2784b11b32d72055762a9003ad4a ""
   "Figures/Tradeoff_Freq.eps" 1372067871 113149 c4821b4554624e8778da0b09f746a715 ""
-  "TRETS_overclocking.aux" 1372068028 12456 b20f180704e3813e327f2980329a12ce ""
-  "TRETS_overclocking.bbl" 1371825910 10884 2de917a64f140eaf93280781d06f76cd "bibtex TRETS_overclocking"
-  "TRETS_overclocking.tex" 1372067751 82697 e5421bef0a47913577d2b04a4f07ea00 ""
+  "TRETS_overclocking.aux" 1372174303 12456 f30a618ae2c385820c1bfbc894cc3147 ""
+  "TRETS_overclocking.bbl" 1372174303 10884 2de917a64f140eaf93280781d06f76cd "bibtex TRETS_overclocking"
+  "TRETS_overclocking.tex" 1372174301 82716 b366e5bffa2b35552adad173aa0470cf ""
   "acmsmall.cls" 1369815598 103794 e9b5c7ee8bbcc5da8a3fa3397450e7d0 ""
   "algorithm2e.sty" 1369815598 127367 36edded4e4d68334337b859df4dae855 ""
   (generated)

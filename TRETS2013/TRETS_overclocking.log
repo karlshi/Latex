@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  24 JUN 2013 11:00
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  25 JUN 2013 16:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -585,10 +585,8 @@ Package pdftex.def Info: ./Figures/Exp/FIR/RatedFrequency3-eps-converted-to.pdf
  used on input line 645.
 (pdftex.def)             Requested size: 231.26378pt x 135.75467pt.
 
-Underfull \vbox (badness 2005) has occurred while \output is active []
-
- [16 <./Figures/TestFramework.pdf>] [17 <./Figures/Exp/FIR/RatedFrequency3-eps-
-converted-to.pdf>]
+[16 <./Figures/TestFramework.pdf>] [17 <./Figures/Exp/FIR/RatedFrequency3-eps-c
+onverted-to.pdf>]
 Package epstopdf Info: Source file: <./Figures/Exp/FIR/FIR_Error_New_TCAD.eps>
 (epstopdf)                    date: 2013-05-29 09:19:58
 (epstopdf)                    size: 21065 bytes
@@ -803,6 +801,7 @@ Overfull \hbox (6.40784pt too wide) in paragraph at lines 696--719
  [][][][] 
  []
 
+[18 <./Figures/Exp/FIR/FIR_Error_New_TCAD-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./Figures/CC_length2.eps>
 (epstopdf)                    date: 2013-05-29 09:19:58
 (epstopdf)                    size: 12791 bytes
@@ -814,22 +813,25 @@ Package epstopdf Info: Source file: <./Figures/CC_length2.eps>
 onverted-to.pdf ./Figures/CC_length2.eps>
 (epstopdf)             \includegraphics on input line 734.
 Package epstopdf Info: Output file is already uptodate.
-<./Figures/CC_length2-eps-converted-to.pdf, id=212, 421.575pt x 338.26375pt>
+
+<./Figures/CC_length2-eps-converted-to.pdf, id=219, 421.575pt x 338.26375pt>
 File: ./Figures/CC_length2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Figures/CC_length2-eps-converted-to.pdf>
 Package pdftex.def Info: ./Figures/CC_length2-eps-converted-to.pdf used on inpu
 t line 734.
 (pdftex.def)             Requested size: 252.94499pt x 202.95981pt.
- [18 <./Figures/Exp/FIR/FIR_Error_New_TCAD-eps-converted-to.pdf>] [19 <./Figure
-s/Exp/FIR/LenaImages/FIRLena_T8-eps-converted-to.pdf> <./Figures/Exp/FIR/LenaIm
-ages/FIRLena_T65-eps-converted-to.pdf> <./Figures/Exp/FIR/LenaImages/FIRLena_T6
-2-eps-converted-to.pdf> <./Figures/Exp/FIR/LenaImages/FIRLena_T6-eps-converted-
-to.pdf> <./Figures/Exp/FIR/LenaImages/FIRLena_Q7T10-eps-converted-to.pdf> <./Fi
-gures/Exp/FIR/LenaImages/FIRLena_Q4T10-eps-converted-to.pdf> <./Figures/Exp/FIR
-/LenaImages/FIRLena_Q2T10-eps-converted-to.pdf> <./Figures/Exp/FIR/LenaImages/F
-IRLena_Q1T10-eps-converted-to.pdf> <./Figures/CC_length2-eps-converted-to.pdf>]
- [20] [21]
+ [19 <./Figures/Exp/FIR/LenaImages/FIRLena_T8-eps-converted-to.pdf> <./Figures/
+Exp/FIR/LenaImages/FIRLena_T65-eps-converted-to.pdf> <./Figures/Exp/FIR/LenaIma
+ges/FIRLena_T62-eps-converted-to.pdf> <./Figures/Exp/FIR/LenaImages/FIRLena_T6-
+eps-converted-to.pdf> <./Figures/Exp/FIR/LenaImages/FIRLena_Q7T10-eps-converted
+-to.pdf> <./Figures/Exp/FIR/LenaImages/FIRLena_Q4T10-eps-converted-to.pdf> <./F
+igures/Exp/FIR/LenaImages/FIRLena_Q2T10-eps-converted-to.pdf> <./Figures/Exp/FI
+R/LenaImages/FIRLena_Q1T10-eps-converted-to.pdf>] [20 <./Figures/CC_length2-eps
+-converted-to.pdf>]
+Underfull \vbox (badness 2529) has occurred while \output is active []
+
+ [21]
 (./TRETS_overclocking.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -840,7 +842,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Here is how much of TeX's memory you used:
  4692 strings out of 493488
  65472 string characters out of 3141326
- 155375 words of memory out of 3000000
+ 161375 words of memory out of 3000000
  7871 multiletter control sequences out of 15000+200000
  29463 words of font info for 68 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
@@ -868,7 +870,7 @@ texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/local/texlive/2012/texmf-
 dist/fonts/type1/urw/ncntrsbk/uncb8a.pfb></usr/local/texlive/2012/texmf-dist/fo
 nts/type1/urw/ncntrsbk/uncr8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/typ
 e1/urw/ncntrsbk/uncri8a.pfb>
-Output written on TRETS_overclocking.pdf (24 pages, 2641312 bytes).
+Output written on TRETS_overclocking.pdf (24 pages, 2641413 bytes).
 PDF statistics:
  346 PDF objects out of 1000 (max. 8388607)
  229 compressed objects within 3 object streams
