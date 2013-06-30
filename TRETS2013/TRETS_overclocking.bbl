@@ -221,6 +221,17 @@
 \newblock
 
 
+\bibitem[\protect\citeauthoryear{Ramprassad, Shanbha, and Hajj}{Ramprassad
+  et~al\mbox{.}}{1997}]%
+        {TransitionProb}
+{S. Ramprassad}, {N.R. Shanbha}, {and} {I.N. Hajj}. 1997.
+\newblock \showarticletitle{Analytical estimation of signal transition activity
+  from word-level statistics}.
+\newblock {\em IEEE Trans. on Computer-Aided Design of Integrated Circuits and
+  Systems\/} {16}, 7 (1997), 718--733.
+\newblock
+
+
 \bibitem[\protect\citeauthoryear{Roldao-Lopes, Shahzad, Constantinides, and
   Kerrigan}{Roldao-Lopes et~al\mbox{.}}{2009}]%
         {RoldaoWLop_Simulation}

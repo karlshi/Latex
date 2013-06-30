@@ -240,7 +240,15 @@ Under the assumption that $A$ and $B$ are mutually independent and uniformly dis
 %    \vspace{-1ex}
 \end{eqnarray}
 
-In addition, note that the probabilistic models for the magnitude and probability of overclocking errors can be easily generalized for any input distributions with mutually independent bits, since (\ref{Eq:Output_Error}) and (\ref{Eq:etm}) are not related to the input distribution, while (\ref{Eq:Ptm_RCA}) can be employed as long as the value of $P_{(A_i=B_i=1)}$ and $P_{(A_i\neq B_i)}$ is known.
+In addition, note that the probabilistic models for the magnitude and probability of overclocking errors can be easily generalized for any input distributions with mutually independent bits, since (\ref{Eq:Output_Error}) and (\ref{Eq:etm}) are not related to the input distribution, while (\ref{Eq:Ptm_RCA}) can be employed as long as the value of $P_{(A_i=B_i=1)}$ and $P_{(A_i\neq B_i)}$ is known. If there is dependency between input bits, the probability value of $P_{(A_i=B_i=1)}$ and $P_{(A_i\neq B_i)}$ would change. For instance, if $A_i$ and $B_i$ are not independent, we have $P_{(A_i=1)}=E_{(A_i)}=1/2$ and $P_{(B_i=1)}=E_{(B_i)}=1/2$ seperately for uniform distribution, where $E_{(A_i)}$ denotes the expectation of $A_i$. The probability of $A_i=B_i=1$ is then given by (\ref{Eq:P_dependency})~\cite{TransitionProb} where $\sigma_{(A_i)}$ denotes the standard variation of $A_i$ and $\rho_i$ denotes the temporal correlation between the two inputs at the $i^{th}$ bit. $\rho_i=0$ corresponds to the case where bits are uncorrelated. 
+%
+\begin{eqnarray}\label{Eq:P_dependency}
+    P_{(A_i=B_i=1)}=E_{(A_i)}E_{(B_i)}+\rho_i\sigma_{(A_i)}\sigma_{(B_i)}
+\end{eqnarray}
+
+It can be seen that if $\rho_i=0$ then $P_{(A_i=B_i=1)}=1/4$ as being used to derive (\ref{Eq:Ptm2}). Otherwise $\rho_i$ should be determined before employing our models.
+
+%, that is, the expectation of $A_i$ and $B_i$
 
 \subsubsection{Expectation of Overclocking Error}
 Expectation of overclocking error can be expressed by (\ref{Eq:Eo_exp}).
@@ -316,6 +324,7 @@ As seen in~(\ref{Eq:Comparison RCA}), a factor of 2 reduction in error expection
             \includegraphics[width=2.2in]{./Figures/CSA_SingleStage.pdf}
             \label{Fig_CSA_SingleStage}
         }
+    \vspace{-2ex}
     \caption{The structure diagram of CSA.}
 \end{figure}
 \vspace{-2ex}
@@ -396,8 +405,8 @@ We first verify the models for the RCA and CSA in terms of the maximum word-leng
 %        \vspace{-1.5ex}
 %    \caption{A comparison between RCA and CSA in terms of the maximum word-length of input signal and the area consumption.}
 %\end{figure}
-
-\begin{figure}[ht]
+%
+\begin{figure}[t]
     %\centering
     \vspace{-3ex}
     \subfigure[]{
@@ -408,8 +417,8 @@ We first verify the models for the RCA and CSA in terms of the maximum word-leng
         \includegraphics[width=.5\textwidth]{./Figures/CSA3stage_Area2.eps}
         \label{Fig_CSA3stage_Area}
     }
-    \vspace{-1.5ex}
-    \caption{(a) The modeled value and experimental results of the maximum word-length of RCA and CSA, with respect to various frequency requirements. (b) Hardware resource usage for an RCA and a CSA with 2 and 3 stages.}
+    \vspace{-2ex}
+    \caption{(a) The modeled value and experimental results of the maximum word-length of RCA and CSA, for various frequency requirements. (b) Hardware resource usage for an RCA and a CSA with 2 and 3 stages.}
     \vspace{-1ex}
 \end{figure}
 
@@ -491,7 +500,7 @@ As another key primitive of arithmetic operations, CCM can be implemented using 
 In this CCM structure, let the two inputs of the RCA be denoted by $A_S$ and $A_O$ respectively, which are both two's complement numbers. $A_S$ denotes the ``shifted signal", with zeros padded after LSB, while $A_O$ denotes the ``original signal" with MSB sign extension. For an $n$-bit input signal, it should be noted that an $n$-bit RCA is sufficient for this operation, because no carry will be generated or propagated when adding with zeros, as shown in Fig.~\ref{CCM_fig}.
 %
 \begin{figure}[htbp]
-  \vspace{-4ex}
+  \vspace{-5ex}
   \centering
   \includegraphics[width=\textwidth]{./Figures/CCM_CarryChain.pdf}
   \vspace{-6ex}
@@ -736,6 +745,7 @@ We first assess the accuracy of our proposed models of errors. We record the val
 \vspace{-2ex}
 \caption{Output images of the FIR filter for both overclocking scenario (top row) and traditional scenario (bottom row) when operating frequencies are $425MHz$, $450MHz$, $480MHz$ and $520MHz$ respectively (from left to right).}
 \label{Fig:FIR_Lena}
+\vspace{-1.5ex}
 \end{figure}
 
 According to Fig.~\ref{Fig:FIR}, output errors are reduced in the overclocking scenario for both input types in comparison to the traditional scenario, as the analytical model validates. In addition, we see that using real data, more significant reduction of MRE are achieved, and that no errors are observed when frequency is initially increased. This is because for real data, long carry chains are typically generated with even smaller probabilities, and the longest carry chain rarely occurs.
@@ -772,7 +782,8 @@ In this table, the frequency is normalized to the maximum error-free frequency f
    \setlength{\tabcolsep}{3.5pt}
    \tbl{Relative Reduction of MRE ($\%$) in Overclocking Scenario for Various Normalized Frequencies Based on~(\ref{Eq:Relative_Reduction_MRE}) for Two Types of Input Data: the Uniform Data (Uni) and Real Image Data from Lena (Lena).}{
    \centering
-   \footnotesize
+   %\footnotesize
+   \scriptsize
    %\vspace{-4mm}
    \begin{threeparttable}
    \begin{tabular}{|c|cc|cc|cc|cc|cc||cc|}
@@ -799,7 +810,7 @@ In this table, the frequency is normalized to the maximum error-free frequency f
    \end{tabular}
    \normalsize
    \begin{tablenotes}
-   \footnotesize
+   \scriptsize
     \item[*] Current frequency cannot be achieved in the traditional scenario. These points are excluded from the calculation of geometric means.
    \end{tablenotes}
    \end{threeparttable}}
@@ -818,7 +829,8 @@ Table~\ref{Table:Max_Frequency} illustrates the frequency speedups for each desi
 %   \vspace{-2ex}
    \label{Exp_Real_Inputs}
    \centering
-   \footnotesize
+   %\footnotesize
+   \scriptsize
    \begin{tabular}{|c|cc|cc|cc|cc|cc||cc|}
      \hline
      \multirow{2}*{\begin{tabular}{c}\textbf{Error}\\\textbf{Budget($\%$)}\end{tabular}} &
@@ -865,7 +877,8 @@ In general, a very small area overhead of our approach can be observed when the 
    \tbl{Area Overhead of Our Approach with respect to Given Frequency Requirements}{
    \label{Table_AreaFrequency}
    \centering
-   \footnotesize
+   %\footnotesize
+   \scriptsize
    \begin{threeparttable}
    \begin{tabular}{|c|cc|cc|cc|cc|cc||cc|}
      \hline
@@ -891,13 +904,13 @@ In general, a very small area overhead of our approach can be observed when the 
    \end{tabular}
    \normalsize
    \begin{tablenotes}
-   \footnotesize
+   \scriptsize
     \item[*] Current frequency cannot be achieved in the traditional scenario. These points are excluded from the calculation of geometric means.
    \end{tablenotes}
    \end{threeparttable}}
    \label{Table:AreaFrequency}
  \end{table*}
-
+%
  \begin{table*}[tbp]
  \vspace{-1ex}
  %% increase table row spacing, adjust to taste
@@ -906,7 +919,8 @@ In general, a very small area overhead of our approach can be observed when the 
    \tbl{Area Overhead of Our Approach with respect to Given Error Budgets.}{
    \label{Table_AreaError}
    \centering
-   \footnotesize
+   %\footnotesize
+   \scriptsize
    \begin{tabular}{|c|cc|cc|cc|cc|cc||cc|}
      \hline
      \multirow{2}*{\begin{tabular}{c}\textbf{Error}\\\textbf{Budget($\%$)}\end{tabular}} &
