@@ -60,7 +60,7 @@ Releasing the tight accuracy requirement would potentially offer greater freedom
 
 \terms{Design, FPGA, Performance}
 
-\keywords{Overclocking, Imprecise Design}
+\keywords{Overclocking, Imprecise Design, Approximate Computing}
 
 \acmformat{Kan Shi, David Boland,
 and George A. Constantinides, 2013. Imprecise Datapath Design: An Overclocking Approach.}
@@ -86,7 +86,7 @@ In order to boost the operating frequency of a datapath, the standard approaches
 
 Unfortunately, neither of these conventional approaches tends to remove the conservative safety margin, which is introduced to ensure a uniform functionality across a variety of possible working environments. Nevertheless, continuing with employing the guard-bands to cover all worst cases would become increasingly difficult and expensive in the short-term future, because of the continuous scaling of the process technology. In recent years, we have seen a growth of research that explores the potential power or performance benefits that can be obtained when relaxing the guard-bands~\cite{NewBox2004}. The detailed review of this research field will be presented in Section~\ref{Section_Background_Imprecise}.
 
-In this paper, we describe an alternative circuit design methodology when considering trade-offs between accuracy, performance and silicon area. Since it is unlikely to create a completly error-free design as any data representation would introduce quantization errors, we take a radical shift forward by suggesting that for certain applications it is beneficial to move away from the traditional model of creating a conservative design that is guaranteed to avoid timing violations. Instead, it may be preferable to create a design in which timing violations may occur, under the knowledge that they only occur rarely because specific input patterns are required to generate the worst case errors. This paper elaborates on the prior work [xxx], by incorporating silicon area as another evaluation metric. This enables us to find the optimum design choice of the basic arithmetic operators under various design constraints. A summary of the main contributions of this work are as follows:
+In this paper, we describe an alternative circuit design methodology when considering trade-offs between accuracy, performance and silicon area. Since it is unlikely to create a completly error-free design as any data representation would introduce quantization errors, we take a radical shift forward by suggesting that for certain applications it is beneficial to move away from the traditional model of creating a conservative design that is guaranteed to avoid timing violations. Instead, it may be preferable to create a design in which timing violations may occur, under the knowledge that they only occur rarely because specific input patterns are required to generate the worst case errors. This paper elaborates on the prior work~\cite{SKfccm13}, by incorporating silicon area as another evaluation metric. This enables us to find the optimum design choice of the basic arithmetic operators under various design constraints. A summary of the main contributions of this work are as follows:
 
 \begin{itemize}
 	\item Detailed modeling methods of probabilistic errors generated in basic arithmetic primitives from two design scenarios to trade accuracy for performance: overclocking the datapath or truncating precisions that used throughout the datpath,
@@ -219,7 +219,13 @@ $S_i$ and $\hat{S_i}$ can be determined using the equations from the previous st
 \end{eqnarray}
 
 \subsubsection{Probability of Overclocking Error}
-The carry chain $C_{tm}$ occurs when there is a carry generated at bit $t$, a carry annihilated at bit $t+m-1$ and the carry propagates in between. Consequently, its probability $P_{tm}$ is given by (\ref{Eq:Ptm_RCA}).
+The carry chain $C_{tm}$ occurs when there is a carry generated at bit $t$, a carry annihilated at bit $t+m-1$ and the carry propagates in between. Consequently, its probability $P_{tm}$ is given by (\ref{Eq:Ptm_RCA_General}).
+%
+\begin{eqnarray}\label{Eq:Ptm_RCA_General}
+    P_{tm}=P_{(A_t=B_t=1,~A_i\neq B_i,~A_{t+m-1}=B_{t+m-1})},~i\in [t+1,t+m-2]
+\end{eqnarray}
+
+Under the assumption that $A$ and $B$ are mutually independent and uniformly distributed, (\ref{Eq:Ptm_RCA_General}) can be modified as given in~(\ref{Eq:Ptm_RCA}). Also we have $P_{(A_i=B_i=1)}=1/4$, $P_{(A_i\neq B_i)}=1/2$ and $P_{(A_i=B_i)}=1/2$. Thus $P_{tm}$ can be obtained by~(\ref{Eq:Ptm2}). Note that~(\ref{Eq:Ptm2}) takes into account the carry annihilation always occurs when $t+m-1=n$. 
 %
 \begin{eqnarray}\label{Eq:Ptm_RCA}
 %\small
@@ -227,8 +233,6 @@ The carry chain $C_{tm}$ occurs when there is a carry generated at bit $t$, a ca
   P_{tm}=P_{(A_t=B_t=1)}P_{(A_{t+m-1}=B_{t+m-1})}\cdot \prod_{i=t+1}^{t+m-2}P_{(A_i\neq B_i)}
 %  \vspace{-1ex}
 \end{eqnarray}
-
-Under the assumption that $A$ and $B$ are mutually independent and uniformly distributed, we have $P_{(A_i=B_i=1)}=1/4$, $P_{(A_i\neq B_i)}=1/2$ and $P_{(A_i=B_i)}=1/2$, so $P_{tm}$ can be obtained by~(\ref{Eq:Ptm2}). Note that~(\ref{Eq:Ptm2}) takes into account the carry annihilation always occurs when $t+m-1=n$. 
 %
 \begin{eqnarray}\label{Eq:Ptm2}
 %\small
@@ -240,15 +244,13 @@ Under the assumption that $A$ and $B$ are mutually independent and uniformly dis
 %    \vspace{-1ex}
 \end{eqnarray}
 
-In addition, note that the probabilistic models for the magnitude and probability of overclocking errors can be easily generalized for any input distributions with mutually independent bits, since (\ref{Eq:Output_Error}) and (\ref{Eq:etm}) are not related to the input distribution, while (\ref{Eq:Ptm_RCA}) can be employed as long as the value of $P_{(A_i=B_i=1)}$ and $P_{(A_i\neq B_i)}$ is known. If there is dependency between input bits, the probability value of $P_{(A_i=B_i=1)}$ and $P_{(A_i\neq B_i)}$ would change. For instance, if $A_i$ and $B_i$ are not independent, we have $P_{(A_i=1)}=E_{(A_i)}=1/2$ and $P_{(B_i=1)}=E_{(B_i)}=1/2$ seperately for uniform distribution, where $E_{(A_i)}$ denotes the expectation of $A_i$. The probability of $A_i=B_i=1$ is then given by (\ref{Eq:P_dependency})~\cite{TransitionProb} where $\sigma_{(A_i)}$ denotes the standard variation of $A_i$ and $\rho_i$ denotes the temporal correlation between the two inputs at the $i^{th}$ bit. $\rho_i=0$ corresponds to the case where bits are uncorrelated. 
+In addition, note that the probabilistic models for the magnitude and probability of overclocking errors can be easily generalized for any input distributions with mutually independent bits, since (\ref{Eq:Output_Error}) and (\ref{Eq:etm}) are not related to the input distribution, while (\ref{Eq:Ptm_RCA}) can be employed as long as the value of $P_{(A_i=B_i=1)}$ and $P_{(A_i\neq B_i)}$ is known. If there is dependency between input bits, (\ref{Eq:Ptm_RCA_General}) should be used and the probability value of $P_{(A_i=B_i=1)}$ and $P_{(A_i\neq B_i)}$ would change. For instance, if $A_i$ and $B_i$ are not independent, we have $P_{(A_i=1)}=E_{(A_i)}=1/2$ and $P_{(B_i=1)}=E_{(B_i)}=1/2$ seperately for uniform distribution, where $E_{(A_i)}$ denotes the expectation of $A_i$. The probability of $A_i=B_i=1$ is then given by (\ref{Eq:P_dependency})~\cite{TransitionProb} where $\sigma_{(A_i)}$ denotes the standard variation of $A_i$ and $\rho_i$ denotes the temporal correlation between the two inputs at the $i^{th}$ bit. $\rho_i=0$ corresponds to the case where bits are uncorrelated. 
 %
 \begin{eqnarray}\label{Eq:P_dependency}
     P_{(A_i=B_i=1)}=E_{(A_i)}E_{(B_i)}+\rho_i\sigma_{(A_i)}\sigma_{(B_i)}
 \end{eqnarray}
 
-It can be seen that if $\rho_i=0$ then $P_{(A_i=B_i=1)}=1/4$ as being used to derive (\ref{Eq:Ptm2}). Otherwise $\rho_i$ should be determined before employing our models.
-
-%, that is, the expectation of $A_i$ and $B_i$
+It can be seen that if $\rho_i=0$ then $P_{(A_i=B_i=1)}=1/4$ as used to derive (\ref{Eq:Ptm2}). Otherwise $\rho_i$ should be determined before employing our models.
 
 \subsubsection{Expectation of Overclocking Error}
 Expectation of overclocking error can be expressed by (\ref{Eq:Eo_exp}).

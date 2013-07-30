@@ -45,6 +45,8 @@ Warning--empty address in RoldaoWLop_Simulation
 Warning--can't use both volume and number fields in EnerJ2011Uwash
 Warning--empty publisher in EnerJ2011Uwash
 Warning--empty address in EnerJ2011Uwash
+Warning--empty publisher in SKfccm13
+Warning--empty address in SKfccm13
 Warning--empty publisher in UnderwoodFPGAvsCPU
 Warning--empty address in UnderwoodFPGAvsCPU
 Warning--empty publisher in FPGAPV
@@ -53,45 +55,45 @@ Warning--empty year in Virtex6Clocking
 Warning--empty organization in Virtex6Clocking
 Warning--empty year in Virtex6
 Warning--empty organization in Virtex6
-You've used 29 entries,
+You've used 30 entries,
             5290 wiz_defined-function locations,
-            1401 strings with 18997 characters,
-and the built_in function-call counts, 29704 in all, are:
-= -- 3783
-> -- 1203
-< -- 2
-+ -- 361
-- -- 411
-* -- 1893
-:= -- 3299
-add.period$ -- 145
-call.type$ -- 29
-change.case$ -- 199
-chr.to.int$ -- 28
-cite$ -- 61
-duplicate$ -- 2476
-empty$ -- 1753
-format.name$ -- 491
-if$ -- 7271
+            1407 strings with 19189 characters,
+and the built_in function-call counts, 30738 in all, are:
+= -- 3883
+> -- 1244
+< -- 3
++ -- 373
+- -- 423
+* -- 1964
+:= -- 3412
+add.period$ -- 150
+call.type$ -- 30
+change.case$ -- 206
+chr.to.int$ -- 29
+cite$ -- 64
+duplicate$ -- 2579
+empty$ -- 1824
+format.name$ -- 507
+if$ -- 7517
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 108
-newline$ -- 251
-num.names$ -- 231
-pop$ -- 1020
+missing$ -- 113
+newline$ -- 258
+num.names$ -- 239
+pop$ -- 1068
 preamble$ -- 1
-purify$ -- 343
+purify$ -- 355
 quote$ -- 0
-skip$ -- 713
+skip$ -- 738
 stack$ -- 0
-substring$ -- 2193
-swap$ -- 266
-text.length$ -- 2
+substring$ -- 2269
+swap$ -- 276
+text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 394
-warning$ -- 32
-while$ -- 237
+type$ -- 408
+warning$ -- 34
+while$ -- 243
 width$ -- 0
-write$ -- 506
+write$ -- 523
 (There were 3 error messages)

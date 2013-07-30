@@ -255,6 +255,16 @@
 \newblock
 
 
+\bibitem[\protect\citeauthoryear{Shi, Boland, and Constantinides}{Shi
+  et~al\mbox{.}}{2013}]%
+        {SKfccm13}
+{K. Shi}, {D. Boland}, {and} {G.~A. Constantinides}. 2013.
+\newblock \showarticletitle{Accuracy-Performance Tradeoffs on an FPGA through
+  Overclocking}. In {\em Proc. Int. Symp. Field-Programmable Custom Computing
+  Machines}, Vol.~0. 29--36.
+\newblock
+
+
 \bibitem[\protect\citeauthoryear{Sung and Kum}{Sung and Kum}{1995}]%
         {SungWLop_Simulation}
 {W. Sung} {and} {K. Kum}. 1995.
