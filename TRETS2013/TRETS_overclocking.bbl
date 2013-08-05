@@ -113,23 +113,6 @@
 \newblock
 
 
-\bibitem[\protect\citeauthoryear{Ercegovac}{Ercegovac}{1984}]%
-        {Ercegovac_Overview}
-{M.~D. Ercegovac}. 1984.
-\newblock \showarticletitle{On-line arithmetic: An overview}. In {\em Proc.
-  Annual Technical Symp. Real time signal processing VII}. 86--93.
-\newblock
-
-
-\bibitem[\protect\citeauthoryear{Ercegovac and Lang}{Ercegovac and
-  Lang}{2003}]%
-        {Ercegovac_Book}
-{M.~D. Ercegovac} {and} {T. Lang}. 2003.
-\newblock {\em Digital arithmetic}.
-\newblock Morgan Kaufmann.
-\newblock
-
-
 \bibitem[\protect\citeauthoryear{Ernst, Kim, Das, Pant, Rao, Pham, Ziesler,
   Blaauw, Austin, Flautner, et~al\mbox{.}}{Ernst et~al\mbox{.}}{2003}]%
         {Razor2003}
@@ -168,17 +151,6 @@
   Approximate Adders}.
 \newblock {\em IEEE Trans. on Computer-Aided Design of Integrated Circuits and
   Systems\/} {32}, 1 (2013), 124--137.
-\newblock
-
-
-\bibitem[\protect\citeauthoryear{Harata, Nakamura, Nagase, Takigawa, and
-  Takagi}{Harata et~al\mbox{.}}{1987}]%
-        {RedundantMult_1987}
-{Y. Harata}, {Y. Nakamura}, {H. Nagase}, {M. Takigawa}, {and} {N. Takagi}.
-  1987.
-\newblock \showarticletitle{A high-speed multiplier using a redundant binary
-  adder tree}.
-\newblock {\em IEEE Jourl. of Solid-State Circuits\/} {22}, 1 (1987), 28--34.
 \newblock
 
 
@@ -222,17 +194,6 @@
 \newblock
 
 
-\bibitem[\protect\citeauthoryear{Lee, Gaffar, Cheung, Mencer, Luk, and
-  Constantinides}{Lee et~al\mbox{.}}{2006}]%
-        {lee2006accuracy}
-{D.~U. Lee}, {A.~A. Gaffar}, {R.~C.~C. Cheung}, {O. Mencer}, {W. Luk}, {and}
-  {G.~A. Constantinides}. 2006.
-\newblock \showarticletitle{Accuracy-guaranteed bit-width optimization}.
-\newblock {\em IEEE Trans. on Computer-Aided Design of Integrated Circuits and
-  Systems\/} {25}, 10 (2006), 1990--2000.
-\newblock
-
-
 \bibitem[\protect\citeauthoryear{Lu}{Lu}{2004}]%
         {IntelSpeeding}
 {S.~L. Lu}. 2004.
@@ -260,6 +221,17 @@
 \newblock
 
 
+\bibitem[\protect\citeauthoryear{Ramprassad, Shanbha, and Hajj}{Ramprassad
+  et~al\mbox{.}}{1997}]%
+        {TransitionProb}
+{S. Ramprassad}, {N.R. Shanbha}, {and} {I.N. Hajj}. 1997.
+\newblock \showarticletitle{Analytical estimation of signal transition activity
+  from word-level statistics}.
+\newblock {\em IEEE Trans. on Computer-Aided Design of Integrated Circuits and
+  Systems\/} {16}, 7 (1997), 718--733.
+\newblock
+
+
 \bibitem[\protect\citeauthoryear{Roldao-Lopes, Shahzad, Constantinides, and
   Kerrigan}{Roldao-Lopes et~al\mbox{.}}{2009}]%
         {RoldaoWLop_Simulation}
@@ -283,22 +255,22 @@
 \newblock
 
 
+\bibitem[\protect\citeauthoryear{Shi, Boland, and Constantinides}{Shi
+  et~al\mbox{.}}{2013}]%
+        {SKfccm13}
+{K. Shi}, {D. Boland}, {and} {G.~A. Constantinides}. 2013.
+\newblock \showarticletitle{Accuracy-Performance Tradeoffs on an FPGA through
+  Overclocking}. In {\em Proc. Int. Symp. Field-Programmable Custom Computing
+  Machines}, Vol.~0. 29--36.
+\newblock
+
+
 \bibitem[\protect\citeauthoryear{Sung and Kum}{Sung and Kum}{1995}]%
         {SungWLop_Simulation}
 {W. Sung} {and} {K. Kum}. 1995.
 \newblock \showarticletitle{Simulation-based word-length optimization method
   for fixed-point digital signal processing systems}.
 \newblock {\em IEEE Trans. on Signal Processing\/} {43}, 12 (1995), 3087--3090.
-\newblock
-
-
-\bibitem[\protect\citeauthoryear{Takagi, Yasuura, and Yajima}{Takagi
-  et~al\mbox{.}}{1985}]%
-        {RedundantMult_1985}
-{N. Takagi}, {H. Yasuura}, {and} {S. Yajima}. 1985.
-\newblock \showarticletitle{High-speed VLSI multiplication algorithm with a
-  redundant binary addition tree}.
-\newblock {\em IEEE Trans. on Computers\/} {100}, 9 (1985), 789--796.
 \newblock
 
 
