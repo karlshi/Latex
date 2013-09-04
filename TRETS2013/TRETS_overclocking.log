@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  5 AUG 2013 14:52
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  4 SEP 2013 17:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -446,11 +446,11 @@ pdfTeX warning: pdflatex (file ./Figures/CSA_SingleStage.pdf): PDF inclusion: m
 ultiple pdfs with page group included in a single page
 >]
 Package epstopdf Info: Source file: <./Figures/CSA2stage_Model_Timing2.eps>
-(epstopdf)                    date: 2013-06-25 17:00:27
+(epstopdf)                    date: 2013-08-05 15:21:19
 (epstopdf)                    size: 16802 bytes
 (epstopdf)             Output file: <./Figures/CSA2stage_Model_Timing2-eps-conv
 erted-to.pdf>
-(epstopdf)                    date: 2013-06-25 17:03:42
+(epstopdf)                    date: 2013-08-05 15:21:19
 (epstopdf)                    size: 11546 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/CSA2stage_Model_
 Timing2-eps-converted-to.pdf ./Figures/CSA2stage_Model_Timing2.eps>
@@ -466,11 +466,11 @@ Package pdftex.def Info: ./Figures/CSA2stage_Model_Timing2-eps-converted-to.pdf
  used on input line 417.
 (pdftex.def)             Requested size: 198.0pt x 152.80186pt.
 Package epstopdf Info: Source file: <./Figures/CSA3stage_Area2.eps>
-(epstopdf)                    date: 2013-06-25 17:00:43
+(epstopdf)                    date: 2013-08-05 15:21:19
 (epstopdf)                    size: 14376 bytes
 (epstopdf)             Output file: <./Figures/CSA3stage_Area2-eps-converted-to
 .pdf>
-(epstopdf)                    date: 2013-06-25 17:01:17
+(epstopdf)                    date: 2013-08-05 15:21:19
 (epstopdf)                    size: 10419 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/CSA3stage_Area2-
 eps-converted-to.pdf ./Figures/CSA3stage_Area2.eps>
@@ -511,11 +511,11 @@ ut line 452.
  [10 <./Figures/CSA2stage_Model_Timing2-eps-converted-to.pdf> <./Figures/CSA3st
 age_Area2-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./Figures/Tradeoff_Freq.eps>
-(epstopdf)                    date: 2013-06-24 10:57:51
+(epstopdf)                    date: 2013-08-05 15:21:19
 (epstopdf)                    size: 113149 bytes
 (epstopdf)             Output file: <./Figures/Tradeoff_Freq-eps-converted-to.p
 df>
-(epstopdf)                    date: 2013-06-24 11:00:26
+(epstopdf)                    date: 2013-08-05 15:21:19
 (epstopdf)                    size: 27215 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/Tradeoff_Freq-ep
 s-converted-to.pdf ./Figures/Tradeoff_Freq.eps>
@@ -534,11 +534,11 @@ Underfull \vbox (badness 1436) has occurred while \output is active []
 
  [11 <./Figures/Error_LUT25-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./Figures/Tradeoff_Error2.eps>
-(epstopdf)                    date: 2013-06-24 10:59:47
+(epstopdf)                    date: 2013-08-05 15:21:19
 (epstopdf)                    size: 46104 bytes
 (epstopdf)             Output file: <./Figures/Tradeoff_Error2-eps-converted-to
 .pdf>
-(epstopdf)                    date: 2013-06-24 11:00:27
+(epstopdf)                    date: 2013-08-05 15:21:19
 (epstopdf)                    size: 14639 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/Tradeoff_Error2-
 eps-converted-to.pdf ./Figures/Tradeoff_Error2.eps>
@@ -814,11 +814,11 @@ s/FIRLena_Q4T10-eps-converted-to.pdf> <./Figures/Exp/FIR/LenaImages/FIRLena_Q2T
 10-eps-converted-to.pdf> <./Figures/Exp/FIR/LenaImages/FIRLena_Q1T10-eps-conver
 ted-to.pdf>]
 Package epstopdf Info: Source file: <./Figures/CC_length3.eps>
-(epstopdf)                    date: 2013-06-25 17:35:03
+(epstopdf)                    date: 2013-08-05 15:21:19
 (epstopdf)                    size: 13266 bytes
 (epstopdf)             Output file: <./Figures/CC_length3-eps-converted-to.pdf>
 
-(epstopdf)                    date: 2013-06-25 17:35:57
+(epstopdf)                    date: 2013-08-05 15:21:19
 (epstopdf)                    size: 8329 bytes
 (epstopdf)             Command: <repstopdf --outfile=./Figures/CC_length3-eps-c
 onverted-to.pdf ./Figures/CC_length3.eps>
@@ -870,7 +870,7 @@ xmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/local/texlive/2012/texmf-di
 st/fonts/type1/urw/ncntrsbk/uncb8a.pfb></usr/local/texlive/2012/texmf-dist/font
 s/type1/urw/ncntrsbk/uncr8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1
 /urw/ncntrsbk/uncri8a.pfb>
-Output written on TRETS_overclocking.pdf (23 pages, 2542696 bytes).
+Output written on TRETS_overclocking.pdf (23 pages, 2542715 bytes).
 PDF statistics:
  350 PDF objects out of 1000 (max. 8388607)
  231 compressed objects within 3 object streams
