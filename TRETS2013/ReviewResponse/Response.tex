@@ -1,0 +1,68 @@
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{xcolor}
+
+
+\topmargin -10mm
+\oddsidemargin 0mm
+\evensidemargin 0mm
+\textwidth 158mm
+\textheight 226mm
+\parskip 0mm
+
+\def\Response{\noindent \textbf{Response:~}}
+\newcommand{\Question}[1]{\textcolor[rgb]{0.51,0.00,0.00}{#1}}
+\newcommand{\PaperText}[1]{\emph{#1}}
+
+\title{Revision of Paper TRETS-2013-0065 Imprecise Datapath Design: An Overclocking Approach}
+\author{Kan Shi, David Boland and George A. Constantinides}
+\date{}
+
+\pagenumbering{arabic}
+
+\begin{document}
+\maketitle
+
+\section*{Reviewer 3}
+\begin{enumerate}
+  \item \Question{The first sentence of the abstract is completely devoid of context, and may be the worst sentence in the entire article, given its importance. A much more appropriate sentence is the start of Section 1, Paragraph 4.}
+            
+      \Response We have modified the first two sentences of the abstract, which now read as follows:\\
+           
+      \PaperText{In this paper, we describe an alternative circuit design methodology when considering trade-offs between accuracy, performance and silicon area. We compare two different approaches that could trade accuracy for performance.}\\
+
+  \item \Question{What are the chances that an entire design with all its complexities could be accelerated in this fashion? (i.e. Could the overall clock frequency be increased?)}
+            
+      \Response to be added.\\
+      
+  \item \Question{In Figure 1, you use $\mu$, whereas in the text and in Equation 4, you use $\mu_c$.  The converse is true for Section 7.4 and equations (35), (36), and (37).}
+      
+      \Response Thanks. It should be $\mu$ in Fig.1 and Equations (35), (36) and (37). It has been fixed.\\
+      
+  \item \Question{In Section 3.2, it would be helpful if you could illustrate or define your [-1,1) fixed-point format. Do you number your bits from k-1 to 0 or from 0 to k-1?}
+      
+      \Response We meant that all numbers are normalized to fractional numbers within the range [-1,1). The truncation process is illustrated in the figure below, which is not included in this manuscript due to the space limit. As seen in this figure, the original number embodies k fractional bits, while the truncated number embodies n fractional bits. Given that all bits are mutually independent and uniformly distributed, Equation (2) gives the mean value of the truncated bits. We have modified the second paragraph of Section 3.2:\\
+      
+      \PaperText{to be added.}\\
+      
+  \item \Question{In Section 3.3, for $A_i\neq B_i$ (Carry Propagation), you seem to be saying that $S_i = C_{i-1} = 0$.  If $A_i \neq B_i$ then $A_i + B_i = 1$, but that tells us nothing unless we know $C_{i-1}$, and it is not necessarily 0 as you claim.}
+      
+      \Response Thanks for pointing this out. In this case it should be $C_{i-1} =1$, because carry is propagated from bit $i-1$ to bit $i$. Hence $S_i=A_i+B_i+C_{i-1}=0$.
+      
+      This statement is modified as follows:\\
+      
+      \PaperText{Carry propagation: (see paper)}
+      
+  
+
+      
+
+\end{enumerate}
+
+
+
+
+\end{document}
