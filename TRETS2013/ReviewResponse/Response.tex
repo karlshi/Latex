@@ -5,6 +5,7 @@
 \usepackage{graphicx}
 \usepackage{setspace}
 \usepackage{xcolor}
+\usepackage{epstopdf}
 
 
 \topmargin -10mm
@@ -35,9 +36,9 @@
            
       \PaperText{In this paper, we describe an alternative circuit design methodology when considering trade-offs between accuracy, performance and silicon area. We compare two different approaches that could trade accuracy for performance.}\\
 
-  \item \Question{What are the chances that an entire design with all its complexities could be accelerated in this fashion? (i.e. Could the overall clock frequency be increased?)}
+  \item \Question{What are the chances that an entire design with all its complexities could be accelerated in this fashion? (i.e. Could the overall clock frequency be increased?) Imprecision may be tolerable in data, but is probably not tolerable in control.}
             
-      \Response to be added.\\
+      \Response True. However the method described in this manuscript focuses on designing datapath instead of the control logic.\\
       
   \item \Question{In Figure 1, you use $\mu$, whereas in the text and in Equation 4, you use $\mu_c$.  The converse is true for Section 7.4 and equations (35), (36), and (37).}
       
@@ -45,7 +46,15 @@
       
   \item \Question{In Section 3.2, it would be helpful if you could illustrate or define your [-1,1) fixed-point format. Do you number your bits from k-1 to 0 or from 0 to k-1?}
       
-      \Response We meant that all numbers are normalized to fractional numbers within the range [-1,1). The truncation process is illustrated in the figure below, which is not included in this manuscript due to the space limit. As seen in this figure, the original number embodies k fractional bits, while the truncated number embodies n fractional bits. Given that all bits are mutually independent and uniformly distributed, Equation (2) gives the mean value of the truncated bits. We have modified the first sentence of the second paragraph of Section 3.2:\\
+      \Response We meant that all numbers are normalized to fractional numbers within the range [-1,1). The truncation process is illustrated in the figure below, which is not included in this manuscript due to the space limit. As seen in this figure, the original number embodies k fractional bits, while the truncated number embodies n fractional bits. Given that all bits are mutually independent and uniformly distributed, Equation (2) gives the mean value of the truncated bits. 
+      
+      \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=3.2in]{./Figure/Truncation.pdf}
+        %\caption{title.}
+      \end{figure}
+      
+      We have modified the first sentence of the second paragraph of Section 3.2:\\
       
       \PaperText{If the input signal of a circuit contains $k$ fractional bits, truncation error occurs when the input signal is truncated from $k$ bits to $n$ bits.}\\
       
@@ -71,9 +80,9 @@
       
       \PaperText{For $C_{tm}$, correct results will be generated from bit $S_t$ to bit $S_{t+b-1}$. Hence the absolute value of error seen at the output, normalized to the MSB, is given by (7), where $\hat{S}_i$ and $S_i$ denote the actual value and error-free value of outputs at bit $i$, respectively.}\\
       
-  \item \Question{Still in 3.3.2, you seem to be saying that when a timing error occurs, none of the bits propagate. I think you are assuming the worst case, where no carry propagation occurs, so it is no surprise that you comment that the magnitude of overclocking error has no dependence on the length of carry chain $m$.}
+  \item \Question{Still in 3.3.2, you seem to be saying that when a timing error occurs, none of the bits propagate. You assume $S_{t+b}=S_{t+b+1}=\cdots=S_{t+m-2}=0$ when there is no error, and $S_{t+b}=S_{t+b+1}=\cdots=S_{t+m-2}=1$ when there is an error. I think you are assuming the worst case, where no carry propagation occurs, so it is no surprise that you comment that the magnitude of overclocking error has no dependence on the length of carry chain $m$.}
       
-      \Response To be added.
+      \Response The value of output $S_i$ is determined based on the statements in Section 3.3.1. The assumption made here is that the internal signals are reset to zero before each computation. In this case, for carry propagation and timing error occurs, we have $S_i=A_i+B_i+C_{i-1}=A_i+B_i=1$.
       
   \item \Question{In 3.3.4, I see the $E_O = 2^{-b}-2^{-n-1}$ result, but am puzzled by it.  At the very least, I am not sure where the $-b$ exponent is coming from, since (8) defines $e_{tm} = 2^{t+b-n}$.}
       

@@ -35,9 +35,9 @@
            
       \PaperText{In this paper, we describe an alternative circuit design methodology when considering trade-offs between accuracy, performance and silicon area. We compare two different approaches that could trade accuracy for performance.}\\
 
-  \item \Question{What are the chances that an entire design with all its complexities could be accelerated in this fashion? (i.e. Could the overall clock frequency be increased?)}
+  \item \Question{What are the chances that an entire design with all its complexities could be accelerated in this fashion? (i.e. Could the overall clock frequency be increased?) Imprecision may be tolerable in data, but is probably not tolerable in control.}
             
-      \Response to be added.\\
+      \Response True. However the method described in this manuscript focuses on designing datapath instead of the control logic.\\
       
   \item \Question{In Figure 1, you use $\mu$, whereas in the text and in Equation 4, you use $\mu_c$.  The converse is true for Section 7.4 and equations (35), (36), and (37).}
       
@@ -45,9 +45,9 @@
       
   \item \Question{In Section 3.2, it would be helpful if you could illustrate or define your [-1,1) fixed-point format. Do you number your bits from k-1 to 0 or from 0 to k-1?}
       
-      \Response We meant that all numbers are normalized to fractional numbers within the range [-1,1). The truncation process is illustrated in the figure below, which is not included in this manuscript due to the space limit. As seen in this figure, the original number embodies k fractional bits, while the truncated number embodies n fractional bits. Given that all bits are mutually independent and uniformly distributed, Equation (2) gives the mean value of the truncated bits. We have modified the second paragraph of Section 3.2:\\
+      \Response We meant that all numbers are normalized to fractional numbers within the range [-1,1). The truncation process is illustrated in the figure below, which is not included in this manuscript due to the space limit. As seen in this figure, the original number embodies k fractional bits, while the truncated number embodies n fractional bits. Given that all bits are mutually independent and uniformly distributed, Equation (2) gives the mean value of the truncated bits. We have modified the first sentence of the second paragraph of Section 3.2:\\
       
-      \PaperText{to be added.}\\
+      \PaperText{If the input signal of a circuit contains $k$ fractional bits, truncation error occurs when the input signal is truncated from $k$ bits to $n$ bits.}\\
       
   \item \Question{In Section 3.3, for $A_i\neq B_i$ (Carry Propagation), you seem to be saying that $S_i = C_{i-1} = 0$.  If $A_i \neq B_i$ then $A_i + B_i = 1$, but that tells us nothing unless we know $C_{i-1}$, and it is not necessarily 0 as you claim.}
       
@@ -79,10 +79,15 @@
       
       \Response We would like to derive Equation (14) as follows:
       
-      \begin{align}
-        E_O&=\sum_t\sum_m P_{tm}\cdot e_{tm}=\sum_{t=0}^{n-b}2^{t+b-n}\cdot\left(\sum_{m=b+1}^{n-t}(1/2)^{m+1}+(1/2)^{n-t+1}\right)\\
-        &=abc
-      \end{align}
+      \begin{align*}
+        E_O&=\sum_t\sum_m P_{tm}\cdot e_{tm}\\ &=\sum_{t=0}^{n-b}2^{t+b-n}\cdot\left(\sum_{m=b+1}^{n-t}(1/2)^{m+1}+(1/2)^{n-t+1}\right)\\
+        &=\sum_{t=0}^{n-b}2^{t+b-n}\cdot\left((1/2)^{b+1}-(1/2)^{n-t+1}+(1/2)^{n-t+1}\right)\\
+        &=\sum_{t=0}^{n-b}2^{t+b-n}\cdot2^{-b-1}=\sum_{t=0}^{n-b}2^{t-n-1}\\
+        &=2^{-n-1}\cdot\left(2^{n-b+1}-1\right)\\
+        &=2^{-b}-2^{-n-1}
+      \end{align*}
+      
+      The detailed process is not included in the manuscript due to the space limit.
       
   \item \Question{The third and fourth paragraphs of Section 5.1 mention the 4-stage CSA, but Figure 4 does not show any data for a 4-stage CSA.}
       
