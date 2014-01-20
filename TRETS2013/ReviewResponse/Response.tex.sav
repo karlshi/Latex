@@ -28,14 +28,6 @@
 \begin{document}
 \maketitle
 
-\section*{Reviewer 2}
-\begin{enumerate}
-  \item \Question{Wording has some comma-itis. E.g. first sentence of the intro should not have a comma in ``demonstrated that, significant performance ...''}
-      
-      \Response Thanks. It has been revised.
-\end{enumerate}
-
-
 \section*{Reviewer 3}
 \begin{enumerate}
   \item \Question{The first sentence of the abstract is completely devoid of context, and may be the worst sentence in the entire article, given its importance. A much more appropriate sentence is the start of Section 1, Paragraph 4.}
