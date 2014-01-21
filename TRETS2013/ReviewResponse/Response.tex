@@ -38,7 +38,11 @@ We thank the reviewers for their constructive comments and suggestions. We would
       
   \item \Question{A second point I would make is that you seem to have an assumption that errors do not compound. What if your arithmetic is in an IIR or used in later computations? Do the principles of the paper hold when you get an imprecise data point, then multiply or divide it in some future computation?  I think that looking at a single adder in isolation is a bit optimistic.}
       
-      \Response 
+      \Response In the analysis, we consider the ripple carry adder and the constant coefficient multiplier individually to reason their probabilistic behavior under overclocking and truncation. However we combine both operators into several benchmark circuits (including IIR) in our experiments. In this case, errors do propagate from different operators. However as shown in Fig.10, for instance, the overall error reduction in an FIR filter using the overclocking approach is over 2, which is predicted in Equation (17) for a single RCA. This means more benefits can be achieved when combining different arithmetic operators.
+      
+      As for utilizing the imprecise results for successive computations, we agree with the reviewers on the point that this is not included in this manuscript. We would like to investigate this in the future. 
+      
+      %This motivates us to explore utilizing alternative computer arithmetic which performs computations in a most-significant-digit-first fashion.
       
   \item \Question{A third source of inaccuracy is that most FPGA timing models include crosstalk in their guardband - i.e. don't specifically do crosstalk-aware timing analysis or glitching.  Is your modeling being optimistic by looking at a circuit in isolation?  The measured/visual empirical results would incorporate this, but the model doesn't incorporate anything like it.}
       
@@ -112,7 +116,7 @@ We thank the reviewers for their constructive comments and suggestions. We would
       
   \item \Question{Still in 3.3.2, you seem to be saying that when a timing error occurs, none of the bits propagate. You assume $S_{t+b}=S_{t+b+1}=\cdots=S_{t+m-2}=0$ when there is no error, and $S_{t+b}=S_{t+b+1}=\cdots=S_{t+m-2}=1$ when there is an error. I think you are assuming the worst case, where no carry propagation occurs, so it is no surprise that you comment that the magnitude of overclocking error has no dependence on the length of carry chain $m$.}
       
-      \Response The value of output $S_i$ is determined based on the statements in Section 3.3.1. The assumption made here is that the internal signals are reset to zero before each computation. In this case, for carry propagation and timing error occurs, we have $S_i=A_i+B_i+C_{i-1}=A_i+B_i=1$.
+      \Response The value of output $S_i$ is determined based on the statements in Section 3.3.1. The assumption made here is that the internal signals are reset to zero before each computation. In this case, for carry propagation and timing error occurs, we have $S_i=A_i+B_i+C_{i-1}=A_i+B_i=1$. 
       
   \item \Question{In 3.3.4, I see the $E_O = 2^{-b}-2^{-n-1}$ result, but am puzzled by it.  At the very least, I am not sure where the $-b$ exponent is coming from, since (8) defines $e_{tm} = 2^{t+b-n}$.}
       
@@ -130,7 +134,7 @@ We thank the reviewers for their constructive comments and suggestions. We would
       
   \item \Question{The third and fourth paragraphs of Section 5.1 mention the 4-stage CSA, but Figure 4 does not show any data for a 4-stage CSA.}
       
-      \Response Thanks. In the third paragraph of Section 3.1, it should be the 3-stage CSA. Therefore the last sentence of this paragraph is revised as:\\
+      \Response Thanks. In the third paragraph of Section 3.1, it should be the 3-stage CSA. The last sentence of this paragraph has been revised as:\\
       
       \PaperText{Although the CSA with 3 stages is best for some frequencies, the overclocked RCA is still the optimum design when high operating frequencies are applied.}\\
       
