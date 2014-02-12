@@ -1,5 +1,9 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: TRETS_overclocking.aux
+This is BibTeX, Version 0.99d (TeX Live 2012)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: TRETS_overclocking.aux
 The style file: ACM-Reference-Format-Journals.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Database file #1: Reference.bib
 I was expecting a `,' or a `}'---line 345 of file Reference.bib
  :   
@@ -16,6 +20,7 @@ I was expecting a `,' or a `}'---line 421 of file Reference.bib
  :   year={2009}
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
+Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty organization in semiconductor2007international
 Warning--empty booktitle in BetterThanWS2005
 Warning--no number and no volume in BetterThanWS2005
@@ -50,4 +55,45 @@ Warning--empty year in Virtex6Clocking
 Warning--empty organization in Virtex6Clocking
 Warning--empty year in Virtex6
 Warning--empty organization in Virtex6
+You've used 30 entries,
+            5290 wiz_defined-function locations,
+            1407 strings with 19189 characters,
+and the built_in function-call counts, 30738 in all, are:
+= -- 3883
+> -- 1244
+< -- 3
++ -- 373
+- -- 423
+* -- 1964
+:= -- 3412
+add.period$ -- 150
+call.type$ -- 30
+change.case$ -- 206
+chr.to.int$ -- 29
+cite$ -- 64
+duplicate$ -- 2579
+empty$ -- 1824
+format.name$ -- 507
+if$ -- 7517
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 113
+newline$ -- 258
+num.names$ -- 239
+pop$ -- 1068
+preamble$ -- 1
+purify$ -- 355
+quote$ -- 0
+skip$ -- 738
+stack$ -- 0
+substring$ -- 2269
+swap$ -- 276
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 408
+warning$ -- 34
+while$ -- 243
+width$ -- 0
+write$ -- 523
 (There were 3 error messages)
