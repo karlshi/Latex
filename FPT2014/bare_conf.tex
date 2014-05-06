@@ -90,24 +90,42 @@ The abstract goes here.
 \section{Background and Relevant Work}
 \subsection{Online Arithmetic}
 
-\subsection{FPGA Architecture}
+%\subsection{FPGA Architecture}
+
 
 \section{Digit-parallel Online Adder on FPGAs}
+\subsection{Related Works}
+There has been previous works focusing on efficient FPGA implementation of the digit-parallel online adder. Generally the existing approaches can be classified into three types:%, as discussed below. A more detailed review of current works can be found in xxx.
+\begin{enumerate}
+	\item efficient mapping of the digit-parallel online adder onto sophisticated FPGAs resources [xxx];
+	\item multiple operands addition by designing compressor trees based on bit counters [xxx];
+	\item modifying existing FPGA architecture for more efficient online addition [xxx] and for specific applications [xxx].
+\end{enumerate}
+
+Type 2 and type 3 are beyond the scope of this paper, as we focus on the general purpose online adder that takes 2 inputs and generate 1 outputs, as shown in Figure xxx. Specifically in type 1, both works took advantage of the built-in carry resources in FPGAs. Conventionally the ASIC implementation of online adders is based on the 4:2 compressors, as shown within the gray background in Figure xxx. However, directly applying this approach in the FPGAs could be less efficient. This is because there is no carry propagation between the 2 full adders within a 4:2 compressor, and the net delay between them can be large. Instead, Kamp et al and Ortiz et al described very similar mapping techniques for online adders with 2 different data representations, respectively. The main idea is to map the logic block within the dotted circle in Figure xxx. In this case, the fast-carry logic in the FPGA can be employed, and the delay between the 2 FAs is largely reduced. 
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=.5\textwidth]{./Figures/SDAdder_42comp_Spartan.pdf}
+	\caption{Map the online adder onto Spartan FPGAs using the fast-carry resources. The grey background highlights the 4:2 compressor. Dotted circle indicates the logic block (LB) which can be mapped to the FPGA carry resources.}
+\end{figure}
+
+However, we notice the major limitations of both approaches that they only target on FPGAs with 4-input LUTs and 2 LUTs within a logic slice, such as the Xilinx Spartan series and the Altera Cyclone series. This is naturally reasonable because one LB can be mapped to a single slice. Nevertheless, for FPGAs with 6-input LUTs and 4 LUTs in a slice, such as the Xilinx Virtex series and all Xilinx 7 series FPGAs, directly applying the approaches in [xxx] will result in either resource waste or logic fault. For instance, if 2 LBs are mapped to a slice with 4 LUTs as seen in Fig.~\ref{Fig:PreviousWork}, the outputs of the second LB will be faulty because the its carry input cannot be initialized.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.45\textwidth]{./Figures/SDadder_FastCarry_PreviousWork.pdf}
+	\caption{Direct utilization of previous approaches on a Virtex-6 FPGA will results in faulty outputs.}
+	\label{Fig:PreviousWork}
+\end{figure}
+
+\subsection{Proposed Mapping Method} 
 
 \section{Digit-parallel Online Multiplier on FPGAs}
 
 \section{Results}
 
-%
-%\begin{figure}[!t]
-%\centering
-%\includegraphics[width=2.5in]{myfigure}
-% where an .eps filename suffix will be assumed under latex, 
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-%\caption{Simulation Results}
-%\label{fig_sim}
-%\end{figure}
+
 
 % Note that IEEE typically puts floats only at the top, even when this
 % results in a large percentage of a column being occupied by floats.
