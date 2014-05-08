@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2012.1.3)  7 MAY 2014 16:03
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2012.1.3)  8 MAY 2014 22:46
 entering extended mode
 **bare_conf.tex
 (G:\github\latex\FPT2014\bare_conf.tex
@@ -157,6 +157,16 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
+Package: amssymb 2009/06/22 v3.00
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
+Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
+))
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\algorithms\algorithm.sty"
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
 nment
@@ -188,6 +198,9 @@ Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \c@ALC@depth=\count108
 \ALC@tlm=\skip47
 \algorithmicindent=\skip48
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\indentfirst.sty"
+Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 )
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
@@ -310,18 +323,18 @@ Package caption Info: Unknown document class (or package),
 \sf@bottom=\skip59
 )
 (G:\github\latex\FPT2014\bare_conf.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -344,56 +357,139 @@ Package caption Info: End \AtBeginDocument code.
 
 LaTeX Warning: No \author given.
 
-<./Figures/SDAdder_42comp_Spartan.pdf, id=1, 615.0478pt x 288.3272pt>
-File: ./Figures/SDAdder_42comp_Spartan.pdf Graphic file (type pdf)
+LaTeX Font Info:    Try loading font information for U+msa on input line 98.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 98.
 
-<use ./Figures/SDAdder_42comp_Spartan.pdf>
-Package pdftex.def Info: ./Figures/SDAdder_42comp_Spartan.pdf used on input lin
-e 109.
-(pdftex.def)             Requested size: 262.04987pt x 122.8476pt.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+)
 
-Overfull \hbox (9.0pt too wide) in paragraph at lines 109--110
+LaTeX Warning: Citation `Ercegovac_Book' on page 1 undefined on input line 98.
+
+<./Figures/OnlineArithmetic_DataFlow.pdf, id=1, 311.66437pt x 109.1578pt>
+File: ./Figures/OnlineArithmetic_DataFlow.pdf Graphic file (type pdf)
+
+<use ./Figures/OnlineArithmetic_DataFlow.pdf>
+Package pdftex.def Info: ./Figures/OnlineArithmetic_DataFlow.pdf used on input 
+line 103.
+(pdftex.def)             Requested size: 251.56563pt x 88.10919pt.
+
+
+LaTeX Font Warning: Command \footnotesize invalid in math mode on input line 11
+1.
+
+
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 113.
+
+
+
+LaTeX Warning: Citation `RedundantNumber' on page 1 undefined on input line 116
+.
+
+
+LaTeX Warning: Citation `RedundantMult_1987' on page 1 undefined on input line 
+119.
+
+<./Figures/SDAdder.pdf, id=2, 623.32875pt x 368.1253pt>
+File: ./Figures/SDAdder.pdf Graphic file (type pdf)
+
+<use ./Figures/SDAdder.pdf>
+Package pdftex.def Info: ./Figures/SDAdder.pdf used on input line 123.
+(pdftex.def)             Requested size: 262.04987pt x 154.76323pt.
+
+Overfull \hbox (9.0pt too wide) in paragraph at lines 123--125
  [][] 
  []
 
 
-<./Figures/SDadder_FastCarry_PreviousWork.pdf, id=2, 459.21562pt x 487.8225pt>
-File: ./Figures/SDadder_FastCarry_PreviousWork.pdf Graphic file (type pdf)
+LaTeX Warning: Citation `Ercegovac_OnlineMult' on page 1 undefined on input lin
+e 132.
 
-<use ./Figures/SDadder_FastCarry_PreviousWork.pdf>
-Package pdftex.def Info: ./Figures/SDadder_FastCarry_PreviousWork.pdf used on i
-nput line 118.
-(pdftex.def)             Requested size: 235.84328pt x 250.53542pt.
 
-<./Figures/SDadder_FPGA_New.pdf, id=3, 660.21657pt x 260.47313pt>
-File: ./Figures/SDadder_FPGA_New.pdf Graphic file (type pdf)
+LaTeX Warning: Citation `Ercegovac_OnlineMult' on page 1 undefined on input lin
+e 132.
 
-<use ./Figures/SDadder_FPGA_New.pdf>
-Package pdftex.def Info: ./Figures/SDadder_FPGA_New.pdf used on input line 131.
 
-(pdftex.def)             Requested size: 262.04987pt x 103.38852pt.
-
-Overfull \hbox (9.0pt too wide) in paragraph at lines 131--132
- [][] 
- []
+LaTeX Warning: Citation `Oregon_OnlineNetwork' on page 1 undefined on input lin
+e 132.
 
 [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
- <G:/github/latex/FPT2014/Figures/SDAdder_42comp_Spartan.pdf> <G:/github/latex/
-FPT2014/Figures/SDadder_FastCarry_PreviousWork.pdf>]
-<./Figures/SDadder_FastCarry_New.pdf, id=35, 417.81094pt x 521.69907pt>
+ <G:/github/latex/FPT2014/Figures/OnlineArithmetic_DataFlow.pdf> <G:/github/lat
+ex/FPT2014/Figures/SDAdder.pdf>] <./Figures/SDAdder_42comp_Spartan.pdf, id=56, 
+615.0478pt x 288.3272pt>
+File: ./Figures/SDAdder_42comp_Spartan.pdf Graphic file (type pdf)
+
+<use ./Figures/SDAdder_42comp_Spartan.pdf>
+Package pdftex.def Info: ./Figures/SDAdder_42comp_Spartan.pdf used on input lin
+e 180.
+(pdftex.def)             Requested size: 262.04987pt x 122.8476pt.
+
+Overfull \hbox (9.0pt too wide) in paragraph at lines 180--181
+ [][] 
+ []
+
+
+<./Figures/SDadder_FastCarry_PreviousWork.pdf, id=57, 459.21562pt x 487.8225pt>
+File: ./Figures/SDadder_FastCarry_PreviousWork.pdf Graphic file (type pdf)
+<use ./Figures/SDadder_FastCarry_PreviousWork.pdf>
+Package pdftex.def Info: ./Figures/SDadder_FastCarry_PreviousWork.pdf used on i
+nput line 189.
+(pdftex.def)             Requested size: 235.84328pt x 250.53542pt.
+
+<./Figures/SDadder_FPGA_New.pdf, id=58, 660.21657pt x 260.47313pt>
+File: ./Figures/SDadder_FPGA_New.pdf Graphic file (type pdf)
+
+<use ./Figures/SDadder_FPGA_New.pdf>
+Package pdftex.def Info: ./Figures/SDadder_FPGA_New.pdf used on input line 202.
+
+(pdftex.def)             Requested size: 262.04987pt x 103.38852pt.
+
+Overfull \hbox (9.0pt too wide) in paragraph at lines 202--203
+ [][] 
+ []
+
+<./Figures/SDadder_FastCarry_New.pdf, id=59, 417.81094pt x 521.69907pt>
 File: ./Figures/SDadder_FastCarry_New.pdf Graphic file (type pdf)
 
 <use ./Figures/SDadder_FastCarry_New.pdf>
 Package pdftex.def Info: ./Figures/SDadder_FastCarry_New.pdf used on input line
- 140.
+ 211.
 (pdftex.def)             Requested size: 251.56563pt x 314.12039pt.
+ [2 <G:/github/latex/FPT2014/Figures/SDAdder_42comp_Spartan.pdf> <G:/github/lat
+ex/FPT2014/Figures/SDadder_FastCarry_PreviousWork.pdf>]
+<./Figures/ParallelMult_Structure.pdf, id=87, 499.8675pt x 398.99063pt>
+File: ./Figures/ParallelMult_Structure.pdf Graphic file (type pdf)
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+<use ./Figures/ParallelMult_Structure.pdf>
+Package pdftex.def Info: ./Figures/ParallelMult_Structure.pdf used on input lin
+e 233.
+(pdftex.def)             Requested size: 262.04987pt x 209.1749pt.
 
+Overfull \hbox (9.0pt too wide) in paragraph at lines 233--234
+ [][] 
+ []
 
-No file bare_conf.bbl.
+[3 <G:/github/latex/FPT2014/Figures/SDadder_FPGA_New.pdf> <G:/github/latex/FPT2
+014/Figures/SDadder_FastCarry_New.pdf> <G:/github/latex/FPT2014/Figures/Paralle
+lMult_Structure.pdf>]
+<./Figures/ParallelMult_MSDhalf.pdf, id=130, 499.8675pt x 398.99063pt>
+File: ./Figures/ParallelMult_MSDhalf.pdf Graphic file (type pdf)
+
+<use ./Figures/ParallelMult_MSDhalf.pdf>
+Package pdftex.def Info: ./Figures/ParallelMult_MSDhalf.pdf used on input line 
+246.
+(pdftex.def)             Requested size: 262.04987pt x 209.1749pt.
+
+Overfull \hbox (9.0pt too wide) in paragraph at lines 246--247
+ [][] 
+ []
+
+(G:\github\latex\FPT2014\bare_conf.bbl)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -405,25 +501,40 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[2 <G:/github/latex/FPT2014/Figures/SDadder_FPGA_New.pdf> <G:/github/latex/FPT2
-014/Figures/SDadder_FastCarry_New.pdf>] (G:\github\latex\FPT2014\bare_conf.aux)
+[4
+
+ <G:/github/latex/FPT2014/Figures/ParallelMult_MSDhalf.pdf>]
+(G:\github\latex\FPT2014\bare_conf.aux)
+
+LaTeX Warning: There were undefined references.
+
  ) 
 Here is how much of TeX's memory you used:
- 3804 strings out of 494053
- 59404 string characters out of 3146189
- 119837 words of memory out of 3000000
- 7046 multiletter control sequences out of 15000+200000
- 31929 words of font info for 61 fonts, out of 3000000 for 9000
+ 4187 strings out of 494053
+ 64336 string characters out of 3146189
+ 125425 words of memory out of 3000000
+ 7391 multiletter control sequences out of 15000+200000
+ 37835 words of font info for 82 fonts, out of 3000000 for 9000
  718 hyphenation exceptions out of 8191
- 42i,6n,38p,1019b,213s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,14n,38p,1019b,387s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
-m Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (x8
-6)/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files (x86)/MiKTeX 
-2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/t
-ype1/urw/times/utmri8a.pfb>
-Output written on bare_conf.pdf (2 pages, 396224 bytes).
+m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program 
+Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Fi
+les (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files
+ (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files (x
+86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files (x86)/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files (x86)/MiKTeX 2.9/f
+onts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program Files (x86)/MiKTeX 2.
+9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
+e1/urw/times/utmbi8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/tim
+es/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.
+pfb>
+Output written on bare_conf.pdf (4 pages, 1358431 bytes).
 PDF statistics:
- 71 PDF objects out of 1000 (max. 8388607)
+ 199 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

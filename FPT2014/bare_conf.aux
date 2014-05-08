@@ -1,20 +1,48 @@
 \relax 
+\citation{Ercegovac_Book}
+\citation{RedundantNumber}
+\citation{RedundantMult_1987}
+\citation{Ercegovac_OnlineMult}
+\citation{Ercegovac_OnlineMult}
+\citation{Oregon_OnlineNetwork}
 \@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}}
-\@writefile{toc}{\contentsline {section}{\numberline {II}Background and Relevant Work}{1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-A}}Online Arithmetic}{1}}
-\@writefile{toc}{\contentsline {section}{\numberline {III}Digit-parallel Online Adder on FPGAs}{1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-A}}Related Works}{1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Map the online adder onto Spartan FPGAs using the fast-carry resources. The grey background highlights the 4:2 compressor. Dotted circle indicates the logic block (LB) which can be mapped to the FPGA carry resources.}}{1}}
-\newlabel{Fig:PreviousWork}{{1}{1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Direct utilization of previous approaches on a Virtex-6 FPGA will results in faulty outputs.}}{1}}
-\newlabel{Fig:PreWorkVirtex6}{{2}{1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-B}}Proposed Mapping Method}{1}}
+\@writefile{toc}{\contentsline {section}{\numberline {II}Background: Online Arithmetic}{1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-A}}Key Features of Online Arithmetic}{1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Dataflow in digit-serial Online Arithmetic. $\delta $ denotes the online delay.}}{1}}
+\newlabel{Fig:OnlineDataFlow}{{1}{1}}
+\newlabel{Eq:Online_Operands}{{1}{1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-B}}Binary Online Addition}{1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces An $N$-digit binary digit-parallel online adder with $(N+1)$-digit outputs.}}{1}}
+\newlabel{Fig:Radix2SD_adder}{{2}{1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-C}}Binary Online Multiplication}{1}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Online Multiplication}}{2}}
+\newlabel{Eq:OnlineMult_General}{{2}{2}}
+\newlabel{Algorithm:OnlineMult}{{1}{2}}
+\newlabel{Eq:SelFunc_OM}{{3}{2}}
+\@writefile{toc}{\contentsline {section}{\numberline {III}Digit Parallel Online Adder on FPGAs}{2}}
+\newlabel{Sec:OA_FPGA}{{III}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-A}}Related Works}{2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Map the online adder onto Spartan FPGAs using the fast-carry resources. The grey background highlights the 4:2 compressor. Dotted circle indicates the logic block (LB) which can be mapped to the FPGA carry resources.}}{2}}
+\newlabel{Fig:PreviousWork}{{3}{2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Direct utilization of previous approaches on a Virtex-6 FPGA will results in faulty outputs.}}{2}}
+\newlabel{Fig:PreWorkVirtex6}{{4}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-B}}Proposed Mapping Method}{2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Modified structure of online adder. Left: an example of 3-digit online adder. The shaded part refers to the 2 logic blocks (LBs) that can be mapped onto 1 slice. Right: one LB. the dotted box outlines the logic that can be mapped onto 1 LUT and the corresponding fast-carry logic.}}{3}}
+\newlabel{Fig:ModifiedOA}{{5}{3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Implementation of 2 logic blocks (LBs) in 1 FPGA slice which contains four 6-LUTs. NC stands for ``Not Care''.}}{3}}
+\newlabel{Fig:SliceNew}{{6}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-C}}Performance Analysis}{3}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Digit Parallel Online Multiplier on FPGAs}{3}}
+\newlabel{Sec:OM_FPGA}{{IV}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}}Algorithm of Digit Parallel Online Multiplication}{3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces (a) Structural diagram of a 4-digit online multiplier using the proposed algorithm. (b) Structure of one stage. The word-length of all signals are labelled in terms of the number of digits. $N$ denotes the word-length of the input signal.}}{3}}
+\newlabel{Fig:PMStructure}{{7}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-B}}FPGA Implementation}{3}}
 \bibstyle{./IEEEtran}
 \bibdata{./IEEEabrv,./Reference.bib}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Modified structure of online adder. Left: an example of 3-digit online adder. The shaded part refers to the 2 logic blocks (LBs) that can be mapped onto 1 slice. Right: one LB. the dotted box outlines the logic that can be mapped onto 1 LUT and the corresponding fast-carry logic.}}{2}}
-\newlabel{Fig:ModifiedOA}{{3}{2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Implementation of 2 logic blocks (LBs) in 1 FPGA slice which contains four 6-LUTs. NC stands for Not Care.}}{2}}
-\newlabel{Fig:SliceNew}{{4}{2}}
-\@writefile{toc}{\contentsline {section}{\numberline {IV}Digit-parallel Online Multiplier on FPGAs}{2}}
-\@writefile{toc}{\contentsline {section}{\numberline {V}Results}{2}}
-\@writefile{toc}{\contentsline {section}{\numberline {VI}Conclusion}{2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces (a) Modified structure of a 4-digit online multiplier which only generates the most significant 4-digit result. }}{4}}
+\newlabel{Fig:PMStructure_MSDhalf}{{8}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}}Structure Optimization for the MSD Half of the Results}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-D}}Performance Analysis}{4}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Results}{4}}
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Conclusion}{4}}
