@@ -62,6 +62,7 @@
 
 
 % author names and affiliations
+\author{Authors removed for blind review}
 %\author{\IEEEauthorblockN{Kan Shi, David Boland, and George A. Constantinides}
 %\IEEEauthorblockA{Department of Electrical and Electronic Engineering\\
 %Imperial College London\\London, UK\\
@@ -204,16 +205,62 @@ To tackle this problem, we first modify the structure of the online adder to ena
 	\label{Fig:ModifiedOA}
 \end{figure}
 
-The detailed slice mapping of the 2 LBs is shown in Fig.~\ref{Fig:SliceNew}. The I/O signals are identical to the previous example in Fig.~\ref{Fig:ModifiedOA}. It can be seen that a 6-LUT can be configured with two different output ports O6 and O5. For LB1, the carry input can be initialized by setting the O6 of LUT2 equal to 0 constantly. In this case, the output of MUXCY2 is O5 of LUT2, and the carry from LB2 will not affect the results of LB1. Using this mapping method the resources within 1 slice can be fully utilized, potentially leads to significant area reduction.  
+The detailed slice mapping of the 2 LBs is shown in Fig.~\ref{Fig:SliceNew}. The I/O signals are identical to the previous example in Fig.~\ref{Fig:ModifiedOA}. It can be seen that a 6-LUT can be configured with two different output ports O6 and O5. For LB1, the carry input can be initialized by setting the O6 of LUT2 equal to 0 constantly. In this case, the output of MUXCY2 is O5 of LUT2, and the carry from LB2 will not affect the results of LB1. Using this mapping method the resources within 1 slice can be fully utilized, potentially leads to significant area reduction. 
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=.48\textwidth]{./Figures/SDadder_FastCarry_New.pdf}
+	\includegraphics[width=.5\textwidth]{./Figures/SDadder_FastCarry_New.pdf}
 	\caption{Implementation of 2 logic blocks (LBs) in 1 FPGA slice which contains four 6-LUTs. NC stands for ``Not Care''.}
 	\label{Fig:SliceNew}
 \end{figure}
 
+In this mapping approach, the theoretical area figures of the online adder in terms of the number of LUTs and Slices with respect to the operand word-lengths ($N$) are given in (\ref{Eq:OAareaLUT}) and (\ref{Eq:OAareaSlice}), respectively.
+\begin{eqnarray}\label{Eq:OAareaLUT}
+	Area\_LUT = 2N
+\end{eqnarray}
+%
+\begin{eqnarray}\label{Eq:OAareaSlice}
+	Area\_Slice = 1+\left\lceil\frac{N-2}{2}\right\rceil
+\end{eqnarray}
+
 \subsection{Performance Analysis}
+In our experiments we compare 3 types of adders using Virtex-6 FPGAs: ripple carry adder (RCA), online adder which is implemented using behavioural description based on 4:2 compressors (OA\_behv) and online adder which is built using our proposed approach (OA\_real). Notice that in order to utilize the carry resources and to avoid logic optimizations by the synthesis tool, the Xilinx primitive component "Carry4" is used to create OA\_real.  
+
+The rated frequencies of all designs for a variety of operand word-lengths are shown in Fig.~\ref{Fig:AdderFreq}. The frequency values are obtained through Xilinx Timing Analyzer after placing and routing in ISE 14.1. It can be seen that our approach outperforms RCA when $N>8$, and that our approach is always faster than the online adder based on 4:2 compressors. Also we can see that the frequency of RCA decreases drastically with respect to the increment of the operand word-length, whereas the online adder maintains a relatively high frequency even for large designs. This is because the critical path of the online adder is irrelevant to the operand word-lengths. 
+
+\begin{figure}[tbp]
+	\centering
+	\includegraphics[width=.45\textwidth]{./Figures/Exp/Adder_Freq.eps}
+	\caption{Rated frequencies of the RCA and the online adder with different implementation methods. The results are obtained from post place and route timing reports in ISE 14.1.}
+	\label{Fig:AdderFreq}
+\end{figure}
+
+The area comparisons are demonstrated in Fig.\ref{Fig:AdderArea}. The theoretical area of the online adder (OA\_theory) based on (\ref{Eq:OAareaLUT}) and (\ref{Eq:OAareaSlice}) are also included. It can be seen that OA\_behv is not area efficient for FPGAs, as the dedicated FPGA resources are not fully utilized. In comparison, our implementation achieves significant area savings: $25\%\sim 33\%$ in LUTs and $67\%\sim77\%$ in Slices. The area overhead of our approach against RCA is $1.80\times\sim1.98\times$ 
+in LUTs and $1.00\times\sim1.88\times$ in Slices. However this is close to the theoretical minimum area overhead for online adders.
+
+\begin{figure}[tbp]
+  %\vspace{-2.5ex}
+  \centering
+  \subfigure[LUTs]{
+  \begin{minipage}{0.45\textwidth}
+    %\centering
+    \includegraphics[width=.95\textwidth]{./Figures/Exp/Adder_LUTs2.eps}
+    \vspace{1ex}
+  \end{minipage}%
+  }
+  \subfigure[Slices]{
+  \begin{minipage}{0.45\textwidth}
+    %\centering
+    \includegraphics[width=.95\textwidth]{./Figures/Exp/Adder_Slices2.eps}
+    \vspace{1ex}
+  \end{minipage}
+  }
+  %\vspace{-3ex}
+  \caption{Area comparisons of different binary adder implementations.}
+  \label{Fig:AdderArea}
+  %\vspace{-2ex}
+\end{figure}
+
 
 
 \section{Digit Parallel Online Multiplier on FPGAs}\label{Sec:OM_FPGA}
@@ -249,6 +296,15 @@ In comparison, the online multiplier offers the possibility to optimize the stru
 \end{figure}
 
 \subsection{Performance Analysis}
+In the experiments we compare 3 types of binary multipliers with different word-lengths. One is created from the Xilinx Core Generator [xxx] with standard arithmetic, and it is configured with speed optimization. The other two multipliers are with online arithmetic, but the results are generated with full precision and half precision, respectively. 
+
+We first compare the maximum frequencies of the multipliers for a variety of operand word-lengths. Similar to the experiments in Section xxx, we record both the frequencies from the Xilinx Timing Analyzer and the maximum error-free frequencies acquired through tests, in which the input patterns are sampled from the UI data. The results are presented in Fig.xxx.
+
+
+
+The comparison of area in terms of the number of LUTs and Slices with respect to different operand word-lengths are illustrated in Fig.xxx and Fig.xxx, respectively. 
+
+Although our proposed new online multiplier demonstrates a better operating frequency in the practice, we can push this one step further by operating the circuits beyond their deterministic region and allowing timing violations to happen. In this case, we examine the overclocking behaviour of all 3 types of multipliers in terms of the mean relative error (MRE), which is given in (xxx). For instance, Fig.xxx demonstrates the MRE of the 8-digit multipliers. 
 
 
 \section{Results}
