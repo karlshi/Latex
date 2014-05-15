@@ -58,7 +58,7 @@
 \begin{document}
 
 % can use linebreaks \\ within to get better formatting as desired
-\title{Efficient FPGA Implementation of\\ Digit Parallel Online Arithmetic Operators}
+\title{Efficient FPGA Implementation of\\ Overclocking Friendly Online Arithmetic Operators}
 
 
 % author names and affiliations
@@ -284,7 +284,7 @@ The structure diagram of a 4-digit OM using the proposed algorithm is shown in F
 
 Notice that the blocks that generate partial products $Xy_j$ can be incorporated into the online adder for further area reduction. In the online adder as seen in Fig.~\ref{Fig:SliceNew}, maximally only 4 inputs per LUT are used. This leaves 2 available inputs per LUT. However in order to generate 1 digit partial product, 1 digit of inputs $X$ and $Y$ are required respectively, as indicated in Fig.~\ref{Fig:PartialProduct}. Therefore instead of using extra logic to generate $Xy_j$, it can be incorported into the corresponding LUTs in the online adder by fully utilizing all 6 LUT inputs.
 
-\begin{figure}[tbp]
+\begin{figure}[thbp]
 	\centering
 	\includegraphics[width=.4\textwidth]{./Figures/PartialProduct.pdf}
 	\caption{An example of achieving area reduction by combining the logic blocks that generate partial products into the Online Adder by fully utilizing the 6-LUTs.}
@@ -443,7 +443,7 @@ The conclusion goes here.
 % argument is your BibTeX string definitions and bibliography database(s)
 %\bibliography{IEEEabrv,../bib/paper}
 
-\bibliography{./IEEEabrv,./Reference}
+\bibliography{./IEEEabrv,./Reference2}
 
 \end{document}
 

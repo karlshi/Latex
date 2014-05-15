@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2012.1.3)  11 MAY 2014 18:19
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2012.1.3)  15 MAY 2014 12:31
 entering extended mode
 **bare_conf.tex
-(G:\github\latex\FPT2014\bare_conf.tex
+(G:\github\latex\fpt2014\bare_conf.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -13,7 +13,7 @@ an, ngerman-x-2009-06-19, nynorsk, oriya, panjabi, pinyin, polish, portuguese,
 romanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swis
 sgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, u
 senglishmax, welsh, loaded.
-(G:\github\latex\FPT2014\IEEEtran.cls
+(G:\github\latex\fpt2014\IEEEtran.cls
 Document Class: IEEEtran 2012/11/21 V1.8c by Harald Hanche-Olsen and Anders Chr
 istensen
 -- Based on V1.7a by Michael Shell
@@ -99,7 +99,12 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
 \@IEEEtmpitemindent=\dimen116
 \c@IEEEbiography=\count90
 \@IEEEtranrubishbin=\box26
-) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amsmath.sty"
+) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\cite\cite.sty"
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 373.
+Package: cite 2010/09/10  v 5.3
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amsmath.sty"
 Package: amsmath 2000/07/18 v2.13 AMS math features
 \@mathmargin=\skip44
 
@@ -322,7 +327,7 @@ Package caption Info: Unknown document class (or package),
 \sf@top=\skip58
 \sf@bottom=\skip59
 )
-(G:\github\latex\FPT2014\bare_conf.aux)
+(G:\github\latex\fpt2014\bare_conf.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
 LaTeX Font Info:    ... okay on input line 58.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
@@ -362,9 +367,6 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 99.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-
-LaTeX Warning: Citation `Ercegovac_Book' on page 1 undefined on input line 99.
-
 <./Figures/OnlineArithmetic_DataFlow.pdf, id=1, 311.66437pt x 109.1578pt>
 File: ./Figures/OnlineArithmetic_DataFlow.pdf Graphic file (type pdf)
 
@@ -381,14 +383,6 @@ LaTeX Font Warning: Command \footnotesize invalid in math mode on input line 11
 LaTeX Font Warning: Command \normalsize invalid in math mode on input line 114.
 
 
-
-LaTeX Warning: Citation `RedundantNumber' on page 1 undefined on input line 117
-.
-
-
-LaTeX Warning: Citation `RedundantMult_1987' on page 1 undefined on input line 
-120.
-
 <./Figures/SDAdder.pdf, id=2, 623.32875pt x 368.1253pt>
 File: ./Figures/SDAdder.pdf Graphic file (type pdf)
 
@@ -400,23 +394,11 @@ Overfull \hbox (9.0pt too wide) in paragraph at lines 124--126
  [][] 
  []
 
-
-LaTeX Warning: Citation `Ercegovac_OnlineMult' on page 1 undefined on input lin
-e 133.
-
-
-LaTeX Warning: Citation `Ercegovac_OnlineMult' on page 1 undefined on input lin
-e 133.
-
-
-LaTeX Warning: Citation `Oregon_OnlineNetwork' on page 1 undefined on input lin
-e 133.
-
 [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
- <G:/github/latex/FPT2014/Figures/OnlineArithmetic_DataFlow.pdf> <G:/github/lat
-ex/FPT2014/Figures/SDAdder.pdf>] <./Figures/SDAdder_42comp_Spartan.pdf, id=56, 
+ <G:/github/latex/fpt2014/Figures/OnlineArithmetic_DataFlow.pdf> <G:/github/lat
+ex/fpt2014/Figures/SDAdder.pdf>] <./Figures/SDAdder_42comp_Spartan.pdf, id=56, 
 615.0478pt x 288.3272pt>
 File: ./Figures/SDAdder_42comp_Spartan.pdf Graphic file (type pdf)
 
@@ -437,17 +419,13 @@ Package pdftex.def Info: ./Figures/SDadder_FastCarry_PreviousWork.pdf used on i
 nput line 190.
 (pdftex.def)             Requested size: 235.84328pt x 250.53542pt.
 
-<./Figures/SDadder_FPGA_New.pdf, id=58, 660.21657pt x 260.47313pt>
-File: ./Figures/SDadder_FPGA_New.pdf Graphic file (type pdf)
+<./Figures/SDadder_FPGA_New_4digit.pdf, id=58, 820.56563pt x 260.47313pt>
+File: ./Figures/SDadder_FPGA_New_4digit.pdf Graphic file (type pdf)
 
-<use ./Figures/SDadder_FPGA_New.pdf>
-Package pdftex.def Info: ./Figures/SDadder_FPGA_New.pdf used on input line 203.
-
-(pdftex.def)             Requested size: 262.04987pt x 103.38852pt.
-
-Overfull \hbox (9.0pt too wide) in paragraph at lines 203--204
- [][] 
- []
+<use ./Figures/SDadder_FPGA_New_4digit.pdf>
+Package pdftex.def Info: ./Figures/SDadder_FPGA_New_4digit.pdf used on input li
+ne 203.
+(pdftex.def)             Requested size: 445.48798pt x 141.40854pt.
 
 <./Figures/SDadder_FastCarry_New.pdf, id=59, 417.81094pt x 521.69907pt>
 File: ./Figures/SDadder_FastCarry_New.pdf Graphic file (type pdf)
@@ -461,8 +439,8 @@ Overfull \hbox (9.0pt too wide) in paragraph at lines 212--213
  [][] 
  []
 
-[2 <G:/github/latex/FPT2014/Figures/SDAdder_42comp_Spartan.pdf> <G:/github/late
-x/FPT2014/Figures/SDadder_FastCarry_PreviousWork.pdf>]
+[2 <G:/github/latex/fpt2014/Figures/SDAdder_42comp_Spartan.pdf> <G:/github/late
+x/fpt2014/Figures/SDadder_FastCarry_PreviousWork.pdf>]
 Package epstopdf Info: Source file: <./Figures/Exp/Adder_Freq.eps>
 (epstopdf)                    date: 2014-05-11 17:13:58
 (epstopdf)                    size: 11308 bytes
@@ -482,6 +460,9 @@ File: ./Figures/Exp/Adder_Freq-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./Figures/Exp/Adder_Freq-eps-converted-to.pdf used on 
 input line 233.
 (pdftex.def)             Requested size: 235.84328pt x 177.44814pt.
+ [3 <G:/github/latex/fpt2014/Figures/SDadder_FPGA_New_4digit.pdf> <G:/github/la
+tex/fpt2014/Figures/SDadder_FastCarry_New.pdf> <G:/github/latex/fpt2014/Figures
+/Exp/Adder_Freq-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <./Figures/Exp/Adder_LUTs2.eps>
 (epstopdf)                    date: 2014-05-11 17:39:56
 (epstopdf)                    size: 11300 bytes
@@ -494,7 +475,7 @@ ps-converted-to.pdf ./Figures/Exp/Adder_LUTs2.eps>
 (epstopdf)             \includegraphics on input line 250.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Figures/Exp/Adder_LUTs2-eps-converted-to.pdf, id=88, 369.38pt x 256.96pt>
+<./Figures/Exp/Adder_LUTs2-eps-converted-to.pdf, id=113, 369.38pt x 256.96pt>
 File: ./Figures/Exp/Adder_LUTs2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ./Figures/Exp/Adder_LUTs2-eps-converted-to.pdf>
@@ -513,16 +494,13 @@ to.pdf>
 (epstopdf)             \includegraphics on input line 257.
 Package epstopdf Info: Output file is already uptodate.
 
-<./Figures/Exp/Adder_Slices2-eps-converted-to.pdf, id=89, 369.38pt x 256.96pt>
+<./Figures/Exp/Adder_Slices2-eps-converted-to.pdf, id=114, 369.38pt x 256.96pt>
 File: ./Figures/Exp/Adder_Slices2-eps-converted-to.pdf Graphic file (type pdf)
-
 <use ./Figures/Exp/Adder_Slices2-eps-converted-to.pdf>
 Package pdftex.def Info: ./Figures/Exp/Adder_Slices2-eps-converted-to.pdf used 
 on input line 257.
 (pdftex.def)             Requested size: 224.05038pt x 155.85924pt.
- [3 <G:/github/latex/FPT2014/Figures/SDadder_FPGA_New.pdf> <G:/github/latex/FPT
-2014/Figures/SDadder_FastCarry_New.pdf> <G:/github/latex/FPT2014/Figures/Exp/Ad
-der_Freq-eps-converted-to.pdf>]
+
 <./Figures/ParallelMult_Structure.pdf, id=115, 499.8675pt x 398.99063pt>
 File: ./Figures/ParallelMult_Structure.pdf Graphic file (type pdf)
 
@@ -535,25 +513,68 @@ Overfull \hbox (9.0pt too wide) in paragraph at lines 280--281
  [][] 
  []
 
-<./Figures/ParallelMult_MSDhalf.pdf, id=116, 499.8675pt x 398.99063pt>
+[4 <G:/github/latex/fpt2014/Figures/Exp/Adder_LUTs2-eps-converted-to.pdf> <G:/g
+ithub/latex/fpt2014/Figures/Exp/Adder_Slices2-eps-converted-to.pdf> <G:/github/
+latex/fpt2014/Figures/ParallelMult_Structure.pdf>]
+<./Figures/PartialProduct.pdf, id=148, 420.82219pt x 252.19218pt>
+File: ./Figures/PartialProduct.pdf Graphic file (type pdf)
+
+<use ./Figures/PartialProduct.pdf>
+Package pdftex.def Info: ./Figures/PartialProduct.pdf used on input line 289.
+(pdftex.def)             Requested size: 209.63669pt x 125.634pt.
+
+<./Figures/ParallelMult_MSDhalf.pdf, id=149, 499.8675pt x 398.99063pt>
 File: ./Figures/ParallelMult_MSDhalf.pdf Graphic file (type pdf)
 
 <use ./Figures/ParallelMult_MSDhalf.pdf>
 Package pdftex.def Info: ./Figures/ParallelMult_MSDhalf.pdf used on input line 
-293.
+312.
 (pdftex.def)             Requested size: 262.04987pt x 209.1749pt.
 
-Overfull \hbox (9.0pt too wide) in paragraph at lines 293--294
+Overfull \hbox (9.0pt too wide) in paragraph at lines 312--313
  [][] 
  []
 
+Package epstopdf Info: Source file: <./Figures/Exp/OM_LUTs.eps>
+(epstopdf)                    date: 2014-05-14 21:59:36
+(epstopdf)                    size: 11259 bytes
+(epstopdf)             Output file: <./Figures/Exp/OM_LUTs-eps-converted-to.pdf
+>
+(epstopdf)                    date: 2014-05-14 22:01:02
+(epstopdf)                    size: 4584 bytes
+(epstopdf)             Command: <epstopdf --outfile=./Figures/Exp/OM_LUTs-eps-c
+onverted-to.pdf ./Figures/Exp/OM_LUTs.eps>
+(epstopdf)             \includegraphics on input line 335.
+Package epstopdf Info: Output file is already uptodate.
+<./Figures/Exp/OM_LUTs-eps-converted-to.pdf, id=150, 370.38374pt x 256.96pt>
+File: ./Figures/Exp/OM_LUTs-eps-converted-to.pdf Graphic file (type pdf)
 
-Underfull \vbox (badness 2134) has occurred while \output is active []
+<use ./Figures/Exp/OM_LUTs-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/Exp/OM_LUTs-eps-converted-to.pdf used on inp
+ut line 335.
+(pdftex.def)             Requested size: 224.05038pt x 155.43971pt.
+Package epstopdf Info: Source file: <./Figures/Exp/OM_Slice.eps>
+(epstopdf)                    date: 2014-05-14 21:59:42
+(epstopdf)                    size: 11335 bytes
+(epstopdf)             Output file: <./Figures/Exp/OM_Slice-eps-converted-to.pd
+f>
+(epstopdf)                    date: 2014-05-14 22:01:18
+(epstopdf)                    size: 4590 bytes
+(epstopdf)             Command: <epstopdf --outfile=./Figures/Exp/OM_Slice-eps-
+converted-to.pdf ./Figures/Exp/OM_Slice.eps>
+(epstopdf)             \includegraphics on input line 342.
+Package epstopdf Info: Output file is already uptodate.
 
- [4 <G:/github/latex/FPT2014/Figures/Exp/Adder_LUTs2-eps-converted-to.pdf> <G:/
-github/latex/FPT2014/Figures/Exp/Adder_Slices2-eps-converted-to.pdf> <G:/github
-/latex/FPT2014/Figures/ParallelMult_Structure.pdf>] (G:\github\latex\FPT2014\ba
-re_conf.bbl)
+<./Figures/Exp/OM_Slice-eps-converted-to.pdf, id=151, 369.38pt x 256.96pt>
+File: ./Figures/Exp/OM_Slice-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./Figures/Exp/OM_Slice-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/Exp/OM_Slice-eps-converted-to.pdf used on in
+put line 342.
+(pdftex.def)             Requested size: 224.05038pt x 155.85924pt.
+
+(G:\github\latex\fpt2014\bare_conf.bbl [5 <G:/github/latex/fpt2014/Figures/Part
+ialProduct.pdf> <G:/github/latex/fpt2014/Figures/ParallelMult_MSDhalf.pdf>])
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -565,43 +586,37 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[5
+[6
 
- <G:/github/latex/FPT2014/Figures/ParallelMult_MSDhalf.pdf>]
-(G:\github\latex\FPT2014\bare_conf.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+ <G:/github/latex/fpt2014/Figures/Exp/OM_LUTs-eps-converted-to.pdf> <G:/github/
+latex/fpt2014/Figures/Exp/OM_Slice-eps-converted-to.pdf>]
+(G:\github\latex\fpt2014\bare_conf.aux) ) 
 Here is how much of TeX's memory you used:
- 4210 strings out of 494053
- 65097 string characters out of 3146189
- 125458 words of memory out of 3000000
- 7408 multiletter control sequences out of 15000+200000
- 38913 words of font info for 83 fonts, out of 3000000 for 9000
+ 4330 strings out of 494053
+ 67077 string characters out of 3146189
+ 126375 words of memory out of 3000000
+ 7521 multiletter control sequences out of 15000+200000
+ 40049 words of font info for 84 fonts, out of 3000000 for 9000
  718 hyphenation exceptions out of 8191
  42i,14n,38p,1019b,387s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
-m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program 
-Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Fi
-les (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files
- (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files (x
-86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)
-/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files (x86)/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files (x86)/MiKTeX 2.9/f
-onts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program Files (x86)/MiKTeX 2.
-9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
-e1/urw/times/utmbi8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/tim
-es/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.
-pfb>
-Output written on bare_conf.pdf (5 pages, 1375859 bytes).
+{C:/Program Files (x86)/MiKTeX 2.9/fon
+ts/enc/dvips/fontname/8r.enc}<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmex10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmmi10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmmi7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmmi8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmr7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mr8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy1
+0.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.p
+fb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam1
+0.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/P
+rogram Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Fil
+es (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files (x86)/Mi
+KTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on bare_conf.pdf (6 pages, 1551187 bytes).
 PDF statistics:
- 217 PDF objects out of 1000 (max. 8388607)
+ 244 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 71 words of extra memory for PDF output out of 10000 (max. 10000000)
 
