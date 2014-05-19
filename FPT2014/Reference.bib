@@ -406,7 +406,7 @@
 @inproceedings{FPGAPV,
   title={{FPGA} device and architecture evaluation considering process variations},
   author={Wong, H. Y. and Cheng, L. and Lin, Y. and He, L.},
-  booktitle={Proc. Int. Conf. on Computer-Aided Design},
+  booktitle={Proc. Int. Conf. on Computer-Aided Design ({ICCAD})},
   pages={19--24},
   year={2005}
 }
@@ -414,7 +414,7 @@
 @inproceedings{gojman2013FPGA,
   title={{GROK-LAB}: generating real on-chip knowledge for intra-cluster delays using timing extraction},
   author={Gojman, B. and Nalmela, S. and Mehta, N. and Howarth, N. and DeHon, A.},
-  booktitle={Proc. Int. Symp. on Field Programmable Gate Arrays},
+  booktitle={Proc. Int. Symp. on Field Programmable Gate Arrays ({FPGA})},
   pages={81--90},
   year={2013}
 }
@@ -441,7 +441,7 @@
 @inproceedings{Ercegovac_DSPOnline,
   author={Ercegovac, M.D. and Lang, T.},
   booktitle={Proc. Midwest Symp. Circuits and Systems},
-  title={On-line arithmetic for DSP applications},
+  title={On-line arithmetic for {DSP} applications},
   year={1989},
   pages={365-368 vol.1}
 }
@@ -524,12 +524,22 @@
   journal={IEEE Jourl. of Solid-State Circuits},
   volume={22},
   number={1},
-  pages={28--34},
+  pages={28-34},
   year={1987}
 }
 
+@article{CSadder,
+  title={Circuit optimization using carry-save-adder cells},
+  author={Taewhan Kim and Jao, W. and Tjiang, S.},
+  journal={IEEE Trans. Computer-Aided Design of Integrated Circuits and Systems},
+  volume={17},
+  number={10},
+  pages={974-984},
+  year={1998}
+}
+
 %---------------------------------------------------------------------------
-%% Redundant adder and FPGA implementations
+%% Redundant adder and FPGA implementations 
 %---------------------------------------------------------------------------
 @INPROCEEDINGS{FPT09RA,
   author={Kamp, W. and Bainbridge-Smith, A. and Hayes, M.},
@@ -573,20 +583,38 @@ pages = {2013-2025},
 @INPROCEEDINGS{FPL10_FPGA_CarryChain,
 author={Preusser, T.B. and Spallek, R.G.},
 booktitle={Proc. Int. Conf. Field Programmable Logic and Applications ({FPL})},
-title={Enhancing FPGA Device Capabilities by the Automatic Logic Mapping to Additive Carry Chains},
+title={Enhancing {FPGA} Device Capabilities by the Automatic Logic Mapping to Additive Carry Chains},
 year={2010},
 month={Aug},
 pages={318-325},
 }
 
 
+@INPROCEEDINGS{DAC07_CounterTree,
+author={Brisk, P. and Verma, A.K. and Ienne, P. and Parandeh-Afshar, H.},
+booktitle={Proc. Design Automation Conference ({DAC})},
+title={Enhancing {FPGA} Performance for Arithmetic Circuits},
+year={2007},
+month={June},
+pages={334-337},
+}
+
+@INPROCEEDINGS{FPL09_onlineCCM,
+author={Gutierrez, R. and Valls, J. and Perez-Pascual, A.},
+booktitle={Proc. Int. Conf. Field Programmable Logic and Applications ({FPL})},
+title={{FPGA}-implementation of Time-Multiplexed Multiple Constant Multiplication based on Carry-Save Arithmetic},
+year={2009},
+month={Aug},
+pages={609-612}
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% FPGA specific
+%% FPGA specific and carry chains
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 @inproceedings{UnderwoodFPGAvsCPU,
  author = {Underwood, K.},
  title = {{FPGAs} vs. {CPUs}: trends in peak floating-point performance},
- booktitle = {Proc. Int. Symp. Field Programmable Gate Arrays},
+ booktitle = {Proc. Int. Symp. Field Programmable Gate Arrays ({FPGA})},
  year = {2004},
  pages = {171--180}
 }
@@ -594,7 +622,7 @@ pages={318-325},
 @inproceedings{FowersFPGA12,
  author = {Fowers, J. and Brown, G. and Cooke, P. and Stitt, G.},
  title = {A performance and energy comparison of {FPGAs}, {GPUs}, and multicores for sliding-window applications},
- booktitle = {Proc. Int. Symp. Field Programmable Gate Arrays},
+ booktitle = {Proc. Int. Symp. Field Programmable Gate Arrays ({FPGA})},
  year = {2012},
  pages = {47--56}
 }
@@ -602,10 +630,39 @@ pages={318-325},
 @inproceedings{David_MINRES,
   title={An {FPGA}-based implementation of the MINRES algorithm},
   author={Boland, D. and Constantinides, G. A.},
-  booktitle={Proc. Int. Conf. Field Programmable Logic and Applications.},
+  booktitle={Proc. Int. Conf. Field Programmable Logic and Applications ({FPL})},
   pages={379--384},
   year={2008},
   organization={IEEE}
+}
+
+@article{FPGA_CarryChain_New1,
+  title={High-performance carry chains for {FPGA}'s},
+  author={Hauck, S. and Hosler, M.M. and Fry, T.W.},
+  journal={IEEE Trans. Very Large Scale Integration ({VLSI}) Systems}, 
+  year={2000},
+  month={April},
+  volume={8},
+  number={2},
+  pages={138-147}
+}
+
+@inproceedings{FPGA_CarryChain_New2,
+  title={Multi-Bit Carry Chains for High-Performance Reconfigurable Fabrics},
+  author={Frederick, M.T. and Somani, A.K.},
+  booktitle={Proc. Int. Conf. Field Programmable Logic and Applications ({FPL})},
+  year={2006},
+  month={Aug},
+  pages={1-6}
+}
+
+@inproceedings{Prefix_CarryChain,
+  title={Mapping basic prefix computations to fast carry-chain structures},
+  author={Preusser, T.B. and Spallek, R.G.},
+  booktitle={Proc. Int. Conf. Field Programmable Logic and Applications ({FPL})},
+  year={2009},
+  month={Aug},
+  pages={604-608}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -613,7 +670,7 @@ pages={318-325},
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 @manual{Virtex6Clocking,
   title={Virtex-6 {FPGA} Clocking Resources User Guide},
-  author={Xilinx},
+  author={{Xilinx Inc.}},
   keywords={clock, xilinx, datasheet}
   year={2011}
 }
@@ -626,24 +683,30 @@ pages={318-325},
 
 @misc{Virtex6,
   title={Virtex-6 {FPGA} Configurable Logic Block User Guide},
-  author={Xilinx},
+  author={{Xilinx Inc.}},
   keywords={xilinx, datasheet}
   year={2009}
 }
 
+@misc{Virtex7,
+  title={7 Series {FPGAs} Configurable Logic Block User Guide},
+  author={{Xilinx Inc.}},
+  year={2013}
+
+}
+
 @misc{AlteraCyclone,
   title={Cyclone Device Handbook},
-  author={Altera},
+  author={{Altera Co.}},
   year={2008},
   keywords={altera, datasheet}
 }
 
 @misc{XilinxMult,
   title={Logi{CORE} {IP} Multiplier v11.2},
-  author={Xilinx},
+  author={{Xilinx Inc.}},
   year={2011}
 }
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% My papers
