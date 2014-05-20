@@ -254,7 +254,7 @@ In this mapping approach, the theoretical area figures of the online adder in te
 	OAarea\_Slice = 1+\left\lceil\frac{N-2}{2}\right\rceil
 \end{eqnarray}
 
-\subsection{Performance Analysis}
+\subsection{Performance Analysis}\label{subsec:OA_Performance}
 In our experiments, we compare the proposed online adder (\texttt{OA\_new}) against the original design which is implemented using behavioural descriptions based on 4:2 compressors (\texttt{OA\_behv}). Notice that in order to utilize the carry resources and to avoid logic optimizations by the synthesis tool, the Xilinx primitive component "\texttt{Carry4}" is used to create \texttt{OA\_new}. In addition, we also include ripple carry adder (\texttt{RCA}) which uses conventional arithmetic, into the comparisons. All designs are targeting on Xilinx Virtex-6 FPGA with speed grade -1. 
 
 
@@ -364,25 +364,23 @@ In comparison, the online multiplier offers the flexibility to simplify the stru
 \end{figure}
 
 \subsection{Performance Analysis}
-In the experiments we compare 3 types of binary multipliers. One is created from the Xilinx Core Generator with standard arithmetic. The \texttt{CoreGen} multiplier is implemented based on LUTs, and it is configured with speed optimization \cite{XilinxMult} . The other two multipliers are both built with online arithmetic, except that the products are generated with full precision (\texttt{OM\_full}) and half precision (\texttt{OM\_half}), respectively.
+Similar to the experiments as described in Section~\ref{subsec:OA_Performance}, we compare the online multiplier which is implemented to derive full precision results using behavioral descriptions (\texttt{OM\_initial}) against the proposed 2 types of multipliers, which are implemented to generate products with full precision (\texttt{OM\_full}) and half precision (\texttt{OM\_half}), respectively. In addition, we also incorporate multipliers with conventional binary arithmetic, and it is created using the Xilinx Core Generator. The \texttt{CoreGen} multiplier is implemented based on LUTs without DSPs, and it is configured with speed optimization \cite{XilinxMult}.
 
-We first compare the maximum frequencies of the multipliers for a variety of operand word-lengths. Similar to the experiments in Section xxx, we record both the frequencies from the Xilinx Timing Analyzer and the maximum error-free frequencies acquired through tests, in which the input patterns are sampled from the UI data. The results are presented in Fig.xxx.
+The comparison of area in terms of the cost of LUTs and the cost of Slices with respect to different operand word-lengths are illustrated in Fig.~\ref{Fig:OMArea}. The results are obtained from ISE 14.1 after mapping the design to the Virtex-6 FPGA. The area predictions for \texttt{OM\_full} from (\ref{Eq:OMareaLUT}) and (\ref{Eq:OMareaSlice}) are also included in both figures. Again we can see that the predicted resource usages match well with practical implementations. In comparison to \texttt{OM\_initial}, clearly significant area savings can be obtained by the optimized design \texttt{OM\_full}. Specifically, the LUTs usage and Slices usage drops $2.44\times\sim3.34\times$ and $3.19\times\sim5.45\times$, respectively. 
 
-
-
-The comparison of area in terms of the number of LUTs and Slices with respect to different operand word-lengths are illustrated in Fig.~\ref{Fig:OMArea}. It can be seen that the area of \texttt{OM\_full} is close to the theoretical values predicted by (\ref{Eq:OMareaLUT}) and (\ref{Eq:OMareaSlice}). In comparison to the \texttt{CoreGen} multiplier, the area overheads of \texttt{OM\_full} are $48\%\sim84\%$ for LUTs, and $0\%\sim83\%$ for Slices. On the other hand, the \texttt{OM\_half} achieves area reductions for all operand word-lengths when compared to the \texttt{CoreGen} multiplier. The area saving varies from $40\%$ to $55\%$ for LUTs, and $46\%\sim55\%$ for Slices.
+In comparison to the \texttt{CoreGen} multiplier, the area overheads of \texttt{OM\_full} are $48\%\sim84\%$ for LUTs, and $0\%\sim83\%$ for Slices. On the other hand, the \texttt{OM\_half} achieves area reductions for all operand word-lengths when compared against the \texttt{CoreGen} multiplier. The area saving varies from $40\%$ to $55\%$ for LUTs, and $46\%\sim55\%$ for Slices.
 
 \begin{figure}[tbp]
   %\vspace{-2.5ex}
   \centering
-  \subfigure[Usage of LUTs.]{
+  \subfigure[]{
   \begin{minipage}{0.45\textwidth}
     %\centering
     \includegraphics[width=.95\textwidth]{./Figures/Exp/OM_LUTslog.eps}
     \vspace{1ex}
   \end{minipage}%
   }
-  \subfigure[Usage of Slices]{
+  \subfigure[]{
   \begin{minipage}{0.45\textwidth}
     %\centering
     \includegraphics[width=.95\textwidth]{./Figures/Exp/OM_Slicelog.eps}
@@ -390,12 +388,28 @@ The comparison of area in terms of the number of LUTs and Slices with respect to
   \end{minipage}
   }
   %\vspace{-3ex}
-  \caption{Area comparisons of different binary multipliers.}
+  \caption{Area comparisons of different types of binary multipliers. (a) Usage of LUTs. (b) Usage of Slices}
   \label{Fig:OMArea}
   %\vspace{-2ex}
 \end{figure}
 
-Although our proposed new online multiplier demonstrates a better operating frequency in the practice, we can push this one step further by operating the circuits beyond their deterministic region and allowing timing violations to happen. In this case, we examine the overclocking behavior of all 3 types of multipliers in terms of the mean relative error (MRE), which is given in (xxx). For instance, Fig.xxx demonstrates the MRE of the 8-digit multipliers.
+We also check the rated frequencies of \texttt{OM\_full}, \texttt{OM\_half} and \texttt{CoreGen} for a variety of operand word-lengths. The frequency values are still obtained from the Xilinx Timing Analyzer. The results are plotted in Fig.xxx, from which we can see that there is an increasing gap between the online multipliers and the \texttt{CoreGen} multiplier, especially for large operand word-lengths. This might because in the online multiplier, although the carry resources in the FPGA are efficiently used, each 4-digit carry logic within a Slice is divided into two parts, as shown previously in Section~\ref{Sec:OA_FPGA}. Therefore the critical path delay of an \texttt{OM} is determined by both the carry logic delays, and the net delay among different stages, which is huge for large operand word-lengths. This also explains the fact that \texttt{OM\_full} and \texttt{OM\_half} run at similar frequencies, as the critical path of both designs are similar.
+
+
+However, we can take advantage of the ``overclocking friendly'' feature of the online arithmetic, and push the previous tests one step further by operating the circuits beyond their deterministic region while allowing timing violations to happen. In this case, we can examine the overclocking behavior of all 3 types of multipliers in terms of the mean relative error (MRE), which is given in (\ref{Eq:MRE})), where $E_{error}$ and $E_{out}$ refer to the mean value of error and the mean value of correct output, respectively. 
+
+\begin{eqnarray}\label{Eq:MRE}
+  MRE=\frac{E_{error}}{E_{out}}\times100\%
+\end{eqnarray}
+
+For instance, Fig.~\ref{Fig:PM_MRE} demonstrates the MRE of the 8-digit multipliers. Notice that the input data to the circuits are randomly sampled from a uniform distribution of $N$-digit numbers. We see that although the Timing Analyzer predicts slower frequencies for \texttt{OM}, it actually operates faster than \texttt{CoreGen} without the occurrence of timing errors. Besides,  
+
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=.5\textwidth]{./Figures/Exp/MRE_PM.eps}
+  \caption{(a) Modified structure of a 4-digit online multiplier which only generates the most significant 4-digit result. (b) Structure diagram of stage $j$, with the word-lengths of all internal signals labelled.}
+  \label{Fig:PM_MRE}
+\end{figure}
 
 
 %\section{Results}
