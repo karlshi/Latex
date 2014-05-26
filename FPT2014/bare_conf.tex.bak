@@ -76,7 +76,9 @@
 
 \begin{abstract}
 %\boldmath
-Online arithmetic has been widely utilized for ASIC implementations with significant performance improvements, as it is designed to perform computations from the most significant digits. Recent research also shows that the digit parallel online operators can fail more gracefully when operating beyond the deterministic region, in comparison to the operators with conventional arithmetic. Unfortunately, the utilization of online arithmetic operators requires large area overhead, and the efficient implementation of general purpose online operators on FPGAs remains under investigation. In this paper, we propose novel approaches to implement key primitives of online arithmetic, such as adders and multipliers, efficiently on modern FPGAs with 6-input LUTs. The FPGA carry resources are used for both area reduction and performance improvements. We demonstrate experimentally that the proposed architectures achieve significant area savings and frequency speed-ups comparing to the original implementations.
+Online arithmetic has been widely studied for ASIC implementations. It is designed to perform computations from the most significant digits, resulting in the ability to chain arithmetic operators together for low latency. Recent research also shows that digit parallel online operators can fail more gracefully when operating beyond the deterministic clocking region, in comparison to operators with conventional arithmetic. Unfortunately, the utilization of online arithmetic operators in the past has required a large area overhead for FPGA implementation. In this paper, we propose novel approaches to implement key primitives of online arithmetic, such as adders and multipliers, efficiently on modern FPGAs with 6-input LUTs. The FPGA carry resources are used for both area reduction and performance improvements. We demonstrate experimentally that in comparison to a direct implementation, the proposed architectures achieve up to $65\%$ Slice savings and over $20\%$ speed-ups for adders, and over $3\times$ area savings for multipliers. 
+
+% significant area savings and frequency speed-ups compared to a direction.
 
 %The performance of the proposed architectures are experimentally demonstrated
 
@@ -100,65 +102,67 @@ Online arithmetic has been widely utilized for ASIC implementations with signifi
 
 
 \section{Introduction}\label{Sec:Intro}
-In the conventional form of computer arithmetic, the computation results are generated either from the least significant digit (LSD), e.g. addition and multiplication, or from the most significant digit (MSD), e.g. division and square root. This inconsistency in computing directions will potentially result in large latency when propagating data among different operations. Online arithmetic was designed to solve this problem \cite{Ercegovac_OnlineOverview,Ercegovac_Book}. With online arithmetic, both inputs and outputs are processed in a MSD-first manner. This enables parallelism and duplication among multiple operations, and the overall computation latency can be significantly reduced. A brief overview of online arithmetic is given in Section~\ref{Sec:Background}.
+In the conventional form of computer arithmetic, the computation results are generated either from the least significant digit (LSD), e.g. addition and multiplication, or from the most significant digit (MSD), e.g. division and square root. This inconsistency in computing directions will potentially result in large latency when propagating data among different operations. Online arithmetic was designed to solve this problem \cite{Ercegovac_OnlineOverview,Ercegovac_Book}. With online arithmetic, both inputs and outputs are processed in a MSD-first manner. This enables parallelism among multiple operations, and the overall computation latency can be significantly reduced. A brief overview of online arithmetic is given in Section~\ref{Sec:Background}.
 
-Recent research has demonstrated another key advantage of online arithmetic that it allows gracefully degradation when operating beyond the deterministic region, e.g. under overclocking \cite{SKDAC14}. This stream of research stems from the inspiration that for certain applications, releasing the absolute accuracy requirements could lead to significant performance improvements. However, traditional form of computer arithmetic does not fail gracefully when timing violation happens, because timing errors initially affect MSDs of the results. In comparison, online arithmetic is more ``overclocking friendly'', as timing errors only occurs at LSDs of the results.
+Recent research has demonstrated another key advantage of online arithmetic: that it allows graceful degradation when operating beyond the deterministic clocking region, i.e. under overclocking \cite{SKDAC14}. This stream of research stems from the inspiration that for certain applications, releasing the absolute accuracy requirements could lead to significant performance improvements. However, traditional forms of computer arithmetic do not fail gracefully when timing violation happens, because timing errors initially affect MSDs of the results. In comparison, online arithmetic is more ``overclocking friendly'', as timing errors only occur at LSDs of the results.
 
-Despite its attractiveness, the usage of online arithmetic on existing FPGAs is still limited due to the huge area overhead. Generally, it is difficult to efficiently map the arithmetic circuits solely onto the look-up-tables (LUTs), which are fundamental building blocks of FPGAs. Lots of efforts has been done to alleviate this concern. For instance, both main commercial FPGA vendors introduced dedicated carry logic into the logic block to reduce the carry propagation delay by over one order of magnitude~\cite{Virtex6}. There is a large amount of studies exploring methods that can effectively map circuits using the carry logic for performance improvements~\cite{FPL10_FPGA_CarryChain,Prefix_CarryChain}, or propose alternative carry logic for FPGAs~\cite{FPGA_CarryChain_New1,FPGA_CarryChain_New2} . Besides, hard DSP blocks are also included to boost multiplications and multiply-accumulations~\cite{XilinxDSP}. However, most of these approaches are designed to accelerate computations with the conventional form of arithmetic.
+Despite its attractiveness, the usage of online arithmetic on existing FPGAs is still limited due to a large area overhead. For standard arithmetic, it is difficult to efficiently map arithmetic circuits solely onto look-up-tables (LUTs), the fundamental building blocks of FPGAs. As a result, both main commercial FPGA vendors introduced dedicated carry logic into the logic block to reduce the carry propagation delay by over one order of magnitude~\cite{Virtex6}. Significant work explores methods that can effectively map circuits to the carry logic for performance improvements~\cite{FPL10_FPGA_CarryChain,Prefix_CarryChain}, or which proposes alternative carry logic for FPGAs~\cite{FPGA_CarryChain_New1,FPGA_CarryChain_New2}. Furthermore, hard DSP blocks are also included in modern architectures to improve the area and performance of multiplications and multiply-accumulates~\cite{XilinxDSP}. However, most of these approaches are designed to accelerate computations with the conventional form of arithmetic.
 
-For online arithmetic, we notice from existing literatures that there are 2 directions that are worth investigating. First, although there has been previous research about FPGA implementations of online arithmetic, they typically only focus on online adders. A brief review of relevant works in this area is presented in Section~\ref{Sec:OA_FPGA}. However, the implementation of other key arithmetic primitives, such as online multipliers, are lack of exploration. Second, we found that existing approaches of building general purpose online adders are specifically for low cost FPGAs with 4-input LUTs and 2 LUTs within a Slice, such as the Altera Cyclone III \cite{AlteraCyclone} and Xilinx Spartan 3 series \cite{XilinxSpartan}. However, as will be discussed in Section~\ref{Sec:OA_FPGA}, these approaches cannot be directly applied on many modern FPGAs with 6-input LUTs and 4 LUTs in a slice, such as the Xilinx Virtex series FPGAs and all Xilinx 7 series FPGAs~\cite{Virtex7}.
+For online arithmetic, two research directions have been investigated. First, although there has been previous research about FPGA implementations of online arithmetic, the work only focused on online adders; a brief review of relevant works in this area is presented in Section~\ref{Sec:OA_FPGA}. Second, there are existing approaches to build general purpose online adders are specifically for low cost FPGAs with 4-input LUTs and 2 LUTs within a Slice, such as the Altera Cyclone III \cite{AlteraCyclone} and Xilinx Spartan~3 series \cite{XilinxSpartan}. However, as will be discussed in Section~\ref{Sec:OA_FPGA}, these approaches cannot be directly applied on many modern FPGA with 6-input LUTs and 4 LUTs in a Slice, such as the Xilinx Virtex series FPGAs and all Xilinx 7 series FPGAs~\cite{Virtex7}. Moreover, the move to the 6-LUT on the basic architecture opens new opportunities for efficient implementation.
+%However, the implementations of other key arithmetic primitives, such as online multipliers, lack exploration.
 
-In this paper, both issues will be addressed. In Section~\ref{Sec:OA_FPGA}, we propose a novel approach of mapping the digit parallel online adder onto FPGA with 6-LUTs. The mapping is based on the fast carry logic, and the available resources within a slice can be fully utilized. In Section~\ref{Sec:OM_FPGA}, we optimize the online multiplication algorithm to yield an efficient FPGA implementation of digit parallel online multiplier. In addition, the theoretical resource usage of both operators is given, and they are verified experimentally on Xilinx Virtex-6 FPGAs. We demonstrate that the proposed designs achieve significant area reduction and performance gain over their original implementations. In summary, the main contributions of this paper are as follows:
-\begin{enumerate}
-    \item An efficient approach of mapping online adders onto modern FPGAs;
-    \item Area efficient implementation of digit parallel online multiplication algorithm on FPGAs;
-    \item Theoretical area models of the proposed architectures.
-\end{enumerate}
+In this paper, both issues will be addressed. In Section~\ref{Sec:OA_FPGA}, we propose a novel approach of mapping the digit parallel online adder onto FPGA with 6-LUTs. The mapping is based on the fast carry logic, and the available resources within a Slice can be fully utilized. In Section~\ref{Sec:OM_FPGA}, we optimize the online multiplication algorithm to yield an efficient FPGA implementation of digit parallel online multiplier. In addition, the resource usage of both operators is given. We demonstrate experimentally on Xilinx Virtex-6 FPGAs that the proposed designs achieve significant area reduction and performance gain over their original implementations. In summary, the main contributions of this paper are an efficient mapping of online adders and multipliers to modern FPGAs.
+% by fully utilizing the fast carry logic for .
 
-%The theoretical area overhead of an online adder is given in terms of the usage of LUTs and Slices.
+
+%\begin{enumerate}
+%    \item An efficient approach of mapping online adders onto modern FPGAs;
+%    \item Area efficient implementation of digit parallel online multiplication algorithm on FPGAs;
+%    \item Theoretical area models of the proposed architectures.
+%\end{enumerate}
 
 
 \section{Background: Online Arithmetic}\label{Sec:Background}
 \subsection{Key Features of Online Arithmetic}
 
-Online arithmetic has been widely used in numerous applications such as signal processing and control algorithms~\cite{Online_FPGADSP,Online_Control}. Online arithmetic was originally designed for digit-serial operation, of which the data flow is illustrated in Fig~\ref{Fig:OnlineDataFlow}. It can be seen that in order to generate the first output digit, $\delta$ digits of inputs are required and $\delta$ is called ``online delay''. Notice that $\delta$ is normally a constant, which is independent of the precision in a given operation. For ease of discussion, in the following of this paper the input data are normalized to fixed point numbers in the range $(-1,1)$. Based on this premise, the online representation of $N$-digit operands and result at iteration $j$ are given by (\ref{Eq:Online_Operands}), where $j\in[-\delta,N-1]$ and $r$ denotes the radix \cite{Ercegovac_Book}.
-
+Online arithmetic has been widely used in numerous applications such as signal processing and control algorithms~\cite{Online_FPGADSP,Online_Control}. Online arithmetic was originally designed for digit-serial operation, of which the data flow is illustrated in Fig~\ref{Fig:OnlineDataFlow}. It can be seen that in order to generate the first output digit, $\delta$ digits of inputs are required and $\delta$ is called ``online delay''. Notice that $\delta$ is normally a small constant, which is independent of the precision in a given operation. For ease of discussion, for the rest of this paper, the input data is normalized to fixed point numbers in the range $(-1,1)$. Based on this premise, the online representation of $N$-digit operands and result at iteration $j$ are given by (\ref{Eq:Online_Operands}), where $j\in[-\delta,N-1]$ and $r$ denotes the radix \cite{Ercegovac_Book}.
+%
 \begin{figure}[tbp]
   \centering
   %\vspace{-2.5ex}
   \includegraphics[width=.48\textwidth]{./Figures/OnlineArithmetic_DataFlow.pdf}
-  %\vspace{-3ex}
+  \vspace{-4ex}
   \caption{Dataflow in digit-serial online arithmetic, in which both inputs and outputs are processed from the MSD to the LSD. $\delta$ denotes the online delay.}
-  %\vspace{-.5ex}
+  \vspace{-1ex}
   \label{Fig:OnlineDataFlow}
 \end{figure}
-
+%
 \begin{eqnarray}\label{Eq:Online_Operands}
 \footnotesize
   X_{[j]}=\sum_{i=1}^{j+\delta}x_ir^{-i},~Y_{[j]}=\sum_{i=1}^{j+\delta}y_ir^{-i},~Z_{[j]}=\sum_{i=1}^{j}z_ir^{-i}
 \normalsize
 \end{eqnarray}
 
-MSD-first operation is possible with the employment of the redundant number system . Normally there are 2 most commonly used redundant number representation: carry-save (CS) \cite{CSadder} and signed-digit (SD) \cite{RedundantNumber}. For instance with SD representation, each digit is represented with a redundant digit set $\{-a, \cdots,-1,0, 1, \cdots, a\}$, where $a\in[r/2,r-1]$. In comparison, the standard non-redundant representation only uses a digit set $\{0,r-1\}$. Thus a standard number corresponds to several possible redundant representations. For example, the two's complement number $0.111$ can be represented in the online form as $0.10\overline{1}$, $0.0\overline{1}1$ and $0.111$ among many other possible representations.
+MSD-first operation is possible with the employment of the redundant number system. Normally there are 2 most commonly used redundant number representation: carry-save (CS) \cite{CSadder} and signed-digit (SD) \cite{RedundantNumber}. For instance with SD representation, each digit is represented using a redundant digit set $\{-a, \cdots,-1,0, 1, \cdots, a\}$, where $a\in[r/2,r-1]$. In comparison, the standard non-redundant representation only uses a digit set $\{0,\cdots,r-1\}$. Thus a standard number corresponds to several possible redundant representations. For example, the two's complement number $0.011$ can be represented in the binary online form as $0.1\overline{1}1$, $0.10\overline{1}$ and $0.011$ among many other possible representations.
 
-Due to the redundancy, the MSDs of the result can be calculated only based on partial information of the inputs, which is required by digit-serial online arithmetic. Then the value of the number can be revised by the following digits, because each number embodies multiple representations.
+Due to the redundancy, the MSDs of the result can be calculated using partial information from both inputs. Then the value of the number can be revised using the subsequent digits, because each number embodies multiple representations.
 
 \subsection{Binary Online Addition}
-Adders serve as a critical building block for arithmetic operations. To perform digit-parallel online addition, a redundant adder can be directly utilized. The structure diagram of an online adder with all signals represented with SD numbers is shown in Fig.~\ref{Fig:Radix2SD_adder}. An major advantage of the redundant number system over the standard ripple-carry based arithmetic is that the propagation of carry is eliminated, resulting in a precision-independent computation time for addition. As labelled in Fig.~\ref{Fig:Radix2SD_adder}, ideally the computation delay of this adder is only 2 full adder (FA) delays for any operand word-length, with the cost of one extra FA for each digit of operands. This makes the online adder suitable for building up more complex arithmetic operators such as multipliers to accelerate the sum of partial products \cite{RedundantMult_1987}.
+Adders serve as a critical building block for arithmetic operations. To perform digit-parallel online addition, a redundant adder can be used directly. The structure diagram of an online adder with all signals represented with SD numbers is shown in Fig.~\ref{Fig:Radix2SD_adder}. The module 3:2 denotes a 3:2 compressor, which takes 3 inputs and generates 2 outputs. Normally it can be implemented on the basis of a full adder (FA). A major advantage of the redundant number system over the standard ripple-carry based arithmetic is that the propagation of carry is eliminated, resulting in a precision-independent computation time for addition. As labelled in Fig.~\ref{Fig:Radix2SD_adder}, ideally the computation delay of this adder is only 2 FA delays for any operand word-length, with the cost of one extra FA for each digit of operands. This makes the online adder suitable for building up more complex arithmetic operators such as multipliers to accelerate the sum of partial products \cite{RedundantMult_1987}.
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=.5\textwidth]{./Figures/SDAdder.pdf}
-    \vspace{-5ex}
-	\caption{An $N$-digit binary digit-parallel online adder with $(N+1)$-digit outputs. Both inputs and outputs are represented using SD representation.}
-    \vspace{2ex}
+	\includegraphics[width=.5\textwidth]{./Figures/SDAdder2.pdf}
+    \vspace{-6ex}
+	\caption{An $N$-digit binary digit-parallel online adder. Both inputs and outputs are represented using SD representation. Module 3:2 denotes the 3:2 compressor.}
+    %\vspace{2ex}
 	\label{Fig:Radix2SD_adder}
 \end{figure}
 
 %In Section~\ref{Sec:OA_FPGA}, we will present a novel method of mapping the digit parallel online adder efficiently on FPGAs using the built-in carry resources.
 
 \subsection{Binary Online Multiplication}
-Multiplication is another key arithmetic operator. Typically the online multiplication is performed in a recursive digit-serial manner, as illustrated in Algorithm~\ref{Algorithm:OnlineMult} \cite{Ercegovac_OnlineMult} where both inputs and outputs are $N$-digit number as given in~(\ref{Eq:Online_Operands}). For a given iteration $j$, the product digit $z_j$ is generated with MSD-first through a selection function $sel()$. For the radix $r$ and a chosen digit set, there exits an appropriate selection method and a value of $\delta$ which ensure convergence \cite{Ercegovac_OnlineMult}. As radix-2 is used most commonly in computer arithmetic, we keep $r=2$ throughout this paper with the corresponding redundant digit set $\{\overline{1},0,1\}$. In this case $sel()$ is given by (\ref{Eq:SelFunc_OM}) \cite{Oregon_OnlineNetwork}. Notice that the election is made only based on 1 integer bit and 1 fractional bit of $W_{[j]}$.
+Multiplication is another key arithmetic operator. Typically, online multiplication is performed in a recursive digit-serial manner, as illustrated in Algorithm~\ref{Algorithm:OnlineMult} \cite{Ercegovac_OnlineMult} where both inputs and outputs are $N$-digit numbers as given in~(\ref{Eq:Online_Operands}). For a given iteration $j$, the product digit $z_j$ is generated MSD-first through a selection function $sel()$. For any radix $r$ and chosen digit set, there exits an appropriate selection method and a value of $\delta$ which ensure convergence \cite{Ercegovac_OnlineMult}. As radix-2 is used most commonly in computer arithmetic, we keep $r=2$ throughout this paper with the corresponding redundant digit set $\{\overline{1},0,1\}$. In this case $sel()$ is given by (\ref{Eq:SelFunc_OM}) \cite{Oregon_OnlineNetwork}. Notice that the selection is based on 2 integer digits and 1 fractional digit of $W_{[j]}$.
 
 \begin{algorithm}[tbp]
   \caption{Online Multiplication}  \label{Algorithm:OnlineMult}
@@ -167,7 +171,7 @@ Multiplication is another key arithmetic operator. Typically the online multipli
     \For{$j=-\delta,~-\delta+1,~\cdots,~2N-1$}\vspace{.5ex}
         \State $H_{[j]} \leftarrow r^{-\delta}\left(x_{j+\delta+1}\cdot Y_{[j+1]}+y_{j+\delta+1}\cdot X_{[j]}\right)$\vspace{.5ex}
         \State $W_{[j]} \leftarrow P_{[j]} + H_{[j]}$\vspace{.5ex}
-        \State $Z_{[j]}~ \leftarrow sel(W_{[j]})$\vspace{.5ex}
+        \State $z_{j}~ \leftarrow sel(W_{[j]})$\vspace{.5ex}
         \State $P_{[j+1]} \leftarrow r\left(W_{[j]}-Z_{[j]}\right)$\vspace{.5ex}
     \EndFor
   \end{algorithmic}
@@ -183,11 +187,11 @@ Multiplication is another key arithmetic operator. Typically the online multipli
 %\normalsize
 \end{eqnarray}
 
-It is worth noting that the precision of the product $Z$ can be determined by directly truncating from the LSDs, as there is no carry propagations from the LSD to the MSD. This is useful especially when the multiplication product is used by successive computations, where only the first $N$ digits of the results are normally used \cite{Online_Truncation}. In comparison, the product is generated starting from the LSD with conventional arithmetic. Hence the successive operations cannot commence until the full-precision result is generated. This feature of online arithmetic has inspired research about dynamically control of computation precision in numerous applications.
+It is worth noting that the precision of the product $Z$ can be determined by directly truncating from the LSDs, since there is no carry propagations from the LSD to the MSD. This is useful especially when the multiplication product is used by successive computations, where only the first $N$ digits of the results are normally used. In comparison, the product is generated starting from the LSD with conventional arithmetic. Hence the successive operations cannot commence until the result with full-precision is generated. This feature of online arithmetic has inspired research about dynamically control of computation precision in numerous applications~\cite{Online_Truncation}.
 
 %Since there is no carry chain propagating from the LSD to the MSD, the precision of the results can be selected by directly truncating from the LSDs.
 
-In Section~\ref{Sec:OM_FPGA}, we will first describe an optimized online multiplication algorithm and its FPGA implementation, which are designed specifically targeting on digit parallel operations. Then we provide a modified structure which only generates the most significant half the products, in order to achieve extra area savings.
+In Section~\ref{Sec:OM_FPGA}, we will first describe an optimized online multiplication algorithm and its FPGA implementation, which are designed specifically targeting on digit parallel operations. Then we provide a modified structure which only generates the most significant half of the product in order to achieve extra area savings.
 
 %\subsection{FPGA Architecture}
 
@@ -198,76 +202,81 @@ There has been previous works about FPGA implementation of digit parallel online
 
 \begin{enumerate}
     \item efficient mapping of the digit-parallel online adder onto sophisticated FPGAs resources \cite{FPT09RA,ASAP09RA};
-    \item multiple operands addition by designing compressor trees based on bit counters \cite{TC13RA,ASPDAC10RA_FPGA};
+    \item multiple operands addition by designing compressor trees based on bit counters \cite{TC13RA,CSMult_CounterArray};
     \item modifying existing FPGA architecture for more efficient digit-parallel online addition \cite{DAC07_CounterTree} and for specific applications \cite{FPL09_onlineCCM}.
 \end{enumerate}
 
-Type 2 and type 3 are beyond the scope of this paper, as our interests are in the field of two-operand online addition that performs $Z=X+Y$, as shown in Fig.~\ref{Fig:Radix2SD_adder}, and we are using the main-stream FPGAs for implementation.
+Type 2 examines the use of counters to sum $k$ $N$-digit numbers where $k>2$. Instead, we focus on two-operand online addition that performs $Z=X+Y$, as shown in Fig.~\ref{Fig:Radix2SD_adder}. In comparison to type 3, this paper attempts to obtain the best performance from mainstream FPGAs instead of suggesting ways to modifying the FPGA fabric.
 
-Specifically in type 1, both works took advantage of the built-in carry resources in FPGAs. Conventionally the ASIC implementation of online adders is based on the 4:2 compressors, as shown within the gray background in Fig.~\ref{Fig:PreviousWork}. However, directly applying this approach in the FPGAs could be less efficient. This is because there is no carry propagation between the 2 full adders within a 4:2 compressor, and the net delay between them can be large. Instead, Kamp et al and Ortiz et al described very similar mapping techniques for online adders with 2 different data representations, respectively. The main idea is to map the logic block within the dotted circle in Fig.~\ref{Fig:PreviousWork}. In this case, the fast-carry logic in the FPGA can be employed, and the delay between the 2 FAs is largely reduced.
+Specifically in type 1, both works took advantage of the built-in carry resources in FPGAs. Conventionally the ASIC implementation of online adders is based on the 4:2 compressors, as outlined in Fig.~\ref{Fig:PreviousWork} within the gray background. However, directly applying this approach in the FPGAs could be less efficient. This is because there is no carry propagation between the 2 FAs within a 4:2 compressor, and the net delay between them can be large. Instead, Kamp et al \cite{FPT09RA} and Hormigo et al \cite{ASAP09RA} described very similar mapping techniques for online adders with SD representations and CS representations, respectively. They share the common idea that maps the logic block (\texttt{LB}) within the dotted circle in Fig.~\ref{Fig:PreviousWork}. In this case, the fast-carry logic in the FPGA can be employed, and the delay between the 2 FAs can be largely reduced.
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=.5\textwidth]{./Figures/SDAdder_42comp_Spartan.pdf}
-	\caption{Map the online adder onto Spartan FPGAs using the fast-carry resources. The grey background highlights the 4:2 compressor. Dotted circle indicates the logic block (LB) which can be mapped to the FPGA carry resources.}
+	\includegraphics[width=.5\textwidth]{./Figures/SDAdder_42comp_Spartan2.pdf}
+	\caption{Map the online adder onto Spartan FPGAs using the fast-carry resources. The grey background highlights the 4:2 compressor. Dotted circle indicates the logic block (LB) which can be mapped to the FPGA using the carry resources.}
 	\label{Fig:PreviousWork}
 \end{figure}
 
-However, we notice the major limitations of both approaches that they only target on FPGAs with 4-input LUTs and 2 LUTs within a logic slice, such as the Xilinx Spartan series and the Altera Cyclone series. This is naturally reasonable because one LB can be mapped to a single slice. Nevertheless, for FPGAs with 6-input LUTs (6-LUT) and 4 LUTs in a slice, such as the Xilinx Virtex series and all Xilinx 7 series FPGAs, directly applying the approaches in \cite{FPT09RA} or \cite{ASAP09RA} will result in either resource waste or logic fault. For instance, if two logic blocks are mapped to a slice with 4 LUTs as seen in Fig.~\ref{Fig:PreWorkVirtex6}, the outputs of \texttt{LB1} will be faulty because the its carry input cannot be explicitly initialized.
+However, we notice the major limitations of both approaches that they only target on FPGAs with 4-input LUTs (4-LUT) and 2 LUTs within a logic Slice, such as the Xilinx Spartan series and the Altera Cyclone series. This is naturally reasonable because one \texttt{LB} can be mapped to a single Slice. Nevertheless, for FPGAs with 6-input LUTs (6-LUT) and 4 LUTs in a Slice, such as the Xilinx Virtex series and all Xilinx 7 series FPGAs, directly applying these approaches will result in either resource waste or logic fault. For instance, if two \texttt{LB}s are mapped to a Slice with 4 LUTs as seen in Fig.~\ref{Fig:PreWorkVirtex6}, the outputs of \texttt{LB1} will be faulty because the its carry input cannot be explicitly initialized. Due to the same reason, the output of \texttt{XORCY2} should not be used.
 
 \begin{figure}[tbp]
 	\centering
 	\includegraphics[width=.45\textwidth]{./Figures/SDadder_FastCarry_PreviousWork.pdf}
 	\caption{An example illustrating that direct applying approaches in \cite{FPT09RA} on a Virtex-6 FPGA will results in faulty outputs, because the carry input of \texttt{LB1} cannot be explicitly initialized.}
 	\label{Fig:PreWorkVirtex6}
+    %\vspace{-2ex}
 \end{figure}
 
 \subsection{Proposed Mapping Method}
 To tackle this problem, we first modify the structure of the online adder to enable an efficient FPGA mapping. The structure of a 4-digit online adder is given as an example in Fig.~\ref{Fig:ModifiedOA}. In this equivalent structure, the first FA in each 4:2 compressor is split into 2 parts, which only generate carry and sum respectively. In this case they can be mapped individually on 2 LUTs. The second FA, which generates the outputs, is unchanged and can be implemented using the fast-carry logic.
 
 
-%propose an alternative mapping method that targets on the slice containing 4 LUTs such as the Xilinx Virtex series and all Xilinx 7 series FPGAs.
+%propose an alternative mapping method that targets on the Slice containing 4 LUTs such as the Xilinx Virtex series and all Xilinx 7 series FPGAs.
 
 \begin{figure*}[tbp]
 	\centering
-	\includegraphics[width=.85\textwidth]{./Figures/SDadder_FPGA_New_4digit.pdf}
-	\caption{Modified structure of online adder. Left: an example of 4-digit online adder. The shaded part refers to the 2 logic blocks (LBs) that can be mapped onto 1 slice. Right: one LB. the dotted box outlines the logic that can be mapped onto 1 LUT and the corresponding fast-carry logic.}
+	\includegraphics[width=.85\textwidth]{./Figures/SDadder_FPGA_New_4digit2.pdf}
+	\caption{Modified structure of online adder. Left: an example of 4-digit online adder. The shaded part refers to the 2 logic blocks (LBs) that can be mapped onto 1 Slice. Right: one LB. The dotted box outlines the logic that can be mapped onto 1 LUT and the corresponding fast-carry logic.}
+	\vspace{-1ex}	
 	\label{Fig:ModifiedOA}
 \end{figure*}
 
-The detailed slice mapping of the 2 LBs is shown in Fig.~\ref{Fig:SliceNew}. The I/O signals are identical to the previous example in Fig.~\ref{Fig:ModifiedOA}. It can be seen that a 6-LUT can be configured with two different output ports O6 and O5. For LB1, the carry input can be initialized by setting the O6 of LUT2 equal to 0 constantly. In this case, the output of MUXCY2 is O5 of LUT2, and the carry from LB2 will not affect the results of LB1. Using this mapping method the resources within 1 slice can be fully utilized, potentially leads to significant area reduction.
+The detailed Slice mapping of the 2 \texttt{LB}s and the logic in each LUT are shown in Fig.~\ref{Fig:SliceNew}. The I/O signals are identical to the previous example in Fig.~\ref{Fig:ModifiedOA}. Normally 6-LUT can be configured with two different output ports \texttt{O6} and \texttt{O5}. For \texttt{LB1}, the carry input can be initialized by setting the \texttt{O6} of LUT2 to 0. In this case, the output of \texttt{MUXCY2} is always \texttt{O5} of LUT2, and the carry from \texttt{LB2} will not affect the result of \texttt{LB1}. For those logics to generate the MSD and the LSD, they can be combined into 1 Slice as observed from Fig.~\ref{Fig:ModifiedOA}. Therefore using this mapping method the resources within 1 Slice can be fully utilized, leading to a significant area reduction.
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=.5\textwidth]{./Figures/SDadder_FastCarry_New.pdf}
-	\caption{Implementation of 2 logic blocks (LBs) in 1 FPGA slice which contains four 6-LUTs. NC stands for ``Not Care''.}
+	\includegraphics[width=.5\textwidth]{./Figures/SDadder_FastCarry_New2.pdf}
+	\caption{Implementation of 2 logic blocks (LBs) in 1 FPGA Slice which contains four 6-LUTs. NC stands for ``Not Care''.}
+	%\vspace{-1ex}	
 	\label{Fig:SliceNew}
 \end{figure}
 
-In this mapping approach, the theoretical area figures of the online adder in terms of the number of LUTs and Slices with respect to the operand word-lengths ($N$) are given in (\ref{Eq:OAareaLUT}) and (\ref{Eq:OAareaSlice}), respectively.
+In this mapping approach, the area figures of the online adder in terms of the number of LUTs and Slices with respect to the operand word-lengths ($N$) are given in (\ref{Eq:OAareaLUT}) and (\ref{Eq:OAareaSlice}), respectively.
 \begin{eqnarray}\label{Eq:OAareaLUT}
-	OAarea\_LUT = 2N
+	OA\_LUT = 2N
 \end{eqnarray}
 %
 \begin{eqnarray}\label{Eq:OAareaSlice}
-	OAarea\_Slice = 1+\left\lceil\frac{N-2}{2}\right\rceil
+	OA\_Slice = 1+\left\lceil\frac{N-2}{2}\right\rceil
 \end{eqnarray}
 
 \subsection{Performance Analysis}\label{subsec:OA_Performance}
-In our experiments, we compare the proposed online adder (\texttt{OA\_new}) against the original design which is implemented using behavioural descriptions based on 4:2 compressors (\texttt{OA\_behv}). Notice that in order to utilize the carry resources and to avoid logic optimizations by the synthesis tool, the Xilinx primitive component "\texttt{Carry4}" is used to create \texttt{OA\_new}. In addition, we also include ripple carry adder (\texttt{RCA}) which uses conventional arithmetic, into the comparisons. All designs are targeting on Xilinx Virtex-6 FPGA with speed grade -1.
+In our experiments, we compare the proposed online adder (\texttt{OA\_new}) against the original design which is implemented using behavioural descriptions based on 4:2 compressors (\texttt{OA\_behv}).  In addition, we also include ripple carry adder (\texttt{RCA}) which uses conventional arithmetic, into the comparisons. All designs are targeting on Xilinx Virtex-6 FPGA with speed grade -1. Notice that in order to utilize the carry resources and to avoid logic optimizations by the synthesis tool, the Xilinx primitive component ``\texttt{Carry4}" is used to create \texttt{OA\_new}.
 
 
-We record the rated frequencies of all designs when varying the operand word-lengths. The results are shown in Fig.~\ref{Fig:AdderFreq}. The frequency values are obtained through Xilinx Timing Analyzer after placing and routing the designs in ISE 14.1. It can be seen that both designs with online arithmetic achieves relatively stable operating frequencies across a variety of operand word-lengths. This is as expected, because the critical path delay in the online adder is ideally a fixed value and it is irrelevant to the operand precisions. In comparison, the rated frequency of \texttt{RCA} drops drastically for larger designs. In this case, both online adders will eventually outperform \texttt{RCA}. However our approach operates constantly faster than \texttt{OA\_behv} for any operand word-length. The speed-ups of \texttt{OA\_new} over \texttt{OA\_behv} are from $20\%$ to $26\%$.
+We record the rated frequencies of all designs when varying the operand word-lengths. The results are shown in Fig.~\ref{Fig:AdderFreq}. The frequency values are obtained through Xilinx Timing Analyzer after placing and routing the designs in ISE 14.1. It can be seen that both designs with online arithmetic achieves relatively stable operating frequencies across a variety of operand word-lengths. This is as expected, because the critical path delay in the online adder is theoretically a fixed value and it is irrelevant to the operand precisions. In comparison, the rated frequency of the \texttt{RCA} drops drastically for larger word-lengths. It follows that both online adders outperform \texttt{RCA} for large word-lengths. Furthermore, our approach operates faster than \texttt{OA\_behv}; the speed-ups of \texttt{OA\_new} over \texttt{OA\_behv} are from $20\%$ to $26\%$.
 
 \begin{figure}[tbp]
 	\centering
 	\includegraphics[width=.45\textwidth]{./Figures/Exp/Adder_Freq.eps}
 	\caption{Rated frequencies of the RCA and the online adder with different implementation methods. The results are obtained from post place and route timing reports in ISE 14.1.}
 	\label{Fig:AdderFreq}
+	\vspace{-1ex}
 \end{figure}
 
 
-We compare the resource usages of all three adder designs with respect to a variety of operand word-lengths. The results are shown in Fig.\ref{Fig:AdderArea}. The theoretical area budgets of the online adder predicted by (\ref{Eq:OAareaLUT}) and (\ref{Eq:OAareaSlice}) are also plotted with dotted lines in Fig.\ref{Fig:AdderArea}. Several observations can be made from the results. Firstly the predicted resource usages of both LUTs and Slices match well the results obtained from real implementations. Secondly it can be seen that the behavioural implementation \texttt{OA\_behv} is not area efficient for FPGAs, because the dedicated FPGA resources are not fully utilized. In comparison, our implementation \texttt{OA\_new} achieves significant area savings: $25\%\sim 33\%$ in LUTs and $67\%\sim77\%$ in Slices. Thirdly, our design still costs more area than \texttt{RCA}, with the area overhead of $80\%\sim98\%$ in terms of LUTs, and $0\%\sim88\%$ in terms of Slices. This is because for a single adder, the area overhead brought by the redundant number representations cannot be removed. However research has shown that this overhead can be reduced for multiple-operand adders or adder trees [xxx].
+We also compare the resource usages of all three adder designs with respect to a variety of operand word-lengths. The results are presented in Fig~\ref{Fig:AdderArea}. We can see that in comparison to the original \texttt{OA\_behv}, our implementation \texttt{OA\_new} achieves significant area savings: $25\%\sim 33\%$ in LUTs and $67\%\sim77\%$ in Slices. This is because the dedicated FPGA resources are fully utilized. However, our design still costs more area than an \texttt{RCA}, with an area overhead of $80\%\sim98\%$ in terms of LUTs, and up to $88\%$ in terms of Slices. This is because for a single adder, the area overhead brought by the redundant number representations cannot be removed. 
+%However research has shown that this overhead can be reduced for multiple-operand adders or adder trees [xxx].
 
 \begin{figure}[tbp]
   %\vspace{-2.5ex}
@@ -275,21 +284,21 @@ We compare the resource usages of all three adder designs with respect to a vari
   \subfigure[]{
   \begin{minipage}{0.45\textwidth}
     %\centering
-    \includegraphics[width=.95\textwidth]{./Figures/Exp/Adder_LUTs2.eps}
+    \includegraphics[width=.95\textwidth]{./Figures/Exp/Adder_LUTs3.eps}
     \vspace{1ex}
   \end{minipage}%
   }
   \subfigure[]{
   \begin{minipage}{0.45\textwidth}
     %\centering
-    \includegraphics[width=.95\textwidth]{./Figures/Exp/Adder_Slices2.eps}
+    \includegraphics[width=.95\textwidth]{./Figures/Exp/Adder_Slices3.eps}
     \vspace{1ex}
   \end{minipage}
   }
   %\vspace{-3ex}
   \caption{Area comparisons of different binary adder implementations with respect to a variety of operand word-lengths. (a) Usage of LUTs. (b) Usage of Slices.}
   \label{Fig:AdderArea}
-  %\vspace{-2ex}
+  \vspace{-1ex}
 \end{figure}
 
 
@@ -299,11 +308,11 @@ We compare the resource usages of all three adder designs with respect to a vari
 
 \section{Digit Parallel Online Multiplier on FPGAs}\label{Sec:OM_FPGA}
 \subsection{Algorithm of Digit Parallel Online Multiplication}
-Algorithm \ref{Algorithm:OnlineMult} as described in Section~\ref{Sec:Background} can be synthesized into a unrolled digit parallel structure. Recent study has shown that the digit-parallel online multiplier (\texttt{OM}) is more tolerant to timing violations in comparison to the conventional arithmetic, because timing errors initially affect the least significant digits and this will lead to small error magnitude~\cite{SKDAC14}. This implementation method is straightforward and can be directly utilized to design other digit parallel online operators.
+Algorithm \ref{Algorithm:OnlineMult} as described in Section~\ref{Sec:Background} can be synthesized into a unrolled digit parallel structure. A recent study has shown that the digit-parallel online multiplier (\texttt{OM}) is also more tolerant to timing violations in comparison to the conventional arithmetic, because timing errors initially affect the LSDs and this will lead to smaller error magnitude~\cite{SKDAC14}. %This implementation method is straightforward and can be directly utilized to design other digit parallel online operators.
 
-On the other hand, significant area budget is required in order to implement this type of \texttt{OM}. Typically this is due to three main reasons. First, in comparison to the conventional multiplier, more iteration stages are needed. For instance in an $N$-digit \texttt{OM}, totally $(2N+\delta)$ iterations are required to generate $2N$ digits outputs, while $(N+\delta)$ iterations to generate the most significant $N$ digits result. Second, the logic of each stage is complex as it involves operations such as online addition, digit-vector multiplication, shifting and other combination logic blocks such as the selection function. Besides, the word-length of signals $H_{[j]}$, $W_{[j]}$ and $P_{[j]}$ is $(N+2+\delta)$, because the selection function needs 2 integer digits as well as 1 fraction digits to generate $z_j$, as described in Section~\ref{Sec:Background}. Whereas in an $N$-digit array multiplier, there are only $(N-1)$ rows, each of which is basically an $N$-digit ripple-carry adder. Third, this \texttt{OM} architecture is not optimized specifically for FPGA technology.
+However, significant area overhead is required in order to implement this type of \texttt{OM}, due to three main reasons. First, in comparison to the conventional multiplier, more iteration stages are needed. For instance in an $N$-digit \texttt{OM}, $(2N+\delta)$ iterations are required to generate $2N$ digits outputs, or $(N+\delta)$ iterations are required to generate the most significant $N$ digits. Second, the logic of each stage is complex as it involves operations such as online addition, digit-vector multiplication, shifting and other combinational logic blocks such as the selection function. Also, the word-length of signals $H_{[j]}$, $W_{[j]}$ and $P_{[j]}$ is $(N+2+\delta)$, because the selection function needs 2 integer digits and 1 fractional digit to generate $z_j$, as described in Section~\ref{Sec:Background}. In comparison, an $N$-digit array multiplier, there are only $(N-1)$ rows, each of which is basically an $N$-digit ripple-carry adder. Third, this \texttt{OM} architecture is not optimized specifically for FPGA technology.
 
-We address the first 2 design issues by providing an alternative online multiplication algorithm. Instead of simply implementing the unrolled format of Algorithm \ref{Algorithm:OnlineMult}, it can be optimized specifically for digit parallel operations. We notice that the online delay $\delta$ is employed in Algorithm~\ref{Algorithm:OnlineMult} because the input data are available in a digit serial fashion. Hence $\delta$ is used to accumulate enough input digits to generate the MSD of the result. Nevertheless if all digits of inputs are given simultaneously, $\delta$ is no longer necessary. Due to the same reason, $H[j]$, which takes one digit of each input per stage as shown in the original algorithm, can be optimized to take one partial product $Xy_j$ or $Yx_j$ per stage. To summarize, the modified algorithm for digit parallel online multiplication is described in Algorithm~\ref{Algorithm:OM_DigitParallel}, where $N$ denotes the operand word-length, function $frac(W_{[N]})$ refers to select the fractional digits of $W_{[N]}$, and the selection function $sel()$ is given previously in (\ref{Eq:SelFunc_OM}).
+We address the first two design issues by providing an alternative online multiplication algorithm. Instead of simply implementing the unrolled format of Algorithm \ref{Algorithm:OnlineMult}, it can be optimized specifically for digit parallel operations. We notice that the online delay $\delta$ is employed in Algorithm~\ref{Algorithm:OnlineMult} because the input data is available in a digit serial fashion. Hence $\delta$ is used to accumulate enough input digits to generate the MSD of the result. Nevertheless if all digits of the inputs are available simultaneously, then the delay $\delta$ is no longer necessary. For the same reason, $H[j]$, which takes one digit of each input per stage as shown in the original algorithm, can be optimized to take one partial product $Xy_j$ or $Yx_j$ per stage. To summarize, the modified algorithm for digit parallel online multiplication is described in Algorithm~\ref{Algorithm:OM_DigitParallel}, where $N$ denotes the operand word-length, function $frac(W_{[N]})$ refers to select the fractional digits of $W_{[N]}$, and the selection function $sel()$ is given previously in (\ref{Eq:SelFunc_OM}).
 
 \begin{algorithm}[tbp]
   \caption{Digit Parallel Online Multiplication}\label{Algorithm:OM_DigitParallel}
@@ -319,55 +328,59 @@ We address the first 2 design issues by providing an alternative online multipli
   \end{algorithmic}
 \end{algorithm}
 
-In comparison to Algorithm~\ref{Algorithm:OnlineMult}, the maximum stages required to generate results with full precision drops by a factor of 2 using the proposed new algorithm. In each stage, the word-length of all signals also reduces from $(N+2+\delta)$ to $(N+2)$, as $\delta$ is not necessary for digit parallel operations. In addition, the $frac()$ function can be implemented only based on wire connections without using other logic resources.
+In comparison to Algorithm~\ref{Algorithm:OnlineMult}, the maximum number of stages required to generate results with full precision drops by a factor of 2 using the proposed new algorithm. In each stage, the word-length of all signals also reduces from $(N+2+\delta)$ to $(N+2)$, as $\delta$ is not necessary for digit parallel operations. In addition, the $frac()$ function can be implemented only based on wire connections without using other logic resources.
 
 \subsection{FPGA Implementation}
-We also explore an area efficient implementation of Algorithm~\ref{Algorithm:OM_DigitParallel} on FPGAs. For example, the general structure diagram of a 4-digit \texttt{OM} using the proposed algorithm is shown in Fig.~\ref{Fig:PMStructure}(a), and the structure diagram of stage $j$ is shown in Fig.~\ref{Fig:PMStructure}(b) with the word-lengths of all signals labelled. Area optimizations can be performed on all modules. It can be seen that in each stage, an $N+2$-digit online adder is used to derive $W_{[j]}$. Our proposed online adder architecture can be employed. The selection logic takes 3 digits input (6 bits) and generate 1 digit output (2 bits). Hence it can be implemented using two 6-LUTs for each output bit. Similarly the generation of $P_{[j]}$ can also be implemented using one 6-LUT, since only the integer digits of $W_{[j]}$ need to be modified due to the selection of $Z_{[j]}$. In addition, the structure of Stage 1 can be further optimized by removing the online adder, because $P_{[0]}=0$.
-
+We now present an area efficient implementation of Algorithm~\ref{Algorithm:OM_DigitParallel} on FPGAs. For example, the general structure diagram of a 4-digit \texttt{OM} using the proposed algorithm is shown in Fig.~\ref{Fig:PMStructure}(a), and the structure diagram of a single stage $j$ is shown in Fig.~\ref{Fig:PMStructure}(b) with the word-lengths of all signals labelled. Area optimizations can be performed on all modules. It can be seen that in each stage, an $N+2$-digit online adder is used to derive $W_{[j]}$. Our proposed online adder architecture can be employed. The selection logic takes 3 input digits (6 bits) and generate 1 output digit (2 bits). Hence it can be implemented using two 6-LUTs for each output bit. Similarly the generation of $P_{[j]}$ can also be implemented using one 6-LUT, since only the integer digits of $W_{[j]}$ need to be modified due to the selection of $Z_{[j]}$. In addition, the structure of Stage 1 in Fig~\ref{Fig:PMStructure}(a) can be further optimized by removing the online adder, because $P_{[0]}=0$.
+%
 \begin{figure}[tbp]
 	\centering
 	\includegraphics[width=.5\textwidth]{./Figures/ParallelMult_Structure.pdf}
 	\caption{(a) Structural diagram of a 4-digit online multiplier using the proposed algorithm. (b) Structure of one stage. The word-length of all signals are labelled in terms of the number of digits. $N$ denotes the word-length of the input signals.}
 	\label{Fig:PMStructure}
+	\vspace{-1ex}
 \end{figure}
 
-The blocks that generate partial products $Xy_j$ can be incorporated into the online adder with 6-LUT for further area reduction. In the online adder structure as presented in Fig.~\ref{Fig:SliceNew}, only 4 inputs per LUT are used to the maximum. This leaves 2 available inputs per LUT. In order to generate 1 digit partial product, 1 digit of inputs $X$ and $Y$ are required respectively, as indicated in Fig.~\ref{Fig:PartialProduct}. Therefore instead of using extra logic to generate $Xy_j$, it can be merged into the corresponding LUTs in the online adder by fully utilizing all 6 LUT inputs. Notice that this approach is only available for FPGAs with 6-LUTs.
-
+The blocks that generate partial products $Xy_j$ can be incorporated into the online adder for further area reduction. In the online adder structure as presented in Fig.~\ref{Fig:SliceNew}, we notice that only 4 inputs per LUT are used. This leaves at least 2 available inputs per LUT. Originally in order to generate 1 digit partial product, 1 digit of inputs $X$ and $Y$ are required respectively, as indicated in Fig.~\ref{Fig:PartialProduct}. Instead of using extra logic to generate $Xy_j$, it can be merged into the corresponding LUTs in the online adder by fully utilizing all 6 LUT inputs. Notice that this approach is only available for FPGAs with 6-LUTs.
+%
 \begin{figure}[tbp]
 	\centering
 	\includegraphics[width=.4\textwidth]{./Figures/PartialProduct.pdf}
+	\vspace{-1ex}
 	\caption{Left: Direct implementation with extra logic to generate partial products. Right: Combining the logic blocks that generate partial products into the Online Adder by fully utilizing all the inputs of the 6-LUTs. In this case, further area reduction can be achieved.}
 	\label{Fig:PartialProduct}
+	\vspace{-1ex}
 \end{figure}
 
-The theoretical minimum resource usages of the proposed \texttt{OM} can be calculated as follows. In an $N$-digit \texttt{OM}, overall $N-1$ online adders are needed. According to Algorithm~\ref{Algorithm:OM_DigitParallel}, the word-length of each online adder is $(N+2)$-digit (2 integer digits and $N$ fractional digits). Therefore based on (\ref{Eq:OAareaLUT}) and (\ref{Eq:OAareaSlice}), the number of LUTs and the number of Slices used by the \texttt{OM} is given in (\ref{Eq:OMareaLUT}) and (\ref{Eq:OMareaSlice}), respectively. Note that $L_{S1}$ and $S_{S1}$ denote the LUT and Slice usages of the first stage, which is purely built with combinational logic without online adders.
-
+The theoretical minimum resource uses of the proposed \texttt{OM} can be calculated as follows. In an $N$-digit \texttt{OM}, overall $(N-1)$ online adders are needed. According to Algorithm~\ref{Algorithm:OM_DigitParallel}, the word-length of each online adder is $(N+2)$-digit (2 integer digits and $N$ fractional digits). Therefore based on (\ref{Eq:OAareaLUT}) and (\ref{Eq:OAareaSlice}), the number of LUTs and the number of Slices used by the \texttt{OM} is given in (\ref{Eq:OMareaLUT}) and (\ref{Eq:OMareaSlice}), respectively. Note that $L_{S1}$ and $S_{S1}$ denote the number of LUTs and Slices used by the first stage, which is built without online adders.
+%
 \begin{eqnarray}\label{Eq:OMareaLUT}
-	OMarea\_{LUT} = 2(N+2)(N-1) + {L}_{S1}
+	OM\_{LUT} = 2(N+2)(N-1) + {L}_{S1}
 \end{eqnarray}
-
+%
 \begin{eqnarray}\label{Eq:OMareaSlice}
-	OMarea\_{Slice} = (1+\left\lceil{\frac{N}{2}}\right\rceil)(N-1)+S_{S1}
+	OM\_{Slice} = (1+\left\lceil{\frac{N}{2}}\right\rceil)(N-1)+S_{S1}
 \end{eqnarray}
 
 \subsection{Structure Optimization for the MSD Half of the Results}
-As discussed before in Section~\ref{Sec:Background}, normally the multiplier is connected with other arithmetic operators in real applications. If the outputs of a multiplier is utilized for subsequent operations, only the most significant half of the products are required to maintain the consistency of word-length between inputs and outputs of the system. In the conventional multiplier with standard binary arithmetic, this is achieved by either truncating or rounding the least significant half of the products. However both the computation time and the structure remains unchanged, because the results are generated from LSDs.
+As discussed before, normally the multiplier is connected with other arithmetic operators in real applications. If the outputs of a multiplier is utilized for subsequent operations, and it is chosen to main the consistency of word-length between the I/Os of the system, then only the most significant half of the products are required. In a conventional multiplier with standard binary arithmetic, this is achieved by either truncating or rounding the least significant half of the products. However, both the computation time and the structure remains unchanged, because the results are generated from LSDs.
 
-In comparison, the online multiplier offers the flexibility to simplify the structure correspondingly without affecting accuracy, if only the MSD half of the results are required. This is possible because in the \texttt{OM}, the product digits are generated initially from the MSD, and there is no carry propagation from the LSD to the MSD as described previously. This will potentially lead to a more area efficient design. For example, the modified structure diagram of a 4-digit \texttt{OM} is illustrated in Fig.~\ref{Fig:PMStructure_MSDhalf}(a). The word-length of all signals within each stage can be correspondingly reduced, as shown in Fig.~\ref{Fig:PMStructure_MSDhalf}(b). It can be seen that instead of keeping identical word-length throughout all stages, as shown in Fig.~\ref{Fig:PMStructure}, in the modified structure the signal word-lengths depend on the stage number $j$ and fewer bits of signals are needed for LSD stages.
+In comparison, the online multiplier offers the flexibility to simplify the structure corresponding to the required precision. This is possible because in an \texttt{OM}, the product digits are generated initially from the MSD, and there is no carry propagation from the LSD to the MSD with the employment of the redundant number system. This will potentially lead to a more area efficient design. For example, the modified structure diagram of a 4-digit \texttt{OM} is illustrated in Fig.~\ref{Fig:PMStructure_MSDhalf}(a). The word-length of all signals within each stage can be correspondingly reduced, as shown in Fig.~\ref{Fig:PMStructure_MSDhalf}(b). It can be seen that instead of keeping identical word-length throughout all stages, as shown in Fig.~\ref{Fig:PMStructure}, in the modified structure the signal word-lengths depend on the stage number $j$ and fewer bits of signals are needed for LSD stages.
 
 \begin{figure}[tbp]
 	\centering
 	\includegraphics[width=.5\textwidth]{./Figures/ParallelMult_MSDhalf.pdf}
 	\caption{(a) Modified structure of a 4-digit online multiplier which only generates the most significant 4-digit result. (b) Structure diagram of stage $j$, with the word-lengths of all internal signals labelled.}
 	\label{Fig:PMStructure_MSDhalf}
+	\vspace{-2ex}
 \end{figure}
 
 \subsection{Performance Analysis}
-Similar to the experiments as described in Section~\ref{subsec:OA_Performance}, we compare the online multiplier which is implemented to derive full precision results using behavioral descriptions (\texttt{OM\_initial}) against the proposed 2 types of multipliers, which are implemented to generate products with full precision (\texttt{OM\_full}) and half precision (\texttt{OM\_half}), respectively. In addition, we also incorporate multipliers with conventional binary arithmetic, and it is created using the Xilinx Core Generator. The \texttt{CoreGen} multiplier is implemented based on LUTs without DSPs, and it is configured with speed optimization \cite{XilinxMult}.
+Similar to the experiments as described in Section~\ref{subsec:OA_Performance}, we compare the online multiplier based on behavioral descriptions (\texttt{OM\_initial}) against the proposed 2 types of multipliers, which are implemented to generate products with full precision (\texttt{OM\_full}) and half precision (\texttt{OM\_half}), respectively. In addition, we also compare the \texttt{OM} with the conventional binary arithmetic multiplier. The conventional multiplier is created using the Xilinx Core Generator with speed optimization~\cite{XilinxMult}, and it is implemented based on LUTs without DSPs.
 
-The comparison of area in terms of the cost of LUTs and the cost of Slices with respect to different operand word-lengths are illustrated in Fig.~\ref{Fig:OMArea}. The results are obtained from ISE 14.1 after mapping the design to the Virtex-6 FPGA. The area predictions for \texttt{OM\_full} from (\ref{Eq:OMareaLUT}) and (\ref{Eq:OMareaSlice}) are also included in both figures. Again we can see that the predicted resource usages match well with practical implementations. In comparison to \texttt{OM\_initial}, clearly significant area savings can be obtained by the optimized design \texttt{OM\_full}. Specifically, the LUTs usage and Slices usage drops $2.44\times\sim3.34\times$ and $3.19\times\sim5.45\times$, respectively.
+The comparison of area in terms of the cost of LUTs and the cost of Slices with respect to different operand word-lengths are illustrated in Fig.~\ref{Fig:OMArea}. The results are obtained from ISE 14.1 after mapping the design to the Virtex-6 FPGA. In comparison to \texttt{OM\_initial}, significant area savings have been obtained by the optimized design \texttt{OM\_full}. Specifically, the LUTs and Slice utilization drops $2.44\times\sim3.34\times$ and $3.19\times\sim5.45\times$, respectively.
 
-In comparison to the \texttt{CoreGen} multiplier, the area overheads of \texttt{OM\_full} are $48\%\sim84\%$ for LUTs, and $0\%\sim83\%$ for Slices. On the other hand, the \texttt{OM\_half} achieves area reductions for all operand word-lengths when compared against the \texttt{CoreGen} multiplier. The area saving varies from $40\%$ to $55\%$ for LUTs, and $46\%\sim55\%$ for Slices.
+In comparison to the \texttt{CoreGen} multiplier, the area overheads of \texttt{OM\_full} are between $48\%$ and $84\%$ for LUTs and up to $83\%$ for Slices. On the other hand, the \texttt{OM\_half} achieves area reductions for all operand word-lengths when compared against the \texttt{CoreGen} multiplier. The area saving varies from $40\%$ to $55\%$ for LUTs, and $46\%$ to $55\%$ for Slices.
 
 \begin{figure}[tbp]
   %\vspace{-2.5ex}
@@ -375,14 +388,14 @@ In comparison to the \texttt{CoreGen} multiplier, the area overheads of \texttt{
   \subfigure[]{
   \begin{minipage}{0.47\textwidth}
     %\centering
-    \includegraphics[width=.95\textwidth]{./Figures/Exp/OM_LUTslog.eps}
+    \includegraphics[width=.95\textwidth]{./Figures/Exp/OM_LUTslog2.eps}
     \vspace{1ex}
   \end{minipage}%
   }
   \subfigure[]{
   \begin{minipage}{0.47\textwidth}
     %\centering
-    \includegraphics[width=.95\textwidth]{./Figures/Exp/OM_Slicelog.eps}
+    \includegraphics[width=.95\textwidth]{./Figures/Exp/OM_Slicelog2.eps}
     \vspace{1ex}
   \end{minipage}
   }
@@ -392,7 +405,7 @@ In comparison to the \texttt{CoreGen} multiplier, the area overheads of \texttt{
   %\vspace{-2ex}
 \end{figure}
 
-We also check the rated frequencies of \texttt{OM\_full}, \texttt{OM\_half} and \texttt{CoreGen} for a variety of operand word-lengths. The frequency values are still obtained from the Xilinx Timing Analyzer. The results are plotted in Fig.\ref{Fig:OM_Freq}, from which we can see that there is an increasing gap between the online multipliers and the \texttt{CoreGen} multiplier, especially for large operand word-lengths. This might because in the online multiplier, although the carry resources in the FPGA are efficiently used, each 4-digit carry logic within a Slice is divided into two parts, as shown previously in Section~\ref{Sec:OA_FPGA}. Therefore the critical path delay of an \texttt{OM} is determined by both the carry logic delays, and the net delay among different stages, which is huge for large operand word-lengths. This also explains the fact that \texttt{OM\_full} and \texttt{OM\_half} run at similar frequencies, as the critical path of both designs are similar.
+We also check the rated frequencies of \texttt{OM\_full}, \texttt{OM\_half} and \texttt{CoreGen} for a variety of operand word-lengths. The frequency values are still obtained from the post place and route timing reports. Notice that input stimulus to the circuits are randomly sampled from a uniform distribution of $N$-digit numbers. The results are plotted in Fig.\ref{Fig:OM_Freq}, from which we can see that there is an increasing gap between the online multipliers and the \texttt{CoreGen} multiplier, especially for large operand word-lengths. This might because in the online multiplier, although the carry resources in the FPGA are efficiently used for area reduction, each 4-digit carry logic within a Slice is divided into two parts, as shown previously in Section~\ref{Sec:OA_FPGA}. Therefore the critical path delay of an \texttt{OM} is determined by both the carry logic delays, and the net delay among different stages, which is huge for large operand word-lengths. This also explains the fact that \texttt{OM\_full} and \texttt{OM\_half} run at similar frequencies, as the critical path of both designs are identical in theory.
 
 \begin{figure}[tbp]
 	\centering
@@ -402,19 +415,22 @@ We also check the rated frequencies of \texttt{OM\_full}, \texttt{OM\_half} and 
 
 \end{figure}
 
-However, we can take advantage of the ``overclocking friendly'' feature of the online arithmetic, and push the previous tests one step further by operating the circuits beyond their deterministic region while allowing timing violations to happen. In this case, we can examine the overclocking behavior of all 3 types of multipliers in terms of the mean relative error (MRE), which is given in (\ref{Eq:MRE})), where $E_{error}$ and $E_{out}$ refer to the mean value of error and the mean value of correct output, respectively.
+However, we can take advantage of the ``overclocking friendly'' feature of the online arithmetic, and push the previous tests one step further by operating the circuits beyond their deterministic region while allowing timing violations to happen. We examine the overclocking behavior of all 3 types of multipliers in terms of the mean relative error (\texttt{MRE}), which is given in (\ref{Eq:MRE}), where $E_{error}$ and $E_{out}$ refer to the mean value of error and the mean value of correct output, respectively.
 
 \begin{eqnarray}\label{Eq:MRE}
   MRE=\frac{E_{error}}{E_{out}}\times100\%
+  %\vspace{-1ex}
 \end{eqnarray}
 
-For instance, Fig.~\ref{Fig:PM_MRE} demonstrates the MRE of the 8-digit multipliers. Notice that the input data to the circuits are randomly sampled from a uniform distribution of $N$-digit numbers. We see that although the Timing Analyzer predicts slower frequencies for \texttt{OM}, it actually operates faster than \texttt{CoreGen} without the occurrence of timing errors. This is in accordance with the results seen in the previous work [xxx].
+For instance, Fig.~\ref{Fig:PM_MRE} demonstrates the \texttt{MRE} values of the 8-digit multipliers. We see that although the Timing Analyzer predicts slower frequencies for the \texttt{OM}s, they actually operate faster than \texttt{CoreGen} without the occurrence of timing errors. This is in accordance with the results seen in the previous work \cite{SKDAC14}.
 
 \begin{figure}[tbp]
   \centering
-  \includegraphics[width=.5\textwidth]{./Figures/Exp/MRE_PM.eps}
-  \caption{(a) Modified structure of a 4-digit online multiplier which only generates the most significant 4-digit result. (b) Structure diagram of stage $j$, with the word-lengths of all internal signals labelled.}
+  \includegraphics[width=.48\textwidth]{./Figures/Exp/MRE_PM.eps}
+ % \vspace{-1ex}
+  \caption{Mean relative errors seen at the outputs of different types of binary multipliers, when clocked with faster-than-rated frequencies.}
   \label{Fig:PM_MRE}
+  %\vspace{-1ex}
 \end{figure}
 
 
@@ -448,11 +464,9 @@ For instance, Fig.~\ref{Fig:PM_MRE} demonstrates the MRE of the 8-digit multipli
 
 
 \section{Conclusion}
-In this paper, we initially describe a novel methodology that can efficiently map digit parallel online adders onto FPGAs. We have shown the limitations of the previous works, and the approaches we use to tackle these limitations. The proposed mapping method is targeting on modern FPGAs, which are with 6-LUTs and 4 LUTs in a Slice, by fully utilizing the built-in carry resources. We have demonstrated analytically and experimentally that the proposed architecture is both area and performance efficient in comparison to the original design.
+In this paper, we initially describe a novel methodology that can efficiently map digit parallel online adders onto FPGAs. The proposed mapping method targets modern FPGAs, which have 6-input LUTs and 4 LUTs in a Slice, and fully utilizes the built-in carry resources. We have demonstrated analytically and experimentally that the proposed architecture is both area and performance efficient in comparison to the original design. We then propose an area efficient FPGA implementation of the online multiplier, which is specifically optimized for digit parallel operations. We have shown that this also obtains significant area reduction and frequency speed-ups.
 
-We then propose an area efficient FPGA implementation of the online multiplier, which is specifically optimized for digit parallel operations. We also shown that significant area reduction and frequency speed-ups can be obtained in the proposed new design.
-
-In the future we wish to explore alternative mapping methods for the online multiplier that can effectively use carry resources with long word-lengths to improve  its performance to a further extent.
+In the future we wish to explore alternative mapping methods for the online multiplier that can effectively use carry resources with long word-lengths to improve  its performance further. We would also like to combine the proposed online primitives into real-world applications.
 
 % conference papers do not normally have an appendix
 
