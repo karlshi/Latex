@@ -75,11 +75,8 @@
 
 
 % The paper headers
-\markboth{Journal of \LaTeX\ Class Files,~Vol.~11, No.~4, December~2012}%
+\markboth{Journal name,~Vol.~xx, No.~x, December~2014}%
 {Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for Journals}
-% The only time the second header will appear is for the odd numbered pages
-% after the title page when using the twoside option.
-% 
 
 
 
@@ -87,15 +84,12 @@
 % make the title area
 \maketitle
 
-% As a general rule, do not put math, special symbols or citations
-% in the abstract or keywords.
 \begin{abstract}
 
 \end{abstract}
 
-% Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
-
+Keywords
 \end{IEEEkeywords}
 
 
@@ -137,36 +131,26 @@ In this paper we provide a formal model of the Overclocking Error for the radix-
 
 
 
-\section{Background}\label{Sec:Background}
+\section{Background: Online Arithmetic}\label{Sec:Background}
+\subsection{Key Features of Online Arithmetic}
 
-Error models............(probably only \cite{onlinearith})..................
-
-
-\subsection{Radix-2 Digit-parallel Online Multiplier}
-
-Originally online arithmetic was designed for digit-serial operation. In order to generate the first output digit, $\delta$ digits of inputs are required. $\delta$ is known as the online delay, which is a constant, independent of the precision in a given operation. For ease of discussion, the input to our circuit is normalized to a fixed point number in the range $(-1,1)$. Based on this premise, the online representations of $N$-digit operands and result at iteration $j$ are given by (\ref{Eq:Online_Operands}) for $j\in[-\delta,N-1]$ and $r$ denotes the radix.
-
-
+Online arithmetic has been widely used in numerous applications such as signal processing and control algorithms [xxx]. Online arithmetic was originally designed for digit serial operation, as illustrated in Fig xx. It can be seen that in order to generate the first output digit, $\delta$ digits of inputs are required, where $\delta$ is called the ``online delay''. Normally $\delta$ a small constant, which is independent of the precision. For ease of discussion, for the rest of this paper, the input data is assumed to be fixed point numbers in the range $(-1,1)$. Based on this premise, the online representation of $N$-digit operands and result at iteration $j$ are given by (xx), where $j\in[-\delta,N-1]$ and $r$ denotes the radix [xxx].
 \begin{eqnarray}\label{Eq:Online_Operands}
 \footnotesize
   X_{[j]}=\sum_{i=1}^{j+\delta}x_ir^{-i},~Y_{[j]}=\sum_{i=1}^{j+\delta}y_ir^{-i},~Z_{[j]}=\sum_{i=1}^{j}z_ir^{-i}
 \normalsize
 \end{eqnarray}
 
+MSD first operation is possible only if a redundant number system is used. Normally there are two most commonly used redundant number representations: carry-save (CS) [xxx] and signed-digit (SD) [xx]. With SD representation, each digit is represented using a redundant digit set $\{-a,\cdots,-1,0,1,\cdots,a\}$ where $a\in[r/2,r-1]$. In comparison, the standard non-redundant representation only uses a digit set $\{0,\cdots, r−1\}$. Thus a standard number corresponds to several possible redundant representations. For example, the binary number $0.011$ can be represented in SD form as 0.111, 0.101 or 0.011 among many other possible representations.
+Due to the redundancy, the MSDs of the result can be calculated using partial information from both inputs. Then the value of the number can be revised using the subsequent digits, because each number has multiple representations.
 
-MSD-first operation in online arithmetic is possible because they adopt a redundant number system, in which each digit is represented with a redundant digit set $\{-a, \cdots,-1, 0, 1, \cdots, a\}$ where $a\in[r/2,r-1]$. Due to the redundancy, the MSDs of the result can be estimated only based on partial information of the inputs and then the value of the number can be revised by the following digits.
+\subsection{Binary Online Addition}
 
-Typically the online multiplication is performed in a recursive digit-serial manner, as illustrated in Algorithm \ref{Algorithm:OnlineMult} where both inputs and outputs are $N$-digit number as represented in~(\ref{Eq:Online_Operands}). For a given iteration $j$, the product digit $z_j$ is generated through a selection function $sel()$. For the radix $r$ and a chosen digit set, there exits an appropriate selection method and a value of $\delta$ which ensure convergence. As radix-2 is used most commonly in computer arithmetic, we keep $r=2$ throughout this paper with the corresponding redundant digit set $\{\overline{1},0,1\}$. In this case we have $\delta=3$, and $sel()$ is given by (\ref{Eq:SelFunc_OM}), from which it can be seen that the decision is made only based on 1 integer bit and 1 fractional bit of $W_{[j]}$.
-\begin{equation}\label{Eq:SelFunc_OM}
-\begin{array}{ll}
-  sel(W_{[j]})=
-    1 & if \ W_{[j]} \geq \frac{1}{2} \\
-    0 &  if  \ -\frac{1}{2}\leq W_{[j]}<\frac{1}{2} \\
-    \overline{1} & if \ W_{[j]}<-\frac{1}{2}
-\end{array}
-\end{equation}
+Adders serve as a critical building block for arithmetic operations. To perform digit-parallel online addition, a redundant adder can be used directly. The structure of an online adder where all signals represented with SD numbers of digit set $\{−1,0,1\}$ is shown in Fig. xxx. The module ``3:2'' denotes a 3:2 compressor, which takes three inputs and generates two outputs, and is logically equivalent to a full adder (FA). A major advantage of the redundant number system over the standard ripple-carry based arithmetic is that the propagation of carry is eliminated, resulting in a precision-independent computation time for addition. As labelled in Fig. xxx, ideally the computation delay of this adder is only two FA delays for any operand word-length, with the cost of one extra FA for each digit of operands. This makes the online adder suitable for building up more complex arithmetic operators such as multipliers to accelerate the sum of partial products [xx].
 
-\vspace{0.5cm}
+\subsection{Binary Online Multiplication}
+
+Multiplication is another key arithmetic operator. Typically, online multiplication is performed in a recursive digit-serial manner, as illustrated in Algorithm \ref{Algorithm:OnlineMult} where both inputs and outputs are $N$-digit number as represented in~(\ref{Eq:Online_Operands}). For a given iteration $j$, the product digit $z_j$ is generated through a selection function $sel()$. For the radix $r$ and a chosen digit set, there exits an appropriate selection method and a value of $\delta$ which ensure convergence. As radix-2 is used most commonly in computer arithmetic, we keep $r=2$ throughout this paper with the corresponding redundant digit set $\{\overline{1},0,1\}$. In this case we have $\delta=3$, and $sel()$ is given by (\ref{Eq:SelFunc_OM}), from which it can be seen that the decision is made only based on 1 integer bit and 1 fractional bit of $W_{[j]}$.
 
 \begin{algorithm}{\bf Online Multiplication} \label{Algorithm:OnlineMult}
   \begin{algorithmic}[1]
@@ -180,7 +164,14 @@ Typically the online multiplication is performed in a recursive digit-serial man
   \end{algorithmic}
 \end{algorithm}
 
-
+\begin{equation}\label{Eq:SelFunc_OM}
+\begin{array}{ll}
+  sel(W_{[j]})=
+    1 & if \ W_{[j]} \geq \frac{1}{2} \\
+    0 &  if  \ -\frac{1}{2}\leq W_{[j]}<\frac{1}{2} \\
+    \overline{1} & if \ W_{[j]}<-\frac{1}{2}
+\end{array}
+\end{equation}
 
 
 \begin{figure}[h!]
