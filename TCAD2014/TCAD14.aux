@@ -2,55 +2,98 @@
 \citation{onlinearith}
 \citation{onlinearith}
 \citation{onlinearith}
+\citation{Online_FPGADSP}
+\citation{Online_Control}
+\citation{Ercegovac_Book}
+\citation{CSadder}
+\citation{RedundantNumber}
+\citation{RedundantMult_1987}
 \@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}}
 \@writefile{toc}{\contentsline {section}{\numberline {II}Background: Online Arithmetic}{1}}
 \newlabel{Sec:Background}{{II}{1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-A}}Key Features of Online Arithmetic}{1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Dataflow in digit-serial online arithmetic, in which both inputs and outputs are processed from the MSD to the LSD. $\delta $ denotes the online delay.}}{1}}
+\newlabel{Fig:OnlineDataFlow}{{1}{1}}
 \newlabel{Eq:Online_Operands}{{1}{1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-B}}Binary Online Addition}{1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-C}}Binary Online Multiplication}{1}}
-\newlabel{Algorithm:OnlineMult}{{\unhbox \voidb@x \hbox {II-C}}{2}}
-\newlabel{Eq:OnlineMult_General}{{3}{2}}
-\newlabel{Eq:OnlineMult_H}{{4}{2}}
-\newlabel{Eq:OnlineMult_P}{{7}{2}}
+\newlabel{subsec:OnlineAdder}{{\unhbox \voidb@x \hbox {II-B}}{1}}
+\citation{Ercegovac_OnlineMult}
+\citation{Ercegovac_OnlineMult}
+\citation{Online_Conversion}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces An $N$-digit binary digit-parallel online adder. Both inputs and outputs are represented using SD representation. ``3:2'' denotes a 3:2 compressor.}}{2}}
+\newlabel{Fig:Radix2SD_adder}{{2}{2}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Online Multiplication}}{2}}
+\newlabel{Algorithm:OnlineMult}{{1}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-C}}Binary Online Multiplication}{2}}
+\newlabel{subsec:OnlineMultiplier}{{\unhbox \voidb@x \hbox {II-C}}{2}}
 \newlabel{Eq:SelFunc_OM}{{2}{2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces  . . . . . . . . . . . . }}{2}}
-\newlabel{circuit}{{1}{2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces (a) Synthesis of Algorithm 1 into a digit-parallel online multiplier (b) Structure of one stage, in which the maximum digit widths of signals are labeled.}}{2}}
+\newlabel{Fig:Radix2OnlineMultiplier}{{3}{2}}
+\@writefile{toc}{\contentsline {section}{\numberline {III}Probability Model of Overclocking Error}{2}}
 \newlabel{Eq:MaxChainLength}{{3}{2}}
-\@writefile{toc}{\contentsline {section}{\numberline {III}Probability of Timing Violations}{2}}
-\newlabel{section:Prob}{{III}{2}}
-\newlabel{Eq:Bound_GenChain}{{4}{2}}
-\newlabel{Eq:Bound_ChainLength}{{5}{2}}
-\newlabel{Eq:class}{{6}{2}}
-\newlabel{Eq:probcaser}{{7}{2}}
-\newlabel{Eq:PChainRule}{{8}{2}}
-\newlabel{Eq:PChainRule_Exp}{{10}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-A}}Probability of Timing Violations}{3}}
+\newlabel{subsection:Prob}{{\unhbox \voidb@x \hbox {III-A}}{3}}
+\newlabel{Eq:Bound_GenChain}{{4}{3}}
+\newlabel{Eq:Bound_ChainLength}{{5}{3}}
+\newlabel{Eq:class}{{6}{3}}
+\newlabel{Eq:probcaser}{{7}{3}}
+\newlabel{Eq:PChainRule}{{8}{3}}
+\newlabel{Eq:PChainRule_Exp}{{10}{3}}
 \newlabel{Eq:PChainRule_raw}{{11}{3}}
 \newlabel{Eq:Prob_timingViol}{{12}{3}}
-\@writefile{toc}{\contentsline {section}{\numberline {IV}Error Estimation}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-B}}Estimation of Timing Errors}{3}}
 \newlabel{Eq:ErrorMagnitude}{{13}{3}}
 \newlabel{Eq:VarianceErrorMagnitude}{{14}{3}}
 \newlabel{Eq:var_XY}{{15}{3}}
-\newlabel{Eq:step4var}{{16}{3}}
-\newlabel{Eq:varerror}{{17}{3}}
-\newlabel{Eq:varerror_final}{{18}{3}}
-\newlabel{Eq:varfinal}{{19}{3}}
-\@writefile{toc}{\contentsline {section}{\numberline {V}Model Verification with FPGA results}{3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-A}}Verification of Models for Error Probability}{3}}
-\newlabel{Eq:OMerrorProb}{{20}{3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-B}}Verification of Models for Error Magnitude}{3}}
+\newlabel{Eq:step4var}{{16}{4}}
+\newlabel{Eq:varerror}{{17}{4}}
+\newlabel{Eq:varerror_final}{{18}{4}}
+\newlabel{Eq:varfinal}{{19}{4}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Model Verification with FPGA results}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}}Verification of Models for Error Probability}{4}}
+\newlabel{Eq:OMerrorProb}{{20}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-B}}Verification of Models for Error Magnitude}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces  Probability of timing violation for $N=8$ and $\delta =3$ }}{4}}
+\newlabel{Fig:ProbTimingViol}{{4}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Distribution of overclocking errors with respect to a variety of sampling period. The Xlable should be ``Sampling period'', which varies from 2ns to 3.5ns, and the Ylabel is ``Error Values''. }}{4}}
+\newlabel{FigerrorC}{{5}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Several slice through Fig.\nobreakspace  {}5\hbox {} that shows error distribution with respect to a variety of sampling periods and the corresponding variances of overclocking error. The results are obtained from experiments.}}{4}}
+\newlabel{Fig:gaussianOnlinedistr}{{6}{4}}
+\citation{XilinxMult}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Variances of overclocking errors. The results are obtained from the proposed models (blue line) and the experiments (red stars). (Legend and xylabels to be added.) }}{5}}
+\newlabel{Error_Function_Spline_experiment}{{7}{5}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Case Study: Image Filter}{5}}
+\newlabel{Sec:CaseStudy}{{V}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-A}}Experimental Setup}{5}}
+\newlabel{Eq:MRE}{{21}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-B}}Quantify the Impact of Overclocking}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Overclocking error in an image filter with two types of computer arithmetic: online arithmetic and standard binary arithmetic, of which the rated frequencies are 148.3MHz and 168.7MHz, respectively, according to the timing analysis tool.}}{5}}
+\newlabel{Fig:MRE_ImageFilter}{{8}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-C}}Potential Benefits in Circuit Design}{5}}
+\citation{Virtex6}
 \bibcite{onlinearith}{1}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Output images of image filter using online arithmetic (left column) and traditional arithmetic (right column), where $f_0$ and ${f_0}'$ denote the maximum error-free frequencies for each design.}}{6}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {1.05$f_0$,\nobreakspace {}SNR=38.3dB}}}{6}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {1.05${f_0}'$,\nobreakspace {}SNR:21.5dB}}}{6}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {1.15$f_0$,\nobreakspace {}SNR:36.2dB}}}{6}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {1.15${f_0}'$,\nobreakspace {}SNR:9.0dB}}}{6}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(e)}{\ignorespaces {1.25$f_0$,\nobreakspace {}SNR:26.7dB}}}{6}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(f)}{\ignorespaces {1.25${f_0}'$,\nobreakspace {}SNR:8.5dB}}}{6}}
+\newlabel{Fig:LenaImage}{{9}{6}}
+\newlabel{Eq:MRE_Reduction}{{22}{6}}
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Relative Reduction of MRE with Online Arithmetic for Various Normalized Frequencies.}}{6}}
+\newlabel{Tab:MRE_Redu_Freq}{{I}{6}}
+\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces Improvement of SNR (dB) with Online Arithmetic for Various Normalized Frequencies.}}{6}}
+\newlabel{Tab:SNR_Impro_Freq}{{II}{6}}
+\@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces Relative Improvement in Frequency with Online Arithmetic for Various Error Budgets.}}{6}}
+\newlabel{Tab:MRE_Reduc_Error}{{III}{6}}
+\newlabel{Tab:}{{III}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-D}}Area Overhead of Our Approach}{6}}
+\@writefile{lot}{\contentsline {table}{\numberline {IV}{\ignorespaces FPGA Resource Usage Comparison.}}{6}}
+\newlabel{Tab:AreaComparison}{{IV}{6}}
 \bibcite{convol}{2}
 \bibcite{ross}{3}
 \bibcite{spline}{4}
 \bibcite{kendall}{5}
 \bibcite{IEEEhowto:kopka}{6}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces  Probability of timing violation for $N=8$ and $\delta =3$ }}{4}}
-\newlabel{Fig:ProbTimingViol}{{2}{4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Distribution of overclocking errors with respect to a variety of sampling period. The Xlable should be ``Sampling period'', which varies from 2ns to 3.5ns, and the Ylabel is ``Error Values''. }}{4}}
-\newlabel{FigerrorC}{{3}{4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Several slice through Fig.\nobreakspace  {}3\hbox {} that shows error distribution with respect to a variety of sampling periods and the corresponding variances of overclocking error. The results are obtained from experiments.}}{4}}
-\newlabel{Fig:gaussianOnlinedistr}{{4}{4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Variances of overclocking errors. The results are obtained from the proposed models (blue line) and the experiments (red stars). (Legend and xylabels to be added.) }}{4}}
-\newlabel{Error_Function_Spline_experiment}{{5}{4}}
-\@writefile{toc}{\contentsline {section}{References}{4}}
+\@writefile{toc}{\contentsline {section}{References}{7}}
