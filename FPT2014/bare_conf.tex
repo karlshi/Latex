@@ -101,23 +101,26 @@ In the conventional form of computer arithmetic, the computation results are gen
 
 Recent research has demonstrated another key advantage of online arithmetic: that it allows graceful degradation when operating beyond the deterministic clocking region, i.e. when overclocking \cite{SKDAC14_REVIEW}. This theme of research stems from the inspiration that for certain applications, releasing the absolute accuracy requirements could lead to significant performance improvements. However, traditional forms of computer arithmetic do not fail gracefully when timing violation happens, because timing errors tend to affect MSDs of the results. In comparison, online arithmetic is more ``overclocking friendly'', as timing errors only occur at LSDs of the results.
 
-Despite its attractiveness, the use of online arithmetic on existing FPGAs is still limited due to a large area overhead. For standard arithmetic, because it is difficult to efficiently map arithmetic circuits solely onto look-up-tables (LUTs), both main commercial FPGA vendors introduced dedicated carry logic to reduce carry propagation delay~\cite{Virtex6}. Significant prior work explores methods that can effectively map circuits to the carry logic for performance improvements~\cite{FPL10_FPGA_CarryChain,Prefix_CarryChain}, or proposes alternative carry logic for FPGAs~\cite{FPGA_CarryChain_New1,FPGA_CarryChain_New2}. Hard DSP blocks are also included in modern architectures to improve the area and performance of multiplications and multiply accumulates~\cite{XilinxDSP}. However, most of these approaches are designed to accelerate computations with the conventional form of arithmetic.
+Despite its attractiveness, the use of online arithmetic on existing FPGAs is still limited due to a large area overhead. For standard arithmetic, because it is difficult to efficiently map arithmetic circuits solely onto look-up-tables (LUTs), both main commercial FPGA vendors introduced dedicated carry logic to reduce carry propagation delay~\cite{Virtex6}. Significant prior work explores methods that can effectively map circuits to the carry logic for performance improvements~\cite{FPL10_FPGA_CarryChain}, or proposes alternative carry logic for FPGAs~\cite{FPGA_CarryChain_New1,FPGA_CarryChain_New2}. Hard DSP blocks are also included in modern architectures to improve the area and performance of multiplications and multiply accumulates~\cite{XilinxDSP}. However, most of these approaches are designed to accelerate computations with the conventional form of arithmetic.
 
 For online arithmetic, two major research directions have been investigated. Firstly, there has been some research into FPGA implementations of online adders; a brief review of relevant works in this area is presented in Section~\ref{Sec:OA_FPGA}. Secondly, there are existing approaches to build general purpose online adders specifically for FPGAs with 4-input LUTs and with two LUTs within a slice or a logic element (LE), such as the Xilinx Spartan~3 series \cite{XilinxSpartan} and the Altera Cyclone III \cite{AlteraCyclone}. However, as will be discussed in Section~\ref{Sec:OA_FPGA}, these approaches cannot be directly applied on many modern FPGAs, which typically have 6-input LUTs and four LUTs in a slice, such as the Xilinx Virtex series FPGAs and all Xilinx 7 series FPGAs~\cite{Virtex7}. Moreover, the move to the 6-LUT on the basic architecture opens new opportunities for further optimization.
 %However, the implementations of other key arithmetic primitives, such as online multipliers, lack exploration.
 
-In this paper, both issues will be addressed. In Section~\ref{Sec:OA_FPGA}, we propose a novel approach to map digit parallel online adders onto FPGAs with 6-LUTs. The mapping is based on the fast carry logic and ensures the available resources within a slice are fully utilized. In Section~\ref{Sec:OM_FPGA}, we optimize the online multiplication algorithm to yield an efficient digit parallel online multiplier for FPGAs. We demonstrate experimentally on Xilinx Virtex-6 FPGAs that the proposed designs achieve significant area reduction and performance gain over their original implementations. For online adders, our method achieves  slice savings of over $67\%$ and  frequency speed-ups of over $1.2\times$ in comparison to a direct implementation. In comparison to the standard ripple-carry adder, the area overhead drops from up to $8.41\times$ to $1.88\times$ using the proposed online adder. For online multipliers, the slice utilization of the proposed architecture drops of over $69\%$, with a frequency speed-up over $1.5\times$ in comparison to a direct implementation. When compared to the multiplier with standard arithmetic, the direct implementation has an area overhead up to $8.11\times$, which drops to $1.84\times$ when using the proposed online multiplier.
+In this paper, both issues will be addressed. In Section~\ref{Sec:OA_FPGA}, we propose a novel approach to map digit parallel online adders onto FPGAs with 6-LUTs. The mapping is based on the fast carry logic and ensures the available logic resources within a slice are fully utilized. In Section~\ref{Sec:OM_FPGA}, we optimize the online multiplication algorithm to yield an efficient digit parallel online multiplier for FPGAs. We demonstrate experimentally on Xilinx Virtex-6 FPGAs that the proposed designs achieve significant area reduction and performance gain over their original implementations. For online adders, our method achieves  slice savings of over $67\%$ and  frequency speed-ups of over $1.2\times$ in comparison to a direct implementation. In comparison to the standard ripple-carry adder, the area overhead drops from up to $8.41\times$ to $1.88\times$ using the proposed online adder. For online multipliers, the slice utilization of the proposed architecture drops of over $69\%$, with a frequency speed-up over $1.5\times$ in comparison to a direct implementation. When compared to the multiplier with standard arithmetic, the direct implementation has an area overhead up to $8.11\times$, which drops to $1.84\times$ when using the proposed new architecture.
 
-Our approach has the additional advantage of computing a correctly rounded multiplier with a reduced output precision, whereas a standard multiplier has to generate full precision output. Using our method, a programmable number of output precision can be obtained, offering the ability to trade silicon area for precision. As an example, if we are only interested in the most significant half of the product, we can create a digit parallel online multiplier that saves upto $56\%$ slice usage in comparison to a standard multiplier with truncated output.
+Our approach has the additional advantage of being able to create a correctly rounded multiplier with a reduced output precision using less hardware than a standard multiplier, which multiplies two $N$-digit numbers and produces an output of $2N$ digits. However, in many cases the full precision product is not required. In such cases, a reduced precision output is created either by truncating or rounding the LSDs. Although there has been research into saving area by avoiding the creation of unnecessary LSDs~\cite{TheoTC}, these techniques still require extensive simulation to guarantee correctness. In contract, since online multipliers compute the output from the MSD first, hardware can be saved by not generating the LSDs in the first place. As an example, if we are only interested in the most significant half of the product, we can create a digit parallel online multiplier that saves upto $56\%$ slice usage in comparison to a standard multiplier with truncated output.
+
+%computing a correctly rounded multiplier with a reduced output precision, whereas a standard multiplier has to generate full precision output. Using our method, a programmable number of output precision can be obtained, offering the ability to trade silicon area for precision. As an example, if we are only interested in the most significant half of the product, we can create a digit parallel online multiplier that saves upto $56\%$ slice usage in comparison to a standard multiplier with truncated output.
 
 
 In summary, the main contributions of this paper are:
 \begin{enumerate}
     \item Efficient methods to map online adders and multipliers to modern FPGAs;
-    \item Demonstration of the performance improvements of online operators in terms of silicon area and operating frequency. 
+    \item Discussion of how to implement correctly-rounded online multipliers for a chosen output precision;
+    \item Demonstration of the performance improvements of online operators in terms of silicon area and operating frequency.
 \end{enumerate}
 
-%In summary, the main contributions of this paper are efficient methods to map online adders and multipliers to modern FPGAs. The performance improvements in terms of silicon area and operating frequency with these new architectures mean that using online operators is much more attractive for an end user. The benefits of these operators . 
+%In summary, the main contributions of this paper are efficient methods to map online adders and multipliers to modern FPGAs. The performance improvements in terms of silicon area and operating frequency with these new architectures mean that using online operators is much more attractive for an end user. The benefits of these operators .
 
 
 
@@ -155,7 +158,7 @@ Adders serve as a critical building block for arithmetic operations. To perform 
 	\includegraphics[width=.5\textwidth]{./Figures/SDAdder2.pdf}
     \vspace{-6ex}
 	\caption{An $N$-digit binary digit-parallel online adder. Both inputs and outputs are represented using SD representation. ``3:2'' denotes a 3:2 compressor.}
-    %\vspace{2ex}
+    \vspace{2ex}
 	\label{Fig:Radix2SD_adder}
 \end{figure}
 
@@ -163,7 +166,7 @@ Adders serve as a critical building block for arithmetic operations. To perform 
 
 \subsection{Binary Online Multiplication}
 Multiplication is another key arithmetic operator. Typically, online multiplication is performed in a recursive digit serial manner, as illustrated in Algorithm~\ref{Algorithm:OnlineMult} \cite{Ercegovac_OnlineMult} where both inputs and outputs are $N$-digit numbers as given in~(\ref{Eq:Online_Operands}). For a given iteration $j$, the product digit $z_j$ is generated MSD-first through a selection function $sel()$. For any radix $r$ and chosen digit set, there exits an appropriate selection method and a value of $\delta$ which ensure convergence. As the binary radix is used most commonly in computer arithmetic, we keep $r=2$ throughout this paper with the corresponding redundant digit set $\{\overline{1},0,1\}$. In this case $sel()$ is given by (\ref{Eq:SelFunc_OM}), and the selection is based on two integer digits and one fractional digit of $W_{[j]}$ \cite{Ercegovac_OnlineMult}.
-%
+
 \begin{algorithm}[tbp]
   \caption{Online Multiplication}  \label{Algorithm:OnlineMult}
   \begin{algorithmic}[1]
@@ -256,13 +259,15 @@ The detailed slice mapping of the two \texttt{LB}s and the logic in each LUT are
 \end{figure}
 
 In this mapping approach, the area figures of the online adder in terms of the number of LUTs and slices with respect to the operand word-lengths ($N$) can be calculated as given in (\ref{Eq:OAareaLUT}) and (\ref{Eq:OAareaSlice}), respectively.
-
+%
 \begin{eqnarray}\label{Eq:OAareaLUT}
 \scriptsize
 	OA\_LUT = 2N
+\normalsize
 \end{eqnarray}
 %
 \begin{eqnarray}\label{Eq:OAareaSlice}
+\footnotesize
 	OA\_slice = 1+\left\lceil\frac{N-2}{2}\right\rceil
 \normalsize
 \end{eqnarray}
@@ -283,7 +288,7 @@ We record the rated frequencies of all designs when varying the operand word-len
 
 
 
-We also compare the resource usage of all three adder designs with respect to a variety of operand word-lengths. The results are presented in Fig~\ref{Fig:AdderArea}. We can see that in comparison to the original \texttt{OA\_behv}, our implementation \texttt{OA\_new} achieves significant area savings: $25\%\sim 33\%$ in LUTs and $67\%\sim77\%$ in slices. This is because the dedicated FPGA resources are fully utilized. These area savings reduce the overhead of an \texttt{OA} over an \texttt{RCA} from upto $2.95\times$ to $1.98\times$ for LUTs, and from $8.41\times$ to $1.88\times$ for slices. It is unlikely that the overhead can be completely avoided when using an \texttt{OA} because of the redundant number system. Nevertheless, with the reduced overhead, using \texttt{OA} to take advantage of the graceful degradation when operating beyond the deterministic clocking region may become more attractive for an FPGA developer. 
+We also compare the resource usage of all three adder designs with respect to a variety of operand word-lengths. The results are presented in Fig~\ref{Fig:AdderArea}. We can see that in comparison to the original \texttt{OA\_behv}, our implementation \texttt{OA\_new} achieves significant area savings: $25\%\sim 33\%$ in LUTs and $67\%\sim77\%$ in slices. This is because the dedicated FPGA resources are fully utilized. These area savings reduce the overhead of an \texttt{OA} over an \texttt{RCA} from upto $2.95\times$ to $1.98\times$ for LUTs, and from $8.41\times$ to $1.88\times$ for slices. It is unlikely that the overhead can be completely avoided when using an \texttt{OA} because of the redundant number system. Nevertheless, with the reduced overhead, using \texttt{OA} to take advantage of the graceful degradation when operating beyond the deterministic clocking region may become more attractive for an FPGA developer.
 
 %However, our design still costs more area than an \texttt{RCA}, with an area overhead of $80\%\sim98\%$ in terms of LUTs, and up to $88\%$ in terms of slices. This is because for a single adder, the area overhead brought by the redundant number representations cannot be removed.
 %However research has shown that this overhead can be reduced for multiple-operand adders or adder trees [xxx].
@@ -394,11 +399,9 @@ In comparison, the \texttt{OM} offers the flexibility to simplify the structure 
 \subsection{Performance Analysis}
 Similar to the experiments as described in Section~\ref{subsec:OA_Performance}, we compare the direct RTL online multiplier (\texttt{OM\_behv}) against the proposed two types of multiplier, which are implemented to generate products with full precision (\texttt{OM\_full}) and half precision (\texttt{OM\_half}), respectively. In addition, we also compare the \texttt{OM} with the conventional binary arithmetic multiplier. The conventional multiplier is created using the Xilinx Core Generator with speed optimization~\cite{XilinxMult}, and it is implemented based on LUTs without DSPs for a fairer comparison.
 
-The comparison of area in terms of the cost of LUTs and the cost of slices with respect to different operand word-lengths are illustrated in Fig.~\ref{Fig:OMArea}. The results are obtained from ISE 14.7 after mapping the design to the Virtex-6 FPGA. In comparison to \texttt{OM\_behv}, significant area savings have been obtained by the optimized design \texttt{OM\_full}. Specifically, the LUTs and slice utilization reduces $59.0\%\sim70.1\%$ and $68.6\%\sim81.7\%$, respectively.
+The comparison of area in terms of the cost of LUTs and slices with respect to different operand word-lengths are shown in Fig.~\ref{Fig:OMArea}. The results are obtained from ISE 14.7 after mapping the design to the Virtex-6 FPGA. In comparison to \texttt{OM\_behv}, significant area savings have been obtained by the optimized design \texttt{OM\_full}. Specifically, the LUTs and slice utilization reduces $59.0\%\sim70.1\%$ and $68.6\%\sim81.7\%$, respectively. In comparison to the \texttt{CoreGen} multiplier, the area overhead of online multipliers drops significantly using the proposed new structure. In order to generate full precision product, the area overhead of \texttt{OM\_behv} against \texttt{CoreGen} are $3.94\times\sim5.82\times$ for LUTs, and $3.58\times\sim8.11\times$ for slices. Using the proposed structure \texttt{OM\_full} the area overheads drop to $1.48\times\sim1.83\times$ for LUTs and up to $1.84\times$ for slices. Furthermore as mentioned in the introduction, a traditional multiplier is unable to compute this correctly rounded output using less silicon area without extensive simulation. In contrast, using our approach we can trade area for precision and tune output precision to be the minimum desired. As an example, if only half of the output precision is required, \texttt{OM\_half} can save silicon area over the traditional \texttt{CoreGen} multiplier. The area saving varies from $40\%$ to $55\%$ for LUTs, and $46\%\sim56\%$ for slices.
 
-%$2.44\times\sim3.34\times$ and $3.19\times\sim5.45\times$, respectively.
-
-In comparison to the \texttt{CoreGen} multiplier, the area overhead of online multipliers drops significantly using the proposed new structure. In order to generate full precision product, the area overhead of \texttt{OM\_behv} against \texttt{CoreGen} are $3.94\times\sim5.82\times$ for LUTs, and $3.58\times\sim8.11\times$ for slices, respectively. Using the proposed structure \texttt{OM\_full} the area overheads drop to $1.48\times\sim1.83\times$ for LUTs and up to $1.84\times$ for slices. Furthermore, if only half of the output precision is required, \texttt{OM\_half} can save silicon area over the traditional \texttt{CoreGen} multiplier. The area saving varies from $40\%$ to $55\%$ for LUTs, and $46\%\sim56\%$ for slices. Once again, the traditional multiplier is unable to compute this correctly rounded output using less silicon area. This is because for correct rounding, it must first compute the full precision output. In comparison, our approach offers the capability for the trade-off between area and precision.
+%our approach offers the capability for the trade-off between area and precision.
 
 \begin{figure}[tbp]
   %\vspace{-2.5ex}
@@ -409,7 +412,7 @@ In comparison to the \texttt{CoreGen} multiplier, the area overhead of online mu
     \includegraphics[width=.95\textwidth]{./Figures/Exp/OM_LUTslog.eps}
     \vspace{1ex}
   \end{minipage}%
-  }
+  }\vspace{-1ex}
   \subfigure[Usage of slices]{
   \begin{minipage}{0.47\textwidth}
     %\centering
@@ -430,16 +433,17 @@ We comment that there remain a large gap in terms of frequency between the propo
 \begin{figure}[tbp]
 	\centering
 	\includegraphics[width=.48\textwidth]{./Figures/Exp/OM_Freq2.eps}
+	\vspace{-3ex}
 	\caption{Rated frequencies of different types of binary multipliers for a variety of operand word-lengths. The results are obtained from the Xilinx Timing Analyzer in ISE 14.7 after placing and routing.}
+	\vspace{-2ex}
 	\label{Fig:OM_Freq}
-
 \end{figure}
 
 However, we can take advantage of the ``overclocking friendly'' feature of the online arithmetic, and push the previous tests one step further by operating the circuits beyond their deterministic region while allowing timing violations to happen. We examine the overclocking behavior of all 3 types of multipliers in terms of the mean relative error (\texttt{MRE}), which is given in (\ref{Eq:MRE}), where $E_{error}$ and $E_{out}$ refer to the mean value of error and the mean value of correct output, respectively.
 %
 \begin{eqnarray}\label{Eq:MRE}
   MRE=\frac{E_{error}}{E_{out}}\times100\%
-  %\vspace{-1ex}
+  \vspace{-1.5ex}
 \end{eqnarray}
 
 For instance, Fig.~\ref{Fig:PM_MRE} demonstrates the \texttt{MRE} values of the 8-digit multipliers. The results are from post place and route simulations, and the input stimulus are randomly sampled from a uniform distribution of 8-digit numbers. We see that although the Timing Analyzer predicts slower frequencies for the \texttt{OM}s, they actually operate faster than \texttt{CoreGen} without the occurrence of timing errors. This is in accordance with the results seen in the previous work \cite{SKDAC14_REVIEW}.
@@ -447,10 +451,10 @@ For instance, Fig.~\ref{Fig:PM_MRE} demonstrates the \texttt{MRE} values of the 
 \begin{figure}[tbp]
   \centering
   \includegraphics[width=.48\textwidth]{./Figures/Exp/MRE_PM.eps}
- % \vspace{-1ex}
+  \vspace{-3ex}
   \caption{Mean relative errors seen at the outputs of different types of 8-digit binary multipliers, when clocked with faster-than-rated frequencies.}
   \label{Fig:PM_MRE}
-  %\vspace{-1ex}
+  \vspace{-1ex}
 \end{figure}
 
 
