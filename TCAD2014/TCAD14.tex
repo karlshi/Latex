@@ -266,7 +266,7 @@ C_3(\tau):\frac{a+1}{(2a+1)^2}, & C_4(\tau):  \frac{a+1}{(2a+1)^2}
 \end{array}
 \end{equation}
 
-Notice that no carry chain will be generated under Case~1, because $P_{[\tau+1]}=0$. In other words, a chain could be generated if one of  the cases $C_2(\tau)$,...,$C_4(\tau)$ occur. In this case we provide the following propositions which describe the probabilities of timing violations.
+Notice that no carry chain will be generated under Case~1, because $P_{[\tau+1]}=0$. In other words, a chain could be generated if one of  the cases $C_2(\tau),\cdots,C_4(\tau)$ occur. In this case we provide the following propositions which describe the probabilities of timing violations.
 
 
 \begin{proposition} (Chain rule probability)\\
@@ -317,20 +317,17 @@ For all possible values of $\tau$ and $d(\tau)$, the possibility that timing vio
 Pr= \sum_\tau \sum_{d(\tau)} Pr_{\tau,d(\tau )}
 \end{equation}
 
+\section{Estimation of Timing Errors}
+The presence of timing violations may result in overclocking errors generated from LSDs with online arithmetic. In this Section, we propose the modelling methods that quantify the overclocking error in terms of its statistic properties in Section~\ref{subsection:ErrorDistribution} and the magnitude of timing errors in Section~\ref{subsection:ErroeMagnitude}. Although we use the online multiplier as an example to illustrate the modelling process, our methods can be extended to other digit parallel online arithmetic operators.
 
-\subsection{Estimation of Timing Errors}
 
-In the presence of timing violation, multiple chains might not be correctly propagated in the online multiplication, resulting in overclocking errors generated from LSDs. Let $z_i$ and ${z_i}'$ denote the correct value and the actual value of the output digit at the stage $S_i$, respectively. Then we have ${z_i}'=z_i+\varepsilon_i$ where $\varepsilon_i$ is referred to as the overclocking error. We now locate the first output digit $z_{\lambda}$ that contains error. For a given $T_S$ and a minimum value of $\tau$ such that $d(\tau)_{max}>b$, we have $\lambda=\tau+d(\tau)_{max}+1$ for chain annihilation.
-%
-%. Let us consider the first chain that timing violation may occur, i.e. $d(\tau)_{max}>b$, denote that it annihilates at $S_{\lambda}$ where $\lambda=\tau+d_{max}(\tau)-1$. Therefore overclocking errors may happen from digit $\lambda$ to digit $N-1$ of the result.
-%
-As such, the overclocking error can be expressed by (\ref{Eq:ErrorMagnitude})
+\subsection{Statistic Properties of Timing Errors}\label{subsection:ErrorDistribution}
 
-%, where $z_i$ and ${z_i}'$ denote the correct value and the actual value of the output digit of $S_i$, separately, and $\varepsilon_i\in\{\pm2^{-i},\pm2^{-i+1}\}$ since $z$ is represented using digit set $\{\overline{1},0,1\}$.
-%
-\begin{eqnarray}\label{Eq:ErrorMagnitude}
+In general, let $z_j$ and ${z_j}'$ denote the correct value and the actual value of the output digit at stage $S_j$, respectively. Then we have ${z_j}'=z_j+\varepsilon_j$ where $\varepsilon_j$ is referred to as the overclocking error at $S_j$. We initially determine the bound of variable $j$ for a given value of $T_S$. For the upper bound, we have $j\leqslant N$ because the overclocking error is generated from the LSD. For the lower bound, the minimum value of $\tau_{min}$ can be determined to satisfy $d(\tau_{min})>b$, which is required for timing violations. In this case we have $j>\tau_{min}+d(\tau_{min})$. In summary, the word-level representation of overclocking error ($\varepsilon$) is given in (\ref{Eq:ErrorRep}) where $\lambda=\tau_{min}+d(\tau_{min})$.
+
+\begin{eqnarray}\label{Eq:ErrorRep}
 \scriptsize
- \left| \varepsilon\right|= \left|\sum_{j=\lambda}^{N} r^{-j}\varepsilon_j\right|
+	\varepsilon = \sum_{j=\lambda+1}^{N} r^{-j}\varepsilon_j
 \normalsize
 \end{eqnarray}
 
@@ -378,6 +375,49 @@ v\varepsilon =  \mathcal{F}(T_S, \mu, v\varepsilon^{in}, \delta)\\
 \end{array}
 \end{equation}
 
+
+
+\subsection{Error Magnitude}\label{subsection:ErroeMagnitude} 
+
+Let (\ref{Eq:VarianceDef}) be a definition of the variance of the error distribution, 
+\begin{eqnarray}\label{Eq:VarianceDef}
+\scriptsize
+	v\varepsilon=\frac{\sum_{j=\lambda}^{N} r^{-2j}(\varepsilon_j-\bar{\varepsilon})^2}{N-\lambda}
+\normalsize
+\end{eqnarray}
+
+by combining (\ref{Eq:VarianceDef}) and (\ref{Eq:VarianceErrorMagnitude}), since the mean value $\bar{\varepsilon}$ is zero, we obtain an estimation for the error $\varepsilon_j$ as in (\ref{Eq:ErrorEstimationj}).
+
+\begin{eqnarray}\label{Eq:ErrorEstimationj}
+\scriptsize
+	\varepsilon_j=(N-\lambda)^{\frac{1}{2}} v\varepsilon_j^{\frac{1}{2}}, \ \forall j=\lambda,\dots,N.
+\normalsize
+\end{eqnarray}
+
+
+By using the (\ref{Eq:VarInputUniform}), (\ref{Eq:var_XY}) and  (\ref{Eq:varerror_final}) into (\ref{Eq:ErrorEstimationj}) we have explicit in (\ref{Eq:value_ErrorUniform}) the dependence of the error $\varepsilon_j$ on the parameter $a$.
+
+\begin{eqnarray}\label{Eq:value_ErrorUniform}
+{\varepsilon}_j =& (N-\lambda)^{\frac{1}{2}} r  \left( r^{(1-\delta)} \left(\frac{(2a+1)^{2}-1}{12} \right. \right. \nonumber \\
+& \sum_{i=1}^{j+1+\delta} r^{-2i} \frac{(2a+1)^{2}-1}{12} + \nonumber \\
+&\left. \left. +\frac{(2a+1)^{2}-1}{12}   \sum_{i=1}^{j+\delta} r^{-2i} \frac{(2a+1)^{2}-1}{12}\right)^{\frac{1}{2}}\right)
+\end{eqnarray}
+
+Simplifing (\ref{Eq:value_ErrorUniform}) will give (\ref{Eq:value_ErrorUniformFinal})
+
+\begin{eqnarray}\label{Eq:value_ErrorUniformFinal}
+{\varepsilon}_j=    \frac{(2a+1)^2-1}{12r^{\delta-2} } \left[ (N-\lambda) (1+r^{-2(j+\delta -1})   \sum_{i=1}^{j+\delta} r^{-2i}\right]^\frac{1}{2}   
+\end{eqnarray}
+
+
+Finally, (\ref{Eq:value_ErrorUniformFinal}) can be used to derive the expression of $\varepsilon$ in (\ref{Eq:ErrorUniformFinal}) according to (\ref{Eq:ErrorMagnitude}). Notice that this expression forms the relationship between the value of overclocking error, the given input distribution, the number of the digit operands $N$, the online delay and the value of the sampling period whence depends the value of $\lambda$.
+
+\begin{equation}\label{Eq:ErrorUniformFinal}
+\begin{array}{l}
+{\varepsilon} =   \mathcal{G}(N,r, a, \delta,b)\\
+=\sum_{j=\lambda}^N    {\varepsilon}_j
+\end{array}
+\end{equation}
 
 
 
