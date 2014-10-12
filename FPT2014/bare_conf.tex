@@ -305,14 +305,11 @@ In our experiments, we compare the proposed online adder (\texttt{OA\_new}) agai
 \end{figure}
 
 
-We record the rated frequencies of all designs when varying the operand word-lengths. The results are shown in Fig.~\ref{Fig:AdderFreq}. The frequency values are obtained through Xilinx Timing Analyzer after placing and routing the designs in ISE 14.7. It can be seen that both designs with online arithmetic achieve relatively stable operating frequencies across a variety of operand word-lengths. This is as expected, because the critical path delay of the online adder is theoretically independent of the operand precision. In comparison, the rated frequency of the \texttt{RCA} drops dramatically for larger word-lengths. It follows that both online adders outperform \texttt{RCA} for large word-lengths. More specifically, the frequency of \texttt{OA\_behv} is faster than \texttt{RCA} when $N\geqslant30$, whereas our new online adder outperforms \texttt{RCA} for $N>16$. As a result, this makes the \texttt{OA\_new} more attractive for a wider range of applications. Furthermore, the speed-ups of \texttt{OA\_new} against \texttt{OA\_behv} are over $1.2\times$.
+We record the rated frequencies of all designs when varying the operand word-lengths. The results are shown in Fig.~\ref{Fig:AdderFreq}. The frequency values are obtained through Xilinx Timing Analyzer after placing and routing the designs in ISE 14.7. It can be seen that both designs with online arithmetic achieve relatively stable operating frequencies across a variety of operand word-lengths. This is as expected, because the critical path delay of the online adder is theoretically independent of the operand precision. In comparison, the rated frequency of the \texttt{RCA} drops dramatically for larger word-lengths. It follows that both online adders outperform \texttt{RCA} for large word-lengths. More specifically, the frequency of \texttt{OA\_behv} is faster than \texttt{RCA} when $N\geqslant30$, whereas our new online adder outperforms \texttt{RCA} for $N>16$. As a result, this makes the \texttt{OA\_new} more attractive for a wider range of applications. Furthermore, the speed-ups of \texttt{OA\_new} against \texttt{OA\_behv} are over $1.2\times$.\vspace{-0.5ex}
 
 
 
-We also compare the resource usage of all three adder designs with respect to a variety of operand word-lengths. The results are presented in Fig.~\ref{Fig:AdderArea}. We can see that in comparison to the original \texttt{OA\_behv}, our implementation \texttt{OA\_new} achieves significant area savings: $25\%\sim 33\%$ in LUTs and $67\%\sim77\%$ in slices. This is because the dedicated FPGA resources are fully utilized. These area savings reduce the overhead of an \texttt{OA} over an \texttt{RCA} from $2.95\times$ to $1.98\times$ for LUTs, and from $8.41\times$ to $1.88\times$ for slices. It is unlikely that the overhead can be completely avoided when using an \texttt{OA} because of the redundant number system. Nevertheless, with the reduced overhead, using \texttt{OA} to take advantage of the graceful degradation when operating beyond the deterministic clocking region may become more attractive for an FPGA developer.
-
-%However, our design still costs more area than an \texttt{RCA}, with an area overhead of $80\%\sim98\%$ in terms of LUTs, and up to $88\%$ in terms of slices. This is because for a single adder, the area overhead brought by the redundant number representations cannot be removed.
-%However research has shown that this overhead can be reduced for multiple-operand adders or adder trees [xxx].
+We also compare the resource usage of all three adder designs with respect to a variety of operand word-lengths. The results are presented in Fig.~\ref{Fig:AdderArea}. We can see that in comparison to the original \texttt{OA\_behv}, our implementation \texttt{OA\_new} achieves significant area savings: $25\%\sim 33\%$ in LUTs and $67\%\sim77\%$ in slices. This is because the dedicated FPGA resources are fully utilized. These area savings reduce the overhead of an \texttt{OA} over an \texttt{RCA} from $2.95\times$ to $1.98\times$ for LUTs, and from $8.41\times$ to $1.88\times$ for slices. It is unlikely that the overhead can be completely avoided when using an \texttt{OA} because of the redundant number system. Nevertheless, with the reduced overhead, using \texttt{OA} to take advantage of the graceful degradation when operating beyond the deterministic clocking region may become more attractive for an FPGA developer.\vspace{-0.5ex}
 
 \begin{figure}[tbp]
   %\vspace{-2.5ex}
@@ -338,18 +335,14 @@ We also compare the resource usage of all three adder designs with respect to a 
 \end{figure}
 
 
-
-
-
-
 \section{Digit Parallel Online Multiplier on FPGAs}\label{Sec:OM_FPGA}
 \subsection{Algorithm of Digit Parallel Online Multiplication}
-Algorithm \ref{Algorithm:OnlineMult} as described in Section~\ref{Sec:Background} can be synthesized into a unrolled digit parallel structure. A recent study has shown that the digit-parallel online multiplier (\texttt{OM}) is also more tolerant to timing violations in comparison to the conventional arithmetic, because timing errors initially affect the LSDs and this will lead to smaller error magnitude~\cite{SKDAC14}. %This implementation method is straightforward and can be directly utilized to design other digit parallel online operators.
+Algorithm \ref{Algorithm:OnlineMult} as described in Section~\ref{Sec:Background} can be synthesized into a unrolled digit parallel structure. A recent study has shown that the digit-parallel online multiplier (\texttt{OM}) is also more tolerant to timing violations in comparison to the conventional arithmetic, because timing errors initially affect the LSDs and this will lead to smaller error magnitude~\cite{SKDAC14}. \vspace{-0.5ex}
 
-However, significant area overhead is required in order to implement this type of \texttt{OM}, due to three main reasons. First, in comparison to the conventional multiplier, more iteration stages are needed. For instance in an $N$-digit \texttt{OM}, $(2N+\delta)$ iterations are required to generate $2N$ digits outputs, or $(N+\delta)$ iterations are required to generate the most significant $N$ digits. Second, the logic of each stage is complex as it involves operations such as online addition, digit-vector multiplication (to generate $x_{j+\delta+1}\cdot Y_{[j+1]}$ and $y_{j+\delta+1}\cdot X_{[j]}$ in Algorithm~\ref{Algorithm:OnlineMult}), shifting and other combinational logic blocks such as the selection function. Also, the word-length of signals $H_{[j]}$, $W_{[j]}$ and $P_{[j]}$ is $(N+2+\delta)$, because the selection function needs two integer digits and one fractional digit to generate $z_j$, as described in Section~\ref{Sec:Background}. Third, this \texttt{OM} architecture is not optimized specifically for FPGA technology.
+However, significant area overhead is required in order to implement this type of \texttt{OM}, due to three main reasons. First, in comparison to the conventional multiplier, more iteration stages are needed. For instance in an $N$-digit \texttt{OM}, $(2N+\delta)$ iterations are required to generate $2N$ digits outputs, or $(N+\delta)$ iterations are required to generate the most significant $N$ digits. Second, the logic of each stage is complex as it involves operations such as online addition, digit-vector multiplication (to generate $x_{j+\delta+1}\cdot Y_{[j+1]}$ and $y_{j+\delta+1}\cdot X_{[j]}$ in Algorithm~\ref{Algorithm:OnlineMult}), shifting and other combinational logic blocks such as the selection function. Also, the word-length of signals $H_{[j]}$, $W_{[j]}$ and $P_{[j]}$ is $(N+2+\delta)$, because the selection function needs two integer digits and one fractional digit to generate $z_j$, as described in Section~\ref{Sec:Background}. Third, this \texttt{OM} architecture is not optimized specifically for FPGA technology.\vspace{-0.5ex}
 %In comparison, an $N$-digit array multiplier, there are only $(N-1)$ rows, each of which is basically an $N$-digit ripple-carry adder.
 
-We address the first two design issues by providing an alternative online multiplication algorithm. Instead of simply implementing the unrolled version of Algorithm \ref{Algorithm:OnlineMult}, it can be optimized specifically for digit parallel operations. The online delay $\delta$ is employed in Algorithm~\ref{Algorithm:OnlineMult} because the input data is available in a digit serial fashion. Hence $\delta$ is used to accumulate enough input digits to generate the MSD of the result. However if all digits of the inputs are available simultaneously, then the delay $\delta$ is no longer necessary. For the same reason, $H[j]$, which takes one digit of each input per stage as shown in the original algorithm, can be optimized to take one partial product $Xy_j$ or $Yx_j$ per stage. To summarize, the modified algorithm for digit parallel online multiplication is described in Algorithm~\ref{Algorithm:OM_DigitParallel}, where $N$ denotes the operand word-length, function $frac(W_{[N]})$ refers to select the fractional digits of $W_{[N]}$, and the selection function $sel()$ is given previously in (\ref{Eq:SelFunc_OM}).
+We address the first two design issues by providing an alternative online multiplication algorithm. Instead of simply implementing the unrolled version of Algorithm \ref{Algorithm:OnlineMult}, it can be optimized specifically for digit parallel operations. The online delay $\delta$ is employed in Algorithm~\ref{Algorithm:OnlineMult} because the input data is available in a digit serial fashion. Hence $\delta$ is used to accumulate enough input digits to generate the MSD of the result. However if all digits of the inputs are available simultaneously, then the delay $\delta$ is no longer necessary. For the same reason, $H[j]$, which takes one digit of each input per stage as shown in the original algorithm, can be optimized to take one partial product $Xy_j$ or $Yx_j$ per stage. To summarize, the modified algorithm for digit parallel online multiplication is described in Algorithm~\ref{Algorithm:OM_DigitParallel}, where $N$ denotes the operand word-length, function $frac(W_{[N]})$ refers to select the fractional digits of $W_{[N]}$, and the selection function $sel()$ is given previously in (\ref{Eq:SelFunc_OM}).\vspace{-0.5ex}
 
 \begin{algorithm}[tbp]
   \caption{Digit Parallel Online Multiplication}\label{Algorithm:OM_DigitParallel}
@@ -369,8 +362,8 @@ We address the first two design issues by providing an alternative online multip
 
 In comparison to Algorithm~\ref{Algorithm:OnlineMult}, the maximum number of stages required to generate results with full precision drops by a factor of 2 using the proposed new algorithm. In each stage, the word-length of all signals also reduces from $(N+2+\delta)$ to $(N+2)$, as $\delta$ is not necessary for digit parallel operations. In addition, the $frac()$ function can be implemented only based on wire connections without using logic resources.
 
-\subsection{FPGA Implementation}
-We now present an area efficient implementation of Algorithm~\ref{Algorithm:OM_DigitParallel} on FPGAs. The general structure of a 4-digit \texttt{OM} using the proposed algorithm is shown in Fig.~\ref{Fig:PMStructure}(a), and the structure of a single stage $j$ is shown in Fig.~\ref{Fig:PMStructure}(b) with the word-lengths of all signals labelled. Area optimizations can be performed on all modules. It can be seen that in each stage, an $(N+2)$ digit online adder is used to derive $W_{[j]}$. Our proposed online adder architecture can be employed. The selection logic takes 3 input digits (6 bits) and generates 1 output digit (2 bits). Hence it can be implemented using two 6-LUTs for each output bit. Similarly the generation of $P_{[j]}$ can also be implemented using one 6-LUT, since only the integer digits of $W_{[j]}$ need to be modified due to the selection of $Z_{[j]}$. In addition, the structure of Stage 1 in Fig~\ref{Fig:PMStructure}(a) can be further optimized by removing the online adder, because $P_{[0]}=0$.
+\subsection{FPGA Implementation}\vspace{-0.5ex}
+We now present an area efficient implementation of Algorithm~\ref{Algorithm:OM_DigitParallel} on FPGAs. The general structure of a 4-digit \texttt{OM} using the proposed algorithm is shown in Fig.~\ref{Fig:PMStructure}(a), and the structure of a single stage $j$ is shown in Fig.~\ref{Fig:PMStructure}(b) with the word-lengths of all signals labelled. Area optimizations can be performed on all modules. It can be seen that in each stage, an $(N+2)$ digit online adder is used to derive $W_{[j]}$. Our proposed online adder architecture can be employed. The selection logic takes 3 input digits (6 bits) and generates 1 output digit (2 bits). Hence it can be implemented using two 6-LUTs for each output bit. Similarly the generation of $P_{[j]}$ can also be implemented using one 6-LUT, since only the integer digits of $W_{[j]}$ need to be modified due to the selection of $Z_{[j]}$. In addition, the structure of Stage 1 in Fig~\ref{Fig:PMStructure}(a) can be further optimized by removing the online adder, because $P_{[0]}=0$.\vspace{-0.5ex}
 %
 \begin{figure}[tbp]
 	\centering
@@ -378,21 +371,21 @@ We now present an area efficient implementation of Algorithm~\ref{Algorithm:OM_D
 	\vspace{-3ex}
 	\caption{(a) Structure of a 4-digit online multiplier using the proposed algorithm. (b) Structure of one stage. The word-length of all signals are labelled in terms of the number of digits. $N$ denotes the word-length of the input signals.}
 	\label{Fig:PMStructure}
-	\vspace{-1ex}
+	\vspace{-2ex}
 \end{figure}
 
-The blocks that generate partial products $Xy_j$ can be incorporated into the online adder for further area reduction. In the online adder structure as presented in Fig.~\ref{Fig:SliceNew}, we notice that only four inputs per LUT are used. This leaves at least two available inputs per LUT. Originally in order to generate one digit partial product, one digit of inputs $X$ and $Y$ are required respectively, as indicated in Fig.~\ref{Fig:PartialProduct}. Alternatively, instead of using extra logic to generate $Xy_j$, it can be merged into the corresponding LUTs in the online adder by fully utilizing all six LUT inputs, as shown on the right of Fig.\ref{Fig:PartialProduct}. Notice that this approach is only available for FPGAs with 6-LUTs.
+The blocks that generate partial products $Xy_j$ can be incorporated into the online adder for further area reduction. In the online adder structure as presented in Fig.~\ref{Fig:SliceNew}, we notice that only four inputs per LUT are used. This leaves at least two available inputs per LUT. Originally in order to generate one digit partial product, one digit of inputs $X$ and $Y$ are required respectively, as indicated in Fig.~\ref{Fig:PartialProduct}. Alternatively, instead of using extra logic to generate $Xy_j$, it can be merged into the corresponding LUTs in the online adder by fully utilizing all six LUT inputs, as shown on the right of Fig.\ref{Fig:PartialProduct}. Notice that this approach is only available for FPGAs with 6-LUTs.\vspace{-0.5ex}
 %
 \begin{figure}[tbp]
 	\centering
 	\includegraphics[width=.4\textwidth]{./Figures/PartialProduct.pdf}
-	\vspace{-1ex}
+	\vspace{-2.5ex}
 	\caption{Left: Direct implementation with extra logic to generate partial products. Right: Combining the logic blocks that generate partial products into the Online Adder by fully utilizing all the inputs of the 6-LUTs. In this case, further area reduction can be achieved.}
 	\label{Fig:PartialProduct}
-	\vspace{-1ex}
+	\vspace{-1.5ex}
 \end{figure}
 
-The resource usage of the proposed \texttt{OM} can be calculated as follows. In an $N$-digit \texttt{OM}, in total $(N-1)$ online adders are needed. According to Algorithm~\ref{Algorithm:OM_DigitParallel}, the word-length of each online adder is $(N+2)$-digit (two integer digits and $N$ fractional digits). Therefore based on (\ref{Eq:OAareaLUT}) and (\ref{Eq:OAareaSlice}), the number of LUTs and the number of slices used by the \texttt{OM} is given in (\ref{Eq:OMareaLUT}) and (\ref{Eq:OMareaSlice}), respectively. Note that $L_{S1}$ and $S_{S1}$ denote the number of LUTs and slices used by the first stage, which is built without online adders.
+The resource usage of the proposed \texttt{OM} can be calculated as follows. In an $N$-digit \texttt{OM}, in total $(N-1)$ online adders are needed. According to Algorithm~\ref{Algorithm:OM_DigitParallel}, the word-length of each online adder is $(N+2)$-digit (two integer digits and $N$ fractional digits). Therefore based on (\ref{Eq:OAareaLUT}) and (\ref{Eq:OAareaSlice}), the number of LUTs and the number of slices used by the \texttt{OM} is given in (\ref{Eq:OMareaLUT}) and (\ref{Eq:OMareaSlice}), respectively. Note that $L_{S1}$ and $S_{S1}$ denote the number of LUTs and slices used by the first stage, which is built without online adders.\vspace{-0.5ex}
 %
 \begin{eqnarray}\label{Eq:OMareaLUT}
 \scriptsize
@@ -406,17 +399,18 @@ The resource usage of the proposed \texttt{OM} can be calculated as follows. In 
 \normalsize
 \end{eqnarray}
 
-\subsection{Structure Optimization for Half Precision Results}
-As discussed before, normally the multiplier is connected with other arithmetic operators in real applications. If the outputs of a multiplier is utilized for subsequent operations, and a consistent word-length is used throughout the system, then only the most significant half of the product is required. In a conventional multiplier with standard binary arithmetic, this is achieved by either truncating or rounding the least significant half of the products. However, both the computation time and the structure remains unchanged, because the results are generated from LSDs.
+\subsection{Structure Optimization for Half Precision Results}\vspace{-0.5ex}
+As discussed before, normally the multiplier is connected with other arithmetic operators in real applications. If the outputs of a multiplier is utilized for subsequent operations, and a consistent word-length is used throughout the system, then only the most significant half of the product is required. In a conventional multiplier with standard binary arithmetic, this is achieved by either truncating or rounding the least significant half of the products. However, both the computation time and the structure remains unchanged, because the results are generated from LSDs.\vspace{-0.5ex}
 
-In comparison, the \texttt{OM} offers the flexibility to simplify the structure corresponding to the required precision. This is possible because in an \texttt{OM}, the product digits are generated initially from the MSD, and there is no carry propagation from the LSD to the MSD with the employment of the redundant number system. This will potentially lead to a more area efficient design. For example, the modified structure diagram of a 4-digit \texttt{OM} is illustrated in Fig.~\ref{Fig:PMStructure_MSDhalf}(a). The word-length of signals within each stage can be correspondingly reduced, as shown in Fig.~\ref{Fig:PMStructure_MSDhalf}(b). It can be seen that instead of keeping identical word-length throughout the stages (in Fig.~\ref{Fig:PMStructure}), in the modified structure the signal word-lengths depend on the stage number $j$ and fewer bits of signals are needed for LSD stages.
-
+In comparison, the \texttt{OM} offers the flexibility to simplify the structure corresponding to the required precision. This is possible because in an \texttt{OM}, the product digits are generated initially from the MSD, and there is no carry propagation from the LSD to the MSD with the employment of the redundant number system. This will potentially lead to a more area efficient design. For example, the modified structure diagram of a 4-digit \texttt{OM} is illustrated in Fig.~\ref{Fig:PMStructure_MSDhalf}(a). The word-length of signals within each stage can be correspondingly reduced, as shown in Fig.~\ref{Fig:PMStructure_MSDhalf}(b). It can be seen that instead of keeping identical word-length throughout the stages (in Fig.~\ref{Fig:PMStructure}), in the modified structure the signal word-lengths depend on the stage number $j$ and fewer bits of signals are needed for LSD stages.\vspace{-3ex}
+%
 \begin{figure}[tbp]
 	\centering
 	\includegraphics[width=.5\textwidth]{./Figures/ParallelMult_MSDhalf.pdf}
+  \vspace{-2ex}
 	\caption{(a) Modified structure of a 4-digit online multiplier which only generates the most significant 4-digit result. (b) Structure diagram of stage $j$, with the word-lengths of all internal signals labelled.}
 	\label{Fig:PMStructure_MSDhalf}
-	\vspace{-1ex}
+	\vspace{-2ex}
 \end{figure}
 
 \subsection{Performance Analysis}
@@ -520,7 +514,9 @@ In the future we wish to explore alternative mapping methods for the online mult
 
 % use section* for acknowledgement
 %\section*{Acknowledgment}
-
+\section*{Acknowledgment}
+%\vspace{-0.5ex}
+This work is supported by the EPSRC (Grants EP/I020557/1 and EP/I012036/1).
 
 
 
