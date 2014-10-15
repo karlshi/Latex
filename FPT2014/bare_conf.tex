@@ -13,12 +13,12 @@
 %\renewcommand{\algorithmicensure}{ \textbf{Recurrence:}}
 
 % Graph package
-\ifx\pdfoutput\undefined
+%\ifx\pdfoutput\undefined
 \usepackage{graphicx}
-\else
-\usepackage[pdftex]{graphicx}
-\fi
-\usepackage{epstopdf}
+%\else
+%\usepackage[pdftex]{graphicx}
+%\fi
+%\usepackage{epstopdf}
 
 \usepackage{multirow}
 
@@ -33,25 +33,7 @@
 % work, it is a good idea to load it with the tight package option to reduce
 % the amount of white space around the subfigures.
 
-
-%\usepackage[caption=false]{caption}
-%\usepackage[font=footnotesize]{subfig}
-% subfig.sty, also written by Steven Douglas Cochran, is the modern
-% replacement for subfigure.sty. However, subfig.sty requires and
-% automatically loads Axel Sommerfeldt's caption.sty which will override
-% IEEEtran.cls handling of captions and this will result in nonIEEE style
-% figure/table captions. To prevent this problem, be sure and preload
-% caption.sty with its "caption=false" package option. This is will preserve
-% IEEEtran.cls handing of captions. Version 1.3 (2005/06/28) and later
-% (recommended due to many improvements over 1.2) of subfig.sty supports
-% the caption=false option directly:
 \usepackage[caption=false,font=footnotesize]{subfig}
-
-
-
-
-
-
 
 
 % correct bad hyphenation here
@@ -96,17 +78,7 @@ Online arithmetic has been widely studied for ASIC implementation. Online compon
 
 \end{abstract}
 
-
-% For peer review papers, you can put extra information on the cover
-% page as needed:
-% \ifCLASSOPTIONpeerreview
-% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
-% \fi
-%
-% For peerreview papers, this IEEEtran command inserts a page break and
-% creates the second title. It will be ignored for other modes.
-%\IEEEpeerreviewmaketitle
-
+f
 
 
 \section{Introduction}\label{Sec:Intro}\vspace{-0.5ex}
@@ -133,10 +105,6 @@ In summary, the main contributions of this paper are:\vspace{-0.5ex}
     \item Demonstration of the performance improvements of online operators in terms of area and frequency.
 \end{enumerate}\vspace{-1ex}
 
-%In summary, the main contributions of this paper are efficient methods to map online adders and multipliers to modern FPGAs. The performance improvements in terms of silicon area and operating frequency with these new architectures mean that using online operators is much more attractive for an end user. The benefits of these operators .
-
-
-
 
 \section{Background: Online Arithmetic}\label{Sec:Background}\vspace{-0.5ex}
 \subsection{Key Features of Online Arithmetic}\vspace{-0.5ex}
@@ -146,7 +114,7 @@ Online arithmetic has been widely used in numerous applications such as signal p
 \begin{figure}[tbp]
   \centering
   %\vspace{-2.5ex}
-  \includegraphics[width=.48\textwidth]{./Figures/OnlineArithmetic_DataFlow.pdf}
+  \includegraphics[width=.48\textwidth]{./Figures/OnlineArithmetic_DataFlow.eps}
   \vspace{-4ex}
   \caption{Dataflow in digit-serial online arithmetic, in which both inputs and outputs are processed from the MSD to the LSD. $\delta$ denotes the online delay.}
   \vspace{-1ex}
@@ -165,7 +133,7 @@ MSD-first operation is possible only if a redundant number system is used. Norma
 \vspace{-.5ex}
 \begin{figure}[tbp]
   \centering
-  \includegraphics[width=.5\textwidth]{./Figures/SDAdder2.pdf}
+  \includegraphics[width=.5\textwidth]{./Figures/SDAdder.eps}
     \vspace{-7ex}
   \caption{An $N$-digit binary digit-parallel online adder. Both inputs and outputs are represented using SD representation. ``3:2'' denotes a 3:2 compressor.}
     \vspace{-2ex}
@@ -234,7 +202,7 @@ Specifically in type 1, both works took advantage of the built-in carry resource
 %
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=.5\textwidth]{./Figures/SDAdder_42comp_Spartan2.pdf}
+	\includegraphics[width=.5\textwidth]{./Figures/SDAdder_42comp_Spartan.eps}
 	\vspace{-4ex}
 	\caption{Map the online adder onto Spartan FPGAs using the fast-carry resources. The gray background highlights the 4:2 compressor. Dotted circle indicates the logic block (LB) which can be mapped to the FPGA using the carry resources.}
 	\vspace{-4ex}
@@ -260,7 +228,7 @@ To tackle this problem, we first present an alternative structure of the online 
 
 \begin{figure*}[tbp]
 	\centering
-	\includegraphics[width=.85\textwidth]{./Figures/SDadder_FPGA_New_4digit2.pdf}
+	\includegraphics[width=.85\textwidth]{./Figures/SDadder_FPGA_New_4digit.eps}
 	\vspace{-3ex}
 	\caption{Alternative structure of online adder. Left: an example of 4-digit online adder. The shaded part refers to the two logic blocks (LBs) that can be mapped onto one slice. Right: one LB. The dotted boxes outline the logic that can be mapped onto each LUT and the corresponding fast carry logic.}
 	\vspace{-2ex}	
@@ -271,7 +239,7 @@ The detailed slice mapping of the two \texttt{LB}s and the logic in each LUT are
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=.49\textwidth]{./Figures/SDadder_FastCarry_New2.pdf}
+	\includegraphics[width=.49\textwidth]{./Figures/SDadder_FastCarry_New.eps}
 	\vspace{-5ex}
 	\caption{Implementation of two logic blocks (LBs) in one FPGA slice which contains four 6-LUTs. NC stands for ``Not Care''.}
 	\vspace{-2ex}	
@@ -367,7 +335,7 @@ We now present an area efficient implementation of Algorithm~\ref{Algorithm:OM_D
 %
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=.5\textwidth]{./Figures/ParallelMult_Structure.pdf}
+	\includegraphics[width=.5\textwidth]{./Figures/ParallelMult_Structure.eps}
 	\vspace{-3ex}
 	\caption{(a) Structure of a 4-digit online multiplier using the proposed algorithm. (b) Structure of one stage. The word-length of all signals are labelled in terms of the number of digits. $N$ denotes the word-length of the input signals.}
 	\label{Fig:PMStructure}
@@ -378,7 +346,7 @@ The blocks that generate partial products $Xy_j$ can be incorporated into the on
 %
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=.4\textwidth]{./Figures/PartialProduct.pdf}
+	\includegraphics[width=.4\textwidth]{./Figures/PartialProduct.eps}
 	\vspace{-2.5ex}
 	\caption{Left: Direct implementation with extra logic to generate partial products. Right: Combining the logic blocks that generate partial products into the Online Adder by fully utilizing all the inputs of the 6-LUTs. In this case, further area reduction can be achieved.}
 	\label{Fig:PartialProduct}
@@ -406,7 +374,7 @@ In comparison, the \texttt{OM} offers the flexibility to simplify the structure 
 %
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=.5\textwidth]{./Figures/ParallelMult_MSDhalf.pdf}
+	\includegraphics[width=.5\textwidth]{./Figures/ParallelMult_MSDhalf.eps}
   \vspace{-2ex}
 	\caption{(a) Modified structure of a 4-digit online multiplier which only generates the most significant 4-digit result. (b) Structure diagram of stage $j$, with the word-lengths of all internal signals labelled.}
 	\label{Fig:PMStructure_MSDhalf}
@@ -475,33 +443,6 @@ For instance, Fig.~\ref{Fig:PM_MRE} demonstrates the \texttt{MRE} values of the 
 \end{figure}
 
 
-%\section{Results}
-
-
-% An example of a floating table. Note that, for IEEE style tables, the
-% \caption command should come BEFORE the table. Table text will default to
-% \footnotesize as IEEE normally uses this smaller font for tables.
-% The \label must come after \caption as always.
-%
-%\begin{table}[!t]
-%% increase table row spacing, adjust to taste
-%\renewcommand{\arraystretch}{1.3}
-% if using array.sty, it might be a good idea to tweak the value of
-% \extrarowheight as needed to properly center the text within the cells
-%\caption{An Example of a Table}
-%\label{table_example}
-%\centering
-%% Some packages, such as MDW tools, offer better commands for making tables
-%% than the plain LaTeX2e tabular which is used here.
-%\begin{tabular}{|c||c|}
-%\hline
-%One & Two\\
-%\hline
-%Three & Four\\
-%\hline
-%\end{tabular}
-%\end{table}
-
 
 
 \section{Conclusion}
@@ -517,18 +458,6 @@ In the future we wish to explore alternative mapping methods for the online mult
 \section*{Acknowledgment}
 %\vspace{-0.5ex}
 This work is supported by the EPSRC (Grants EP/I020557/1 and EP/I012036/1).
-
-
-
-% trigger a \newpage just before the given reference
-% number - used to balance the columns on the last page
-% adjust value as needed - may need to be readjusted if
-% the document is modified later
-%\IEEEtriggeratref{8}
-% The "triggered" command can be changed if desired:
-%\IEEEtriggercmd{\enlargethispage{-5in}}
-
-% references section
 
 \bibliographystyle{./IEEEtran}
 
