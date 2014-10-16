@@ -72,13 +72,7 @@ g.constantinides@imperial.ac.uk}
 %\boldmath
 Online arithmetic has been widely studied for ASIC implementation. Online components were originally designed to perform computations in digit serial with most significant digit (MSD) first, resulting in the ability to chain arithmetic operators together for low latency. More recently, research has shown that digit parallel online operators can fail more gracefully when operating beyond the deterministic clocking region in comparison to operators with conventional arithmetic. Unfortunately, the utilization of online arithmetic operators in the past has required a large area overhead for FPGA implementation. In this paper, we propose novel approaches to implement the key primitives of online arithmetic, adders and multipliers, efficiently on modern Xilinx FPGAs with 6-input LUTs and carry resources. We demonstrate experimentally that in comparison to a direct RTL synthesis, the proposed architectures achieve slice savings of over $67\%$ and $69\%$, and speed-ups of over $1.2\times$ and $1.5\times$ for adders and multipliers, respectively. As a result, the area overheads of using online adders and multipliers in place of traditional arithmetic primitives is reduced from $8.41\times$ and $8.11\times$ to $1.88\times$ and $1.84\times$ respectively. Finally, because an online multiplier generates MSDs first, we also demonstrate the method to create an online multiplier with a reduced precision output that is smaller than a traditional multiplier producing the same result. We show that this can lead to silicon area savings of up to $56\%$.\vspace{-0.5ex}
 % Furthermore in comparison to standard arithmetic primitives, this translates to reduction of the area overheads from up to $8.41\times$ to $1.88\times$ for adders, and from $8.11\times$ to $1.84\times$ for multipliers using direct implementation, to $1.88\times$ and $0.54\times$ using our approaches.
-
-
-
-
 \end{abstract}
-
-f
 
 
 \section{Introduction}\label{Sec:Intro}\vspace{-0.5ex}
@@ -114,10 +108,11 @@ Online arithmetic has been widely used in numerous applications such as signal p
 \begin{figure}[tbp]
   \centering
   %\vspace{-2.5ex}
-  \includegraphics[width=.48\textwidth]{./Figures/OnlineArithmetic_DataFlow.eps}
-  \vspace{-4ex}
-  \caption{Dataflow in digit-serial online arithmetic, in which both inputs and outputs are processed from the MSD to the LSD. $\delta$ denotes the online delay.}
+  \includegraphics[width=.45\textwidth]{./Figures/OnlineArithmetic_DataFlow.eps}
+  %\vspace{-3ex}
   \vspace{-1ex}
+  \caption{Dataflow in digit-serial online arithmetic, in which both inputs and outputs are processed from the MSD to the LSD. $\delta$ denotes the online delay.}
+  \vspace{-2ex}
   \label{Fig:OnlineDataFlow}
 \end{figure}
 %
@@ -133,8 +128,9 @@ MSD-first operation is possible only if a redundant number system is used. Norma
 \vspace{-.5ex}
 \begin{figure}[tbp]
   \centering
-  \includegraphics[width=.5\textwidth]{./Figures/SDAdder.eps}
-    \vspace{-7ex}
+  \includegraphics[width=.45\textwidth]{./Figures/SDAdder.eps}
+  %\vspace{-7ex}
+  \vspace{-2ex}
   \caption{An $N$-digit binary digit-parallel online adder. Both inputs and outputs are represented using SD representation. ``3:2'' denotes a 3:2 compressor.}
     \vspace{-2ex}
   \label{Fig:Radix2SD_adder}
@@ -202,8 +198,9 @@ Specifically in type 1, both works took advantage of the built-in carry resource
 %
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=.5\textwidth]{./Figures/SDAdder_42comp_Spartan.eps}
-	\vspace{-4ex}
+	\includegraphics[width=.47\textwidth]{./Figures/SDAdder_42comp_Spartan.eps}
+	%\vspace{-4ex}
+  \vspace{-1ex}
 	\caption{Map the online adder onto Spartan FPGAs using the fast-carry resources. The gray background highlights the 4:2 compressor. Dotted circle indicates the logic block (LB) which can be mapped to the FPGA using the carry resources.}
 	\vspace{-4ex}
 	\label{Fig:PreviousWork}
@@ -229,9 +226,9 @@ To tackle this problem, we first present an alternative structure of the online 
 \begin{figure*}[tbp]
 	\centering
 	\includegraphics[width=.85\textwidth]{./Figures/SDadder_FPGA_New_4digit.eps}
-	\vspace{-3ex}
+	\vspace{-1ex}
 	\caption{Alternative structure of online adder. Left: an example of 4-digit online adder. The shaded part refers to the two logic blocks (LBs) that can be mapped onto one slice. Right: one LB. The dotted boxes outline the logic that can be mapped onto each LUT and the corresponding fast carry logic.}
-	\vspace{-2ex}	
+	\vspace{-1ex}	
 	\label{Fig:ModifiedOA}
 \end{figure*}
 
@@ -239,10 +236,10 @@ The detailed slice mapping of the two \texttt{LB}s and the logic in each LUT are
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=.49\textwidth]{./Figures/SDadder_FastCarry_New.eps}
-	\vspace{-5ex}
+	\includegraphics[width=.45\textwidth]{./Figures/SDadder_FastCarry_New.eps}
+	%\vspace{-1.5ex}
 	\caption{Implementation of two logic blocks (LBs) in one FPGA slice which contains four 6-LUTs. NC stands for ``Not Care''.}
-	\vspace{-2ex}	
+	%\vspace{-2ex}	
 	\label{Fig:SliceNew}
 \end{figure}
 
@@ -267,9 +264,10 @@ In our experiments, we compare the proposed online adder (\texttt{OA\_new}) agai
 \begin{figure}[tbp]
 	\centering
 	\includegraphics[width=.45\textwidth]{./Figures/Exp/Adder_Freq.eps}
+  \vspace{-1ex}
 	\caption{Rated frequencies of the RCA and the online adder with different implementation methods. The results are obtained from post place and route timing reports in ISE 14.7.}
 	\label{Fig:AdderFreq}
-	\vspace{-1ex}
+	\vspace{-3ex}
 \end{figure}
 
 
@@ -326,7 +324,7 @@ We address the first two design issues by providing an alternative online multip
   \end{algorithmic}
   \vspace{-1ex}
 \end{algorithm}
-\vspace{-1ex}
+
 
 In comparison to Algorithm~\ref{Algorithm:OnlineMult}, the maximum number of stages required to generate results with full precision drops by a factor of 2 using the proposed new algorithm. In each stage, the word-length of all signals also reduces from $(N+2+\delta)$ to $(N+2)$, as $\delta$ is not necessary for digit parallel operations. In addition, the $frac()$ function can be implemented only based on wire connections without using logic resources.
 
@@ -335,8 +333,8 @@ We now present an area efficient implementation of Algorithm~\ref{Algorithm:OM_D
 %
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=.5\textwidth]{./Figures/ParallelMult_Structure.eps}
-	\vspace{-3ex}
+	\includegraphics[width=.45\textwidth]{./Figures/ParallelMult_Structure.eps}
+	\vspace{-1ex}
 	\caption{(a) Structure of a 4-digit online multiplier using the proposed algorithm. (b) Structure of one stage. The word-length of all signals are labelled in terms of the number of digits. $N$ denotes the word-length of the input signals.}
 	\label{Fig:PMStructure}
 	\vspace{-2ex}
@@ -347,10 +345,10 @@ The blocks that generate partial products $Xy_j$ can be incorporated into the on
 \begin{figure}[tbp]
 	\centering
 	\includegraphics[width=.4\textwidth]{./Figures/PartialProduct.eps}
-	\vspace{-2.5ex}
+	\vspace{-1.5ex}
 	\caption{Left: Direct implementation with extra logic to generate partial products. Right: Combining the logic blocks that generate partial products into the Online Adder by fully utilizing all the inputs of the 6-LUTs. In this case, further area reduction can be achieved.}
 	\label{Fig:PartialProduct}
-	\vspace{-1.5ex}
+	\vspace{-2ex}
 \end{figure}
 
 The resource usage of the proposed \texttt{OM} can be calculated as follows. In an $N$-digit \texttt{OM}, in total $(N-1)$ online adders are needed. According to Algorithm~\ref{Algorithm:OM_DigitParallel}, the word-length of each online adder is $(N+2)$-digit (two integer digits and $N$ fractional digits). Therefore based on (\ref{Eq:OAareaLUT}) and (\ref{Eq:OAareaSlice}), the number of LUTs and the number of slices used by the \texttt{OM} is given in (\ref{Eq:OMareaLUT}) and (\ref{Eq:OMareaSlice}), respectively. Note that $L_{S1}$ and $S_{S1}$ denote the number of LUTs and slices used by the first stage, which is built without online adders.\vspace{-0.5ex}
@@ -374,8 +372,8 @@ In comparison, the \texttt{OM} offers the flexibility to simplify the structure 
 %
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=.5\textwidth]{./Figures/ParallelMult_MSDhalf.eps}
-  \vspace{-2ex}
+	\includegraphics[width=.45\textwidth]{./Figures/ParallelMult_MSDhalf.eps}
+  \vspace{-1ex}
 	\caption{(a) Modified structure of a 4-digit online multiplier which only generates the most significant 4-digit result. (b) Structure diagram of stage $j$, with the word-lengths of all internal signals labelled.}
 	\label{Fig:PMStructure_MSDhalf}
 	\vspace{-2ex}
