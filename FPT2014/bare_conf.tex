@@ -202,7 +202,7 @@ Specifically in type 1, both works took advantage of the built-in carry resource
 	%\vspace{-4ex}
   \vspace{-1ex}
 	\caption{Map the online adder onto Spartan FPGAs using the fast-carry resources. The gray background highlights the 4:2 compressor. Dotted circle indicates the logic block (LB) which can be mapped to the FPGA using the carry resources.}
-	\vspace{-4ex}
+	%\vspace{-2ex}
 	\label{Fig:PreviousWork}
 \end{figure}
 
@@ -210,11 +210,11 @@ However, we notice the major limitations of both approaches that they only targe
 %
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=.45\textwidth]{./Figures/SDadder_FastCarry_PreviousWork2.pdf}
-	\vspace{-3ex}
+	\includegraphics[width=.45\textwidth]{./Figures/SDadder_FastCarry_PreviousWork.eps}
+	\vspace{-1ex}
 	\caption{An example illustrating that direct applying approaches in \cite{FPT09RA} on a Virtex-6 FPGA will results in faulty outputs, because the carry input of \texttt{LB1} cannot be explicitly initialized.}
 	\label{Fig:PreWorkVirtex6}
-    \vspace{-2.5ex}
+   % \vspace{-2.5ex}
 \end{figure}
 
 \subsection{Proposed Mapping Method}\vspace{-0.5ex}
