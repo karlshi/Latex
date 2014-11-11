@@ -120,12 +120,13 @@ In this paper we consider two design scenarios for RCA: one is the overclocking 
 \end{eqnarray}
 
 \subsection{Carry Select Adder}
+Although smaller value of mean error can be achieved in the overclocking scenario, it costs extra area because the full precision is maintained. Instead, alternative adder structures, such as carry select adder (CSA), are originally designed to trade silicon area for low latency. In a CSA, the carry chain is divided into multiple overlapped stages, and each stage contains two RCAs and two multiplexers, as shown in Fig. xxx(a) and Fig. xxx(b). For a given input, two additions are performed simultaneously within a single stage where the carry input is zero and one separately. One of these two results is then selected according to the actual carry input. Although this structure brings performance benefits, it costs extra hardware resources compared to a standard RCA because the carry chain is duplicated. Furthermore, multiplexers are area-expensive to implement with FPGA technology.
 
+In this paper, we take CSA with different stages into comparison when considering a variety of accuracy, performance and area trade-offs. The results are shown in Section.xxx. 
 
-
-\subsection{Online Adder}
-\subsubsection{Algorithm}
-The structure of a digit-parallel online adder where all signals represented with SD numbers of digit set $\{-1,0,1\}$ is shown in Fig.~\ref{Fig:Radix2SD_adder}. The module ``3:2'' denotes a 3:2 compressor, which takes three inputs and generates two outputs, and is logically equivalent to a full adder (FA). A major advantage of the redundant number system over the standard ripple-carry based arithmetic is that the propagation of carry is eliminated, resulting in a precision-independent computation time for addition. As labelled in Fig.~\ref{Fig:Radix2SD_adder}, ideally the computation delay of this adder is only two FA delays for any operand word-length, with the cost of one extra FA for each digit of operands. This makes the online adder suitable for building up more complex arithmetic operators such as multipliers to accelerate the sum of partial products \cite{RedundantMult_1987}.
+\subsection{Online Adder}\label{subsec:online_adder}
+%\subsubsection{Structure}
+In addition to standard binary arithmetic, alternative forms of computer arithmetic was studied to boost performance. For example, adder with online arithmetic is also designed for low latency at the cost of more silicon area. The structure of a digit-parallel online adder (OA) where all signals represented with SD numbers of digit set $\{-1,0,1\}$ is shown in Fig.~\ref{Fig:Radix2SD_adder}. The module ``3:2'' denotes a 3:2 compressor, which takes three inputs and generates two outputs, and is logically equivalent to a full adder (FA). A major advantage of the redundant number system over the standard ripple-carry based arithmetic is that the propagation of carry is eliminated, resulting in a precision-independent computation time for addition. As labelled in Fig.~\ref{Fig:Radix2SD_adder}, ideally the computation delay of this adder is only two FA delays for any operand word-length, at the expenses of one extra FA for each digit of operands. 
 %
 \begin{figure}[tbp]
   \centering
@@ -137,10 +138,10 @@ The structure of a digit-parallel online adder where all signals represented wit
   \label{Fig:Radix2SD_adder}
 \end{figure}
 
-\begin{eqnarray}\label{Eq:b}
-    b:=\left\lceil \frac{T_S}{\mu} \right\rceil=\left\lceil \frac{1}{\mu\cdot f_S}\right\rceil
-\end{eqnarray}
+\subsection{Comparison of Adders}
+In this section, we initially demonstrate the benefits of CSA and OA in accuracy and performance, as well as the area overhead in comparison to RCA. As an example, the maximum word-length with respect to a variety of operating frequencies for RCA, CSA and OA is illustrated in Fig.~xxx. Notice that in this case, overclocking error is not allowed to happen and the conventional design scenario is evaluated for all structures.
 
+Correspondingly, the area consumed by each adder structure in terms of look-up-tables (LUTs) in FPGA is depicted in Fig.~xxx. Clearly we see that for a given frequency, CSA costs xxx (4 stages) and xxx (2 stages) area than RCA, and OA is almost constantly two times larger than RCA as predicted in Section~\ref{subsec:online_adder}. Therefore, we incorporate silicon area as another design metric besides accuracy and performance, and evaluate the optimum adder structure under various design trade-offs.
 
 
 \section{Comparison of Different Multiplier Structures}
