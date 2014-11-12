@@ -22,9 +22,9 @@
 
 \begin{document}
 
-\title{Evaluation of Optimum Arithmetic Operators For Approximate Datapath Design}
+\title{Evaluation of Design Trade-offs for Approximate Arithmetic Operators}
 
-
+%Evaluation of Optimum Arithmetic Operators For Approximate Datapath Design
 
 \author{\IEEEauthorblockN{Kan Shi and George A. Constantinides}
 \IEEEauthorblockA{Department of Electrical and Electronic Engineering\\
@@ -61,7 +61,7 @@ approximate computing; datapath; computer arithmetic;
 
 \subsection{Online Arithmetic}
 
-Online arithmetic has been found using in numerous applications such as signal processing and control algorithms~\cite{Online_FPGADSP,Online_Control}. Online arithmetic was originally designed for digit-serial operation, as illustrated in Fig~\ref{Fig:OnlineDataFlow}. It can be seen that in order to generate the first output digit, $\delta$ digits of inputs are required, where $\delta$ is called the ``online delay''. $\delta$ is normally a small constant, which is independent of the precision. For ease of discussion, for the rest of this paper, the input data is assumed to be fixed point numbers in the range $(-1,1)$. Based on this premise, the online representation of $N$-digit operands and result at iteration $j$ are given by (\ref{Eq:Online_Operands}), where $j\in[-\delta,N-1]$ and $r$ denotes the radix \cite{Ercegovac_Book}.
+As an alternative form of computer arithmetic, online arithmetic has been used in numerous applications such as signal processing and control algorithms~\cite{Online_FPGADSP,Online_Control}. Online arithmetic was originally designed for digit-serial operation, as illustrated in Fig~\ref{Fig:OnlineDataFlow}. It can be seen that in order to generate the first output digit, $\delta$ digits of inputs are required, where $\delta$ is called the ``online delay''. $\delta$ is normally a small constant, which is independent of the precision. For ease of discussion, for the rest of this paper, the input data is assumed to be fixed point numbers in the range $(-1,1)$. Based on this premise, the online representation of $N$-digit operands and result at iteration $j$ are given by (\ref{Eq:Online_Operands}), where $j\in[-\delta,N-1]$ and $r$ denotes the radix \cite{Ercegovac_Book}.
 %
 \begin{figure}[tbp]
   \centering
@@ -122,7 +122,7 @@ In this paper we consider two design scenarios for RCA: one is the overclocking 
 \subsection{Carry Select Adder}
 Although smaller value of mean error can be achieved in the overclocking scenario, it costs extra area because the full precision is maintained. Instead, alternative adder structures, such as carry select adder (CSA), are originally designed to trade silicon area for low latency. In a CSA, the carry chain is divided into multiple overlapped stages, and each stage contains two RCAs and two multiplexers, as shown in Fig. xxx(a) and Fig. xxx(b). For a given input, two additions are performed simultaneously within a single stage where the carry input is zero and one separately. One of these two results is then selected according to the actual carry input. Although this structure brings performance benefits, it costs extra hardware resources compared to a standard RCA because the carry chain is duplicated. Furthermore, multiplexers are area-expensive to implement with FPGA technology.
 
-In this paper, we take CSA with different stages into comparison when considering a variety of accuracy, performance and area trade-offs. The results are shown in Section.xxx. 
+%In this paper, we take CSA with different stages into comparison when considering a variety of accuracy, performance and area trade-offs. The results are shown in Section.xxx. 
 
 \subsection{Online Adder}\label{subsec:online_adder}
 %\subsubsection{Structure}
@@ -131,18 +131,36 @@ In addition to standard binary arithmetic, alternative forms of computer arithme
 \begin{figure}[tbp]
   \centering
   \includegraphics[width=.45\textwidth]{./figures/SDAdder.eps}
-  %\vspace{-7ex}
-  %\vspace{-2ex}
   \caption{An $N$-digit binary digit-parallel online adder. Both inputs and outputs are represented using SD representation. ``3:2'' denotes a 3:2 compressor.}
-    \vspace{-2ex}
   \label{Fig:Radix2SD_adder}
 \end{figure}
 
-\subsection{Comparison of Adders}
-In this section, we initially demonstrate the benefits of CSA and OA in accuracy and performance, as well as the area overhead in comparison to RCA. As an example, the maximum word-length with respect to a variety of operating frequencies for RCA, CSA and OA is illustrated in Fig.~xxx. Notice that in this case, overclocking error is not allowed to happen and the conventional design scenario is evaluated for all structures.
+\subsection{Design Trade-offs for Adders}
+In this section, we initially demonstrate the benefits of CSA and OA in accuracy and performance, as well as the area overhead in comparison to RCA. As an example, the maximum word-length with respect to a variety of operating frequencies for RCA, CSA and OA is illustrated in Fig.~\ref{Fig:max_wl_adder}. Notice that in this case, overclocking error is not allowed to happen and the conventional design scenario is evaluated for all structures.
+%
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=.5\textwidth]{./figures/exp/max_wl.eps}
+  \caption{The maximum word-length of different adder structures.}
+  \label{Fig:max_wl_adder}
+\end{figure}
 
-Correspondingly, the area consumed by each adder structure in terms of look-up-tables (LUTs) in FPGA is depicted in Fig.~xxx. Clearly we see that for a given frequency, CSA costs xxx (4 stages) and xxx (2 stages) area than RCA, and OA is almost constantly two times larger than RCA as predicted in Section~\ref{subsec:online_adder}. Therefore, we incorporate silicon area as another design metric besides accuracy and performance, and evaluate the optimum adder structure under various design trade-offs.
+Correspondingly, the area consumed by each adder structure in terms of look-up-tables (LUTs) in FPGA is depicted in Fig.~\ref{Fig:area_adder}. Clearly we see that for a given frequency, CSA costs up to $4.5\times$ (4 stages) and $3.1\times$ (2 stages) area than RCA, and OA is up to $3.8\times$ larger than RCA for some frequency values. Therefore, we incorporate silicon area as another design metric besides accuracy and performance, and evaluate the optimum adder structure under various design trade-offs. In this paper, we examine both the overclocking scenario and the conventional scenario for RCA, while only considering the conventional scenario for other adder structures.
+%the considered design scenarios and adder structures are summarized in Table.xxx.
+% some figure goes here
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=.5\textwidth]{./figures/exp/area_adders.eps}
+  \caption{The maximum word-length of different adder structures.}
+  \label{Fig:area_adder}
+\end{figure}
 
+
+In general, the evaluation could be of interest to a circuit designer in several ways. First, suppose the algorithm designer wish the circuit to run at a given frequency within a given area budget, while achieving the minimum output error. Decisions must then be made on which adder structure achieves this minimum, and whether the circuit should be overclocked. 
+
+As an example slice through the design space, we record the mean relative error (MRE) with respect to a range of operating frequencies for different design scenarios when the area budget is set to xxx. MRE can be calculated as given in (xxx). Notice that in Fig.~xxx, the optimum adder structure is labeled. 
+
+Under this given area budget, both CSA and OA cannot be implemented with full precision, and this leads to large truncation errors 
 
 \section{Comparison of Different Multiplier Structures}
 \subsection{Standard Binary Multiplier}
@@ -176,7 +194,7 @@ Similar to online addition, online multiplication can also be implemented in a u
 \normalsize
 \end{eqnarray}
 
-In our previous work, an area efficient implementation 
+The parallel implementation of Algorithm~\ref{Algorithm:OM_DigitParallel} is illustrated in Fig.~\ref{Fig:PM} where $N=4$. The details of implementation are addressed in our previous work [xxx].
 
 \begin{figure}[tbp]
   \centering
