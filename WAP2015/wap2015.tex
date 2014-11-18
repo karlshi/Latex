@@ -31,6 +31,7 @@
 Imperial College London\\
 London, UK\\
 Email: \{k.shi11, g.contantinides\}@imperial.ac.uk}
+\vspace{2ex}
 %\and
 %\IEEEauthorblockN{Authors Name/s per 2nd Affiliation (Author)}
 %\IEEEauthorblockA{line 1 (of Affiliation): dept. name of organization\\
@@ -64,7 +65,16 @@ Unfortunately, in both cases circuits are designed for the worst cases. In order
 
 To tackle this problem, a large volume of research activities were focused on the design methodology of relaxing the $100\%$ accuracy requirements and design constraints, while evaluating the corresponding design benefits and costs. Studies have shown that computing approximately provides extra opportunities to design circuits with better performance and less energy consumption. A brief discussion of the work in this area is given in Section~\ref{sec:Background}.
 
-In this paper, we provide a detailed evaluation of design trade-offs for adders, which are key arithmetic primitives for a broad range of applications.
+In this paper, we provide detailed evaluations of design trade-offs for adders, which are key arithmetic primitives for a broad range of applications. In order to provide the optimum design choice for adders, we examine several design constrains and options, such as accuracy, operating frequency, silicon area, different types of adder structure, as well as different forms of computer arithmetic for adder implementation. In comparison to the conventional design scenario that timing closure is achieved by truncating the word-length of operands, we take a radical step forward by adopting an alternative design scenario, which is named ``overclockign scenario''. In this scenario, circuits are operated far beyond the conservation region with full precision, while timing violation can be tolerated. Previous work has shown that for many applications, it is preferable to follow the overclocking scenario because the worst case is triggered by certain input patterns and hence it happens rarely [xxx]. In addition to the adder structures that are created based on standard binary arithmetic, such as ripple carry adder and carry select adder, we also evaluate adder with ``online arithmetic'' [xxx], which employs different style of data representation to eliminate carry propagation in conventional adders. We demonstrate experimentally on FPGAs that for limited area budgets, applying the overclocking approach to ripple carry adders can be more beneficial than using fast adders to achieve similar latency. With more relaxed area constraints, the online adder outperforms in terms of accuracy or performance. Potentially our study will provide circuit designers with guidance and extra options when balancing between various design trade-offs.
+
+In summary, the main contributions of this paper are:
+\begin{enumerate}
+  \item Detailed evaluation of three adder structures: ripple carry adder, carry select adder and online adder; 
+  \item Evaluation of design scenarios by demonstrating the optimum design choice under the consideration of accuracy-performance-area trade-offs.
+\end{enumerate}
+
+The rest of this paper is organized as below: we first provide a brief overview of the relevant work in this area, together with the background knowledge of online arithmetic in Section~\ref{sec:Background}. The comparison between different adder structures and design trade-offs are described in detail in Section~\ref{sec:diff_adder}. This is followed by the evaluation of optimum design choices when considering trade-offs between accuracy, performance and area in Section~\ref{sec:optimum_adder}. The conclusion and identification of possible future work is given in Section~\ref{sec:conclusion}.
+
 
 \section{Background}\label{sec:Background}
 \subsection{Approximate Datapath Design}
@@ -74,7 +84,7 @@ Typically this can be achieved by either reducing the supply voltage [xxx] or in
 
 As an alternative form of computer arithmetic, online arithmetic has been used in numerous applications such as signal processing and control algorithms~\cite{Online_FPGADSP,Online_Control}. Online arithmetic was originally designed for digit-serial operation, as illustrated in Fig~\ref{Fig:OnlineDataFlow}. It can be seen that in order to generate the first output digit, $\delta$ digits of inputs are required, where $\delta$ is called the ``online delay''. $\delta$ is normally a small constant, which is independent of the precision. For ease of discussion, for the rest of this paper, the input data is assumed to be fixed point numbers in the range $(-1,1)$. Based on this premise, the online representation of $N$-digit operands and result at iteration $j$ are given by (\ref{Eq:Online_Operands}), where $j\in[-\delta,N-1]$ and $r$ denotes the radix \cite{Ercegovac_Book}.
 %
-\begin{figure}[tbp]
+\begin{figure}[htbp]
   \centering
   %\vspace{-2.5ex}
   \includegraphics[width=.42\textwidth]{./figures/OnlineArithmetic_DataFlow.eps}
@@ -94,7 +104,7 @@ MSD-first operation is possible only if a redundant number system is used. Norma
 
 Due to the redundancy, the MSDs of the result can be calculated using partial information from both inputs. Then the value of the number can be revised using the subsequent digits, because each number has multiple representations.
 
-\section{Design Trade-offs of Different Adder Structures}
+\section{Design Trade-offs of Different Adder Structures}\label{sec:diff_adder}
 \subsection{Ripple Carry Adder}
 Adders serve as a key building block for arithmetic operations. In general, the ripple carry adder (RCA) is the most straightforward and widely used adder structure. As such, in our previous work we proposed probabilistic models of overclocking errors for RCA.
 
@@ -170,7 +180,7 @@ We also record the corresponding area consumed by each adder structure in terms 
 
 
 
-\section{Evaluation of Optimum Adder Structure}
+\section{Evaluation of Optimum Adder Structure}\label{sec:optimum_adder}
 In general, the evaluation could be of interest to a circuit designer in several ways. For example, suppose the algorithm designer wish the circuit to run at a given frequency within a given area budget, while achieving the minimum output error. Besides, for many applications, the circuit design would wish the circuit to operate as fast as possible with the minimum resource usage, whilst a certain error budget can be tolerated. In both cases, decisions must then be made on which adder structure achieves this minimum, and whether the circuit should be overclocked. 
 
 \subsection{Optimum Adder Design Metric with Given Frequency and Area Requirements}
@@ -226,9 +236,9 @@ The results shown in Fig.~\ref{Fig:Error_Area} can be generalized with a variety
   \label{Fig:adder_3d_ErrorArea}
 \end{figure*}
 
-\section{Conclusion}
+\section{Conclusion}\label{sec:conclusion}
 
-\section*{Acknowledgment}
+%\section*{Acknowledgment}
 
 
 \bibliographystyle{./IEEEtran}
