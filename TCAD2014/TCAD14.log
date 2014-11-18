@@ -1,0 +1,828 @@
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  4 JUN 2014 17:01
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**TCAD14.tex -recorder
+(./TCAD14.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, ge
+rman-x-2012-05-30, ngerman-x-2012-05-30, afrikaans, ancientgreek, ibycus, arabi
+c, armenian, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danis
+h, dutch, ukenglish, usenglishmax, esperanto, estonian, ethiopic, farsi, finnis
+h, french, friulan, galician, german, ngerman, swissgerman, monogreek, greek, h
+ungarian, icelandic, assamese, bengali, gujarati, hindi, kannada, malayalam, ma
+rathi, oriya, panjabi, tamil, telugu, indonesian, interlingua, irish, italian, 
+kurmanji, latin, latvian, lithuanian, mongolian, mongolianlmc, bokmal, nynorsk,
+ polish, portuguese, romanian, romansh, russian, sanskrit, serbian, serbianc, s
+lovak, slovenian, spanish, swedish, turkish, turkmen, ukrainian, uppersorbian, 
+welsh, loaded.
+(./IEEEtran.cls
+Document Class: IEEEtran 2012/12/27 V1.8 by Michael Shell
+-- See the "IEEEtran_HOWTO" manual for usage information.
+-- http://www.michaelshell.org/tex/ieeetran/
+\@IEEEtrantmpdimenA=\dimen102
+\@IEEEtrantmpdimenB=\dimen103
+\@IEEEtrantmpcountA=\count79
+\@IEEEtrantmpcountB=\count80
+\@IEEEtrantmptoksA=\toks14
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 368.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+-- Using 8.5in x 11in (letter) paper.
+-- Using PDF output.
+\@IEEEnormalsizeunitybaselineskip=\dimen104
+-- This is a 10 point document.
+\CLASSINFOnormalsizebaselineskip=\dimen105
+\CLASSINFOnormalsizeunitybaselineskip=\dimen106
+\IEEEnormaljot=\dimen107
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 726.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <5> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 726.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 726.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 726.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 726.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 726.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 726.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 726.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 726.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 726.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <11> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 726.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <11> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 726.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 726.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 726.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 726.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <17> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 726.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 726.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <20> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 726.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 726.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 726.
+\IEEEilabelindentA=\dimen108
+\IEEEilabelindentB=\dimen109
+\IEEEilabelindent=\dimen110
+\IEEEelabelindent=\dimen111
+\IEEEdlabelindent=\dimen112
+\IEEElabelindent=\dimen113
+\IEEEiednormlabelsep=\dimen114
+\IEEEiedmathlabelsep=\dimen115
+\IEEEiedtopsep=\skip41
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@IEEEsubequation=\count85
+\abovecaptionskip=\skip42
+\belowcaptionskip=\skip43
+\c@figure=\count86
+\c@table=\count87
+\@IEEEeqnnumcols=\count88
+\@IEEEeqncolcnt=\count89
+\@IEEEsubeqnnumrollback=\count90
+\@IEEEtmpitemindent=\dimen116
+\c@IEEEbiography=\count91
+\@IEEEtranrubishbin=\box26
+) (/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
+\@emptytoks=\toks15
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/base/latexsym.sty
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks16
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count92
+))
+\Gin@req@height=\dimen117
+\Gin@req@width=\dimen118
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/oberdiek/epstopdf.sty
+Package: epstopdf 2010/02/09 v2.5 Conversion with epstopdf on the fly (HO)
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/local/texlive/2012/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+)))
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2009/06/22 v3.00
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip44
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks17
+\ex@=\dimen119
+))
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen120
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count93
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count94
+\leftroot@=\count95
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count96
+\DOTSCASE@=\count97
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box27
+\strutbox@=\box28
+\big@size=\dimen121
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count98
+\c@MaxMatrixCols=\count99
+\dotsspace@=\muskip10
+\c@parentequation=\count100
+\dspbrk@lvl=\count101
+\tag@help=\toks18
+\row@=\count102
+\column@=\count103
+\maxfields@=\count104
+\andhelp@=\toks19
+\eqnshift@=\dimen122
+\alignsep@=\dimen123
+\tagshift@=\dimen124
+\tagwidth@=\dimen125
+\totwidth@=\dimen126
+\lineht@=\dimen127
+\@envbody=\toks20
+\multlinegap=\skip45
+\multlinetaggap=\skip46
+\mathdisplay@stack=\toks21
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen128
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
+\subfigtopskip=\skip47
+\subfigcapskip=\skip48
+\subfigcaptopadj=\dimen129
+\subfigbottomskip=\skip49
+\subfigcapmargin=\dimen130
+\subfiglabelskip=\skip50
+\c@subfigure=\count105
+\c@lofdepth=\count106
+\c@subtable=\count107
+\c@lotdepth=\count108
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(/usr/local/texlive/2012/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+\subfig@top=\skip51
+\subfig@bottom=\skip52
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count109
+\float@exts=\toks22
+\float@box=\box29
+\@float@everytoks=\toks23
+\@floatcapt=\box30
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\@float@every@algorithm=\toks24
+\c@algorithm=\count110
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
+Package: algpseudocode 
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count111
+\c@ALG@rem=\count112
+\c@ALG@nested=\count113
+\ALG@tlm=\skip53
+\ALG@thistlm=\skip54
+\c@ALG@Lnr=\count114
+\c@ALG@blocknr=\count115
+\c@ALG@storecount=\count116
+\c@ALG@tmpcounter=\count117
+\ALG@tmplength=\skip55
+)
+Document Style - pseudocode environments for use with the `algorithmicx' style
+)
+\c@proposition=\count118
+\c@observation=\count119
+\c@definition=\count120
+ (./TCAD14.aux)
+\openout1 = `TCAD14.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+
+(/usr/local/texlive/2012/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count121
+\scratchdimen=\dimen131
+\scratchbox=\box31
+\nofMPsegments=\count122
+\nofMParguments=\count123
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count124
+\MPscratchDim=\dimen132
+\MPnumerator=\count125
+\makeMPintoPDFobject=\count126
+\everyMPtoPDFconversion=\toks26
+)
+Underfull \hbox (badness 3417) in paragraph at lines 114--115
+\OT1/ptm/m/n/10 con-text. An im-por-tant prob-lem into the re-con-fig-urable
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 114--115
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 116--117
+
+ []
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 120.
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 120.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for U+lasy on input line 120.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+Underfull \hbox (badness 10000) in paragraph at lines 118--121
+
+ []
+
+
+LaTeX Warning: Citation `Online_FPGADSP' on page 1 undefined on input line 138.
+
+
+
+LaTeX Warning: Citation `Online_Control' on page 1 undefined on input line 138.
+
+
+
+LaTeX Warning: Citation `Ercegovac_Book' on page 1 undefined on input line 138.
+
+
+<./Figures/OnlineArithmetic_DataFlow.pdf, id=1, 311.66437pt x 109.1578pt>
+File: ./Figures/OnlineArithmetic_DataFlow.pdf Graphic file (type pdf)
+
+<use ./Figures/OnlineArithmetic_DataFlow.pdf>
+Package pdftex.def Info: ./Figures/OnlineArithmetic_DataFlow.pdf used on input 
+line 142.
+(pdftex.def)             Requested size: 247.6778pt x 86.74838pt.
+
+
+LaTeX Font Warning: Command \footnotesize invalid in math mode on input line 15
+0.
+
+
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 152.
+
+
+
+LaTeX Warning: Citation `CSadder' on page 1 undefined on input line 155.
+
+
+LaTeX Warning: Citation `RedundantNumber' on page 1 undefined on input line 155
+.
+
+
+LaTeX Warning: Citation `RedundantMult_1987' on page 1 undefined on input line 
+161.
+
+[1{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+
+
+ <./Figures/OnlineArithmetic_DataFlow.pdf>]
+<./Figures/SDAdder2.pdf, id=45, 623.32875pt x 368.1253pt>
+File: ./Figures/SDAdder2.pdf Graphic file (type pdf)
+
+<use ./Figures/SDAdder2.pdf>
+Package pdftex.def Info: ./Figures/SDAdder2.pdf used on input line 165.
+(pdftex.def)             Requested size: 258.0pt x 152.37033pt.
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 165--167
+ [][] 
+ []
+
+
+LaTeX Warning: Citation `Ercegovac_OnlineMult' on page 2 undefined on input lin
+e 174.
+
+
+LaTeX Warning: Citation `Ercegovac_OnlineMult' on page 2 undefined on input lin
+e 174.
+
+<./Figures/OM_Unrolled.pdf, id=46, 733.23938pt x 509.65407pt>
+File: ./Figures/OM_Unrolled.pdf Graphic file (type pdf)
+
+<use ./Figures/OM_Unrolled.pdf>
+Package pdftex.def Info: ./Figures/OM_Unrolled.pdf used on input line 203.
+(pdftex.def)             Requested size: 252.84283pt x 175.73752pt.
+
+Overfull \hbox (0.84283pt too wide) in paragraph at lines 203--205
+ [][] 
+ []
+
+
+LaTeX Warning: Citation `Online_Conversion' on page 2 undefined on input line 2
+15.
+
+
+LaTeX Font Warning: Command \footnotesize invalid in math mode on input line 22
+1.
+
+
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 224.
+
+
+[2 <./Figures/SDAdder2.pdf> <./Figures/OM_Unrolled.pdf
+
+pdfTeX warning: pdflatex (file ./Figures/OM_Unrolled.pdf): PDF inclusion: multi
+ple pdfs with page group included in a single page
+>]
+
+LaTeX Font Warning: Command \footnotesize invalid in math mode on input line 25
+0.
+
+
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 257.
+
+
+
+LaTeX Font Warning: Command \footnotesize invalid in math mode on input line 27
+6.
+
+
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 278.
+
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 281--282
+
+ []
+
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 294.
+
+
+
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 296.
+
+
+
+LaTeX Font Warning: Command \footnotesize invalid in math mode on input line 30
+2.
+
+
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 304.
+
+
+
+Overfull \hbox (2.66377pt too wide) detected at line 305
+\OML/cmm/m/it/10 Pr[] \OT1/cmr/m/n/10 = [][] [][] []
+ []
+
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 332.
+
+
+
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 334.
+
+
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 342.
+
+
+
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 344.
+
+
+[3]
+Package epstopdf Info: Source file: <./Figures/probTimingViolationFPGA.eps>
+(epstopdf)                    date: 2014-06-03 13:19:17
+(epstopdf)                    size: 12225 bytes
+(epstopdf)             Output file: <./Figures/probTimingViolationFPGA-eps-conv
+erted-to.pdf>
+(epstopdf)                    date: 2014-06-03 13:19:17
+(epstopdf)                    size: 6917 bytes
+(epstopdf)             Command: <repstopdf --outfile=./Figures/probTimingViolat
+ionFPGA-eps-converted-to.pdf ./Figures/probTimingViolationFPGA.eps>
+(epstopdf)             \includegraphics on input line 400.
+Package epstopdf Info: Output file is already uptodate.
+
+<./Figures/probTimingViolationFPGA-eps-converted-to.pdf, id=109, 718.685pt x 40
+5.515pt>
+File: ./Figures/probTimingViolationFPGA-eps-converted-to.pdf Graphic file (type
+ pdf)
+ <use ./Figures/probTimingViolationFPGA-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/probTimingViolationFPGA-eps-converted-to.pdf
+ used on input line 400.
+(pdftex.def)             Requested size: 256.08354pt x 128.04109pt.
+
+Overfull \hbox (4.08354pt too wide) in paragraph at lines 400--401
+ [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 407--408
+
+ []
+
+<./Figures/FigerrorC.jpg, id=110, 563.10374pt x 421.575pt>
+File: ./Figures/FigerrorC.jpg Graphic file (type jpg)
+
+<use ./Figures/FigerrorC.jpg>
+Package pdftex.def Info: ./Figures/FigerrorC.jpg used on input line 411.
+(pdftex.def)             Requested size: 227.61755pt x 142.26576pt.
+
+Underfull \hbox (badness 2253) in paragraph at lines 417--418
+\OT1/ptm/m/n/10 dif-fer-ent sam-pling pe-riod val-ues and the cor-re-spond-ing
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 417--418
+
+ []
+
+<./Figures/gaussianOnlinedistr.jpg, id=111, 1126.2075pt x 843.15pt>
+File: ./Figures/gaussianOnlinedistr.jpg Graphic file (type jpg)
+
+<use ./Figures/gaussianOnlinedistr.jpg>
+Package pdftex.def Info: ./Figures/gaussianOnlinedistr.jpg used on input line 4
+23.
+(pdftex.def)             Requested size: 256.06654pt x 170.7112pt.
+
+Overfull \hbox (4.06654pt too wide) in paragraph at lines 423--424
+ [][] 
+ []
+
+[4 <./Figures/probTimingViolationFPGA-eps-converted-to.pdf> <./Figures/Figerror
+C.jpg> <./Figures/gaussianOnlinedistr.jpg>]
+<./Figures/Error_Function_Spline_experiment.jpg, id=118, 825.0825pt x 540.0175p
+t>
+File: ./Figures/Error_Function_Spline_experiment.jpg Graphic file (type jpg)
+ <use ./Figures/Error_Function_Spline_experiment.jpg>
+Package pdftex.def Info: ./Figures/Error_Function_Spline_experiment.jpg used on
+ input line 439.
+(pdftex.def)             Requested size: 227.6223pt x 142.26347pt.
+
+
+LaTeX Warning: Citation `XilinxMult' on page 5 undefined on input line 448.
+
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 453.
+
+
+Package epstopdf Info: Source file: <./Figures/Exps/MRE.eps>
+(epstopdf)                    date: 2014-02-17 04:09:52
+(epstopdf)                    size: 18830 bytes
+(epstopdf)             Output file: <./Figures/Exps/MRE-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-02-17 04:09:52
+(epstopdf)                    size: 8551 bytes
+(epstopdf)             Command: <repstopdf --outfile=./Figures/Exps/MRE-eps-con
+verted-to.pdf ./Figures/Exps/MRE.eps>
+(epstopdf)             \includegraphics on input line 466.
+Package epstopdf Info: Output file is already uptodate.
+<./Figures/Exps/MRE-eps-converted-to.pdf, id=119, 568.1225pt x 350.30875pt>
+File: ./Figures/Exps/MRE-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ./Figures/Exps/MRE-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/Exps/MRE-eps-converted-to.pdf used on input 
+line 466.
+(pdftex.def)             Requested size: 247.6778pt x 152.71982pt.
+
+
+LaTeX Warning: Reference `Sec:MeanError' on page 5 undefined on input line 473.
+
+
+Package epstopdf Info: Source file: <./Figures/Exps/Lena/Online_T404.eps>
+(epstopdf)                    date: 2014-02-17 04:09:52
+(epstopdf)                    size: 337127 bytes
+(epstopdf)             Output file: <./Figures/Exps/Lena/Online_T404-eps-conver
+ted-to.pdf>
+(epstopdf)                    date: 2014-02-17 04:09:52
+(epstopdf)                    size: 211351 bytes
+(epstopdf)             Command: <repstopdf --outfile=./Figures/Exps/Lena/Online
+_T404-eps-converted-to.pdf ./Figures/Exps/Lena/Online_T404.eps>
+(epstopdf)             \includegraphics on input line 486.
+Package epstopdf Info: Output file is already uptodate.
+
+<./Figures/Exps/Lena/Online_T404-eps-converted-to.pdf, id=120, 386.44376pt x 38
+6.44376pt>
+File: ./Figures/Exps/Lena/Online_T404-eps-converted-to.pdf Graphic file (type p
+df)
+ <use ./Figures/Exps/Lena/Online_T404-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/Exps/Lena/Online_T404-eps-converted-to.pdf u
+sed on input line 486.
+(pdftex.def)             Requested size: 93.95122pt x 93.95131pt.
+Package epstopdf Info: Source file: <./Figures/Exps/Lena/Trad_T426.eps>
+(epstopdf)                    date: 2014-02-17 04:09:52
+(epstopdf)                    size: 336465 bytes
+(epstopdf)             Output file: <./Figures/Exps/Lena/Trad_T426-eps-converte
+d-to.pdf>
+(epstopdf)                    date: 2014-02-17 04:09:52
+(epstopdf)                    size: 210508 bytes
+(epstopdf)             Command: <repstopdf --outfile=./Figures/Exps/Lena/Trad_T
+426-eps-converted-to.pdf ./Figures/Exps/Lena/Trad_T426.eps>
+(epstopdf)             \includegraphics on input line 492.
+Package epstopdf Info: Output file is already uptodate.
+
+<./Figures/Exps/Lena/Trad_T426-eps-converted-to.pdf, id=121, 386.44376pt x 386.
+44376pt>
+File: ./Figures/Exps/Lena/Trad_T426-eps-converted-to.pdf Graphic file (type pdf
+)
+ <use ./Figures/Exps/Lena/Trad_T426-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/Exps/Lena/Trad_T426-eps-converted-to.pdf use
+d on input line 492.
+(pdftex.def)             Requested size: 93.95122pt x 93.95131pt.
+Package epstopdf Info: Source file: <./Figures/Exps/Lena/Online_T370.eps>
+(epstopdf)                    date: 2014-02-17 04:09:52
+(epstopdf)                    size: 338308 bytes
+(epstopdf)             Output file: <./Figures/Exps/Lena/Online_T370-eps-conver
+ted-to.pdf>
+(epstopdf)                    date: 2014-02-17 04:09:52
+(epstopdf)                    size: 224417 bytes
+(epstopdf)             Command: <repstopdf --outfile=./Figures/Exps/Lena/Online
+_T370-eps-converted-to.pdf ./Figures/Exps/Lena/Online_T370.eps>
+(epstopdf)             \includegraphics on input line 498.
+Package epstopdf Info: Output file is already uptodate.
+
+<./Figures/Exps/Lena/Online_T370-eps-converted-to.pdf, id=122, 386.44376pt x 38
+6.44376pt>
+File: ./Figures/Exps/Lena/Online_T370-eps-converted-to.pdf Graphic file (type p
+df)
+ <use ./Figures/Exps/Lena/Online_T370-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/Exps/Lena/Online_T370-eps-converted-to.pdf u
+sed on input line 498.
+(pdftex.def)             Requested size: 93.95122pt x 93.95131pt.
+Package epstopdf Info: Source file: <./Figures/Exps/Lena/Trad_T390.eps>
+(epstopdf)                    date: 2014-02-17 04:09:52
+(epstopdf)                    size: 332735 bytes
+(epstopdf)             Output file: <./Figures/Exps/Lena/Trad_T390-eps-converte
+d-to.pdf>
+(epstopdf)                    date: 2014-02-17 04:09:52
+(epstopdf)                    size: 239777 bytes
+(epstopdf)             Command: <repstopdf --outfile=./Figures/Exps/Lena/Trad_T
+390-eps-converted-to.pdf ./Figures/Exps/Lena/Trad_T390.eps>
+(epstopdf)             \includegraphics on input line 504.
+Package epstopdf Info: Output file is already uptodate.
+
+<./Figures/Exps/Lena/Trad_T390-eps-converted-to.pdf, id=123, 386.44376pt x 386.
+44376pt>
+File: ./Figures/Exps/Lena/Trad_T390-eps-converted-to.pdf Graphic file (type pdf
+)
+ <use ./Figures/Exps/Lena/Trad_T390-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/Exps/Lena/Trad_T390-eps-converted-to.pdf use
+d on input line 504.
+(pdftex.def)             Requested size: 93.95122pt x 93.95131pt.
+Package epstopdf Info: Source file: <./Figures/Exps/Lena/Online_T340.eps>
+(epstopdf)                    date: 2014-02-17 04:09:52
+(epstopdf)                    size: 339764 bytes
+(epstopdf)             Output file: <./Figures/Exps/Lena/Online_T340-eps-conver
+ted-to.pdf>
+(epstopdf)                    date: 2014-02-17 04:09:52
+(epstopdf)                    size: 234732 bytes
+(epstopdf)             Command: <repstopdf --outfile=./Figures/Exps/Lena/Online
+_T340-eps-converted-to.pdf ./Figures/Exps/Lena/Online_T340.eps>
+(epstopdf)             \includegraphics on input line 510.
+Package epstopdf Info: Output file is already uptodate.
+
+<./Figures/Exps/Lena/Online_T340-eps-converted-to.pdf, id=124, 386.44376pt x 38
+6.44376pt>
+File: ./Figures/Exps/Lena/Online_T340-eps-converted-to.pdf Graphic file (type p
+df)
+ <use ./Figures/Exps/Lena/Online_T340-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/Exps/Lena/Online_T340-eps-converted-to.pdf u
+sed on input line 510.
+(pdftex.def)             Requested size: 93.95122pt x 93.95131pt.
+Package epstopdf Info: Source file: <./Figures/Exps/Lena/Trad_T358.eps>
+(epstopdf)                    date: 2014-02-17 04:09:52
+(epstopdf)                    size: 341063 bytes
+(epstopdf)             Output file: <./Figures/Exps/Lena/Trad_T358-eps-converte
+d-to.pdf>
+(epstopdf)                    date: 2014-02-17 04:09:52
+(epstopdf)                    size: 253605 bytes
+(epstopdf)             Command: <repstopdf --outfile=./Figures/Exps/Lena/Trad_T
+358-eps-converted-to.pdf ./Figures/Exps/Lena/Trad_T358.eps>
+(epstopdf)             \includegraphics on input line 516.
+Package epstopdf Info: Output file is already uptodate.
+
+<./Figures/Exps/Lena/Trad_T358-eps-converted-to.pdf, id=125, 386.44376pt x 386.
+44376pt>
+File: ./Figures/Exps/Lena/Trad_T358-eps-converted-to.pdf Graphic file (type pdf
+)
+ <use ./Figures/Exps/Lena/Trad_T358-eps-converted-to.pdf>
+Package pdftex.def Info: ./Figures/Exps/Lena/Trad_T358-eps-converted-to.pdf use
+d on input line 516.
+(pdftex.def)             Requested size: 93.95122pt x 93.95131pt.
+
+Overfull \hbox (6.18585pt too wide) in paragraph at lines 486--518
+ [][][] 
+ []
+
+
+Overfull \hbox (9.68591pt too wide) in paragraph at lines 486--518
+ [][] 
+ []
+
+
+Overfull \hbox (6.18585pt too wide) in paragraph at lines 486--518
+ [][] 
+ []
+
+[5 <./Figures/Error_Function_Spline_experiment.jpg> <./Figures/Exps/MRE-eps-con
+verted-to.pdf>]
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 531.
+
+
+
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 534.
+
+
+
+LaTeX Warning: Citation `Virtex6' on page 6 undefined on input line 621.
+
+[6 <./Figures/Exps/Lena/Online_T404-eps-converted-to.pdf> <./Figures/Exps/Lena/
+Trad_T426-eps-converted-to.pdf> <./Figures/Exps/Lena/Online_T370-eps-converted-
+to.pdf> <./Figures/Exps/Lena/Trad_T390-eps-converted-to.pdf> <./Figures/Exps/Le
+na/Online_T340-eps-converted-to.pdf> <./Figures/Exps/Lena/Trad_T358-eps-convert
+ed-to.pdf>] [7
+
+] (./TCAD14.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 4051 strings out of 493488
+ 61288 string characters out of 3141326
+ 126362 words of memory out of 3000000
+ 7251 multiletter control sequences out of 15000+200000
+ 46716 words of font info for 101 fonts, out of 3000000 for 9000
+ 960 hyphenation exceptions out of 8191
+ 42i,15n,24p,1078b,310s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
+exlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
+xlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
+live/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texli
+ve/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive
+/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2
+012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/201
+2/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2012/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2012/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2012/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2012/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2012/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2012/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2012/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2012/texmf-dist/fonts/
+type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2012/texmf-dist/fo
+nts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/
+urw/times/utmbi8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/times
+/utmr8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/times/utmri8a.p
+fb>
+Output written on TCAD14.pdf (7 pages, 2383028 bytes).
+PDF statistics:
+ 227 PDF objects out of 1000 (max. 8388607)
+ 162 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 71 words of extra memory for PDF output out of 10000 (max. 10000000)
+

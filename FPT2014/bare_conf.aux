@@ -1,0 +1,114 @@
+\relax 
+\citation{Ercegovac_OnlineOverview,Ercegovac_Book}
+\citation{SKDAC14}
+\citation{Virtex6}
+\citation{FPL10_FPGA_CarryChain}
+\citation{FPGA_CarryChain_New1,FPGA_CarryChain_New2}
+\citation{XilinxSpartan}
+\citation{AlteraCyclone}
+\citation{Virtex7}
+\@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}}
+\newlabel{Sec:Intro}{{I}{1}}
+\citation{TheoTC}
+\citation{Online_FPGADSP,Online_Control}
+\citation{Ercegovac_Book}
+\citation{CSadder}
+\citation{RedundantNumber}
+\citation{RedundantMult_1987}
+\citation{Ercegovac_OnlineMult}
+\citation{Ercegovac_OnlineMult}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Dataflow in digit-serial online arithmetic, in which both inputs and outputs are processed from the MSD to the LSD. $\delta $ denotes the online delay.}}{2}}
+\newlabel{Fig:OnlineDataFlow}{{1}{2}}
+\@writefile{toc}{\contentsline {section}{\numberline {II}Background: Online Arithmetic}{2}}
+\newlabel{Sec:Background}{{II}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-A}}Key Features of Online Arithmetic}{2}}
+\newlabel{Eq:Online_Operands}{{1}{2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces An $N$-digit binary digit-parallel online adder. Both inputs and outputs are represented using SD representation. ``3:2'' denotes a 3:2 compressor.}}{2}}
+\newlabel{Fig:Radix2SD_adder}{{2}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-B}}Binary Online Addition}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-C}}Binary Online Multiplication}{2}}
+\newlabel{Eq:SelFunc_OM}{{2}{2}}
+\citation{Online_Truncation}
+\citation{FPT09RA,ASAP09RA}
+\citation{TC13RA,CSMult_CounterArray}
+\citation{DAC07_CounterTree}
+\citation{FPL09_onlineCCM}
+\citation{FPT09RA}
+\citation{ASAP09RA}
+\citation{FPT09RA}
+\citation{FPT09RA}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Online Multiplication}}{3}}
+\newlabel{Algorithm:OnlineMult}{{1}{3}}
+\@writefile{toc}{\contentsline {section}{\numberline {III}Digit Parallel Online Adder for FPGAs}{3}}
+\newlabel{Sec:OA_FPGA}{{III}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-A}}Related Works}{3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Map the online adder onto Spartan FPGAs using the fast-carry resources. The gray background highlights the 4:2 compressor. Dotted circle indicates the logic block (LB) which can be mapped to the FPGA using the carry resources.}}{3}}
+\newlabel{Fig:PreviousWork}{{3}{3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces An example illustrating that direct applying approaches in \cite  {FPT09RA} on a Virtex-6 FPGA will results in faulty outputs, because the carry input of \texttt  {LB1} cannot be explicitly initialized.}}{3}}
+\newlabel{Fig:PreWorkVirtex6}{{4}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-B}}Proposed Mapping Method}{3}}
+\citation{SKDAC14}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Implementation of two logic blocks (LBs) in one FPGA slice which contains four 6-LUTs. NC stands for ``Not Care''.}}{4}}
+\newlabel{Fig:SliceNew}{{6}{4}}
+\newlabel{Eq:OAareaLUT}{{3}{4}}
+\newlabel{Eq:OAareaSlice}{{4}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-C}}Performance Analysis}{4}}
+\newlabel{subsec:OA_Performance}{{\unhbox \voidb@x \hbox {III-C}}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Rated frequencies of the RCA and the online adder with different implementation methods. The results are obtained from post place and route timing reports in ISE 14.7.}}{4}}
+\newlabel{Fig:AdderFreq}{{7}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Alternative structure of online adder. Left: an example of 4-digit online adder. The shaded part refers to the two logic blocks (LBs) that can be mapped onto one slice. Right: one LB. The dotted boxes outline the logic that can be mapped onto each LUT and the corresponding fast carry logic.}}{5}}
+\newlabel{Fig:ModifiedOA}{{5}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Area comparisons of different binary adder implementations with respect to a variety of operand word-lengths.}}{5}}
+\newlabel{Fig:AdderArea}{{8}{5}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Digit Parallel Online Multiplier on FPGAs}{5}}
+\newlabel{Sec:OM_FPGA}{{IV}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}}Algorithm of Digit Parallel Online Multiplication}{5}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Digit Parallel Online Multiplication}}{5}}
+\newlabel{Algorithm:OM_DigitParallel}{{2}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces (a) Structure of a 4-digit online multiplier using the proposed algorithm. (b) Structure of one stage. The word-length of all signals are labelled in terms of the number of digits. $N$ denotes the word-length of the input signals.}}{6}}
+\newlabel{Fig:PMStructure}{{9}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-B}}FPGA Implementation}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Left: Direct implementation with extra logic to generate partial products. Right: Combining the logic blocks that generate partial products into the Online Adder by fully utilizing all the inputs of the 6-LUTs. In this case, further area reduction can be achieved.}}{6}}
+\newlabel{Fig:PartialProduct}{{10}{6}}
+\newlabel{Eq:OMareaLUT}{{5}{6}}
+\newlabel{Eq:OMareaSlice}{{6}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}}Structure Optimization for Half Precision Results}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-D}}Performance Analysis}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces (a) Modified structure of a 4-digit online multiplier which only generates the most significant 4-digit result. (b) Structure diagram of stage $j$, with the word-lengths of all internal signals labelled.}}{7}}
+\newlabel{Fig:PMStructure_MSDhalf}{{11}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Area comparisons of different types of binary multipliers.}}{7}}
+\newlabel{Fig:OMArea}{{12}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Rated frequencies of different types of binary multipliers for a variety of operand word-lengths. The results are obtained from the Xilinx Timing Analyzer in ISE 14.7 after placing and routing.}}{7}}
+\newlabel{Fig:OM_Freq}{{13}{7}}
+\citation{SKDAC14}
+\bibstyle{./IEEEtran}
+\bibdata{./IEEEabrv,./Reference}
+\bibcite{Ercegovac_OnlineOverview}{1}
+\bibcite{Ercegovac_Book}{2}
+\bibcite{SKDAC14}{3}
+\bibcite{Virtex6}{4}
+\bibcite{FPL10_FPGA_CarryChain}{5}
+\bibcite{FPGA_CarryChain_New1}{6}
+\bibcite{FPGA_CarryChain_New2}{7}
+\bibcite{XilinxSpartan}{8}
+\bibcite{AlteraCyclone}{9}
+\bibcite{Virtex7}{10}
+\bibcite{TheoTC}{11}
+\bibcite{Online_FPGADSP}{12}
+\bibcite{Online_Control}{13}
+\bibcite{CSadder}{14}
+\bibcite{RedundantNumber}{15}
+\bibcite{RedundantMult_1987}{16}
+\bibcite{Ercegovac_OnlineMult}{17}
+\bibcite{Online_Truncation}{18}
+\bibcite{FPT09RA}{19}
+\bibcite{ASAP09RA}{20}
+\bibcite{TC13RA}{21}
+\bibcite{CSMult_CounterArray}{22}
+\bibcite{DAC07_CounterTree}{23}
+\bibcite{FPL09_onlineCCM}{24}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Mean relative errors seen at the outputs of different types of 8-digit binary multipliers, when clocked with faster-than-rated frequencies.}}{8}}
+\newlabel{Fig:PM_MRE}{{14}{8}}
+\newlabel{Eq:MRE}{{7}{8}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Conclusion}{8}}
+\@writefile{toc}{\contentsline {section}{References}{8}}

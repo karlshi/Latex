@@ -1,0 +1,46 @@
+\begin{thebibliography}{1}
+\providecommand{\url}[1]{#1}
+\csname url@rmstyle\endcsname
+\providecommand{\newblock}{\relax}
+\providecommand{\bibinfo}[2]{#2}
+\providecommand\BIBentrySTDinterwordspacing{\spaceskip=0pt\relax}
+\providecommand\BIBentryALTinterwordstretchfactor{4}
+\providecommand\BIBentryALTinterwordspacing{\spaceskip=\fontdimen2\font plus
+\BIBentryALTinterwordstretchfactor\fontdimen3\font minus
+  \fontdimen4\font\relax}
+\providecommand\BIBforeignlanguage[2]{{%
+\expandafter\ifx\csname l@#1\endcsname\relax
+\typeout{** WARNING: IEEEtran.bst: No hyphenation pattern has been}%
+\typeout{** loaded for the language `#1'. Using the pattern for}%
+\typeout{** the default language instead.}%
+\else
+\language=\csname l@#1\endcsname
+\fi
+#2}}
+
+\bibitem{Online_FPGADSP}
+R.~Galli and A.~F. Tenca, ``Design and evaluation of online arithmetic for
+  signal processing applications on {FPGAs},'' in \emph{Proc. SPIE Advanced
+  Signal Processing Algorithms, Architectures and Implementations}, Aug 2001,
+  pp. 134--144.
+
+\bibitem{Online_Control}
+M.~Dimmler, A.~Tisserand, U.~Holmbeg, and R.~Longchamp, ``On-line arithmetic
+  for real-time control of microsystems,'' \emph{IEEE/ASME Trans. on
+  Mechatronics}, vol.~4, no.~2, pp. 213--217, Jun 1999.
+
+\bibitem{Ercegovac_Book}
+M.~D. Ercegovac and T.~Lang, \emph{Digital arithmetic}.\hskip 1em plus 0.5em
+  minus 0.4em\relax Morgan Kaufmann, 2003.
+
+\bibitem{CSadder}
+T.~Kim, W.~Jao, and S.~Tjiang, ``Circuit optimization using carry-save-adder
+  cells,'' \emph{IEEE Trans. Computer-Aided Design of Integrated Circuits and
+  Systems}, vol.~17, no.~10, pp. 974--984, 1998.
+
+\bibitem{RedundantNumber}
+A.~Avizienis, ``Signed-digit number representations for fast parallel
+  arithmetic,'' \emph{IRE Trans. on Electronic Computers}, vol. EC-10, no.~3,
+  pp. 389--400, 1961.
+
+\end{thebibliography}

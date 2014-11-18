@@ -1,0 +1,131 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{#1}
+\csname url@rmstyle\endcsname
+\providecommand{\newblock}{\relax}
+\providecommand{\bibinfo}[2]{#2}
+\providecommand\BIBentrySTDinterwordspacing{\spaceskip=0pt\relax}
+\providecommand\BIBentryALTinterwordstretchfactor{4}
+\providecommand\BIBentryALTinterwordspacing{\spaceskip=\fontdimen2\font plus
+\BIBentryALTinterwordstretchfactor\fontdimen3\font minus
+  \fontdimen4\font\relax}
+\providecommand\BIBforeignlanguage[2]{{%
+\expandafter\ifx\csname l@#1\endcsname\relax
+\typeout{** WARNING: IEEEtran.bst: No hyphenation pattern has been}%
+\typeout{** loaded for the language `#1'. Using the pattern for}%
+\typeout{** the default language instead.}%
+\else
+\language=\csname l@#1\endcsname
+\fi
+#2}}
+
+\bibitem{Ercegovac_OnlineOverview}
+M.~D. Ercegovac, ``On-line arithmetic: An overview,'' in \emph{Proc. Annual
+  Technical Symp. Real time signal processing VII}, 1984, pp. 86--93.
+
+\bibitem{Ercegovac_Book}
+M.~D. Ercegovac and T.~Lang, \emph{Digital arithmetic}.\hskip 1em plus 0.5em
+  minus 0.4em\relax Morgan Kaufmann, 2003.
+
+\bibitem{SKDAC14}
+K.~Shi, D.~Boland, E.~Stott, S.~Bayliss, and G.~A. Constantinides, ``Datapath
+  synthesis for overclocking: Online arithmetic for latency-accuracy
+  trade-offs,'' in \emph{Proc. {DAC}}, June 2014.
+
+\bibitem{Virtex6}
+{Xilinx Inc.}, ``Virtex-6 {FPGA} configurable logic block user guide.''
+
+\bibitem{FPL10_FPGA_CarryChain}
+T.~Preusser and R.~Spallek, ``Enhancing {FPGA} device capabilities by the
+  automatic logic mapping to additive carry chains,'' in \emph{Proc. {FPL}},
+  Aug 2010, pp. 318--325.
+
+\bibitem{FPGA_CarryChain_New1}
+S.~Hauck, M.~Hosler, and T.~Fry, ``High-performance carry chains for
+  {FPGA}'s,'' \emph{IEEE Trans. {VLSI}}, vol.~8, no.~2, pp. 138--147, April
+  2000.
+
+\bibitem{FPGA_CarryChain_New2}
+M.~Frederick and A.~Somani, ``Multi-bit carry chains for high-performance
+  reconfigurable fabrics,'' in \emph{Proc. {FPL}}, Aug 2006, pp. 1--6.
+
+\bibitem{XilinxSpartan}
+{Xilinx Inc.}, ``Spartan-3 generation {FPGA} user guide,'' Feb. 2008.
+
+\bibitem{AlteraCyclone}
+{Altera Co.}, ``Cyclone device handbook,'' 2008.
+
+\bibitem{Virtex7}
+{Xilinx Inc.}, ``7 series {FPGAs} configurable logic block user guide,'' 2013.
+
+\bibitem{TheoTC}
+T.~Drane, T.~Rose, and G.~A. Constantinides, ``On the systematic creation of
+  faithfully rounded truncated multipliers and arrays,'' \emph{IEEE Trans. on
+  Computers}, vol.~99, 2013.
+
+\bibitem{Online_FPGADSP}
+R.~Galli and A.~F. Tenca, ``Design and evaluation of online arithmetic for
+  signal processing applications on {FPGAs},'' in \emph{Proc. SPIE Advanced
+  Signal Processing Algorithms, Architectures and Implementations}, Aug 2001,
+  pp. 134--144.
+
+\bibitem{Online_Control}
+M.~Dimmler, A.~Tisserand, U.~Holmbeg, and R.~Longchamp, ``On-line arithmetic
+  for real-time control of microsystems,'' \emph{IEEE/ASME Trans. on
+  Mechatronics}, vol.~4, no.~2, pp. 213--217, Jun 1999.
+
+\bibitem{CSadder}
+T.~Kim, W.~Jao, and S.~Tjiang, ``Circuit optimization using carry-save-adder
+  cells,'' \emph{IEEE Trans. Computer-Aided Design of Integrated Circuits and
+  Systems}, vol.~17, no.~10, pp. 974--984, 1998.
+
+\bibitem{RedundantNumber}
+A.~Avizienis, ``Signed-digit number representations for fast parallel
+  arithmetic,'' \emph{IRE Trans. on Electronic Computers}, vol. EC-10, no.~3,
+  pp. 389--400, 1961.
+
+\bibitem{RedundantMult_1987}
+Y.~Harata, Y.~Nakamura, H.~Nagase, M.~Takigawa, and N.~Takagi, ``A high-speed
+  multiplier using a redundant binary adder tree,'' \emph{IEEE Jourl. of
+  Solid-State Circuits}, vol.~22, no.~1, pp. 28--34, 1987.
+
+\bibitem{Ercegovac_OnlineMult}
+K.~S. Trivedi and M.~Ercegovac, ``On-line algorithms for division and
+  multiplication,'' \emph{IEEE Trans. on Computers}, vol.~26, pp. 161--167,
+  1975.
+
+\bibitem{Online_Truncation}
+S.~Rajagopal and J.~Cavallaro, ``Truncated online arithmetic with applications
+  to communication systems,'' \emph{IEEE Trans. on Computers}, vol.~55, no.~10,
+  pp. 1240--12\,529, Oct 2006.
+
+\bibitem{FPT09RA}
+W.~Kamp, A.~Bainbridge-Smith, and M.~Hayes, ``Efficient implementation of fast
+  redundant number adders for long word-lengths in {FPGA}s,'' in \emph{Proc.
+  {FPT}}, Dec 2009, pp. 239--246.
+
+\bibitem{ASAP09RA}
+J.~Hormigo, M.~Ortiz, F.~Quiles, F.~J. Jaime, J.~Villalba, and E.~L. Zapata,
+  ``Efficient implementation of carry-save adders in {FPGA}s,'' in \emph{Proc.
+  {ASAP}}, 2009, pp. 207--210.
+
+\bibitem{TC13RA}
+J.~Hormigo, J.~Villalba, and E.~L. Zapata, ``Multioperand redundant adders on
+  {FPGA}s,'' \emph{IEEE Trans. on Computers}, vol.~62, no.~10, pp. 2013--2025,
+  2013.
+
+\bibitem{CSMult_CounterArray}
+H.~Parandeh-Afshar, A.~Verma, P.~Brisk, and P.~Ienne, ``Improving {FPGA}
+  performance for carry-save arithmetic,'' \emph{IEEE Trans. {VLSI}}, vol.~18,
+  no.~4, pp. 578--590, April 2010.
+
+\bibitem{DAC07_CounterTree}
+P.~Brisk, A.~Verma, P.~Ienne, and H.~Parandeh-Afshar, ``Enhancing {FPGA}
+  performance for arithmetic circuits,'' in \emph{Proc. {DAC}}, June 2007, pp.
+  334--337.
+
+\bibitem{FPL09_onlineCCM}
+R.~Gutierrez, J.~Valls, and A.~Perez-Pascual, ``{FPGA}-implementation of
+  time-multiplexed multiple constant multiplication based on carry-save
+  arithmetic,'' in \emph{Proc. {FPL}}, Aug 2009, pp. 609--612.
+
+\end{thebibliography}
