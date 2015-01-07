@@ -13,7 +13,15 @@
 \usepackage{array}
 \usepackage{algpseudocode}
 \usepackage{indentfirst}
+
+\ifx\pdfoutput\undefined
+\usepackage{graphicx}
+\else
 \usepackage[pdftex]{graphicx}
+\fi
+\usepackage{epstopdf}
+
+%\usepackage[pdftex]{graphicx}
 \usepackage[tight,footnotesize]{subfigure}
 \usepackage{multirow}
 
@@ -46,9 +54,9 @@ Email: \{k.shi11, g.contantinides\}@imperial.ac.uk}
 
 
 \begin{abstract}
-Releasing the stringent accuracy requirement would potentially offer greater freedom to create a design with better performance or energy efficiency. In this paper, we evaluate the design trade-offs for adders, which are key building blocks for many applications. We demonstrate the optimum design metric for adders, under the consideration of various design constraints, such as accuracy, operating frequency, silicon area, different types of adder structure and alternative form of computer arithmetic for adder implementation. Two design scenarios are compared: one is the conventional design scenario where timing closure is met by adjusting operand word-lengths. The other is an overclocking scenario where timing violations are allowed to occur. We show that applying the overclocking approach to ripple carry adders can be more beneficial than using fast adders to achieve similar latency, because the worst cases only happen with very small probabilities. We also show that using the conventional approach on adders with new form of computer arithmetic is optimal for a wide range of design constraints. 
+Releasing the stringent accuracy requirement would potentially offer greater freedom to create a design with better performance or energy efficiency. In this paper, we evaluate the design trade-offs for adders, which are key building blocks for many applications. We demonstrate the optimum design metric for adders, under the consideration of various design constraints, such as accuracy, operating frequency, silicon area, different types of adder structure and alternative form of computer arithmetic for adder implementation. Two design scenarios are compared: one is the conventional design scenario where timing closure is met by adjusting operand word-lengths. The other is an overclocking scenario where timing violations are allowed to occur. We show that applying the overclocking approach to ripple carry adders can be more beneficial than using fast adders to achieve similar latency, because the worst cases only happen with very small probabilities. We also show that using the conventional approach on adders with new form of computer arithmetic is optimal for a wide range of design constraints.
 
-%We show that instead of losing precision to ensure timing closure, allowing timing violations to happen can be beneficial, because the worst case scenario only happens with a very small probability. 
+%We show that instead of losing precision to ensure timing closure, allowing timing violations to happen can be beneficial, because the worst case scenario only happens with a very small probability.
 
 
 \end{abstract}
@@ -66,11 +74,11 @@ Unfortunately, in both situations circuits are designed for the worst cases. In 
 
 To tackle this problem, a large volume of research activities were focused on the design methodology of relaxing the $100\%$ accuracy requirements and design constraints, while reasoning about the corresponding benefits and costs. Studies have shown that computing approximately provides extra opportunities to design circuits with better performance and less energy consumption. A brief review of the work in this area is given in Section~\ref{sec:Background}.
 
-In this paper, we provide detailed evaluations of design trade-offs for adders, which are key arithmetic primitives for a broad range of applications. In order to provide the optimum design choice for adders, we examine several design constrains and options, such as accuracy, operating frequency, silicon area, different types of adder structure, as well as different forms of computer arithmetic for adder implementation. In comparison to the conventional design scenario that timing closure is achieved by truncating the operand word-length, we take a radical step forward by adopting an alternative design scenario, which is named ``overclockign scenario''. In this case, circuits are operated far beyond the conservation region with full precision, while timing violation can be tolerated. Previous work has shown that for many applications, it is preferable to follow the overclocking scenario because the worst case is triggered only by certain input patterns and hence it happens rarely~\cite{SKfccm13}. In addition to the adder structures that are created based on standard binary arithmetic, such as ripple carry adder and carry select adder, we also evaluate adder with ``online arithmetic''~\cite{Ercegovac_OnlineOverview}, which employs different style of data representation to eliminate carry propagation. We demonstrate experimentally on FPGAs that for limited area budgets, applying the overclocking approach to ripple carry adders can be more beneficial than using fast adders to achieve similar latency. With more relaxed area constraints, the online adder outperforms in terms of accuracy or performance. Potentially our study will provide circuit designers with guidance and extra options when balancing between various design trade-offs.
+In this paper, we provide detailed evaluations of design trade-offs for adders, which are key arithmetic primitives for a broad range of applications. In order to provide the optimum design choice for adders, we examine several design constrains and options, such as accuracy, operating frequency, silicon area, different types of adder structure, as well as different forms of computer arithmetic for adder implementation. In comparison to the conventional design scenario that timing closure is achieved by truncating the operand word-length, we take a radical step forward by adopting an alternative design scenario, which is named ``overclocking scenario''. In this case, circuits are operated far beyond the conservation region with full precision, while timing violation can be tolerated. Previous work has shown that for many applications, it is preferable to follow the overclocking scenario because the worst case is triggered only by certain input patterns and hence it happens rarely~\cite{SKfccm13}. In addition to the adder structures that are created based on standard binary arithmetic, such as ripple carry adder and carry select adder, we also evaluate adder with ``online arithmetic''~\cite{Ercegovac_OnlineOverview}, which employs different style of data representation to eliminate carry propagation. We demonstrate experimentally on FPGAs that for limited area budgets, applying the overclocking approach to ripple carry adders can be more beneficial than using fast adders to achieve similar latency. With more relaxed area constraints, the online adder outperforms in terms of accuracy or performance. Potentially our study will provide circuit designers with guidance and extra options when balancing between various design trade-offs.
 
 In summary, the main contributions of this paper are:
 \begin{enumerate}
-  \item Detailed evaluation of three adder structures: ripple carry adder, carry select adder and online adder; 
+  \item Detailed evaluation of three adder structures: ripple carry adder, carry select adder and online adder;
   \item Comparison of design scenarios and demonstration of the optimum design choice under the consideration of trade-offs between accuracy, performance and area.
 \end{enumerate}
 
@@ -83,7 +91,7 @@ The International Technology Roadmap for Semiconductors (ITRS) has identified th
 
 Another stream of research was focusing on proposing either approximate circuit structures or design tools to trade accuracy for performance and/or energy benefits. Work in this area was inspired by the fact that many applications, e.g. image processing and machine learning, were naturally error resilient. For example, code analysis tools~\cite{Truffle2012Uwash,EnerJ2011Uwash} were developed to divide a program into precise parts and approximate parts, which can then be mapped to hardware components with different speed-grades and supply voltages. As for the approximate hardware, numerous forms of architectures were designed for basic arithmetic operators such as adders~\cite{ApproximateAdderTC} and multipliers~\cite{ApproximateMultDATE}. For example, a under-designed multiplier unit was proposed, of which the worst case was replaced by a normal case based on straightforward Karnaugh-Map analysis~\cite{Undersigned2x2multiplier}. However, many of these techniques are designed at gate-level or transistor-level, and they cannot be directly applied onto existing hardware platforms such as FPGAs.
 
-In this paper, we overcome the previous limitations by comparing two standard adder structures: ripple carry adder and carry select adder, which are widely employed in mainstream hardware platforms. We also compare a type of adder with ``online arithmetic'', which can be also found when designing fast multipliers and embedded processors~\cite{RedundantMult_1987}. It is argued that our approach can be efficiently applied to existing designs, and we back up this hypothesis based on FPGA experiments. 
+In this paper, we overcome the previous limitations by comparing two standard adder structures: ripple carry adder and carry select adder, which are widely employed in mainstream hardware platforms. We also compare a type of adder with ``online arithmetic'', which can be also found when designing fast multipliers and embedded processors~\cite{RedundantMult_1987}. It is argued that our approach can be efficiently applied to existing designs, and we back up this hypothesis based on FPGA experiments.
 
 
 
@@ -127,7 +135,7 @@ Adders serve as a key building block for arithmetic operations. In general, the 
 For an $n$-bit RCA, it is composed of $n$ serial-connected full adders (FA) as shown in Fig.~\ref{Fig:rca}. Typically the maximum frequency of RCA is determined by the longest carry propagation. Under the assumption that the carry propagation delay of each FA is a constant value $\mu_i=\mu$, the critical path of the RCA is: $\mu_{RCA}=n\mu$. For the sampling period $T_S$, it follows that if $T_S\geqslant\mu_{RCA}$, correct result will always be sampled. Otherwise, intermediate result will be sampled and potentially generating overclocking errors. The mean value of overclocking error is modeled~\cite{SKfccm13} as given by (\ref{Eq:MeanError_RCA}), where coefficient $b$ is given in (\ref{Eq:b}) and it determines the maximum length of error-free carry propagation.
 %
 \begin{eqnarray}\label{Eq:MeanError_RCA}
-    E_O=\left\{
+    E_{oc}=\left\{
         \begin{matrix}
             2^{-b}-2^{-n-1}, & \textrm{if $b\leq n$}\\
             0, & \textrm{otherwise}
@@ -142,10 +150,10 @@ For an $n$-bit RCA, it is composed of $n$ serial-connected full adders (FA) as s
 \vspace{-1ex}
 \normalsize
 
-In the conventional scenario, a specific timing target can be met by truncating the word-length of RCA while timing violation is not permitted. This will result in truncation error for most data.  The mean value of truncation error is also modeled~\cite{SKfccm13} as given by~(\ref{Eq:MeanTruncError_RCA}), where parameters $k$ and $n$ denote the word-length of RCA before and after truncation, respectively. 
+In the conventional scenario, a specific timing target can be met by truncating the word-length of RCA while timing violation is not permitted. This will result in truncation error for most data.  The mean value of truncation error is also modeled~\cite{SKfccm13} as given by~(\ref{Eq:MeanTruncError_RCA}), where parameters $k$ and $n$ denote the word-length of RCA before and after truncation, respectively.
 %
 \begin{eqnarray}\label{Eq:MeanTruncError_RCA}
-    E_O=\left\{
+    E_{trad}=\left\{
         \begin{matrix}
             2^{-n}-2^{-k}, & \textrm{if $n<k$}\\
             0, & \textrm{otherwise}
@@ -164,7 +172,7 @@ In this paper we consider two design scenarios for RCA: one is the overclocking 
 Although smaller value of mean error can be achieved in the overclocking scenario, it costs extra area because the full precision is maintained. Instead, alternative adder structures, such as carry select adder (CSA), are originally designed to trade silicon area for low latency. In a CSA, the carry chain is divided into multiple overlapped stages, and each stage contains two RCAs and two multiplexers. For a given input, two additions are performed simultaneously within a single stage where the carry input is zero and one separately. One of these two results is then selected according to the actual carry input. Although this structure brings performance benefits, it costs extra hardware resources compared to a standard RCA because the carry chain is duplicated. Furthermore, multiplexers are area-expensive to implement with FPGA technology.
 
 \subsection{Online Adder}\label{subsec:online_adder}
-In addition to standard binary arithmetic, alternative forms of computer arithmetic was studied to boost performance. For example, adder with online arithmetic is also designed for low latency at the cost of extra silicon area. The structure of a digit-parallel online adder (OA) where all signals represented with SD numbers of digit set $\{-1,0,1\}$ is shown in Fig.~\ref{Fig:Radix2SD_adder}. The module ``3:2'' denotes a 3:2 compressor, which takes three inputs and generates two outputs, and is logically equivalent to a full adder (FA). A major advantage of the redundant number system over the standard ripple-carry based arithmetic is that the propagation of carry is eliminated, resulting in a precision-independent computation time for addition. As labeled in Fig.~\ref{Fig:Radix2SD_adder}, ideally the computation delay of this adder is only two FA delays for any operand word-length, at the expenses of one extra FA for each digit of operands. 
+In addition to standard binary arithmetic, alternative forms of computer arithmetic were studied to boost performance. For example, adder with online arithmetic is also designed for low latency at the cost of extra silicon area. The structure of a digit-parallel online adder (OA) where all signals represented with SD numbers of digit set $\{-1,0,1\}$ is shown in Fig.~\ref{Fig:Radix2SD_adder}. The module ``3:2'' denotes a 3:2 compressor, which takes three inputs and generates two outputs, and is logically equivalent to a full adder (FA). A major advantage of the redundant number system over the standard ripple-carry based arithmetic is that the propagation of carry is eliminated, resulting in a precision-independent computation time for addition. As labeled in Fig.~\ref{Fig:Radix2SD_adder}, ideally the computation delay of this adder is only two FA delays for any operand word-length, at the expenses of one extra FA for each digit of operands.
 %
 \begin{figure}[tbp]
   \centering
@@ -187,13 +195,13 @@ In this section, we demonstrate the benefits of CSA and OA in accuracy and perfo
   \vspace{-2ex}
 \end{figure}
 
-As can be seen in Fig.~\ref{Fig:max_wl_adder}, for a relatively relaxed frequency requirement (e.g. 470 MHz), both CSA and OA can be implemented with greater word-lengths than RCA. For CSA, this is because the stage parallelism enables a larger word-length, even though the multiplexer delay limits the precision of each CSA stage in comparison to RCA. For OA, an even larger gap in word-length can be observed when compared to RCA. Additionally, unlike RCA and CSA of which the maximum word-length drops gradually with the increment of frequency, OA maintains full precision across a large range of frequencies. This is expected, because the critical path delay of OA is theoretically irrelevant to the operand word-length as discussed in Section~\ref{subsec:online_adder}. However, we also observe that given a large frequency requirement, the word-length of OA drops drastically. Besides, CSA cannot be implemented with larger precision than RCA either, because in this case the multiplexer delay becomes comparable to the delay of the carry chain for CSA, and it inhibits the benefits of parallelism. 
+As can be seen in Fig.~\ref{Fig:max_wl_adder}, for a relatively relaxed frequency requirement (e.g. 470 MHz), both CSA and OA can be implemented with greater word-lengths than RCA. For CSA, this is because the stage parallelism enables a larger word-length, even though the multiplexer delay limits the precision of each CSA stage in comparison to RCA. For OA, an even larger gap in word-length can be observed when compared to RCA. Additionally, unlike RCA and CSA of which the maximum word-length drops gradually with the increment of frequency, OA maintains full precision across a large range of frequencies. This is expected, because the critical path delay of OA is theoretically irrelevant to the operand word-length as discussed in Section~\ref{subsec:online_adder}. However, we also observe that given a large frequency requirement, the word-length of OA drops drastically. Besides, CSA cannot be implemented with larger precision than RCA either, because in this case the multiplexer delay becomes comparable to the delay of the carry chain for CSA, and it inhibits the benefits of parallelism.
 %
 \begin{figure}[tbp]
   \centering
   \includegraphics[width=.5\textwidth]{./figures/exp/area_adders.eps}
   \vspace{-4ex}
-  \caption{The maximum word-length of different adder structures.}
+  \caption{The maximum area of different adder structures.}
   %\vspace{-2ex}
   \label{Fig:area_adder}
 \end{figure}
@@ -226,18 +234,18 @@ Online Arithmetic Adder  &       & $\surd$ \\
 
 
 \section{Evaluation of Optimum Adder Structure}\label{sec:optimum_adder}
-Generally, our evaluation could be of interest to a circuit designer in several ways. For example, suppose the algorithm designer wish the circuit to run at a given frequency within a specific area budget, while achieving the minimum output error. Besides, for many applications, the circuit designer would wish the circuit to operate as fast as possible with the minimum resource usage, whilst a certain error budget can be tolerated. In both cases, decisions must be made on which adder structure achieves this minimum, and which design scenario should be adopted.
-%whether the circuit should be overclocked. 
+Generally, our evaluation could be of interest to a circuit designer in several ways. For example, suppose the algorithm designer wish the circuit to run at a given frequency within a specific area budget, while achieving the minimum output error. Besides, for many applications, the circuit designer would wish the circuit to operate as fast as possible with the minimum resource usage, whilst a certain error budget can be tolerated. In both cases, decisions must be made on which adder structure achieves this minimum, and which design scenario should be adopted. In our experiments, the inputs are set to randomly generated data following uniform distribution.
+%whether the circuit should be overclocked.
 
 \subsection{Optimum Adder with Given Frequency and Area Requirements}\label{subsec:adder_freq_area}
 
-For this type of applications, the available area and expected operating frequency are given at the design time. As an example slice through the design space, in Fig.~\ref{Fig:Error_Area} we record the mean relative error (MRE) with respect to a range of operating frequencies for different design scenarios, when the area budget is set to 35 LUTs and 55 LUTs separately. MRE can be calculated as given by (\ref{Eq:MRE}), where $E_{error}$ and $E_{out}$ denote the mean value of error and the mean value of correct outputs, respectively. Notice that the optimum adder design metric that achieves the minimum MRE is labeled. 
+For this type of applications, the available area and expected operating frequency are given at the design time. As an example slice through the design space, in Fig.~\ref{Fig:Error_Area} we record the mean relative error (MRE) with respect to a range of operating frequencies for different design scenarios, when the area budget is set to 35 LUTs and 55 LUTs separately. MRE can be calculated as given by (\ref{Eq:MRE}), where $E_{error}$ and $E_{out}$ denote the mean value of error and the mean value of correct outputs, respectively. Notice that the optimum adder design metric that achieves the minimum MRE is labeled.
 %
 \begin{eqnarray}\label{Eq:MRE}
   MRE=\frac{E_{error}}{E_{out}}\times100\%
 \end{eqnarray}
 
-In Fig.~\ref{subfig:error_area_lut35}, the area budget is set to 35 LUTs. For all frequency values, the overcloced RCA achieves no larger MRE than the RCA with truncated operand word-lengths. This is in accordance with the analysis in Section~\ref{subsec:rca}. We also notice that both CSA and OA cannot be implemented with full precision due to area limitation, and this leads to large truncation errors. Despite that the CSA with 4 stages is best for some frequencies, in general the overclocked RCA is the optimum design for most frequency requirements.  
+In Fig.~\ref{subfig:error_area_lut35}, the area budget is set to 35 LUTs. For all frequency values, the overcloced RCA achieves no larger MRE than the RCA with truncated operand word-lengths. This is in accordance with the analysis in Section~\ref{subsec:rca}. We also notice that both CSA and OA cannot be implemented with full precision due to area limitation, and this leads to large truncation errors. Despite that the CSA with 4 stages is best for some frequencies, in general the overclocked RCA is the optimum design for most frequency requirements.
 
 However if the area budget is released to 55 LUTs, OA can be implemented with original word-length. Additionally CSA can also be implemented with larger precision, but still with truncation errors. Therefore as shown in Fig.~\ref{subfig:error_area_lut55}, OA serves as the optimum design with respect to a wide range of frequency requirements. For higher frequencies, the MRE of OA increases rapidly, and CSA with 4 stages outperforms for higher frequencies. Similar to Fig.~\ref{subfig:error_area_lut35}, the overclocked RCA is the optimum design for even higher frequencies, because in this case the CSA can only be implemented with small precisions, and the multiplexer delay limits the benefits of parallelism.
 
@@ -265,7 +273,7 @@ However if the area budget is released to 55 LUTs, OA can be implemented with or
 \label{Fig:Error_Area}
 \vspace{-2ex}
 \end{figure}
- 
+
 The results shown in Fig.~\ref{Fig:Error_Area} can be further extended by testing with a variety of area constraints. In this case, we can map the optimum design scenarios into the design space of different operating frequencies and area consumptions, as shown in Fig.~\ref{Fig:adder_3d_FreqArea}. In general this graph can be divided into several regions. Firstly, if the frequency requirement is moderate whilst the area budget is large enough to implement an OA in full precision, it will be the optimum design. This is because long carry chains are eliminated from OA such that it can maintain full precision for a wide range of frequency values. Also this is in accordance with the results in Fig.~\ref{subfig:error_area_lut55}. Secondly, CSA is a better design choice for high frequency requirements and large area budget, because it is originally designed with high speed operation. Besides, each stage of CSA is implemented in the FPGA with fast carry logic~\cite{Virtex6}, hence it runs even faster than OA. Thirdly, for a tighter area budget only part of OA and CSA can be implemented, whereas RCA still keeps original precision. In this situation, area becomes the limitation factor. Both OA and CSA generate truncation errors, which are greater than the overclocking error of RCA. Therefore, the overclocked RCA is the optimum design option across almost the entire frequency domain. Furthermore, the precision of RCA is also limited under very stringent area constraints. This causes truncation errors for every design option. Nevertheless, RCA with either overclocking or truncation scenario equally serves to be optimal, because it maintains more precision than OA and CSA for a specific area budget.
 
 \begin{figure*}[tbp]
@@ -287,7 +295,7 @@ If the circuit is designed to operate as fast as possible with minimum area, whi
   \label{Fig:adder_3d_ErrorArea}
 \end{figure*}
 
-Similar to the analysis in Section~\ref{subsec:adder_freq_area}, for tight accuracy requirement and large area budget, OA is the optimum design choice because it keeps full precision while running at high frequencies. If relaxing the accuracy requirement (e.g. $0.01\%$), CSA gradually outperforms because its precision loss is less than that of OA. Once again, if area budget is tightened, the RCA becomes the best design choice, because the precision of OA and CSA is largely limited. Furthermore, when the accuracy requirement is released (e.g. over $1\%$), RCA can operate with the fastest frequency across most area constraints.  
+Similar to the analysis in Section~\ref{subsec:adder_freq_area}, for tight accuracy requirement and large area budget, OA is the optimum design choice because it keeps full precision while running at high frequencies. If relaxing the accuracy requirement (e.g. $0.01\%$), CSA gradually outperforms because its precision loss is less than that of OA. Once again, if area budget is tightened, the RCA becomes the best design choice, because the precision of OA and CSA is largely limited. Furthermore, when the accuracy requirement is released (e.g. over $1\%$), RCA can operate with the fastest frequency across most area constraints.
 
 
 
@@ -296,7 +304,7 @@ In this paper, we have quantified design trade-offs for three different adder st
 
 In the future we wish to provide similar evaluation to other arithmetic primitives, such as multipliers. Other evaluation metrics, such as energy consumption and throughput, can also be included in the future.
 
-% and more complex designs and applications. 
+% and more complex designs and applications.
 
 %\section*{Acknowledgment}
 
